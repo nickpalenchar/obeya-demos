@@ -1,0 +1,82 @@
+{
+  "title": "Connect cards with dependency arrows",
+  "text": "Draw dependencies directly between cards using dots that appear as the pointer approaches. A ghost arrow follows the pointer and snaps to its target; the dependent card then waits for its prerequisite. Manual arrows can be removed after confirmation, while projects keep the ordering decided from their plans.",
+  "chapters": [
+    [
+      0,
+      "Discover the dots"
+    ],
+    [
+      8.49,
+      "Draw and connect"
+    ],
+    [
+      17.92,
+      "The connected card waits"
+    ],
+    [
+      26.03,
+      "Remove a manual arrow"
+    ],
+    [
+      34.65,
+      "Project ordering stays with the plan"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/compare/8b5fe840f634c109f40bcd46dcdeb9ec83b52bf4...cff6094737fc7aa5c1b88c54297df85cb9851dfd",
+    "several": true
+  },
+  "first": "2026-11-01T11:27:07.762Z",
+  "at": "2026-11-01T11:27:07.762Z",
+  "source": "d9f2f3acbbd98d62e556293262a56583813347396a7db8708cbbd2718642ef6d",
+  "language": "en",
+  "by": "Nick Palenchar",
+  "more": [
+    {
+      "title": "Choose the target edge",
+      "text": "Move the pointer around a target card to attach a dependency arrow to its nearest edge. The connection keeps the chosen attachment points when the page reloads or the cards move, and can still be removed from the arrow.",
+      "chapters": [
+        [
+          0,
+          "Choose the target edge"
+        ],
+        [
+          9.37,
+          "Keep the selected edge"
+        ],
+        [
+          15.24,
+          "Remove the connection"
+        ]
+      ],
+      "dir": "2",
+      "handed": "2026-11-01T03:29:56.711Z",
+      "at": "2026-11-01T11:27:07.762Z",
+      "source": "740738956e4abc824f0b13a2df82b1cf5ac4c2f67aaf40f0ad63e66a33db3f1e"
+    },
+    {
+      "title": "Queue connected cards",
+      "text": "Connect cards to specify which work comes first. Starting a dependent card puts it in the queue until its prerequisites are finished. You can still start it early after confirming a warning.",
+      "chapters": [
+        [
+          0,
+          "Connect the cards"
+        ],
+        [
+          7.07,
+          "The dependent card waits"
+        ],
+        [
+          14.53,
+          "Start anyway"
+        ]
+      ],
+      "dir": "3",
+      "handed": "2026-11-01T11:26:34.569Z",
+      "at": "2026-11-01T11:27:07.762Z",
+      "source": "119f74b92f579535df3d8c6454424feb84ad43a23ed1db5c5a1e44c276586d4f"
+    }
+  ]
+}

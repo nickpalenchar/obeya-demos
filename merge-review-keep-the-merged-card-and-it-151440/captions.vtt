@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:00.352 --> 00:00:05.751
+Long descriptions used to fill the merge review. The merged card and its approval buttons were below the screen.
+
+00:00:06.708 --> 00:00:13.662
+Now both originals start as short previews. The merged card is visible immediately, with Approve merge and Separate at the bottom.
+
+00:00:14.617 --> 00:00:22.326
+Show all expands both originals together. The whole panel scrolls, while the decisions stay reachable. The merged text is always shown in full.
+
+00:00:23.280 --> 00:00:28.969
+Show less brings back the previews. If a merge fails, Try again stays in the same reachable action row.
+
+00:00:29.923 --> 00:00:38.665
+On a phone, the same previews leave room for the merged card. The actions stay above the microphone while the full text scrolls. Both screens keep the decision in reach.

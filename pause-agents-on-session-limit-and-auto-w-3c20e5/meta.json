@@ -1,0 +1,28 @@
+{
+  "title": "Agents pause on a usage limit and wake after the reset",
+  "text": "When the account hits its session limit, an agent now pauses after three refused attempts instead of retrying forever. Its card shows a light blue bar with an hourglass, and the conversation names the reset time. Obeya wakes the agent by itself after the reset, or the owner can start it again by hand.",
+  "chapters": [
+    [
+      0,
+      "Two cards, one paused"
+    ],
+    [
+      11.96,
+      "What the card says"
+    ],
+    [
+      21.49,
+      "Try again by hand"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/compare/ca1234a5f86f1e5c931ae25e7f58d3a0cb03fdca...74ec58c0b33e648e42ee9945faa526f289b5bfde",
+    "several": true
+  },
+  "first": "2026-11-05T04:41:23.924Z",
+  "at": "2026-11-05T04:41:23.924Z",
+  "source": "06cc905b839f7d68f5fbd1cf07bd4851c8694ecd019d53752907bf3238c46ebb",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

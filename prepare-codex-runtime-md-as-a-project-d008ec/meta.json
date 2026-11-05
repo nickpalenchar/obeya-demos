@@ -1,0 +1,23 @@
+{
+  "title": "Codex runtime as a project",
+  "text": "The Codex runtime plan appears on the canvas as a project with its remaining work organized into workstreams. The project covers hardening the Codex preview and the subsequent Pi adapter.",
+  "chapters": [
+    [
+      0,
+      "A project on the canvas"
+    ],
+    [
+      9.3,
+      "Workstreams ready to plan"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/f73e161ff0d2396f1048d81c3a214424f068c3b5"
+  },
+  "first": "2026-11-01T02:45:39.875Z",
+  "at": "2026-11-01T02:45:39.875Z",
+  "source": "3be1c9d1ca7296ee7352b9ecd906259bac9216c6997518e3747a8a41bf09ef30",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

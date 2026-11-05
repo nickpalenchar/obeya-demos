@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.356 --> 00:00:07.949
+Obeya has proposed a rule for this repository's CLAUDE.md. Accepting it puts the rule on an “Add to CLAUDE.md” card.
+
+00:00:08.906 --> 00:00:18.751
+The new card is labelled Docs and Configuration right away. Obeya made the card itself, so these are set labels with solid borders, not suggestions, and no agent is asked for them.
+
+00:00:19.705 --> 00:00:24.175
+Open the card and the labels are in its pickers like any others, so they can still be changed.
+
+00:00:25.129 --> 00:00:29.425
+Rule cards for a CLAUDE.md are now easy to recognize on the canvas.

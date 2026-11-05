@@ -1,0 +1,12 @@
+{
+  "kind": "html",
+  "title": "Choosing an agent for a task",
+  "text": "The plan introduces a model choice beside Start agent, then adds custom agents with instructions and hints about when to use them. A later optional recommendation can help choose an agent for a task.",
+  "chapters": [],
+  "pr": null,
+  "first": "2026-10-31T16:07:25.784Z",
+  "at": "2026-10-31T16:07:25.784Z",
+  "source": "a4839f089fbc5d4f83771a4eb7046d0df4f8a4fde966121fa7f7427648c73d1d",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

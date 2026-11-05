@@ -1,0 +1,15 @@
+{
+  "kind": "html",
+  "title": "Finished cards share one green",
+  "text": "Completed cards that are not part of a project now use the same muted green as completed cards inside a project. Finished work reads the same everywhere on the canvas.",
+  "chapters": [],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/542066ccc121cd4f07d504cc1244777267c03b79"
+  },
+  "first": "2026-11-05T04:48:52.930Z",
+  "at": "2026-11-05T04:48:52.930Z",
+  "source": "b92656e57e81a7b2f814d6fa1f01aa90470b59a11d243c0201ad857e2cbb7084",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

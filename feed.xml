@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<title type="text">Demos</title>
+<subtitle type="text">Videos and analyses of changes, the newest first.</subtitle>
+<link rel="self" type="application/atom+xml" href="https://nickpalenchar.github.io/obeya-demos/feed.xml"/>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/</id>
+<updated>2026-11-05T14:07:13.082Z</updated>
+<author><name>Demos</name></author>
+<generator uri="https://obeya.si">Obeya</generator>
+<entry xml:lang="en">
+<title type="text">Test suite passes in agent workspaces</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/fix-existing-test-failures-in-worker-env-781679/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/fix-existing-test-failures-in-worker-env-781679/</id>
+<published>2026-11-05T14:07:13.082Z</published>
+<updated>2026-11-05T14:07:13.082Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">The full test suite now passes when an Obeya agent runs it on Bun 1.3.14.</summary>
+<content type="html">&lt;p&gt;The full test suite now passes when an Obeya agent runs it on Bun 1.3.14. Two tests depended on things outside their control: the machine's system git settings, and how fast a busy machine answers. They are now isolated from both. Obeya's behaviour is unchanged.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Codex sessions share one process snapshot</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/share-one-process-snapshot-per-tick-keep-dce38a/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/share-one-process-snapshot-per-tick-keep-dce38a/</id>
+<published>2026-11-05T13:23:36.906Z</published>
+<updated>2026-11-05T13:23:36.906Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Obeya watches the processes each Codex session starts, so it can clean them up when the session ends.</summary>
+<content type="html">&lt;p&gt;Obeya watches the processes each Codex session starts, so it can clean them up when the session ends. Until now every session ran its own process listing every half second, so the load grew with the number of sessions, and a single slow listing on a busy machine ended a working session. Now all sessions share one listing per tick: with six sessions that is six times fewer listings. A listing that times out is just skipped; a session only ends if its processes can't be watched for half a minute.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">CLAUDE.md rule cards come labelled</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/claude-md-erganzen-is-labelled-454ea4/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/claude-md-erganzen-is-labelled-454ea4/</id>
+<published>2026-11-05T13:22:12.006Z</published>
+<updated>2026-11-05T13:22:12.006Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">When you accept a rule for a repository's CLAUDE.md, Obeya collects it on an &quot;Add to CLAUDE.md&quot; card.</summary>
+<content type="html">&lt;p&gt;When you accept a rule for a repository's CLAUDE.md, Obeya collects it on an &amp;quot;Add to CLAUDE.md&amp;quot; card. That card now arrives labelled Docs and Configuration, so it stands out on the canvas at a glance. Obeya makes the card itself, so these are set labels rather than suggestions, and you can still change them like any other label.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Browser skill tests pass inside Codex workers</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/fix-browser-skill-tests-that-cannot-find-727a85/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/fix-browser-skill-tests-that-cannot-find-727a85/</id>
+<published>2026-11-05T13:21:11.989Z</published>
+<updated>2026-11-05T13:21:11.989Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Two tests of the browser skill failed whenever a Codex worker ran the test suite: each could not find its session's state file.</summary>
+<content type="html">&lt;p&gt;Two tests of the browser skill failed whenever a Codex worker ran the test suite: each could not find its session's state file. The tests simulated sessions through Claude Code's process ID, but the Codex worker's own agent ID took precedence, so the worker owned every browser they started. The tests now keep the worker's ID out, and they pass the same way inside and outside a worker. The browser skill itself is unchanged.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Extensions hear again when a worker starts</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/extension-registration-test-misses-worke-55323a/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/extension-registration-test-misses-worke-55323a/</id>
+<published>2026-11-05T13:14:13.551Z</published>
+<updated>2026-11-05T13:14:13.551Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">For a few days, extensions never got the &quot;worker started&quot; signal.</summary>
+<content type="html">&lt;p&gt;For a few days, extensions never got the &amp;quot;worker started&amp;quot; signal. A rework of how failed worker starts are shown to the owner had dropped it. The signal is back and is sent only once a worker has actually launched; a start that fails sends nothing. A contract test now checks both cases.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">scratch-obeya: --list and paths in the stage output</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/script-option-scripts-scratch-obeya-ts-l-387dd0/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/script-option-scripts-scratch-obeya-ts-l-387dd0/</id>
+<published>2026-11-05T13:06:39.302Z</published>
+<updated>2026-11-05T13:06:39.302Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Staging a scratch Obeya now prints where everything lives: its home folder, repository, state database and server log, alongside the URL and port.</summary>
+<content type="html">&lt;p&gt;Staging a scratch Obeya now prints where everything lives: its home folder, repository, state database and server log, alongside the URL and port. The new --list option prints the same for every scratch Obeya still running, and names the stage file each came from, so you can tell which instance is yours without searching /tmp.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Test runs no longer leave idle processes behind</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/stop-test-suite-from-leaving-stray-bun-e-1bd75a/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/stop-test-suite-from-leaving-stray-bun-e-1bd75a/</id>
+<published>2026-11-05T13:00:43.115Z</published>
+<updated>2026-11-05T13:00:43.115Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Obeya's test suite starts small idle helper processes to test process handling.</summary>
+<content type="html">&lt;p&gt;Obeya's test suite starts small idle helper processes to test process handling. Previously, a test run that crashed or was killed could leave these behind, running forever. Now every helper is tied to its test run and ends by itself as soon as that run ends, however it ends. This page shows the before/after experiment and the checks.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Baseline test checks restored</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/restore-the-failing-baseline-checks-exte-98a3de/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/restore-the-failing-baseline-checks-exte-98a3de/</id>
+<published>2026-11-05T12:38:08.365Z</published>
+<updated>2026-11-05T12:38:08.365Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Two test suites failed when run from an Obeya worker because they inherited the worker's environment.</summary>
+<content type="html">&lt;p&gt;Two test suites failed when run from an Obeya worker because they inherited the worker's environment. The tests now isolate themselves from it, so they give the same result inside and outside a worker. No product behaviour changes.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Project git baselines with canvas defaults</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/tag-a-project-s-git-baseline-for-all-bra-935346/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/tag-a-project-s-git-baseline-for-all-bra-935346/</id>
+<published>2026-11-05T12:07:35.323Z</published>
+<updated>2026-11-05T12:07:35.323Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Set project tagging once under Canvas defaults.</summary>
+<content type="html">&lt;p&gt;Set project tagging once under Canvas defaults. New canvases inherit that choice, while existing canvases keep their own setting. Each tagged project shares a stable starting reference across its workstream branches as the default branch advances.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Proposed cards in conversations</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/embed-proposed-cards-in-chat-with-propos-141ad1/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/embed-proposed-cards-in-chat-with-propos-141ad1/</id>
+<published>2026-11-05T12:05:21.723Z</published>
+<updated>2026-11-05T12:05:21.723Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Agent proposals appear directly in the conversation as “Proposed new card”, with the same dotted cover used on the canvas.</summary>
+<content type="html">&lt;p&gt;Agent proposals appear directly in the conversation as “Proposed new card”, with the same dotted cover used on the canvas. Open the card to review its task and accept or dismiss it. Covers show accepted work in its current state and keep withdrawn proposals as unlinked titles.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Registered-extension test already fixed</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/fix-the-registered-extension-test-s-miss-fd5dd1/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/fix-the-registered-extension-test-s-miss-fd5dd1/</id>
+<published>2026-11-05T12:02:15.649Z</published>
+<updated>2026-11-05T12:02:15.649Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">The failing worker-start event test was already fixed on main by an earlier commit.</summary>
+<content type="html">&lt;p&gt;The failing worker-start event test was already fixed on main by an earlier commit. The test and the typecheck pass; no further change was needed.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Closing a card keeps the view in place</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/keep-canvas-view-in-place-when-a-card-cl-dcb448/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/keep-canvas-view-in-place-when-a-card-cl-dcb448/</id>
+<published>2026-11-05T11:58:56.149Z</published>
+<updated>2026-11-05T11:58:56.149Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">When a card is closed on the canvas, the view used to fly back to where it was before the card opened.</summary>
+<content type="html">&lt;p&gt;When a card is closed on the canvas, the view used to fly back to where it was before the card opened. Now the card folds into its place and the view stays on it, so you can see the card among the rest. This makes it easier to keep your bearings while working through several cards.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Test helpers exit with their runner</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/tests-leave-hundreds-of-idle-processes-b-0bb8a3/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/tests-leave-hundreds-of-idle-processes-b-0bb8a3/</id>
+<published>2026-11-05T11:56:24.139Z</published>
+<updated>2026-11-05T11:56:24.139Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Test helper processes now exit automatically when the test runner ends, even after an abrupt kill.</summary>
+<content type="html">&lt;p&gt;Test helper processes now exit automatically when the test runner ends, even after an abrupt kill. Detached descendants are covered, while crash-recovery checks can still end an intermediate parent independently. Interrupted runs no longer accumulate these idle helpers.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Merge into the card furthest along</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/merge-cards-across-any-state-folding-int-3ea9b8/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/merge-cards-across-any-state-folding-int-3ea9b8/</id>
+<published>2026-11-05T11:48:40.781Z</published>
+<updated>2026-11-05T11:48:40.781Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Start from a planned task or proposal and choose a partner at any stage.</summary>
+<content type="html">&lt;p&gt;Start from a planned task or proposal and choose a partner at any stage. Review covered work and any proposed follow-up before approving the merge. Work already in progress, finished or archived stays intact, and extra requirements become planned follow-up tasks. Two unworked cards can still become one combined task.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">A visible queue for approved landings</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/merge-queue-agents-wait-their-turn-to-me-db6e12/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/merge-queue-agents-wait-their-turn-to-me-db6e12/</id>
+<published>2026-11-05T11:40:01.297Z</published>
+<updated>2026-11-05T11:40:01.297Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Approved work shows when it is landing and where it is waiting in the repository queue.</summary>
+<content type="html">&lt;p&gt;Approved work shows when it is landing and where it is waiting in the repository queue. Other workers hear about a landing only when it overlaps files they changed, so they can decide whether to rebase before handover. Notices wait for the next turn, and documentation paths marked soft are excluded.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Process tracking keeps the server responsive</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/stop-agent-process-tracking-from-stallin-fa7f3a/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/stop-agent-process-tracking-from-stallin-fa7f3a/</id>
+<published>2026-11-05T11:38:46.253Z</published>
+<updated>2026-11-05T11:38:46.253Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Obeya inspects agent processes in the background, keeping pages and agent messages responsive even when the process list is slow.</summary>
+<content type="html">&lt;p&gt;Obeya inspects agent processes in the background, keeping pages and agent messages responsive even when the process list is slow. Process cleanup still verifies creation identities and waits for earlier tracking to finish.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Finished cards share one green</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/show-completed-cards-outside-a-project-i-5906ef/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/show-completed-cards-outside-a-project-i-5906ef/</id>
+<published>2026-11-05T04:48:52.930Z</published>
+<updated>2026-11-05T04:48:52.930Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Completed cards that are not part of a project now use the same muted green as completed cards inside a project.</summary>
+<content type="html">&lt;p&gt;Completed cards that are not part of a project now use the same muted green as completed cards inside a project. Finished work reads the same everywhere on the canvas.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Card labels at a glance</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/pickers-and-chips-on-the-card-c552fd/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/pickers-and-chips-on-the-card-c552fd/</id>
+<published>2026-11-05T04:43:17.252Z</published>
+<updated>2026-11-05T04:43:17.252Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Cards now show category, sub-category and complexity as compact chips beside their priority.</summary>
+<content type="html">&lt;p&gt;Cards now show category, sub-category and complexity as compact chips beside their priority. Pickers on unfolded cards and project sheets apply each choice immediately, including None. Purple borders identify suggested labels until you make your own choice, with the same controls on desktop and phone.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Agents pause on a usage limit and wake after the reset</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/pause-agents-on-session-limit-and-auto-w-3c20e5/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/pause-agents-on-session-limit-and-auto-w-3c20e5/</id>
+<published>2026-11-05T04:41:23.924Z</published>
+<updated>2026-11-05T04:41:23.924Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">When the account hits its session limit, an agent now pauses after three refused attempts instead of retrying forever.</summary>
+<content type="html">&lt;p&gt;When the account hits its session limit, an agent now pauses after three refused attempts instead of retrying forever. Its card shows a light blue bar with an hourglass, and the conversation names the reset time. Obeya wakes the agent by itself after the reset, or the owner can start it again by hand.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Automatic titles that fit the task</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/improve-auto-card-title-skill-and-suppor-7c4810/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/improve-auto-card-title-skill-and-suppor-7c4810/</id>
+<published>2026-11-05T04:40:23.669Z</published>
+<updated>2026-11-05T04:40:23.669Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Leave a task untitled and Obeya chooses wording that fits: a user story, a component with its fault, or a component with its requested behaviour.</summary>
+<content type="html">&lt;p&gt;Leave a task untitled and Obeya chooses wording that fits: a user story, a component with its fault, or a component with its requested behaviour. Ordinary descriptions are enough, and the title keeps the role, symptom, or action that distinguishes the task.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Readable completed project cards</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/make-completed-project-cards-larger-and-1a0534/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/make-completed-project-cards-larger-and-1a0534/</id>
+<published>2026-11-05T04:38:38.217Z</published>
+<updated>2026-11-05T04:38:38.217Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Completed workstreams now have wider cards, larger titles, and solid green backgrounds.</summary>
+<content type="html">&lt;p&gt;Completed workstreams now have wider cards, larger titles, and solid green backgrounds. They remain fully visible when zoomed out, keeping delivered work easy to scan alongside the next tasks. Projects make room for the larger cards.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Deliverables in their own tabs</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/move-the-diff-file-list-into-its-own-tab-ed2970/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/move-the-diff-file-list-into-its-own-tab-ed2970/</id>
+<published>2026-11-05T04:31:15.366Z</published>
+<updated>2026-11-05T04:31:15.366Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Review a card’s video, HTML document and schema change in separate tabs, with Video first.</summary>
+<content type="html">&lt;p&gt;Review a card’s video, HTML document and schema change in separate tabs, with Video first. The changed-file list is available under Diff, keeping deliverables easy to find on desktop and phone.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Keep merge reviews within reach</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/merge-review-keep-the-merged-card-and-it-151440/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/merge-review-keep-the-merged-card-and-it-151440/</id>
+<published>2026-11-05T04:21:30.336Z</published>
+<updated>2026-11-05T04:21:30.336Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Long original descriptions now open as previews, leaving the merged card visible immediately.</summary>
+<content type="html">&lt;p&gt;Long original descriptions now open as previews, leaving the merged card visible immediately. Expand both originals together to compare them, while approval and separation stay within reach as you scroll. The same review works on a phone, with the full merged text available to read.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Configurable handover artifacts</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/handover-configuration-a088b9/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/handover-configuration-a088b9/</id>
+<published>2026-11-04T22:13:40.409Z</published>
+<updated>2026-11-04T22:13:40.409Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Which artifacts a handover may bring — a demo video, an HTML page with screenshots, and the schema page for data changes — is now configurable per repository and as a machine default.</summary>
+<content type="html">&lt;p&gt;Which artifacts a handover may bring — a demo video, an HTML page with screenshots, and the schema page for data changes — is now configurable per repository and as a machine default. Agents are briefed and checked against the allowed list, so a project that doesn't want videos or schema pages no longer gets them.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">The server stays responsive while agents run terminals</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/process-tracker-s-ps-call-freezes-the-se-2585d2/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/process-tracker-s-ps-call-freezes-the-se-2585d2/</id>
+<published>2026-11-04T21:51:21.589Z</published>
+<updated>2026-11-04T21:51:21.589Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">While a Codex agent runs, Obeya checks the machine's process list every half second, so it can clean up the terminals the agent started.</summary>
+<content type="html">&lt;p&gt;While a Codex agent runs, Obeya checks the machine's process list every half second, so it can clean up the terminals the agent started. On a busy machine that check takes over a second. Until now the server waited for it, and pages and agents went unanswered in the meantime. Now the check runs in the background, so the server keeps responding, and cleanup still ends exactly the processes that belong to the agent.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Obeya suggests card labels</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/the-suggestion-df655a/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/the-suggestion-df655a/</id>
+<published>2026-11-04T18:51:50.514Z</published>
+<updated>2026-11-04T18:51:50.514Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">When a card's category, sub-category, complexity or priority is left empty, Obeya now suggests a value.</summary>
+<content type="html">&lt;p&gt;When a card's category, sub-category, complexity or priority is left empty, Obeya now suggests a value. A card without a title gets its labels in the same short call that names it. A card with a title gets one quick call when it starts, which never holds up the start. Labels you set yourself are never touched or asked for again, and a canvas can turn off the labels it doesn't want suggested. The table shows the real suggestions for a handful of sample cards.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Workers follow the conversation language</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/claude-worker-answers-in-german-on-an-en-bdef9f/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/claude-worker-answers-in-german-on-an-en-bdef9f/</id>
+<published>2026-11-04T17:08:47.467Z</published>
+<updated>2026-11-04T17:08:47.467Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">A worker’s questions and handovers follow the conversation language.</summary>
+<content type="html">&lt;p&gt;A worker’s questions and handovers follow the conversation language. This comparison shows the earlier German handover and a fresh English question and handover on the same accented-text task.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Card labels: category, sub-category and complexity</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/labels-in-the-data-and-the-api-be1a1d/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/labels-in-the-data-and-the-api-be1a1d/</id>
+<published>2026-11-04T16:52:43.255Z</published>
+<updated>2026-11-04T16:52:43.255Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Cards can now hold a category, a sub-category and a complexity (1, 2, 3, 5 or 8) next to their priority.</summary>
+<content type="html">&lt;p&gt;Cards can now hold a category, a sub-category and a complexity (1, 2, 3, 5 or 8) next to their priority. Obeya can suggest labels a card doesn't have yet, and marks them as suggestions. It never overwrites a label the owner set, and once the owner clears a label, Obeya doesn't suggest it again. The labels belong to the owner: they're stored in Obeya, not in plan docs, and agents aren't told about them.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Plan: built-in card labels</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/cards-should-have-built-in-categories-81f035/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/cards-should-have-built-in-categories-81f035/</id>
+<published>2026-11-04T14:55:10.627Z</published>
+<updated>2026-11-04T14:55:10.627Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Cards are getting built-in labels beside their priority: a category (Frontend, Backend, Data Migration, Docs, Tooling) with a sub-category (Refactor, New feature, Bug fix, Configuration), and a complexity of 1, 2, 3, 5 or 8.</summary>
+<content type="html">&lt;p&gt;Cards are getting built-in labels beside their priority: a category (Frontend, Backend, Data Migration, Docs, Tooling) with a sub-category (Refactor, New feature, Bug fix, Configuration), and a complexity of 1, 2, 3, 5 or 8. Obeya suggests the labels you leave empty and marks its suggestions with a purple border until you touch them. Each canvas decides which labels Obeya may suggest, and new canvases start from shared defaults. This page shows the plan's goal and its six workstreams.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Two new working rules for agents</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/add-to-claude-md-dc21d7/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/add-to-claude-md-dc21d7/</id>
+<published>2026-11-04T14:29:33.908Z</published>
+<updated>2026-11-04T14:29:33.908Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">The agent instructions get two new rules.</summary>
+<content type="html">&lt;p&gt;The agent instructions get two new rules. Agents no longer wait on long commands in the foreground: they run tests, typechecks and app starts in the background and wait to be notified. The extension design is described as best effort: the core may grow where a feature needs it, and whoever moves a feature into an extension also untangles the other features mixed into that code.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Failed agents show up in red</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/fix-codex-agent-assignment-errors-and-fl-add3fc/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/fix-codex-agent-assignment-errors-and-fl-add3fc/</id>
+<published>2026-11-04T14:22:35.882Z</published>
+<updated>2026-11-04T14:22:35.882Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">When an agent cannot start or dies with an error, its card now turns red with a &quot;!!&quot; pin and says &quot;Agent stopped with an error&quot;, beside the orange &quot;!&quot; of questions for you.</summary>
+<content type="html">&lt;p&gt;When an agent cannot start or dies with an error, its card now turns red with a &amp;quot;!!&amp;quot; pin and says &amp;quot;Agent stopped with an error&amp;quot;, beside the orange &amp;quot;!&amp;quot; of questions for you. Codex also no longer refuses to start in repositories that have a .codex folder.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Priority dropdown in natural order</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/order-priority-dropdown-from-trivial-top-a02b47/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/order-priority-dropdown-from-trivial-top-a02b47/</id>
+<published>2026-11-04T14:21:41.611Z</published>
+<updated>2026-11-04T14:21:41.611Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">The priority menu on a card now reads from Trivial at the top down to Critical at the bottom, matching the order of the levels.</summary>
+<content type="html">&lt;p&gt;The priority menu on a card now reads from Trivial at the top down to Critical at the bottom, matching the order of the levels. Before, it listed them the other way round.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">A pause is no timeout in Codex work retrospectives</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/codex-retrospective-mistakes-a-pause-for-768f62/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/codex-retrospective-mistakes-a-pause-for-768f62/</id>
+<published>2026-11-04T14:20:53.184Z</published>
+<updated>2026-11-04T14:20:53.184Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">When a card finishes, Obeya reviews the worker's run for friction and suggests improvements to the repository's setup.</summary>
+<content type="html">&lt;p&gt;When a card finishes, Obeya reviews the worker's run for friction and suggests improvements to the repository's setup. For Codex workers, a command killed because the owner paused the card looked like a failed command, so the retrospective suggested a longer timeout that Codex doesn't even have. Now the excerpt recognises the pause, stop or restart, marks where it happened, and reports no friction for it.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Agent Feedback Log</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/agent-feedback-log-481f60/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/agent-feedback-log-481f60/</id>
+<published>2026-11-04T14:20:02.379Z</published>
+<updated>2026-11-04T14:20:02.379Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">The Agent performance dashboard compares ratings by harness, model and effort.</summary>
+<content type="html">&lt;p&gt;The Agent performance dashboard compares ratings by harness, model and effort. The new Agent Feedback Log, linked from it, is a page that lists every response given on agents' work, newest first, across all canvases. It can be filtered by canvas, repository, project, period, harness, model, effort and rating, and grouped by configuration, project, repository, canvas, week or month. Each card links back to the card, and the page links back to the dashboard.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Questions for you stand out in dark yellow</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/show-question-for-you-status-with-questi-b90a8f/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/show-question-for-you-status-with-questi-b90a8f/</id>
+<published>2026-11-04T11:47:11.366Z</published>
+<updated>2026-11-04T11:47:11.366Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">When an agent asks you a question, its card is now dark yellow instead of orange: frame, top line, minimap mark and pin, which shows a question mark instead of an exclamation mark.</summary>
+<content type="html">&lt;p&gt;When an agent asks you a question, its card is now dark yellow instead of orange: frame, top line, minimap mark and pin, which shows a question mark instead of an exclamation mark. Its state line reads &amp;quot;Question for you&amp;quot; after a question-mark icon. A demo or a review waiting for approval stays orange, so a question is easy to tell apart at a glance, on the canvas and in the open card, in the dark and light theme.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Priorities for cards</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/add-priorities-for-canvas-tasks-8467f9/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/add-priorities-for-canvas-tasks-8467f9/</id>
+<published>2026-11-04T11:42:56.736Z</published>
+<updated>2026-11-04T11:42:56.736Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Any card on the canvas, including projects, can now carry a priority from Trivial to Critical.</summary>
+<content type="html">&lt;p&gt;Any card on the canvas, including projects, can now carry a priority from Trivial to Critical. Set it from the opened card (or a project's sheet), and it shows as a coloured flag on the card, from grey for Trivial to red for Critical. It is a label for people only: the queue order stays as you arrange it.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Claude and Codex cards, tested live side by side</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/live-phase-1-acceptance-6ca5c9/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/live-phase-1-acceptance-6ca5c9/</id>
+<published>2026-11-04T04:03:50.914Z</published>
+<updated>2026-11-04T04:03:50.914Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">A Claude Code card and a Codex card ran at the same time on one canvas with real agents.</summary>
+<content type="html">&lt;p&gt;A Claude Code card and a Codex card ran at the same time on one canvas with real agents. Both asked a question, hit the account's usage limit and went on by themselves once it reset. Both were paused in the middle of a long check, came through two restarts of Obeya and landed on main. A Codex card now goes on as soon as its usage limit resets, instead of waiting a fixed 15 minutes.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Toasts move to the bottom-right corner</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/move-toasts-to-the-bottom-right-corner-d1c2fe/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/move-toasts-to-the-bottom-right-corner-d1c2fe/</id>
+<published>2026-11-04T04:02:59.447Z</published>
+<updated>2026-11-04T04:02:59.447Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Confirmation toasts no longer float above the microphone in the middle of the screen.</summary>
+<content type="html">&lt;p&gt;Confirmation toasts no longer float above the microphone in the middle of the screen. They now stack in the bottom-right corner, newest last, and shift left when the sidebar opens. The phone layout stays as it was.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Schema diagrams for database changes</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/add-visualized-schema-change-artifact-to-3be8dc/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/add-visualized-schema-change-artifact-to-3be8dc/</id>
+<published>2026-11-04T03:56:49.412Z</published>
+<updated>2026-11-04T03:56:49.412Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">When an agent's change alters the data the app stores (new tables, columns, indexes or references), its handover now includes a schema-change page beside the demo.</summary>
+<content type="html">&lt;p&gt;When an agent's change alters the data the app stores (new tables, columns, indexes or references), its handover now includes a schema-change page beside the demo. The page shows the affected tables as a diagram, before and after: added in green, changed in amber, removed in red, with related tables dashed. Below it, the changes are listed in words along with the migration files they were read from. Reviewers can see what the change does to the database without reading the migration code.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Codex starts after a slow Windows snapshot</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/codex-on-windows-process-snapshot-can-ti-a16ff7/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/codex-on-windows-process-snapshot-can-ti-a16ff7/</id>
+<published>2026-11-04T03:55:11.605Z</published>
+<updated>2026-11-04T03:55:11.605Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">A cold PowerShell launch can take several seconds on Windows.</summary>
+<content type="html">&lt;p&gt;A cold PowerShell launch can take several seconds on Windows. Codex now gives its first process ownership check enough time to finish, so a slow start does not end the session. Later checks keep the shorter normal limit and retry once if they time out.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Agents skip a hanging test suite</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/add-to-claude-md-256a4d/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/add-to-claude-md-256a4d/</id>
+<published>2026-11-04T03:37:31.929Z</published>
+<updated>2026-11-04T03:37:31.929Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">When the test suite hangs or stalls, an agent working on Obeya now stops it and goes on to the demo and handover without asking.</summary>
+<content type="html">&lt;p&gt;When the test suite hangs or stalls, an agent working on Obeya now stops it and goes on to the demo and handover without asking. It says in the handover that the tests were skipped. The rule sits next to the existing one about tests that fail under machine load.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Comparing agent ratings by model</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/explore-and-build-a-performance-dashboar-6a996e/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/explore-and-build-a-performance-dashboar-6a996e/</id>
+<published>2026-11-04T03:23:32.366Z</published>
+<updated>2026-11-04T03:23:32.366Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">After approving an agent's work you can rate it with one to five stars.</summary>
+<content type="html">&lt;p&gt;After approving an agent's work you can rate it with one to five stars. Obeya keeps each rating with the harness, model and effort that actually did the work. A new Agent performance dashboard puts those ratings side by side: one row per model and effort, with how many ratings it has, their average and how they split across the stars. You can also see every single rating as a dot, or the monthly average as a line. Rows are never ranked by score. Rows with few ratings are marked as such, and every rating links back to the card it is about.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Three new working rules</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/add-to-claude-md-6dddaf/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/add-to-claude-md-6dddaf/</id>
+<published>2026-11-04T03:19:43.474Z</published>
+<updated>2026-11-04T03:19:43.474Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">CLAUDE.md gains three rules.</summary>
+<content type="html">&lt;p&gt;CLAUDE.md gains three rules. Demo videos show the whole feature, not just the latest change. A test run that fails only from load or timing is handed over with the unrelated tests named, instead of being rerun. Links in the UI are blue as well as underlined.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Rate the agent's work after approval</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/capture-optional-feedback-d0c566/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/capture-optional-feedback-d0c566/</id>
+<published>2026-11-03T21:51:04.784Z</published>
+<updated>2026-11-03T21:51:04.784Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">After approving a card, Obeya now asks how well the agent did: one to five stars and an optional comment, saved with the model that did the work.</summary>
+<content type="html">&lt;p&gt;After approving a card, Obeya now asks how well the agent did: one to five stars and an optional comment, saved with the model that did the work. The prompt can be skipped and never holds up the approval. The card keeps asking until it is answered, and the rating can be changed later. A setting under Configuration → General turns it off without deleting ratings already given.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Feedback credited to the model that did the work</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/attribute-and-retain-feedback-9597a5/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/attribute-and-retain-feedback-9597a5/</id>
+<published>2026-11-03T20:44:47.359Z</published>
+<updated>2026-11-03T20:44:47.359Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Obeya now records which harness, model and effort each agent session actually ran on, and stores the owner's feedback on approved work linked to the card, its project and those sessions.</summary>
+<content type="html">&lt;p&gt;Obeya now records which harness, model and effort each agent session actually ran on, and stores the owner's feedback on approved work linked to the card, its project and those sessions. When one configuration did the work, it gets the credit. When several did, none is credited on its own, so a model never gets credit for another's work. This is the groundwork for an optional feedback prompt after approval and a dashboard comparing models.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Lander keeps fork-only extensions out of upstream</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/lander-enforces-the-cut-7f98b8/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/lander-enforces-the-cut-7f98b8/</id>
+<published>2026-11-03T19:00:34.274Z</published>
+<updated>2026-11-03T19:00:34.274Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Lander, the tool that moves the fork's features toward upstream, now refuses to prepare a feature for upstream when it touches the extension seam.</summary>
+<content type="html">&lt;p&gt;Lander, the tool that moves the fork's features toward upstream, now refuses to prepare a feature for upstream when it touches the extension seam. It names the files and the lines that call the extensions. Everyday changes to shared files such as the UI strings still go through. Quarantined features have no promote action at all. When syncing from upstream, Lander keeps the seam intact and reports each place where an upstream change conflicted with one of its call sites.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Always allow becomes a fork extension</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/the-first-extension-ce4935/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/the-first-extension-ce4935/</id>
+<published>2026-11-03T17:05:07.201Z</published>
+<updated>2026-11-03T17:05:07.201Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">The &quot;Always allow&quot; option on permission questions now lives in its own extension folder instead of the core.</summary>
+<content type="html">&lt;p&gt;The &amp;quot;Always allow&amp;quot; option on permission questions now lives in its own extension folder instead of the core. Picking it still lets the call run and commits the rule to the repository's allow list on main. Without the extension, Obeya asks only Allow or Deny, as upstream does. This keeps the feature in the fork and makes it easy to leave out of anything sent upstream.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">A plan for agent performance feedback</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/add-configurable-feedback-on-agent-perfo-a120ce/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/add-configurable-feedback-on-agent-perfo-a120ce/</id>
+<published>2026-11-03T14:08:31.784Z</published>
+<updated>2026-11-03T14:08:31.784Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">The project introduces optional feedback after a card is approved and associates it with the model configuration and the work it produced.</summary>
+<content type="html">&lt;p&gt;The project introduces optional feedback after a card is approved and associates it with the model configuration and the work it produced. A later dashboard will help explore the feedback, while keeping the evidence and sample sizes visible. The plan leaves task classification and feedback-driven recommendations for future work.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Enlarge images in demo artifacts</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/make-images-in-demo-artifacts-clickable-b2746d/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/make-images-in-demo-artifacts-clickable-b2746d/</id>
+<published>2026-11-03T02:38:12.468Z</published>
+<updated>2026-11-03T13:52:59.960Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Images in demo artifacts can now be enlarged with a click, making charts and other details easier to read.</summary>
+<content type="html">&lt;p&gt;Images in demo artifacts can now be enlarged with a click, making charts and other details easier to read. Close the enlarged view to return to the artifact. The same interaction is available on shared artifact pages.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Draft command permissions during setup</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/draft-an-allow-list-when-setting-up-a-ne-9f3d05/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/draft-an-allow-list-when-setting-up-a-ne-9f3d05/</id>
+<published>2026-11-03T11:41:36.516Z</published>
+<updated>2026-11-03T11:41:36.516Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">When setting up a repository, Obeya now drafts a list of the commands its agents need for everyday work.</summary>
+<content type="html">&lt;p&gt;When setting up a repository, Obeya now drafts a list of the commands its agents need for everyday work. The owner can review the proposed commands in Configuration and trust them before they take effect. Existing permissions are retained, and the setup can prepare rules for Codex as well as Claude Code.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Stronger process boundaries on Linux and Windows</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/platform-process-boundaries-37c4f5/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/platform-process-boundaries-37c4f5/</id>
+<published>2026-11-03T01:52:24.477Z</published>
+<updated>2026-11-03T01:52:24.477Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Coding agents start background processes such as dev servers, watchers and test runs, and Obeya has to stop them when a session ends.</summary>
+<content type="html">&lt;p&gt;Coding agents start background processes such as dev servers, watchers and test runs, and Obeya has to stop them when a session ends. Today it tracks them by sampling the process tree, which misses a process that detaches quickly and keeps nothing running if Obeya itself crashes. We measured two operating-system boundaries with a real Codex agent: a systemd user scope per session on Linux and a Job Object per session on Windows. Both catch what sampling misses, and on Windows the boundary also ends everything when Obeya dies. Neither is in Obeya yet; the page shows what they hold, what still gets out, and what was not tested.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Codex workers: network and nvm setup for allow-listed commands</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/codex-workers-network-for-commands-the-a-7190f8/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/codex-workers-network-for-commands-the-a-7190f8/</id>
+<published>2026-11-02T20:39:12.864Z</published>
+<updated>2026-11-02T20:39:12.864Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Codex workers run in a sandbox without network, so even routine commands like installing dependencies used to come to the owner as permission questions.</summary>
+<content type="html">&lt;p&gt;Codex workers run in a sandbox without network, so even routine commands like installing dependencies used to come to the owner as permission questions. Now a command the repository's trusted allow list covers gets network for that one run without a question. Usual shell setup in front of it, like `source ~/.nvm/nvm.sh &amp;amp;&amp;amp; nvm use 24`, needs no rule of its own, as long as the sourced file is one the worker can't change. Everything else still asks.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Canvas dropdown opens above the minimap</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/show-the-canvas-dropdown-above-the-botto-6f6e6a/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/show-the-canvas-dropdown-above-the-botto-6f6e6a/</id>
+<published>2026-11-02T14:24:52.607Z</published>
+<updated>2026-11-02T14:24:52.607Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">The canvas dropdown at the top left used to run under the small map at the bottom left when its list was long, hiding the last entries and their buttons.</summary>
+<content type="html">&lt;p&gt;The canvas dropdown at the top left used to run under the small map at the bottom left when its list was long, hiding the last entries and their buttons. It now opens above the map, so the whole list stays visible and usable.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Codex workers start while Claude Code settings await trust</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/codex-workers-in-a-repository-whose-clau-512dfd/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/codex-workers-in-a-repository-whose-clau-512dfd/</id>
+<published>2026-11-02T12:50:13.164Z</published>
+<updated>2026-11-02T12:50:13.164Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">When a repository's Claude Code settings changed and were waiting for the owner's trust, Codex workers used to refuse to start there at all, although Codex never reads those settings.</summary>
+<content type="html">&lt;p&gt;When a repository's Claude Code settings changed and were waiting for the owner's trust, Codex workers used to refuse to start there at all, although Codex never reads those settings. Now they start and work as usual. Until the settings are trusted, Codex asks before every command, even ones the settings' allow list names. Review cards for outside contributions are still refused for Codex.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Codex configuration waits for your trust</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/codex-configuration-trust-319b45/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/codex-configuration-trust-319b45/</id>
+<published>2026-11-02T12:28:33.437Z</published>
+<updated>2026-11-02T12:28:33.437Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">A repository's own Codex configuration (its .codex folder: settings, MCP servers, rules) used to stop Codex workers from starting at all.</summary>
+<content type="html">&lt;p&gt;A repository's own Codex configuration (its .codex folder: settings, MCP servers, rules) used to stop Codex workers from starting at all. Now it appears in the Configuration dialog like the Claude Code configuration: you see every line, trust it with one click, and Codex workers load it from then on. Until then, and in any workspace where the files differ from what you trusted, Codex works without it. A later change on the main branch asks again and shows only the new lines.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Codex needs no foreground-wait guard</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/foreground-wait-guard-067bf0/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/foreground-wait-guard-067bf0/</id>
+<published>2026-11-02T12:24:50.479Z</published>
+<updated>2026-11-02T12:24:50.479Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Claude workers are stopped from sleeping in the foreground because a note from the owner would only reach them after the command ends.</summary>
+<content type="html">&lt;p&gt;Claude workers are stopped from sleeping in the foreground because a note from the owner would only reach them after the command ends. We checked real Codex: a note sent during a running foreground command arrives within seconds, and the command carries on in the background. So Codex needs no such guard. Native Codex hooks exist, but they only run once trusted in the user's own Codex configuration, which Obeya does not write.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Working bubbles name their model</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/active-session-identity-5aeaad/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/active-session-identity-5aeaad/</id>
+<published>2026-11-02T12:24:13.537Z</published>
+<updated>2026-11-02T12:24:13.537Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">While an agent works on a card, its bubble now shows which harness and model that session runs on, such as Claude Code with Opus or Codex with GPT-5.5.</summary>
+<content type="html">&lt;p&gt;While an agent works on a card, its bubble now shows which harness and model that session runs on, such as Claude Code with Opus or Codex with GPT-5.5. The same goes for Obeya's own reading bubble and for answers being looked up. The label always comes from the session that is actually running, so cards started before a settings change keep showing the model they really use.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">A dead app no longer &quot;keeps running&quot;</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/don-t-tell-the-owner-a-dead-app-keeps-ru-410027/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/don-t-tell-the-owner-a-dead-app-keeps-ru-410027/</id>
+<published>2026-11-02T02:09:43.461Z</published>
+<updated>2026-11-02T02:09:43.461Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">When a Codex agent dies while its card waits for the owner, the card used to claim the app in the workspace keeps running, even though the cleanup had already ended it.</summary>
+<content type="html">&lt;p&gt;When a Codex agent dies while its card waits for the owner, the card used to claim the app in the workspace keeps running, even though the cleanup had already ended it. Now the card only reports the agent's exit. Cards with a Claude agent, whose app really does survive, behave as before.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">What happens to an agent's processes after Obeya crashes</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/session-lifetimes-and-crash-recovery-7fa07b/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/session-lifetimes-and-crash-recovery-7fa07b/</id>
+<published>2026-11-02T01:56:03.243Z</published>
+<updated>2026-11-02T01:56:03.243Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Obeya now separates three lifetimes: work an agent session started, the app a card serves, and external operations.</summary>
+<content type="html">&lt;p&gt;Obeya now separates three lifetimes: work an agent session started, the app a card serves, and external operations. After a crash, the next Obeya start ends the Codex session work the crashed one left running. It touches only recorded processes that still match, and never another live Obeya's. Checked with real Codex runs and real process kills on macOS and Linux.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Cleaning up agent processes when Obeya or its supervisor dies</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/liveness-pipe-prototype-566ee0/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/liveness-pipe-prototype-566ee0/</id>
+<published>2026-11-02T01:32:47.811Z</published>
+<updated>2026-11-02T01:32:47.811Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">We looked at running each agent behind a small supervisor that stops the agent and everything it started when Obeya dies.</summary>
+<content type="html">&lt;p&gt;We looked at running each agent behind a small supervisor that stops the agent and everything it started when Obeya dies. Obeya in turn stops them if the supervisor dies. The two faults that blocked a first attempt are fixed and tested on macOS and Linux. Neither side helps when both die at once, and Windows needs another approach. So this stays a prototype for now and will be combined with a crash-recovery registry later.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">What survives when an agent or Obeya crashes</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/comparable-harness-crash-probes-e9cb74/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/comparable-harness-crash-probes-e9cb74/</id>
+<published>2026-11-02T00:45:25.989Z</published>
+<updated>2026-11-02T00:45:25.989Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">We killed real Claude and Codex workers, and Obeya itself, while each worker had an app running, then checked what was left.</summary>
+<content type="html">&lt;p&gt;We killed real Claude and Codex workers, and Obeya itself, while each worker had an app running, then checked what was left. When a Codex worker dies, Obeya stops its app; when a Claude worker dies, the app keeps running. If Obeya itself crashes, the app keeps running with either. This tells us where cleanup after crashes still needs work before Obeya supports more agent harnesses.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Cards get addresses of their own</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/path-based-canvas-and-card-urls-with-sho-2adfe0/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/path-based-canvas-and-card-urls-with-sho-2adfe0/</id>
+<published>2026-11-01T12:59:00.157Z</published>
+<updated>2026-11-01T12:59:00.157Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Every canvas and every open card now has its own address, like /c/shop/card/118518, with a short code instead of a long ID.</summary>
+<content type="html">&lt;p&gt;Every canvas and every open card now has its own address, like /c/shop/card/118518, with a short code instead of a long ID. Reloading the page keeps the card open, and a link to a card can be shared or bookmarked. The browser's Back and Forward buttons step through the cards you looked at. Where one card mentions another, such as the cards a queued task waits for, the name is now a link that opens that card.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">The needs-you button becomes an inbox</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/needs-you-becomes-an-inbox-c5fcf9/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/needs-you-becomes-an-inbox-c5fcf9/</id>
+<published>2026-11-01T12:16:26.193Z</published>
+<updated>2026-11-01T12:16:26.193Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">The &quot;need you&quot; button in the bar now slides out an inbox instead of jumping to a single card.</summary>
+<content type="html">&lt;p&gt;The &amp;quot;need you&amp;quot; button in the bar now slides out an inbox instead of jumping to a single card. It lists everything that waits for you across all canvases, each entry with its canvas, the card's title and the question. One-click buttons such as Approve answer an entry without opening the card, and Go to card is always there as a plain secondary button.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Connect cards with dependency arrows</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/manually-connect-cards-with-dependency-a-fe8ef3/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/manually-connect-cards-with-dependency-a-fe8ef3/</id>
+<published>2026-11-01T11:27:07.762Z</published>
+<updated>2026-11-01T11:27:07.762Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Draw dependencies directly between cards using dots that appear as the pointer approaches.</summary>
+<content type="html">&lt;p&gt;Draw dependencies directly between cards using dots that appear as the pointer approaches. A ghost arrow follows the pointer and snaps to its target; the dependent card then waits for its prerequisite. Manual arrows can be removed after confirmation, while projects keep the ordering decided from their plans.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Process cleanup: what survives when Codex work stops</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/process-cleanup-a6fe14/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/process-cleanup-a6fe14/</id>
+<published>2026-11-01T11:21:56.800Z</published>
+<updated>2026-11-01T11:21:56.800Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">We stopped a real Codex app-server four ways and checked which background jobs it had started kept running.</summary>
+<content type="html">&lt;p&gt;We stopped a real Codex app-server four ways and checked which background jobs it had started kept running. A normal stop, a forced stop and the app-server being killed all ended every observed job and left an unrelated process alone. If Obeya itself crashes, nothing runs the cleanup and jobs started by shell commands keep running. This is best-effort cleanup, not containment, and it is verified on macOS only.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Choose a model when starting a task</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/choose-a-model-at-start-c6d2d7/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/choose-a-model-at-start-c6d2d7/</id>
+<published>2026-11-01T03:24:07.003Z</published>
+<updated>2026-11-01T03:24:07.003Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">A chevron beside Start agent lets you choose a harness, model and effort for an individual task.</summary>
+<content type="html">&lt;p&gt;A chevron beside Start agent lets you choose a harness, model and effort for an individual task. The usual button still starts with the configured worker default, and a one-task choice stays with the task as it progresses.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Codex runtime as a project</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/prepare-codex-runtime-md-as-a-project-d008ec/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/prepare-codex-runtime-md-as-a-project-d008ec/</id>
+<published>2026-11-01T02:45:39.875Z</published>
+<updated>2026-11-01T02:45:39.875Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">The Codex runtime plan appears on the canvas as a project with its remaining work organized into workstreams.</summary>
+<content type="html">&lt;p&gt;The Codex runtime plan appears on the canvas as a project with its remaining work organized into workstreams. The project covers hardening the Codex preview and the subsequent Pi adapter.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Safe sharing of HTML artifacts</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/prevent-artifact-builds-from-executing-b-56d371/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/prevent-artifact-builds-from-executing-b-56d371/</id>
+<published>2026-11-01T01:52:28.514Z</published>
+<updated>2026-11-01T01:52:28.514Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">HTML artifacts can be shared without running build-time macros on the sharing machine.</summary>
+<content type="html">&lt;p&gt;HTML artifacts can be shared without running build-time macros on the sharing machine. Ordinary report modules continue to be bundled into the shared copy. This prevents a malicious artifact from using a macro to include private files in the shared page.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Command-specific agent permissions</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/draft-allow-rules-for-recurring-agent-pe-676865/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/draft-allow-rules-for-recurring-agent-pe-676865/</id>
+<published>2026-11-01T01:10:48.382Z</published>
+<updated>2026-11-01T01:10:48.382Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">A reviewable allow list lets Claude workers perform recurring setup, testing, browser checks and demo recording without a fresh permission question for each matching command.</summary>
+<content type="html">&lt;p&gt;A reviewable allow list lets Claude workers perform recurring setup, testing, browser checks and demo recording without a fresh permission question for each matching command. Every rule has a short explanation of its scope. The owner reviews and trusts the configuration in Konfiguration; Codex workers continue to use their own sandbox and approval policy.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Choosing an agent for a task</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/plan-model-choice-via-chevron-on-start-a-7eef4f/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/plan-model-choice-via-chevron-on-start-a-7eef4f/</id>
+<published>2026-10-31T16:07:25.784Z</published>
+<updated>2026-10-31T16:07:25.784Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">The plan introduces a model choice beside Start agent, then adds custom agents with instructions and hints about when to use them.</summary>
+<content type="html">&lt;p&gt;The plan introduces a model choice beside Start agent, then adds custom agents with instructions and hints about when to use them. A later optional recommendation can help choose an agent for a task.&lt;/p&gt;</content>
+</entry>
+<entry xml:lang="en">
+<title type="text">Obeya should have a prompt to re-login when it encounters login errors</title>
+<link rel="alternate" type="text/html" href="https://nickpalenchar.github.io/obeya-demos/obeya-should-have-a-prompt-to-re-login-w-716cc7/"/>
+<id>https://nickpalenchar.github.io/obeya-demos/obeya-should-have-a-prompt-to-re-login-w-716cc7/</id>
+<published>2026-10-31T14:11:39.229Z</published>
+<updated>2026-10-31T14:11:39.229Z</updated>
+<author><name>Nick Palenchar</name></author>
+<summary type="text">Claude login errors now show a Reauthenticate button directly in the conversation.</summary>
+<content type="html">&lt;p&gt;Claude login errors now show a Reauthenticate button directly in the conversation. It opens the existing terminal login flow and offers the correct command if no terminal is available. After signing in, resend your message to continue. The 32-second demo shows before and after.&lt;/p&gt;</content>
+</entry>
+</feed>

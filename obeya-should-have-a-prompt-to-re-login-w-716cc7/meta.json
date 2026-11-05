@@ -1,0 +1,24 @@
+{
+  "title": "Obeya should have a prompt to re-login when it encounters login errors",
+  "text": "Claude login errors now show a Reauthenticate button directly in the conversation. It opens the existing terminal login flow and offers the correct command if no terminal is available. After signing in, resend your message to continue. The 32-second demo shows before and after.",
+  "chapters": [
+    [
+      0,
+      "An expired login interrupts the work"
+    ],
+    [
+      8.88,
+      "Reauthenticate beside the error"
+    ],
+    [
+      19.36,
+      "A command when no terminal is available"
+    ]
+  ],
+  "pr": null,
+  "first": "2026-10-31T14:11:39.229Z",
+  "at": "2026-10-31T14:11:39.229Z",
+  "source": "3f56940124af1176033418ef2913a3f50a294087255c92c9856e5877dd75ae23",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

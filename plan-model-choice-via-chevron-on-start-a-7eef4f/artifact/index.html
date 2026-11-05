@@ -1,0 +1,18 @@
+<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self' https://nickpalenchar.github.io data: blob:; script-src 'self' https://nickpalenchar.github.io 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' data: blob:; style-src 'self' https://nickpalenchar.github.io 'unsafe-inline' data: blob:; form-action 'none'"><meta http-equiv="x-dns-prefetch-control" content="off"><!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Choosing an agent for a task</title><style>body{font:16px/1.55 system-ui,sans-serif;background:#f4f2ec;color:#20272b;margin:0;padding:36px}main{max-width:760px;margin:auto}h1{font-size:2rem;line-height:1.15}p{color:#465158}.step{background:white;border:1px solid #dddcd5;border-radius:12px;padding:14px 20px;margin:12px 0}.n{color:#336b61;font-weight:700;font-size:.8rem;letter-spacing:.08em}h2{font-size:1.15rem;margin:3px 0} .step p{margin:4px 0}</style><main><p>PROJECT PLAN</p><h1>Choosing an agent for a task</h1><p>Start with a model choice, then make room for agents tailored to particular kinds of work. A recommendation could follow once the foundations are in place.</p><div class="step"><span class="n">01 · MODEL CHOICE</span><h2>A chevron beside Start agent</h2><p>Choose a harness, model and effort for a task, or start with the existing default.</p></div><div class="step"><span class="n">02 · CUSTOM AGENTS</span><h2>Define an agent</h2><p>Give an agent its own instructions, runtime settings and a hint about when to use it.</p></div><div class="step"><span class="n">03 · START WITH AN AGENT</span><h2>Choose from the start menu</h2><p>See saved agents and their hints, choose one and keep its configuration with the task.</p></div><div class="step"><span class="n">04 · OPTIONAL LATER DIRECTION</span><h2>Recommend an agent</h2><p>Explore a classifier that suggests an agent for the task while leaving the choice to the owner.</p></div></main></html>
+<script>(() => {
+  let last = 0, box = -1, again = 0;
+  const say = () => {
+    const html = document.documentElement;
+    if (!innerHeight || !innerWidth) { again ||= setTimeout(() => { again = 0; say(); }, 200); return; }
+    html.style.setProperty('overflow-y', 'hidden');
+    const own = Math.ceil(html.getBoundingClientRect().height);
+    const bar = innerHeight - html.clientHeight;
+    const h = html.scrollHeight > html.clientHeight ? Math.max(own, html.scrollHeight) + bar : own === box ? last : own + bar;
+    box = own;
+    if (h !== last) { last = h; parent.postMessage({ obeyaHeight: h }, '*'); }
+    if (innerHeight < h) html.style.removeProperty('overflow-y');
+  };
+  addEventListener('load', say);
+  addEventListener('resize', say);
+  new ResizeObserver(say).observe(document.documentElement);
+})();</script>

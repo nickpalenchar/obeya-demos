@@ -1,0 +1,12 @@
+{
+  "kind": "html",
+  "title": "Registered-extension test already fixed",
+  "text": "The failing worker-start event test was already fixed on main by an earlier commit. The test and the typecheck pass; no further change was needed.",
+  "chapters": [],
+  "pr": null,
+  "first": "2026-11-05T12:02:15.649Z",
+  "at": "2026-11-05T12:02:15.649Z",
+  "source": "1b56a7e056f119fcbff63e727bca0fca2c1f58c26b4021f73db0f14baefb54f3",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

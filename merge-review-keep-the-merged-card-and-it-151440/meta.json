@@ -1,0 +1,35 @@
+{
+  "title": "Keep merge reviews within reach",
+  "text": "Long original descriptions now open as previews, leaving the merged card visible immediately. Expand both originals together to compare them, while approval and separation stay within reach as you scroll. The same review works on a phone, with the full merged text available to read.",
+  "chapters": [
+    [
+      0,
+      "Before: the decision is below the fold"
+    ],
+    [
+      6.36,
+      "The merged card is visible immediately"
+    ],
+    [
+      14.27,
+      "Compare both originals and read the full result"
+    ],
+    [
+      22.93,
+      "Show less and try again"
+    ],
+    [
+      29.57,
+      "The same review on a phone"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/da9dca9a0a5d25dd615761e25c2d915847ce16f0"
+  },
+  "first": "2026-11-05T04:21:30.336Z",
+  "at": "2026-11-05T04:21:30.336Z",
+  "source": "fd8c13d17c11b1a4c1ba42afd397d371ed8383cfb7d4ca504e46c4877de7d44c",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

@@ -1,0 +1,16 @@
+{
+  "kind": "html",
+  "title": "Feedback credited to the model that did the work",
+  "text": "Obeya now records which harness, model and effort each agent session actually ran on, and stores the owner's feedback on approved work linked to the card, its project and those sessions. When one configuration did the work, it gets the credit. When several did, none is credited on its own, so a model never gets credit for another's work. This is the groundwork for an optional feedback prompt after approval and a dashboard comparing models.",
+  "chapters": [],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/compare/641eda3548c0b6ff4229d82b2227d4c368dd3894...487b1871a8f9d7a0230cecbc3e88706529b9b8fe",
+    "several": true
+  },
+  "first": "2026-11-03T20:44:47.359Z",
+  "at": "2026-11-03T20:44:47.359Z",
+  "source": "a87dd0c7330f02c2df84e800b4e3122f0dd88b96cbbb40fbce37a08c7822a855",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

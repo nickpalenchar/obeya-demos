@@ -1,0 +1,15 @@
+{
+  "kind": "html",
+  "title": "Browser skill tests pass inside Codex workers",
+  "text": "Two tests of the browser skill failed whenever a Codex worker ran the test suite: each could not find its session's state file. The tests simulated sessions through Claude Code's process ID, but the Codex worker's own agent ID took precedence, so the worker owned every browser they started. The tests now keep the worker's ID out, and they pass the same way inside and outside a worker. The browser skill itself is unchanged.",
+  "chapters": [],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/04d8d8166c6852bfbf133c805688b08d1c82e35f"
+  },
+  "first": "2026-11-05T13:21:11.989Z",
+  "at": "2026-11-05T13:21:11.989Z",
+  "source": "0092ecce27b8b84d619682de8ecd344b1aac2739125cb5b6172898ffbff81538",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

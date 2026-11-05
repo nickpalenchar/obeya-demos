@@ -1,0 +1,15 @@
+{
+  "kind": "html",
+  "title": "What happens to an agent's processes after Obeya crashes",
+  "text": "Obeya now separates three lifetimes: work an agent session started, the app a card serves, and external operations. After a crash, the next Obeya start ends the Codex session work the crashed one left running. It touches only recorded processes that still match, and never another live Obeya's. Checked with real Codex runs and real process kills on macOS and Linux.",
+  "chapters": [],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/6f5e71982f610211c1bb24d06aa3815f242314be"
+  },
+  "first": "2026-11-02T01:56:03.243Z",
+  "at": "2026-11-02T01:56:03.243Z",
+  "source": "20fe58914f5881ff88e2682e0f3ccdfee847120a97f3614886f7432a469043a4",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

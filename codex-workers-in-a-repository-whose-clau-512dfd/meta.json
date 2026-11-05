@@ -1,0 +1,31 @@
+{
+  "title": "Codex workers start while Claude Code settings await trust",
+  "text": "When a repository's Claude Code settings changed and were waiting for the owner's trust, Codex workers used to refuse to start there at all, although Codex never reads those settings. Now they start and work as usual. Until the settings are trusted, Codex asks before every command, even ones the settings' allow list names. Review cards for outside contributions are still refused for Codex.",
+  "chapters": [
+    [
+      0,
+      "Claude Code settings wait for trust"
+    ],
+    [
+      9.81,
+      "Before: Codex refused to start"
+    ],
+    [
+      16.49,
+      "Now: Codex gets to work"
+    ],
+    [
+      30.97,
+      "Recap"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/7d21ff6db4c6152d4b9c7fa1114d4586e533aeb7"
+  },
+  "first": "2026-11-02T12:50:13.164Z",
+  "at": "2026-11-02T12:50:13.164Z",
+  "source": "8179419dd586f7259b8aabc0077fc51ce14a4cb7e121132b9795c930f1f525c6",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

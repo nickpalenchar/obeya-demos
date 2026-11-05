@@ -1,0 +1,12 @@
+{
+  "name": "Process tracker verification",
+  "language": "en",
+  "cards": [{
+    "key": "verification",
+    "title": "Process tracking stays responsive",
+    "body": "The process tracker now reads process tables asynchronously. Slow process inspection leaves the server free to answer pages and receive agent messages.",
+    "state": "waiting",
+    "need": "review",
+    "summary": "The fix is already present on main in commit 6971a5a8. Verification compares the earlier tracker against current main under a controlled slow process-list response."
+  }]
+}

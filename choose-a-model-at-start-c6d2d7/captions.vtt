@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.353 --> 00:00:07.586
+A task can still start with the usual button. The chevron beside it opens a choice for this start, and shows the current worker default.
+
+00:00:08.538 --> 00:00:20.090
+Here, Claude Code and Sonnet are selected with low effort. Codex models and the efforts supported by each are offered too. A missing catalog or unavailable choice is shown instead of silently changing it.
+
+00:00:21.043 --> 00:00:29.460
+Start with this choice sends it with the task. The selection stays with the task through the queue and its later replies; it does not change the worker default for other tasks.

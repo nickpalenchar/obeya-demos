@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.351 --> 00:00:06.411
+After the first demo: the star bars in the table now keep to a moderate width, so the table reads at a glance.
+
+00:00:07.364 --> 00:00:19.496
+In the view of each rating, the dots of one rating now scatter in a loose cloud instead of a grid. And the newer a rating, the larger its dot: five sizes, from the last three days down to tiny dots for ratings older than two months.
+
+00:00:20.449 --> 00:00:25.163
+So recent ratings stand out at a glance, and older ones fade into the background.

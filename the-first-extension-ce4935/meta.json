@@ -1,0 +1,32 @@
+{
+  "title": "Always allow becomes a fork extension",
+  "text": "The \"Always allow\" option on permission questions now lives in its own extension folder instead of the core. Picking it still lets the call run and commits the rule to the repository's allow list on main. Without the extension, Obeya asks only Allow or Deny, as upstream does. This keeps the feature in the fork and makes it easy to leave out of anything sent upstream.",
+  "chapters": [
+    [
+      0,
+      "The question, as before"
+    ],
+    [
+      12.21,
+      "Always allow still commits the rule"
+    ],
+    [
+      20.36,
+      "What moved where"
+    ],
+    [
+      37.35,
+      "Best effort"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/compare/426e592b4093abadd87598c05f7ba560424537dc...280e62c3a822e2b3b11583ff881fd2ce8b39e938",
+    "several": true
+  },
+  "first": "2026-11-03T17:05:07.201Z",
+  "at": "2026-11-03T17:05:07.201Z",
+  "source": "fe112616558140cb3e5c8ebbb46e2adfec51c674f1756a4adcbd790c15eecf84",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

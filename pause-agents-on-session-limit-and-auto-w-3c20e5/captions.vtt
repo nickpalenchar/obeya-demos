@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.351 --> 00:00:11.357
+When the account hits its session limit, an agent no longer retries forever. After three refused attempts it pauses. Here the first card carries a light blue bar and an hourglass, while the second agent keeps working.
+
+00:00:12.312 --> 00:00:20.892
+Opening the card shows why: the limit message from each refused attempt, and a notice that names the time of the account reset, with a button to try again now.
+
+00:00:21.845 --> 00:00:33.432
+The owner can start the agent again at any time. It goes on where it stopped, and if the limit refuses it again, it stops again after three further attempts. Otherwise Obeya wakes it by itself once the reset time has passed.

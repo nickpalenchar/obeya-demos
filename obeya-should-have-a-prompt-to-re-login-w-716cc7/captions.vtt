@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.351 --> 00:00:08.281
+Previously, an expired Claude session left a red authentication error in the conversation. Signing in again meant finding the login action in Setup.
+
+00:00:09.234 --> 00:00:18.754
+The conversation now offers Reauthenticate directly beside the error. It uses the same terminal login as Setup, including when the old session still appears to be signed in.
+
+00:00:19.709 --> 00:00:30.460
+This demo machine has no usable terminal, so clicking the button shows the command to run by hand. After signing in, send the message again to continue. Recovery is now available where the work stopped.

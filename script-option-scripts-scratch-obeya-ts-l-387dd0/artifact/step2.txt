@@ -1,0 +1,11 @@
+$ ls -l <database> <log> of each listed instance
+KB /tmp/obeya-scratch-4481/home/obeya.db
+B /tmp/obeya-scratch-4481/server.log
+KB /tmp/obeya-scratch-4482/home/obeya.db
+B /tmp/obeya-scratch-4482/server.log
+
+$ bun scripts/scratch-obeya.ts --stop 4482
+(exit 0)
+
+$ bun scripts/scratch-obeya.ts --list
+{"port":4481,"url":"http://127.0.0.1:4481/login?token=27U6spKlzynlyowwqD3PyfZmbNp4gCieR1V19A9SgJ4&next=%2Fc%2Fshop","dir":"/tmp/obeya-scratch-4481","home":"/tmp/obeya-scratch-4481/home","repo":"/tmp/obeya-scratch-4481/repo","database":"/tmp/obeya-scratch-4481/home/obeya.db","log":"/tmp/obeya-scratch-4481/server.log","stage":"/Users/nick/demos/obeya-scratch-list/shop.json"}

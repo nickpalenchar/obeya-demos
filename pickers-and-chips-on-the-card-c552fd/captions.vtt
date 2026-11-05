@@ -1,0 +1,28 @@
+WEBVTT
+
+00:00:00.351 --> 00:00:16.048
+Until now a card carried one label, its priority. Now it also has a category, a sub-category and a complexity. On the card face they sit as small chips right after the priority flag: Frontend, Bug fix, and a complexity of one, drawn as rising bars.
+
+00:00:17.001 --> 00:00:27.880
+A label that Obeya suggested and the owner has not touched yet has a purple border. That purple is a magenta, well apart from the violet of a proposal card, and it only ever frames the chip, never the card.
+
+00:00:28.833 --> 00:00:36.821
+Unfolded, a card without labels shows four pickers beside each other: priority, category, sub-category and complexity.
+
+00:00:37.775 --> 00:00:50.012
+Complexity runs on the steps one, two, three, five and eight. Each step says what it means, in its list and as its tooltip: three is a change across a few files, with tests. A pick takes effect at once.
+
+00:00:50.965 --> 00:01:00.973
+Category and sub-category work the same way. Backend, and New feature. Each list ends with None, which takes the label off again and records that the owner chose to leave it empty.
+
+00:01:03.415 --> 00:01:11.426
+On a card with suggested labels, any pick makes the label the owner's. Picking the suggested complexity five again keeps the value, and the purple border goes.
+
+00:01:12.448 --> 00:01:24.940
+A project has the same pickers on its sheet, and its head shows the chips on a line below the title. That keeps the labels visible while leaving room for the title and the actions. Collapsed, the labels stay above the workstream marks.
+
+00:01:26.884 --> 00:01:35.696
+The phone view shows the same chips on its card lists and the same pickers on an unfolded card. A list that would run off the edge of the screen moves left until it fits.
+
+00:01:36.649 --> 00:01:47.295
+Every card now carries category, sub-category and complexity beside its priority, set in one click, with Obeya's suggestions marked in purple until the owner takes them over.

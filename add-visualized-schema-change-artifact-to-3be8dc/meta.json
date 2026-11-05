@@ -1,0 +1,44 @@
+{
+  "title": "Schema diagrams for database changes",
+  "text": "When an agent's change alters the data the app stores (new tables, columns, indexes or references), its handover now includes a schema-change page beside the demo. The page shows the affected tables as a diagram, before and after: added in green, changed in amber, removed in red, with related tables dashed. Below it, the changes are listed in words along with the migration files they were read from. Reviewers can see what the change does to the database without reading the migration code.",
+  "chapters": [
+    [
+      0,
+      "A change to the database"
+    ],
+    [
+      10.95,
+      "The schema page beside the demo"
+    ],
+    [
+      17.39,
+      "Added tables, and what they refer to"
+    ],
+    [
+      34.99,
+      "The changes in words, and their sources"
+    ],
+    [
+      42.56,
+      "A changed table"
+    ],
+    [
+      55.59,
+      "No model change, no page"
+    ],
+    [
+      63.08,
+      "Recap"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/compare/2d302da921096a4696ba78bff37dc0ca2f61d103...0567be3640c02d32f57cfb1740b391694877748d",
+    "several": true
+  },
+  "first": "2026-11-04T03:56:49.412Z",
+  "at": "2026-11-04T03:56:49.412Z",
+  "source": "47a58bcb37c592f3af0141414ab87eba0622423fd9b0708eb54f54b97e455de1",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

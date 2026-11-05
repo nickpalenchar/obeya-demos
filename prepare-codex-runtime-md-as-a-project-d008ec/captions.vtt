@@ -1,0 +1,7 @@
+WEBVTT
+
+00:00:00.351 --> 00:00:08.699
+The Codex runtime plan now appears as a project on the canvas. Its goal is to harden the Codex preview and then add Pi under the shared Obeya contracts.
+
+00:00:09.651 --> 00:00:21.749
+The existing open tasks are now thirteen workstreams, covering process cleanup, acceptance, parity, and the Pi adapter. All remain planned: the documented checks and prototypes have not completed those packages.

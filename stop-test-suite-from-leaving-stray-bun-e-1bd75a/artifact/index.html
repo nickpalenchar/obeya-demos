@@ -1,0 +1,70 @@
+<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self' https://nickpalenchar.github.io data: blob:; script-src 'self' https://nickpalenchar.github.io 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' data: blob:; style-src 'self' https://nickpalenchar.github.io 'unsafe-inline' data: blob:; form-action 'none'"><meta http-equiv="x-dns-prefetch-control" content="off"><!doctype html><html lang="en"><meta charset="utf-8"><title>Stray bun -e processes: check</title>
+<style>
+body{font:15px/1.5 -apple-system,system-ui,sans-serif;margin:24px;max-width:760px;color:#222}
+h1{font-size:21px;margin:0 0 6px}h2{font-size:16px;margin:22px 0 8px}
+.verdict{background:#e8f6ec;border:1px solid #9fd3ad;border-radius:8px;padding:12px 16px}
+table{border-collapse:collapse;width:100%;margin:6px 0}td,th{border:1px solid #ddd;padding:7px 10px;text-align:left;vertical-align:top}
+th{background:#f5f5f5}.bad{color:#b3261e;font-weight:600}.good{color:#1e7d34;font-weight:600}
+code{background:#f2f2f2;padding:1px 4px;border-radius:3px;font-size:13px}.note{background:#fff7e0;border:1px solid #f0d38a;border-radius:8px;padding:10px 14px}
+</style>
+<h1>Test suite no longer leaves stray <code>bun -e setInterval</code> processes</h1>
+<div class="verdict">The fix is already on <code>main</code> (commit <code>a612f541</code>, “End test helper processes when their runner exits”, landed this morning). This card verified it and needed no further code change.</div>
+
+<h2>How it works</h2>
+<p>Every idle helper process a test starts first connects to a private local socket held open by the test runner. When the runner ends, however it ends (normal exit, crash, <code>kill -9</code>, a hung run cut off by a timeout), the operating system closes that socket and every helper exits by itself, including detached grandchildren that outlived their parent.</p>
+
+<h2>Experiment: kill the test runner hard mid-run</h2>
+<p>The three test files that start the most helpers were run, the runner was killed with <code>kill -9</code> after 3 s, and leftover <code>bun -e</code> processes were counted 3 s later.</p>
+<table><tr><th>Code</th><th>Runs</th><th>Strays left</th></tr>
+<tr><td>Before the fix (<code>09ead29d</code>)</td><td>1</td><td class="bad">1 — <code>bun -e setInterval(()=>{},1000)</code>, parent gone, runs forever</td></tr>
+<tr><td>Current <code>main</code></td><td>3</td><td class="good">0, 0, 0</td></tr></table>
+<p>In a separate sample, 13 helpers of one run were seen alive. 3 s after the runner was killed, none were left.</p>
+
+<h2>Full suite</h2>
+<table><tr><th>Check</th><th>Result</th></tr>
+<tr><td><code>bun test --parallel</code></td><td>2148 pass, 5 fail. The fails are timeouts while another card's suite ran in parallel, plus one test that passes on its own (<code>talk.test.ts</code>, 47/47). None concern helper processes. Stray processes afterwards: <span class="good">none new</span>.</td></tr>
+<tr><td>A full run that hung and was killed after 15 min</td><td>Left <span class="good">no</span> stray helpers.</td></tr>
+<tr><td><code>bun run typecheck</code></td><td class="good">clean</td></tr></table>
+
+<h2>Leftovers cleaned up</h2>
+<p>Two stray processes from yesterday (pids 2184 and 86363, from test runs before the fix) were still running on this machine. They were ended.</p>
+
+<div class="note"><b>Worth knowing:</b> a card whose branch was started before the fix still runs the old tests in its workspace. During this check, the workspace of “CLAUDE.md ergänzen…” (<code>454ea41c</code>) produced five new strays. They stop once that branch picks up <code>main</code>, which happens when it lands. The five may still need ending once that run is done.</div>
+</html>
+<script>(() => {
+  let last = 0, box = -1, again = 0;
+  const say = () => {
+    const html = document.documentElement;
+    if (!innerHeight || !innerWidth) { again ||= setTimeout(() => { again = 0; say(); }, 200); return; }
+    html.style.setProperty('overflow-y', 'hidden');
+    const own = Math.ceil(html.getBoundingClientRect().height);
+    const bar = innerHeight - html.clientHeight;
+    const h = html.scrollHeight > html.clientHeight ? Math.max(own, html.scrollHeight) + bar : own === box ? last : own + bar;
+    box = own;
+    if (h !== last) { last = h; parent.postMessage({ obeyaHeight: h }, '*'); }
+    if (innerHeight < h) html.style.removeProperty('overflow-y');
+  };
+  addEventListener('load', say);
+  addEventListener('resize', say);
+  new ResizeObserver(say).observe(document.documentElement);
+})();</script><script>(() => {
+  let viewer, origin;
+  const close = () => { if (!viewer) return; viewer.remove(); viewer = null; if (origin && origin.isConnected) origin.focus({ preventScroll: true }); origin = null; parent.postMessage({ obeyaImage: false }, '*'); };
+  const open = (img) => {
+    if (viewer) return;
+    origin = img;
+    viewer = document.createElement('div');
+    viewer.setAttribute('role', 'dialog'); viewer.setAttribute('aria-label', img.alt || 'Image');
+    viewer.style.cssText = 'position:fixed;inset:0;z-index:2147483647;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;cursor:zoom-out;padding:48px;box-sizing:border-box';
+    const copy = document.createElement('img'); copy.src = img.currentSrc || img.src; copy.alt = img.alt;
+    copy.style.cssText = 'all:initial !important;display:block !important;width:auto !important;height:auto !important;max-width:100% !important;max-height:100% !important;object-fit:contain !important';
+    viewer.append(copy); viewer.addEventListener('click', close); document.body.append(viewer);
+    parent.postMessage({ obeyaImage: true }, '*');
+  };
+  addEventListener('message', (e) => { if (e.source === parent && e.data && e.data.obeyaCloseImage) close(); });
+  document.addEventListener('click', (e) => { const img = e.target.closest('img'); if (img && !viewer && !img.closest('a,button')) open(img); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && viewer) { e.preventDefault(); e.stopPropagation(); close(); } else if (e.key === 'Tab' && viewer) { e.preventDefault(); parent.postMessage({ obeyaImageFocus: true }, '*'); } else if ((e.key === 'Enter' || e.key === ' ') && e.target.tagName === 'IMG' && !e.target.closest('a,button') && !viewer) { e.preventDefault(); open(e.target); } });
+  const prepare = () => document.querySelectorAll('img:not([data-obeya-image])').forEach((img) => { if (img.closest('a,button')) return; img.dataset.obeyaImage = '1'; if (!img.hasAttribute('tabindex')) img.tabIndex = 0; img.style.cursor = 'zoom-in'; img.setAttribute('role', 'button'); });
+  new MutationObserver(prepare).observe(document.documentElement, {childList:true, subtree:true});
+  addEventListener('load', prepare);
+})();</script>

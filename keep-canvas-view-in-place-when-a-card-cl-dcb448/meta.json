@@ -1,0 +1,27 @@
+{
+  "title": "Closing a card keeps the view in place",
+  "text": "When a card is closed on the canvas, the view used to fly back to where it was before the card opened. Now the card folds into its place and the view stays on it, so you can see the card among the rest. This makes it easier to keep your bearings while working through several cards.",
+  "chapters": [
+    [
+      0,
+      "Open a card"
+    ],
+    [
+      4.17,
+      "Close it and stay put"
+    ],
+    [
+      13.69,
+      "Recap"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/1c9e41bdcb48c23e948e8dfbd7153a14b545008f"
+  },
+  "first": "2026-11-05T11:58:56.149Z",
+  "at": "2026-11-05T11:58:56.149Z",
+  "source": "8f94bca52bb0767ba6484a0072c976c156f58b13e64b269af74729ae50ed3dbd",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

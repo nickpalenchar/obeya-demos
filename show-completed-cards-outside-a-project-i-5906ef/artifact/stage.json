@@ -1,0 +1,6 @@
+{"name":"Demo","canvases":["Demo"],"language":"en","trusted":true,
+ "cards":[
+  {"key":"A","title":"Fix login redirect","body":"x","state":"done"},
+  {"key":"B","title":"Add dark footer","body":"x","state":"done"},
+  {"key":"C","title":"Write release notes","body":"x","state":"working","statusLine":"Drafting"},
+  {"key":"D","title":"Idle planned card","body":"x","state":"planned"}]}

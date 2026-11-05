@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self' file: data: blob:; script-src 'self' file: 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' data: blob:; style-src 'self' file: 'unsafe-inline' data: blob:; form-action 'none'"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude and Codex cards, tested live side by side · Demos</title><style>
+  :root { --bg: #e8e2d4; --card: #fdfbf5; --ink: #1f1b14; --muted: #776e5e; --line: #e2dccd; --chip: #f0ebdf; --accent: #08888e; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #121110; --card: #23211d; --ink: #efe9dc; --muted: #a69e8e; --line: #36322b; --chip: #2c2925; --accent: #27b9b6; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 "IBM Plex Sans Condensed", ui-sans-serif, system-ui, -apple-system, sans-serif; }
+  main { max-width: 1080px; margin: 0 auto; padding: 32px 24px 64px; }
+  a { color: var(--accent); }
+  .top { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+  h1 { font: 600 31px/1.15 Newsreader, "Iowan Old Style", Georgia, serif; margin: 0 0 6px; }
+  .when { color: var(--muted); font-size: 13px; margin-bottom: 18px; }
+  .text p { margin: 0 0 10px; max-width: 72ch; }
+  .grid { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 20px; margin-top: 22px; align-items: start; }
+  @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
+  video { width: 100%; border-radius: 4px; background: #000; display: block; }
+  .player { position: relative; }
+  .start { all: unset; position: absolute; inset: 0 0 56px 0; cursor: pointer; display: grid; place-items: center; }
+  .start[hidden] { display: none; }
+  .start span { margin-top: 56px; width: 88px; height: 88px; border-radius: 50%; background: rgba(0, 0, 0, 0.6); display: grid; place-items: center; transition: transform 0.15s, background 0.15s; }
+  .start:hover span { background: rgba(0, 0, 0, 0.8); transform: scale(1.06); }
+  .start svg { width: 36px; height: 36px; margin-left: 6px; fill: #fff; }
+  ol { list-style: none; margin: 0; padding: 6px; background: var(--chip); border-radius: 3px; }
+  ol button { all: unset; cursor: pointer; display: flex; gap: 10px; width: 100%; padding: 7px 9px; border-radius: 2px; font-size: 14px; box-sizing: border-box; }
+  ol button:hover, ol button.on { background: var(--card); }
+  ol .t { color: var(--muted); font-variant-numeric: tabular-nums; min-width: 34px; }
+  .pr { margin-top: 14px; font-size: 14px; }
+  ul.demos { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+  ul.demos a { display: block; background: var(--card); border: 1px solid var(--line); border-radius: 2px; padding: 14px 18px; color: var(--ink); text-decoration: none; }
+  ul.demos a:hover { border-color: var(--accent); }
+  ul.demos b { display: block; font: 600 19px/1.25 Newsreader, "Iowan Old Style", Georgia, serif; }
+  ul.demos span { color: var(--muted); font-size: 14px; }
+  .artifact { margin-top: 22px; background: #fff; border: 1px solid var(--line); border-radius: 3px; overflow: hidden; }
+  .artifact iframe { display: block; width: 100%; height: 80vh; border: 0; }
+  body.alone main { max-width: none; padding: 0; }
+  body.alone main > :not(.artifact) { display: none; }
+  body.alone .artifact { margin: 0; border: 0; border-radius: 0; }
+  body.alone .artifact iframe { height: 100vh; }
+  .links { margin-top: 10px; font-size: 14px; display: flex; gap: 18px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: -6px 0 18px; }
+  .tag { font-size: 13px; line-height: 1.5; padding: 2px 10px; border-radius: 999px; background: var(--chip); color: var(--ink); text-decoration: none; border: 1px solid transparent; }
+  a.tag:hover { border-color: var(--accent); }
+  .tag span { color: var(--muted); }
+  .credit { margin-top: 48px; font-size: 13px; color: var(--muted); }
+</style></head>
+<body><main>
+<div class="top"><a href="../">All demos</a></div>
+<h1>Claude and Codex cards, tested live side by side</h1>
+<div class="when">Shared by Nick Palenchar on November 3, 2026</div>
+<div class="text"><p>A Claude Code card and a Codex card ran at the same time on one canvas with real agents. Both asked a question, hit the account's usage limit and went on by themselves once it reset. Both were paused in the middle of a long check, came through two restarts of Obeya and landed on main. A Codex card now goes on as soon as its usage limit resets, instead of waiting a fixed 15 minutes.</p></div>
+<div class="links"><a href="?alone" target="_blank" rel="noopener">Open in its own window</a><a href="https://github.com/nickpalenchar/obeya/compare/0b2904567cc2feac98db6bf55a040d13c2a2afdf...93035d49463c61ebd66b18a8d415dc128d2ed081">View commits</a></div>
+<div class="artifact"><iframe src="artifact/index.html" sandbox="allow-scripts" title="Claude and Codex cards, tested live side by side"></iframe></div>
+<footer class="credit">Recorded with <a href="https://obeya.si">Obeya</a></footer>
+</main>
+<script>
+  // an artifact as high as its window (100vh plus a margin) would grow with each step: it stops after a few
+  const f = document.querySelector('.artifact iframe');
+  const alone = new URLSearchParams(location.search).has('alone');
+  if (alone) document.body.classList.add('alone');
+  let steps = alone ? 30 : 0;
+  let imageClose, activeImageFrame, imagePlaceholder;
+const closeImage = () => {
+  const f = activeImageFrame;
+  if (!f) return;
+  f.setAttribute('style', f.dataset.obeyaPreviousStyle); delete f.dataset.obeyaPreviousStyle;
+  imagePlaceholder.remove(); imagePlaceholder = null;
+  imageClose.remove(); imageClose = null; activeImageFrame = null;
+  f.contentWindow.postMessage({ obeyaCloseImage: true }, '*');
+};
+const imageFrame = (f, open) => {
+  if (open && !activeImageFrame) {
+    activeImageFrame = f;
+    imagePlaceholder = document.createElement('div'); imagePlaceholder.style.cssText = 'height:' + f.offsetHeight + 'px;width:' + f.offsetWidth + 'px'; f.before(imagePlaceholder);
+    f.dataset.obeyaPreviousStyle = f.getAttribute('style') || ''; f.style.cssText += ';position:fixed;inset:0;width:100vw;height:100vh;z-index:2147483646;border:0';
+    imageClose = document.createElement('button'); imageClose.textContent = '×'; imageClose.setAttribute('aria-label', document.documentElement.lang === 'de' ? 'Schließen' : 'Close');
+    imageClose.style.cssText = 'position:fixed;right:16px;top:12px;z-index:2147483647;color:white;background:#222;border:0;font:36px sans-serif;cursor:pointer'; imageClose.onclick = closeImage; document.body.append(imageClose); imageClose.focus();
+  } else if (!open && f === activeImageFrame) closeImage();
+};
+addEventListener('keydown', (e) => { if (!imageClose) return; if (e.key === 'Escape') { e.preventDefault(); e.stopImmediatePropagation(); closeImage(); } else if (e.key === 'Tab') { e.preventDefault(); imageClose.focus(); } }, true);
+addEventListener('message', (e) => { if (activeImageFrame && e.source === activeImageFrame.contentWindow && e.data && e.data.obeyaImageFocus) imageClose.focus(); });
+  addEventListener('message', (e) => {
+    if (e.source === f.contentWindow && e.data && typeof e.data.obeyaImage === 'boolean') { imageFrame(f, e.data.obeyaImage); return; }
+    const h = e.source === f.contentWindow && e.data && e.data.obeyaHeight;
+    if (typeof h === 'number' && h > 0 && f.dataset.obeyaPreviousStyle === undefined && steps++ < 30) f.style.height = Math.min(Math.ceil(h), 30000) + 'px';
+  });
+</script>
+</body></html>

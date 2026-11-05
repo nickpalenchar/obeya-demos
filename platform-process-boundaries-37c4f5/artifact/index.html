@@ -1,0 +1,110 @@
+<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self' https://nickpalenchar.github.io data: blob:; script-src 'self' https://nickpalenchar.github.io 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' data: blob:; style-src 'self' https://nickpalenchar.github.io 'unsafe-inline' data: blob:; form-action 'none'"><meta http-equiv="x-dns-prefetch-control" content="off"><!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Platform process boundaries: what holds an agent's processes</title>
+<style>
+  :root { --ink: #1d232b; --mute: #5d6773; --line: #dfe3e8; --bg: #f6f7f9; --ok: #1f7a4d; --okbg: #e3f4ea; --bad: #a3361f; --badbg: #fbe7e2; --mid: #8a5a00; --midbg: #fdf1d8; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 15px/1.5 -apple-system, "Segoe UI", system-ui, sans-serif; color: var(--ink); background: #fff; }
+  main { max-width: 800px; margin: 0 auto; padding: 28px 24px 40px; }
+  h1 { font-size: 24px; line-height: 1.25; margin: 0 0 6px; }
+  .lede { color: var(--mute); margin: 0 0 22px; }
+  h2 { font-size: 17px; margin: 30px 0 8px; }
+  p { margin: 6px 0 10px; }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0 6px; font-size: 14px; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+  th { font-weight: 600; color: var(--mute); font-size: 12.5px; text-transform: uppercase; letter-spacing: .03em; background: var(--bg); }
+  td:first-child { width: 34%; }
+  .pill { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 12.5px; font-weight: 600; white-space: nowrap; }
+  .ok { color: var(--ok); background: var(--okbg); }
+  .bad { color: var(--bad); background: var(--badbg); }
+  .mid { color: var(--mid); background: var(--midbg); }
+  .note { color: var(--mute); font-size: 13px; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 6px 0 4px; }
+  .card { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; background: var(--bg); }
+  .card b { display: block; font-size: 13px; margin-bottom: 2px; }
+  .card span { font-size: 13px; color: var(--mute); }
+  ul { margin: 6px 0 10px; padding-left: 20px; }
+  li { margin: 3px 0; }
+  .decide { border-left: 3px solid var(--mid); background: var(--midbg); padding: 10px 14px; border-radius: 0 8px 8px 0; margin: 10px 0; }
+  code { font: 12.5px ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--bg); padding: 1px 4px; border-radius: 4px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Platform process boundaries: what holds an agent's processes</h1>
+  <p class="lede">A comparison of Obeya's current process tracking with two operating-system boundaries: a systemd user scope per session on Linux and a Job Object per session on Windows. Both were measured with a real Codex agent on real machines. Both are prototypes and are not yet used by Obeya.</p>
+
+  <div class="cards">
+    <div class="card"><b>Linux</b><span>Debian 13 (container), Ubuntu 22.04 and 24.04 (GitHub runners). Same results on all three.</span></div>
+    <div class="card"><b>Windows</b><span>Windows Server 2025 (GitHub runner), x64, nested inside the runner's own job.</span></div>
+    <div class="card"><b>macOS</b><span>No unprivileged equivalent exists. Nothing changes there.</span></div>
+  </div>
+
+  <h2>A real Codex agent leaves four background jobs, then the session ends</h2>
+  <p>Codex started four heartbeat processes. One stayed in its shell's process tree. Three detached into a process group of their own: the first one's launcher stays, the second's exits after 1.5 s, and the third's ("fast") exits at once. An unrelated process ran alongside and survived in every case.</p>
+  <table>
+    <tr><th>When</th><th>Today's tracking</th><th>Linux scope</th><th>Windows job</th></tr>
+    <tr><td>The session closes normally</td>
+      <td><span class="pill bad">1 of 4 keeps running</span><br><span class="note">the "fast" one; both platforms</span></td>
+      <td><span class="pill ok">all 4 end</span></td>
+      <td><span class="pill ok">all 4 end</span></td></tr>
+    <tr><td>Obeya itself is killed</td>
+      <td><span class="pill bad">all 4 keep running</span></td>
+      <td><span class="pill mid">all 4 keep running</span><br><span class="note">until Obeya's next start ends the scope by name</span></td>
+      <td><span class="pill ok">all 4 end at once</span><br><span class="note">the kernel closes the job when Obeya dies</span></td></tr>
+  </table>
+  <p class="note">The "fast" job's launcher exits before the tracker's first sample (every 500 ms), so nothing links the job to the agent any more. The weakness was known in theory and has now been observed on Linux and Windows.</p>
+
+  <h2>Linux: when there is no scope, the fallback is safe</h2>
+  <table>
+    <tr><th>Situation</th><th>Result</th></tr>
+    <tr><td>User manager and D-Bus</td><td><span class="pill ok">scope</span> ended by the kernel in one step (<code>cgroup.kill</code>)</td></tr>
+    <tr><td>No D-Bus daemon</td><td><span class="pill ok">scope</span> works on systemd 249, 255 and 257: they reach the manager over its private socket</td></tr>
+    <tr><td>Read-only cgroup filesystem</td><td><span class="pill ok">scope</span> ended through <code>systemctl</code> instead</td></tr>
+    <tr><td>No user manager</td><td><span class="pill mid">no scope</span> nothing ran, the reason is reported, and today's tracking would take over</td></tr>
+    <tr><td>Ordinary container</td><td><span class="pill mid">no scope</span> as above</td></tr>
+  </table>
+
+  <h2>What stays in, what gets out</h2>
+  <ul>
+    <li><b>Stays in, both platforms:</b> a detached child, a new session or process group, a double fork, and on Windows <code>start /b</code> and a child created with the "break away from job" flag.</li>
+    <li><b>Gets out, Linux:</b> asking systemd for a unit of its own (<code>systemd-run</code>), or moving itself to another cgroup the user owns.</li>
+    <li><b>Gets out, Windows:</b> a process started through WMI. The task scheduler did start a task, but its process never reported back, so that way was not measured.</li>
+    <li><b>Nesting:</b> Windows jobs nest correctly inside an outer job. On Linux a session's scope is a sibling of Obeya's own unit, so closing the terminal or stopping an Obeya service leaves sessions running until the next start ends them.</li>
+  </ul>
+  <p>These boundaries hold against accidents, which is how processes have actually been lost so far. They do not hold an agent that deliberately tries to get out.</p>
+
+  <h2>The app on a waiting card</h2>
+  <p>Neither boundary ends anything on its own while Obeya runs. When the agent exits, its app keeps running inside the boundary. Parking's <code>app.stop</code> ends it as before, and an empty boundary disappears by itself.</p>
+
+  <div class="decide"><b>Two decisions come before using this in Obeya.</b>
+    <ul>
+      <li>For Claude workers, closing the boundary with the session would also end an app the worker started in a process group of its own. Codex already behaves this way today.</li>
+      <li>On Windows, the job ends session work every time Obeya exits, a graceful restart included. On Linux that work is ended at the next start instead.</li>
+    </ul>
+  </div>
+
+  <h2>Not tested, so not claimed</h2>
+  <p class="note">Claude Code on Linux and Windows (no login on those machines), Pi, the installed app, cgroup v1 hosts, kernels older than 5.14, distributions without systemd, WSL, Flatpak and Snap, Windows on ARM, a desktop Windows session, and Codex's sandboxed commands.</p>
+</main>
+<script>(() => {
+  let last = 0, box = -1, again = 0;
+  const say = () => {
+    const html = document.documentElement;
+    if (!innerHeight || !innerWidth) { again ||= setTimeout(() => { again = 0; say(); }, 200); return; }
+    html.style.setProperty('overflow-y', 'hidden');
+    const own = Math.ceil(html.getBoundingClientRect().height);
+    const bar = innerHeight - html.clientHeight;
+    const h = html.scrollHeight > html.clientHeight ? Math.max(own, html.scrollHeight) + bar : own === box ? last : own + bar;
+    box = own;
+    if (h !== last) { last = h; parent.postMessage({ obeyaHeight: h }, '*'); }
+    if (innerHeight < h) html.style.removeProperty('overflow-y');
+  };
+  addEventListener('load', say);
+  addEventListener('resize', say);
+  new ResizeObserver(say).observe(document.documentElement);
+})();</script></body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "title": "Choose a model when starting a task",
+  "text": "A chevron beside Start agent lets you choose a harness, model and effort for an individual task. The usual button still starts with the configured worker default, and a one-task choice stays with the task as it progresses.",
+  "chapters": [
+    [
+      0,
+      "The default and a choice"
+    ],
+    [
+      8.19,
+      "Choose a model and effort"
+    ],
+    [
+      20.69,
+      "Start this task"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/8b5fe840f634c109f40bcd46dcdeb9ec83b52bf4"
+  },
+  "first": "2026-11-01T03:24:07.003Z",
+  "at": "2026-11-01T03:24:07.003Z",
+  "source": "e5b8b5adc8f73ba11448b00fc49bfd2e9ef33b913e2fb3e2a5595a772b8037c6",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

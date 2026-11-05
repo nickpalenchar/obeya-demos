@@ -1,0 +1,15 @@
+{
+  "kind": "html",
+  "title": "Codex starts after a slow Windows snapshot",
+  "text": "A cold PowerShell launch can take several seconds on Windows. Codex now gives its first process ownership check enough time to finish, so a slow start does not end the session. Later checks keep the shorter normal limit and retry once if they time out.",
+  "chapters": [],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/2d302da921096a4696ba78bff37dc0ca2f61d103"
+  },
+  "first": "2026-11-04T03:55:11.605Z",
+  "at": "2026-11-04T03:55:11.605Z",
+  "source": "b5efdccad2e7333bd58a8f565224991ee75f1305546c7dcad82a22b96d7e8548",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

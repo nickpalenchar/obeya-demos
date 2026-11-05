@@ -1,0 +1,15 @@
+{
+  "kind": "html",
+  "title": "A dead app no longer \"keeps running\"",
+  "text": "When a Codex agent dies while its card waits for the owner, the card used to claim the app in the workspace keeps running, even though the cleanup had already ended it. Now the card only reports the agent's exit. Cards with a Claude agent, whose app really does survive, behave as before.",
+  "chapters": [],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/e4af98c597aa5b31be7a4c01466b2ab95e5cd134"
+  },
+  "first": "2026-11-02T02:09:43.461Z",
+  "at": "2026-11-02T02:09:43.461Z",
+  "source": "df90cad3242ae5626e19c974dacf44bfc8887615e24b5805791be3bc215c963b",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

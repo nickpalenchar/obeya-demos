@@ -1,0 +1,35 @@
+{
+  "title": "A visible queue for approved landings",
+  "text": "Approved work shows when it is landing and where it is waiting in the repository queue. Other workers hear about a landing only when it overlaps files they changed, so they can decide whether to rebase before handover. Notices wait for the next turn, and documentation paths marked soft are excluded.",
+  "chapters": [
+    [
+      0,
+      "Approval starts the landing"
+    ],
+    [
+      9.82,
+      "A visible place in line"
+    ],
+    [
+      22.92,
+      "The queue moves forward"
+    ],
+    [
+      35.47,
+      "Tell workers whose files overlap"
+    ],
+    [
+      50.45,
+      "No overlap, no notice"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/a36077f381043ecc44c683f6f9931e0f6c1943a5"
+  },
+  "first": "2026-11-05T11:40:01.297Z",
+  "at": "2026-11-05T11:40:01.297Z",
+  "source": "ea607e5507fb90939a7c0e7c3b71be847908b8829af438a167e2a9f4ed27a2a5",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

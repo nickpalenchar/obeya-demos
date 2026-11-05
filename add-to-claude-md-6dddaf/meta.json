@@ -1,0 +1,15 @@
+{
+  "kind": "html",
+  "title": "Three new working rules",
+  "text": "CLAUDE.md gains three rules. Demo videos show the whole feature, not just the latest change. A test run that fails only from load or timing is handed over with the unrelated tests named, instead of being rerun. Links in the UI are blue as well as underlined.",
+  "chapters": [],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/84a60abd43c00d8cdd388fad8e539e7147ce89db"
+  },
+  "first": "2026-11-04T03:19:43.474Z",
+  "at": "2026-11-04T03:19:43.474Z",
+  "source": "d401eb54811b447117d6299555777eed2ffa5aa65d2cbca6bec3f0776f3d677d",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

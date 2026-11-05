@@ -1,0 +1,22 @@
+WEBVTT
+
+00:00:00.351 --> 00:00:11.555
+Cards on the canvas can now carry a priority. It shows at the top of the card as a flag and its name, in a colour that rises from grey to red: Trivial, Medium, High, and Critical in white on red.
+
+00:00:12.508 --> 00:00:24.977
+This card has no priority yet. Opened, it offers Set priority above its title. A click lists the six levels, highest first: Critical, Very high, High, Medium, Low and Trivial, and None to take it off.
+
+00:00:25.931 --> 00:00:30.691
+Picking Very high takes effect at once. Back on the canvas, the card shows its new flag.
+
+00:00:31.646 --> 00:00:35.942
+None takes a priority off again. The typo fix goes back to a plain card.
+
+00:00:37.786 --> 00:00:42.012
+A project gets its priority in its sheet, and its header on the canvas shows it.
+
+00:00:44.069 --> 00:00:50.756
+A priority is a label for you. It does not change the queue, which keeps the order you give it, and agents are not told of it.
+
+00:00:51.711 --> 00:00:57.121
+So every card can now say how much it matters, from Trivial to Critical, at a glance on the canvas.

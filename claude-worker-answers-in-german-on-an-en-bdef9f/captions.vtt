@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.351 --> 00:00:07.282
+In the earlier acceptance run, the Claude worker wrote its handover in German, even though the task and conversation were in English.
+
+00:00:08.236 --> 00:00:15.585
+In a fresh run of the same accented text task, Sonnet asks its question in English. The owner can choose how accented letters should be handled.
+
+00:00:16.538 --> 00:00:24.084
+After the answer and the full check, the same worker hands its work over in English. Its question and handover now follow the conversation language.

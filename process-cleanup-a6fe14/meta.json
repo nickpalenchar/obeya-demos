@@ -1,0 +1,15 @@
+{
+  "kind": "html",
+  "title": "Process cleanup: what survives when Codex work stops",
+  "text": "We stopped a real Codex app-server four ways and checked which background jobs it had started kept running. A normal stop, a forced stop and the app-server being killed all ended every observed job and left an unrelated process alone. If Obeya itself crashes, nothing runs the cleanup and jobs started by shell commands keep running. This is best-effort cleanup, not containment, and it is verified on macOS only.",
+  "chapters": [],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/484dc8185d0c9bdcbc60c6f6b5178ee414532520"
+  },
+  "first": "2026-11-01T11:21:56.800Z",
+  "at": "2026-11-01T11:21:56.800Z",
+  "source": "668107fb1f492407056e98c981fbd72aa9e0bf38b0ae56cb96e840b2b2dbc4ef",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

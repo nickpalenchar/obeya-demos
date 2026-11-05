@@ -1,0 +1,15 @@
+{
+  "kind": "html",
+  "title": "Cleaning up agent processes when Obeya or its supervisor dies",
+  "text": "We looked at running each agent behind a small supervisor that stops the agent and everything it started when Obeya dies. Obeya in turn stops them if the supervisor dies. The two faults that blocked a first attempt are fixed and tested on macOS and Linux. Neither side helps when both die at once, and Windows needs another approach. So this stays a prototype for now and will be combined with a crash-recovery registry later.",
+  "chapters": [],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/025070cb4ada2f7ee5dde6ab04e70b703c2bb07b"
+  },
+  "first": "2026-11-02T01:32:47.811Z",
+  "at": "2026-11-02T01:32:47.811Z",
+  "source": "06dae7b309c291d0c1929f63925944f57944e42b57b7f407632413e0746a8bbc",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

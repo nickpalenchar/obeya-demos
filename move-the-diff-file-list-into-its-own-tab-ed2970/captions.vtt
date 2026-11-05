@@ -1,0 +1,19 @@
+WEBVTT
+
+00:00:00.351 --> 00:00:07.909
+The deliverables card used one list for the demo, result documents and changed source files. Opening that list put the code above the result.
+
+00:00:08.862 --> 00:00:16.850
+The card now has a row of tabs. Video comes first, followed by Document, Schema change, and Diff. The deliverables have the space below to themselves.
+
+00:00:17.802 --> 00:00:25.372
+Document opens the HTML result directly. Schema change has its own tab too, so the database diagram is easy to find.
+
+00:00:26.322 --> 00:00:34.414
+Diff contains the moved file list, with paths, line counts and the whole change. Selecting a file still opens its contents or changes underneath.
+
+00:00:35.367 --> 00:00:42.554
+The phone uses the same tabs. Documents stay separate from the file list, and each delivery shows the tabs for the results it includes.
+
+00:00:43.508 --> 00:00:50.021
+An HTML-only delivery starts on Document. Its row contains Document and Diff, matching the results on this card.

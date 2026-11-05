@@ -1,0 +1,36 @@
+{
+  "title": "Codex configuration waits for your trust",
+  "text": "A repository's own Codex configuration (its .codex folder: settings, MCP servers, rules) used to stop Codex workers from starting at all. Now it appears in the Configuration dialog like the Claude Code configuration: you see every line, trust it with one click, and Codex workers load it from then on. Until then, and in any workspace where the files differ from what you trusted, Codex works without it. A later change on the main branch asks again and shows only the new lines.",
+  "chapters": [
+    [
+      0,
+      "A repository with Codex settings"
+    ],
+    [
+      17.09,
+      "Until trusted, Codex works without it"
+    ],
+    [
+      26.92,
+      "Trusting it"
+    ],
+    [
+      35.49,
+      "A change brings the question back"
+    ],
+    [
+      45.94,
+      "Recap"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/compare/d46419fbed3db109d88af57071e0a9fe86245485...5cc7bf7d54880261c3e9ab96759514f8b0e8793b",
+    "several": true
+  },
+  "first": "2026-11-02T12:28:33.437Z",
+  "at": "2026-11-02T12:28:33.437Z",
+  "source": "49dbe9bc08faa663e48b94cbc2cfa6b89c31536bc930b9d3ebb906c1f7b61304",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

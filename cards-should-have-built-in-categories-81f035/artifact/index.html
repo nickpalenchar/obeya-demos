@@ -1,0 +1,89 @@
+<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self' https://nickpalenchar.github.io data: blob:; script-src 'self' https://nickpalenchar.github.io 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' data: blob:; style-src 'self' https://nickpalenchar.github.io 'unsafe-inline' data: blob:; form-action 'none'"><meta http-equiv="x-dns-prefetch-control" content="off"><!doctype html>
+<meta charset="utf-8">
+<title>Plan: built-in card labels</title>
+<style>
+  body { font: 15px/1.5 system-ui, sans-serif; max-width: 760px; margin: 24px auto; padding: 0 20px; color: #222; }
+  h1 { font-size: 22px; margin-bottom: 4px; }
+  h2 { font-size: 17px; margin-top: 26px; border-bottom: 1px solid #ddd; padding-bottom: 4px; }
+  li { margin: 7px 0; }
+  code { background: #f3f3f3; padding: 0 4px; border-radius: 3px; }
+  .note { color: #666; font-size: 13px; }
+  .ws { list-style: none; padding-left: 0; }
+  .ws li { padding-left: 26px; position: relative; }
+  .ws li::before { content: ""; position: absolute; left: 0; top: 5px; width: 13px; height: 13px; border: 1.5px solid #888; border-radius: 3px; }
+  .mock { font-size: 13px; padding: 12px 14px; border: 1px solid #eee; border-radius: 8px; margin: 12px 0; }
+  .chip { display: inline-block; border: 1px solid #999; border-radius: 12px; padding: 1px 9px; margin: 5px 4px 0 0; }
+  .chip.sug { border: 2px solid #8b5cf6; }
+</style>
+
+<h1>Built-in card labels: category, complexity, priority</h1>
+<p class="note">The plan doc <code>docs/plan/card-labels.md</code>, which Obeya shows as a project in place of the idea. Nothing is built yet.</p>
+
+<h2>Goal</h2>
+<p>Every card gets built-in labels beside its priority: a category with a sub-category, and a complexity of 1, 2, 3, 5 or 8. Where the owner leaves a label empty, Obeya suggests one in the short session that already names a card, and marks it as its suggestion until the owner touches it. Which labels Obeya may suggest is a toggle per canvas; new canvases take their toggles from "Canvas defaults" in the Konfiguration dialog. The labels are the owner's only: stored in this Obeya, never in plan docs, not told to agents.</p>
+
+<div class="mock">
+  <div>Obeya suggested:</div>
+  <span class="chip sug">Backend</span><span class="chip sug">Bug fix</span><span class="chip sug">3</span>
+  <div style="margin-top:10px">After the owner touched them:</div>
+  <span class="chip">Backend</span><span class="chip">Refactor</span><span class="chip">3</span>
+</div>
+
+<h2>Shape</h2>
+<ul>
+  <li><b>Fixed lists</b>, the same for every repository. Category: Frontend, Backend, Data Migration, Docs, Tooling. Sub-category: Refactor, New feature, Bug fix, Configuration.</li>
+  <li><b>Complexity</b> 1, 2, 3, 5, 8, with one line per step, the same text in the tooltip and in the suggestion skill.</li>
+  <li><b>Suggestions</b> fill only empty labels and never overwrite. A purple border on the label chip marks them; any touch by the owner (same value, another one, or „Keine“) clears it.</li>
+  <li><b>Purple is not violet</b>: the mark is on the chip only, never the card's frame, so it can't read as a proposal.</li>
+  <li><b>When</b>: in the naming call for a card without a title; for a titled card, one short call at its start. No call when nothing is left to suggest.</li>
+  <li><b>„CLAUDE.md ergänzen“</b> gets Docs / Configuration from Obeya itself, marked as suggested.</li>
+  <li><b>Per-canvas toggles</b> for Category, Complexity, Priority (on by default), and matching <b>Canvas defaults</b>; a test fails when a canvas setting has no default.</li>
+</ul>
+
+<h2>Workstreams</h2>
+<ul class="ws">
+  <li><b>W1:</b> Labels in the data and the API: fields, "suggested" marks, never-overwrite rule, lists in one shared place.</li>
+  <li><b>W2:</b> Pickers and chips on the card, the purple suggested state, phone view.</li>
+  <li><b>W3:</b> The suggestion skill and its hook into the naming session and the start.</li>
+  <li><b>W4:</b> Canvas toggles „Obeya schlägt vor“, Canvas defaults, and the sync test.</li>
+  <li><b>W5:</b> „CLAUDE.md ergänzen“ is labelled Docs / Configuration.</li>
+  <li><b>W6:</b> Design docs updated; the plan doc goes.</li>
+</ul>
+<p class="note">Order: W1 first; W2, W3, W4 in any order after it; W5 needs only W1; W6 closes the project.</p>
+<script>(() => {
+  let last = 0, box = -1, again = 0;
+  const say = () => {
+    const html = document.documentElement;
+    if (!innerHeight || !innerWidth) { again ||= setTimeout(() => { again = 0; say(); }, 200); return; }
+    html.style.setProperty('overflow-y', 'hidden');
+    const own = Math.ceil(html.getBoundingClientRect().height);
+    const bar = innerHeight - html.clientHeight;
+    const h = html.scrollHeight > html.clientHeight ? Math.max(own, html.scrollHeight) + bar : own === box ? last : own + bar;
+    box = own;
+    if (h !== last) { last = h; parent.postMessage({ obeyaHeight: h }, '*'); }
+    if (innerHeight < h) html.style.removeProperty('overflow-y');
+  };
+  addEventListener('load', say);
+  addEventListener('resize', say);
+  new ResizeObserver(say).observe(document.documentElement);
+})();</script><script>(() => {
+  let viewer, origin;
+  const close = () => { if (!viewer) return; viewer.remove(); viewer = null; if (origin && origin.isConnected) origin.focus({ preventScroll: true }); origin = null; parent.postMessage({ obeyaImage: false }, '*'); };
+  const open = (img) => {
+    if (viewer) return;
+    origin = img;
+    viewer = document.createElement('div');
+    viewer.setAttribute('role', 'dialog'); viewer.setAttribute('aria-label', img.alt || 'Image');
+    viewer.style.cssText = 'position:fixed;inset:0;z-index:2147483647;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;cursor:zoom-out;padding:48px;box-sizing:border-box';
+    const copy = document.createElement('img'); copy.src = img.currentSrc || img.src; copy.alt = img.alt;
+    copy.style.cssText = 'all:initial !important;display:block !important;width:auto !important;height:auto !important;max-width:100% !important;max-height:100% !important;object-fit:contain !important';
+    viewer.append(copy); viewer.addEventListener('click', close); document.body.append(viewer);
+    parent.postMessage({ obeyaImage: true }, '*');
+  };
+  addEventListener('message', (e) => { if (e.source === parent && e.data && e.data.obeyaCloseImage) close(); });
+  document.addEventListener('click', (e) => { const img = e.target.closest('img'); if (img && !viewer && !img.closest('a,button')) open(img); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && viewer) { e.preventDefault(); e.stopPropagation(); close(); } else if (e.key === 'Tab' && viewer) { e.preventDefault(); parent.postMessage({ obeyaImageFocus: true }, '*'); } else if ((e.key === 'Enter' || e.key === ' ') && e.target.tagName === 'IMG' && !e.target.closest('a,button') && !viewer) { e.preventDefault(); open(e.target); } });
+  const prepare = () => document.querySelectorAll('img:not([data-obeya-image])').forEach((img) => { if (img.closest('a,button')) return; img.dataset.obeyaImage = '1'; if (!img.hasAttribute('tabindex')) img.tabIndex = 0; img.style.cursor = 'zoom-in'; img.setAttribute('role', 'button'); });
+  new MutationObserver(prepare).observe(document.documentElement, {childList:true, subtree:true});
+  addEventListener('load', prepare);
+})();</script>

@@ -1,0 +1,39 @@
+<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self' https://nickpalenchar.github.io data: blob:; script-src 'self' https://nickpalenchar.github.io 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' data: blob:; style-src 'self' https://nickpalenchar.github.io 'unsafe-inline' data: blob:; form-action 'none'"><meta http-equiv="x-dns-prefetch-control" content="off"><!doctype html><meta charset=utf-8><body style="font:16px sans-serif;padding:24px"><h2>Registered-extension test: already fixed on main</h2>
+<p>Commit <code>0c70c7a1</code> ("Restore worker-start extension events after successful launch") already restores the <code>workerStarted</code> event; the checkout in the card (<code>ad926d62</code>) predates it.</p>
+<ul><li><code>src/extensions/registered.test.ts</code>: pass (also in the full run)</li><li><code>bun run typecheck</code>: clean</li><li>Full suite: 2136 pass, 24 skip; a few load-dependent failures vary run to run (worktree rebase, keep-awake timing, git worktree cleanup races), none in the extension or worker-start code.</li></ul><script>(() => {
+  let last = 0, box = -1, again = 0;
+  const say = () => {
+    const html = document.documentElement;
+    if (!innerHeight || !innerWidth) { again ||= setTimeout(() => { again = 0; say(); }, 200); return; }
+    html.style.setProperty('overflow-y', 'hidden');
+    const own = Math.ceil(html.getBoundingClientRect().height);
+    const bar = innerHeight - html.clientHeight;
+    const h = html.scrollHeight > html.clientHeight ? Math.max(own, html.scrollHeight) + bar : own === box ? last : own + bar;
+    box = own;
+    if (h !== last) { last = h; parent.postMessage({ obeyaHeight: h }, '*'); }
+    if (innerHeight < h) html.style.removeProperty('overflow-y');
+  };
+  addEventListener('load', say);
+  addEventListener('resize', say);
+  new ResizeObserver(say).observe(document.documentElement);
+})();</script><script>(() => {
+  let viewer, origin;
+  const close = () => { if (!viewer) return; viewer.remove(); viewer = null; if (origin && origin.isConnected) origin.focus({ preventScroll: true }); origin = null; parent.postMessage({ obeyaImage: false }, '*'); };
+  const open = (img) => {
+    if (viewer) return;
+    origin = img;
+    viewer = document.createElement('div');
+    viewer.setAttribute('role', 'dialog'); viewer.setAttribute('aria-label', img.alt || 'Image');
+    viewer.style.cssText = 'position:fixed;inset:0;z-index:2147483647;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;cursor:zoom-out;padding:48px;box-sizing:border-box';
+    const copy = document.createElement('img'); copy.src = img.currentSrc || img.src; copy.alt = img.alt;
+    copy.style.cssText = 'all:initial !important;display:block !important;width:auto !important;height:auto !important;max-width:100% !important;max-height:100% !important;object-fit:contain !important';
+    viewer.append(copy); viewer.addEventListener('click', close); document.body.append(viewer);
+    parent.postMessage({ obeyaImage: true }, '*');
+  };
+  addEventListener('message', (e) => { if (e.source === parent && e.data && e.data.obeyaCloseImage) close(); });
+  document.addEventListener('click', (e) => { const img = e.target.closest('img'); if (img && !viewer && !img.closest('a,button')) open(img); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && viewer) { e.preventDefault(); e.stopPropagation(); close(); } else if (e.key === 'Tab' && viewer) { e.preventDefault(); parent.postMessage({ obeyaImageFocus: true }, '*'); } else if ((e.key === 'Enter' || e.key === ' ') && e.target.tagName === 'IMG' && !e.target.closest('a,button') && !viewer) { e.preventDefault(); open(e.target); } });
+  const prepare = () => document.querySelectorAll('img:not([data-obeya-image])').forEach((img) => { if (img.closest('a,button')) return; img.dataset.obeyaImage = '1'; if (!img.hasAttribute('tabindex')) img.tabIndex = 0; img.style.cursor = 'zoom-in'; img.setAttribute('role', 'button'); });
+  new MutationObserver(prepare).observe(document.documentElement, {childList:true, subtree:true});
+  addEventListener('load', prepare);
+})();</script></body>

@@ -1,0 +1,36 @@
+{
+  "title": "Draft command permissions during setup",
+  "text": "When setting up a repository, Obeya now drafts a list of the commands its agents need for everyday work. The owner can review the proposed commands in Configuration and trust them before they take effect. Existing permissions are retained, and the setup can prepare rules for Codex as well as Claude Code.",
+  "chapters": [
+    [
+      0,
+      "A repository without settings"
+    ],
+    [
+      14.18,
+      "Which agents?"
+    ],
+    [
+      26.9,
+      "The draft in the handover"
+    ],
+    [
+      42.62,
+      "Review and trust it"
+    ],
+    [
+      56.8,
+      "Recap"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/compare/e17fa4962912a6e54fdc7fe75df8abe5ddc559e8...cf933dc4986987702508b963a24f26721c65f384",
+    "several": true
+  },
+  "first": "2026-11-03T11:41:36.516Z",
+  "at": "2026-11-03T11:41:36.516Z",
+  "source": "2ae7efd91fbf899296793047251b811b134840b9319531cbb946a86f97b75b04",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

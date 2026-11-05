@@ -1,0 +1,43 @@
+{
+  "title": "Lander keeps fork-only extensions out of upstream",
+  "text": "Lander, the tool that moves the fork's features toward upstream, now refuses to prepare a feature for upstream when it touches the extension seam. It names the files and the lines that call the extensions. Everyday changes to shared files such as the UI strings still go through. Quarantined features have no promote action at all. When syncing from upstream, Lander keeps the seam intact and reports each place where an upstream change conflicted with one of its call sites.",
+  "chapters": [
+    [
+      0,
+      "Features that stay in the fork"
+    ],
+    [
+      11.01,
+      "No promote action when quarantined"
+    ],
+    [
+      20.99,
+      "A seam call site is refused"
+    ],
+    [
+      33.7,
+      "Ordinary changes to seam files go out"
+    ],
+    [
+      45.15,
+      "Ready to push"
+    ],
+    [
+      48.43,
+      "Sync keeps the seam"
+    ],
+    [
+      63.28,
+      "Recap"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/11f816b805cba0ed9881ff856f403e54b9965e95"
+  },
+  "first": "2026-11-03T19:00:34.274Z",
+  "at": "2026-11-03T19:00:34.274Z",
+  "source": "9ef73af763085da25dbccf1e13c9e07bb90277b7e63b9f503e67aa01e946db78",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

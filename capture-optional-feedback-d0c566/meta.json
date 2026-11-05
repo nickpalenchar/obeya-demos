@@ -1,0 +1,43 @@
+{
+  "title": "Rate the agent's work after approval",
+  "text": "After approving a card, Obeya now asks how well the agent did: one to five stars and an optional comment, saved with the model that did the work. The prompt can be skipped and never holds up the approval. The card keeps asking until it is answered, and the rating can be changed later. A setting under Configuration → General turns it off without deleting ratings already given.",
+  "chapters": [
+    [
+      0,
+      "Approving work"
+    ],
+    [
+      10.02,
+      "The prompt"
+    ],
+    [
+      20.75,
+      "Stars and a comment"
+    ],
+    [
+      31.21,
+      "Skipping"
+    ],
+    [
+      39.3,
+      "Back on the card"
+    ],
+    [
+      50.32,
+      "Turning it off"
+    ],
+    [
+      58.52,
+      "Recap"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/a0171de483255991bc4be0bebb8b02c72b7856a8"
+  },
+  "first": "2026-11-03T21:51:04.784Z",
+  "at": "2026-11-03T21:51:04.784Z",
+  "source": "8a8e123125fda19c4be4b5f433ed2bf6ba371892c0e8c4d6a81cabf45e3624ab",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

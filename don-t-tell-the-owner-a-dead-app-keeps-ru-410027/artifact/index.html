@@ -1,0 +1,34 @@
+<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self' https://nickpalenchar.github.io data: blob:; script-src 'self' https://nickpalenchar.github.io 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' data: blob:; style-src 'self' https://nickpalenchar.github.io 'unsafe-inline' data: blob:; form-action 'none'"><meta http-equiv="x-dns-prefetch-control" content="off"><!doctype html><meta charset="utf-8"><title>Dead app no longer "keeps running"</title>
+<style>body{font:15px/1.5 system-ui;margin:24px;max-width:760px;color:#222}h1{font-size:20px}pre{background:#f4f4f4;padding:12px;border-radius:6px;overflow:auto}.bad{border-left:4px solid #c33}.good{border-left:4px solid #2a7}table{border-collapse:collapse}td,th{padding:4px 10px;border:1px solid #ddd;text-align:left}</style>
+<h1>A Codex agent dies while its card waits for the owner</h1>
+<p>Measured with <code>bun scripts/harness-crash-probe.ts codex agent-death</code> (macOS, Codex CLI 0.162.0, real worker): the card asked a question, parking kept the app (<code>app.keep</code> exit 0), then the Codex app-server was SIGKILLed. The process tracker ended the app with it.</p>
+<h2>Before (as reported on the card)</h2>
+<pre class="bad">keep.log:  keep
+           keep          ← parking ran again after the death
+card log:  Codex app-server exited (SIGKILL)
+           The app in the workspace keeps running while the card waits: it holds data that should stay.   ← false, the app is dead</pre>
+<h2>After (this change, measured)</h2>
+<pre class="good">appAlive:  false
+keep.log:  keep          ← only the park before the death
+card log:  Codex app-server exited (SIGKILL)      ← nothing else</pre>
+<table><tr><th>Case</th><th>Result</th></tr>
+<tr><td>Codex session dies (app-server killed or fails)</td><td>Not parked again; pending park cancelled; a keep check that finishes after the death logs nothing; the card's app address is cleared.</td></tr>
+<tr><td>Claude worker (app really survives)</td><td>Unchanged: no <code>ended</code> flag, parking and the "keeps running" line work as before.</td></tr>
+<tr><td>Regression tests (fake runtime)</td><td>Death after the first park, and death before the grace is over: no second/any "keeps running" line.</td></tr></table>
+<script>(() => {
+  let last = 0, box = -1, again = 0;
+  const say = () => {
+    const html = document.documentElement;
+    if (!innerHeight || !innerWidth) { again ||= setTimeout(() => { again = 0; say(); }, 200); return; }
+    html.style.setProperty('overflow-y', 'hidden');
+    const own = Math.ceil(html.getBoundingClientRect().height);
+    const bar = innerHeight - html.clientHeight;
+    const h = html.scrollHeight > html.clientHeight ? Math.max(own, html.scrollHeight) + bar : own === box ? last : own + bar;
+    box = own;
+    if (h !== last) { last = h; parent.postMessage({ obeyaHeight: h }, '*'); }
+    if (innerHeight < h) html.style.removeProperty('overflow-y');
+  };
+  addEventListener('load', say);
+  addEventListener('resize', say);
+  new ResizeObserver(say).observe(document.documentElement);
+})();</script>

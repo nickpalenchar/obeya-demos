@@ -1,0 +1,4 @@
+#!/bin/sh
+# A ps as slow as on a busy machine: 1.2 s before it answers.
+sleep 1.2
+exec /bin/ps "$@"

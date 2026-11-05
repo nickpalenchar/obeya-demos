@@ -1,0 +1,15 @@
+{
+  "kind": "html",
+  "title": "Agents skip a hanging test suite",
+  "text": "When the test suite hangs or stalls, an agent working on Obeya now stops it and goes on to the demo and handover without asking. It says in the handover that the tests were skipped. The rule sits next to the existing one about tests that fail under machine load.",
+  "chapters": [],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/36309b0756c107715d925969d62da8902c58c62c"
+  },
+  "first": "2026-11-04T03:37:31.929Z",
+  "at": "2026-11-04T03:37:31.929Z",
+  "source": "b617ccc379ae6b184e7eadc4c0c701ca1f6b6748f80cfda4eaaee8ef8862b0c7",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

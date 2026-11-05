@@ -1,0 +1,38 @@
+<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self' https://nickpalenchar.github.io data: blob:; script-src 'self' https://nickpalenchar.github.io 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' data: blob:; style-src 'self' https://nickpalenchar.github.io 'unsafe-inline' data: blob:; form-action 'none'"><meta http-equiv="x-dns-prefetch-control" content="off"><!doctype html><meta charset="utf-8"><title>Process cleanup results</title>
+<style>body{font:15px/1.5 system-ui;margin:24px;color:#1b1f24;max-width:760px}table{border-collapse:collapse;width:100%;margin:12px 0}th,td{border:1px solid #d0d7de;padding:8px 10px;text-align:left}th{background:#f6f8fa}.ok{background:#e6f6e9}.bad{background:#fdeceb}h1{font-size:22px}h2{font-size:17px;margin-top:28px}code{background:#f0f2f4;padding:1px 4px;border-radius:4px}</style>
+<h1>Process cleanup: what survives when Codex work stops</h1>
+<p>Measured on macOS with the installed Codex CLI 0.162.0 (no model turn), by running a real app-server through Obeya's transport. Each run starts three background heartbeats (same group as the shell; own session; own session whose launcher exits early) plus an unrelated canary process.</p>
+<table><tr><th>How it stops</th><th>Heartbeats</th><th>App-server</th><th>Unrelated canary</th></tr>
+<tr><td>Graceful close</td><td class="ok">all 3 stopped</td><td>gone</td><td class="ok">alive</td></tr>
+<tr><td>Forced close</td><td class="ok">all 3 stopped</td><td>gone</td><td class="ok">alive</td></tr>
+<tr><td>App-server killed (agent death)</td><td class="ok">all 3 stopped</td><td>gone</td><td class="ok">alive</td></tr>
+<tr><td>Obeya itself killed (crash)</td><td class="bad">all 3 keep running</td><td>gone</td><td class="ok">alive</td></tr></table>
+<h2>What this means</h2>
+<ul>
+<li>Cleanup comes from Obeya's own tracking of observed descendants; when Obeya crashes nothing runs it. Crash recovery is a later workstream.</li>
+<li><code>app.keep</code> only decides whether a waiting card's app is parked. It does not protect an app from shutdown: an app started as session work dies with its session, graceful or forced.</li>
+<li>Fixed in this pass: one refused signal no longer spares the other processes (owed ones are retried); the app-server's group is signalled once at exit, not again by later timers; a failed Windows <code>taskkill</code> is reported instead of forgotten.</li>
+</ul>
+<h2>Limits</h2>
+<ul>
+<li>This is best-effort cleanup, not containment. Signalling by number still has a small reuse race, and a process that detaches between samples can escape.</li>
+<li>Windows and native Linux Codex are unverified; macOS only. An earlier host-death probe saw a Codex-managed terminal stop; here the shell-started jobs kept running, so the result depends on how Codex started the process.</li>
+<li>Full test suite: only the headless-browser skill tests fail intermittently here (unrelated to this change); everything else passes, and typecheck is clean.</li>
+</ul>
+<script>(() => {
+  let last = 0, box = -1, again = 0;
+  const say = () => {
+    const html = document.documentElement;
+    if (!innerHeight || !innerWidth) { again ||= setTimeout(() => { again = 0; say(); }, 200); return; }
+    html.style.setProperty('overflow-y', 'hidden');
+    const own = Math.ceil(html.getBoundingClientRect().height);
+    const bar = innerHeight - html.clientHeight;
+    const h = html.scrollHeight > html.clientHeight ? Math.max(own, html.scrollHeight) + bar : own === box ? last : own + bar;
+    box = own;
+    if (h !== last) { last = h; parent.postMessage({ obeyaHeight: h }, '*'); }
+    if (innerHeight < h) html.style.removeProperty('overflow-y');
+  };
+  addEventListener('load', say);
+  addEventListener('resize', say);
+  new ResizeObserver(say).observe(document.documentElement);
+})();</script>

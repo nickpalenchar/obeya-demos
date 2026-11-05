@@ -1,0 +1,25 @@
+WEBVTT
+
+00:00:00.351 --> 00:00:07.909
+The dark strip at the top shows the browser's address. A canvas now lives at slash c, slash its name, instead of a query parameter.
+
+00:00:08.861 --> 00:00:16.280
+Opening a card puts it into the address: slash card, slash a six digit short code, instead of its long id.
+
+00:00:17.232 --> 00:00:23.943
+Reloading the page opens the same card again, straight away. So does a link to it, sent to someone or saved as a bookmark.
+
+00:00:24.894 --> 00:00:32.023
+This card is in the queue. The cards it waits for are now links. A click opens the cart page card in its place, and the address follows.
+
+00:00:32.975 --> 00:00:38.675
+The browser's Back button returns to the queued card, and Back once more closes it. Forward opens it again.
+
+00:00:39.629 --> 00:00:46.746
+Other sentences that name a card are links now as well. This follow up names the coupon card it comes from, and a click opens that card.
+
+00:00:47.698 --> 00:00:54.525
+The long id works in the address too, and turns into the short code. An old link with query parameters is rewritten the same way.
+
+00:00:55.480 --> 00:01:01.192
+Canvases and cards now have addresses that survive a reload, can be shared, and work with Back and Forward.

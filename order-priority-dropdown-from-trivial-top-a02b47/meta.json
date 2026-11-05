@@ -1,0 +1,15 @@
+{
+  "kind": "html",
+  "title": "Priority dropdown in natural order",
+  "text": "The priority menu on a card now reads from Trivial at the top down to Critical at the bottom, matching the order of the levels. Before, it listed them the other way round.",
+  "chapters": [],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/2975492ac03598f88affa171e2857c22567c98d1"
+  },
+  "first": "2026-11-04T14:21:41.611Z",
+  "at": "2026-11-04T14:21:41.611Z",
+  "source": "cb2c5f4ffe13eaea59440c9827a3e0e2b7f51f117f8b8b82706c76ce86c983b5",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

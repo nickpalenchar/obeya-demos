@@ -1,0 +1,779 @@
+{
+ "title": "Card labels: category, sub-category, complexity",
+ "sources": [
+  "src/server/db.ts"
+ ],
+ "before": {
+  "entities": [
+   {
+    "name": "cards",
+    "fields": [
+     {
+      "name": "id",
+      "type": "TEXT",
+      "pk": true
+     },
+     {
+      "name": "canvas_id",
+      "type": "TEXT",
+      "ref": "canvases.id"
+     },
+     {
+      "name": "kind",
+      "type": "TEXT"
+     },
+     {
+      "name": "state",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "need",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "title",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "body",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "x",
+      "type": "REAL"
+     },
+     {
+      "name": "y",
+      "type": "REAL"
+     },
+     {
+      "name": "parent_id",
+      "type": "TEXT",
+      "nullable": true,
+      "ref": "cards.id"
+     },
+     {
+      "name": "plan_ref",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "created_at",
+      "type": "TEXT"
+     },
+     {
+      "name": "updated_at",
+      "type": "TEXT"
+     },
+     {
+      "name": "deleted_at",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "session_id",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "workspace",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "branch",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "status_line",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "detail",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "from_id",
+      "type": "TEXT",
+      "nullable": true,
+      "ref": "cards.id"
+     },
+     {
+      "name": "scope",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "queue",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "pr",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "repo",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "demo",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "archived_at",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "idea",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "prototype_of",
+      "type": "TEXT",
+      "nullable": true,
+      "ref": "cards.id"
+     },
+     {
+      "name": "approved_at",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "landed",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "images",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "plan",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "plan_docs",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "prototype",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "built_on",
+      "type": "TEXT",
+      "nullable": true,
+      "ref": "cards.id"
+     },
+     {
+      "name": "share",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "retro",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "proposal",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "group_id",
+      "type": "TEXT",
+      "nullable": true,
+      "ref": "groups.id"
+     },
+     {
+      "name": "shipped",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "parked",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "held",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "becomes_project",
+      "type": "INTEGER",
+      "default": "0"
+     },
+     {
+      "name": "thread",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "paused",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "unheard",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "app",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "demos",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "waiting_since",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "snoozed",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "files",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "deps",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "collapsed",
+      "type": "INTEGER",
+      "default": "0"
+     },
+     {
+      "name": "kept_in",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "contribution",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "new_repo",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "page_heard",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "pausing",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "agent_setting",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "short",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "priority",
+      "type": "TEXT",
+      "nullable": true
+     }
+    ],
+    "indexes": [
+     {
+      "name": "cards_shared",
+      "columns": [
+       "canvas_id"
+      ]
+     },
+     {
+      "name": "cards_waiting",
+      "columns": [
+       "canvas_id"
+      ]
+     },
+     {
+      "name": "cards_prototypes",
+      "columns": [
+       "canvas_id",
+       "created_at"
+      ]
+     },
+     {
+      "name": "cards_plan_docs",
+      "columns": [
+       "canvas_id"
+      ]
+     },
+     {
+      "name": "cards_open",
+      "columns": [
+       "canvas_id"
+      ]
+     },
+     {
+      "name": "cards_short",
+      "columns": [
+       "short"
+      ],
+      "unique": true
+     }
+    ]
+   },
+   {
+    "name": "groups",
+    "fields": [
+     {
+      "name": "id",
+      "type": "TEXT",
+      "pk": true
+     }
+    ]
+   },
+   {
+    "name": "canvases",
+    "fields": [
+     {
+      "name": "id",
+      "type": "TEXT",
+      "pk": true
+     }
+    ]
+   }
+  ]
+ },
+ "after": {
+  "entities": [
+   {
+    "name": "cards",
+    "fields": [
+     {
+      "name": "id",
+      "type": "TEXT",
+      "pk": true
+     },
+     {
+      "name": "canvas_id",
+      "type": "TEXT",
+      "ref": "canvases.id"
+     },
+     {
+      "name": "kind",
+      "type": "TEXT"
+     },
+     {
+      "name": "state",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "need",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "title",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "body",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "x",
+      "type": "REAL"
+     },
+     {
+      "name": "y",
+      "type": "REAL"
+     },
+     {
+      "name": "parent_id",
+      "type": "TEXT",
+      "nullable": true,
+      "ref": "cards.id"
+     },
+     {
+      "name": "plan_ref",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "created_at",
+      "type": "TEXT"
+     },
+     {
+      "name": "updated_at",
+      "type": "TEXT"
+     },
+     {
+      "name": "deleted_at",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "session_id",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "workspace",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "branch",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "status_line",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "detail",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "from_id",
+      "type": "TEXT",
+      "nullable": true,
+      "ref": "cards.id"
+     },
+     {
+      "name": "scope",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "queue",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "pr",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "repo",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "demo",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "archived_at",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "idea",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "prototype_of",
+      "type": "TEXT",
+      "nullable": true,
+      "ref": "cards.id"
+     },
+     {
+      "name": "approved_at",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "landed",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "images",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "plan",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "plan_docs",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "prototype",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "built_on",
+      "type": "TEXT",
+      "nullable": true,
+      "ref": "cards.id"
+     },
+     {
+      "name": "share",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "retro",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "proposal",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "group_id",
+      "type": "TEXT",
+      "nullable": true,
+      "ref": "groups.id"
+     },
+     {
+      "name": "shipped",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "parked",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "held",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "becomes_project",
+      "type": "INTEGER",
+      "default": "0"
+     },
+     {
+      "name": "thread",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "paused",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "unheard",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "app",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "demos",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "waiting_since",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "snoozed",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "files",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "deps",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "collapsed",
+      "type": "INTEGER",
+      "default": "0"
+     },
+     {
+      "name": "kept_in",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "contribution",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "new_repo",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "page_heard",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "pausing",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "agent_setting",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "short",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "priority",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "category",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "subcategory",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "complexity",
+      "type": "INTEGER",
+      "nullable": true
+     },
+     {
+      "name": "suggested_labels",
+      "type": "TEXT",
+      "nullable": true
+     },
+     {
+      "name": "owner_labels",
+      "type": "TEXT",
+      "nullable": true
+     }
+    ],
+    "indexes": [
+     {
+      "name": "cards_shared",
+      "columns": [
+       "canvas_id"
+      ]
+     },
+     {
+      "name": "cards_waiting",
+      "columns": [
+       "canvas_id"
+      ]
+     },
+     {
+      "name": "cards_prototypes",
+      "columns": [
+       "canvas_id",
+       "created_at"
+      ]
+     },
+     {
+      "name": "cards_plan_docs",
+      "columns": [
+       "canvas_id"
+      ]
+     },
+     {
+      "name": "cards_open",
+      "columns": [
+       "canvas_id"
+      ]
+     },
+     {
+      "name": "cards_short",
+      "columns": [
+       "short"
+      ],
+      "unique": true
+     }
+    ]
+   },
+   {
+    "name": "groups",
+    "fields": [
+     {
+      "name": "id",
+      "type": "TEXT",
+      "pk": true
+     }
+    ]
+   },
+   {
+    "name": "canvases",
+    "fields": [
+     {
+      "name": "id",
+      "type": "TEXT",
+      "pk": true
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,73 @@
+<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self' https://nickpalenchar.github.io data: blob:; script-src 'self' https://nickpalenchar.github.io 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' data: blob:; style-src 'self' https://nickpalenchar.github.io 'unsafe-inline' data: blob:; form-action 'none'"><meta http-equiv="x-dns-prefetch-control" content="off"><!doctype html><html lang="en"><head><meta charset="utf-8"><title>Session lifetimes and crash recovery</title>
+<style>
+body{font:15px/1.5 -apple-system,system-ui,Segoe UI,sans-serif;margin:0;padding:24px 28px;color:#1d2330;background:#fafaf7;max-width:780px}
+h1{font-size:22px;margin:0 0 4px} h2{font-size:16px;margin:28px 0 8px}
+.sub{color:#5b6372;margin:0 0 18px;font-size:13.5px}
+table{border-collapse:collapse;width:100%;font-size:13.5px;background:#fff}
+th,td{border:1px solid #dde1e6;padding:7px 9px;text-align:left;vertical-align:top}
+th{background:#f0f2f5;font-weight:600}
+td.k{font-weight:600;white-space:nowrap}
+.live{background:#fff1e6;color:#9a3d00;font-weight:600} .dead{background:#e8f6ec;color:#17643a;font-weight:600} .none{background:#f0f2f5;color:#5b6372;font-weight:600}
+.note{font-size:12.5px;color:#5b6372;margin-top:6px}
+ul{padding-left:20px;margin:6px 0} li{margin:5px 0}
+.flag{border-left:4px solid #d9480f;background:#fff;padding:10px 14px;margin:14px 0}
+ol{padding-left:22px} ol li{margin:6px 0}
+code{font:12.5px ui-monospace,Menlo,monospace;background:#eef0f3;padding:1px 4px;border-radius:3px}
+</style></head><body>
+<h1>Three lifetimes, and what happens after an Obeya crash</h1>
+<p class="sub">Workstream W3 of “Codex preview hardening, then Pi” · macOS 26 and a Linux ARM64 container · Claude Code 2.1.316, Codex CLI 0.162.0</p>
+
+<h2>What an agent can leave running</h2>
+<table>
+<tr><th>Lifetime</th><th>What it is</th><th>Ends with</th></tr>
+<tr><td class="k">Session work</td><td>Processes the agent's session started and Obeya observed (Codex: every descendant of the app-server, even in a group of its own).</td><td>The session: stop, forced stop, agent death, and, after a crash of Obeya, the next Obeya start on that home. <code>app.keep</code> has no part in it.</td></tr>
+<tr><td class="k">The app</td><td>What serves the card's workspace for the owner to try, started as <code>app.run</code> says.</td><td><code>app.stop</code> (parking, “Stoppen”, handing a clone over, discarding). <code>app.keep</code> and the 30 minutes after “App öffnen” only hold off parking. Obeya never ends an app by process identity.</td></tr>
+<tr><td class="k">External operations</td><td>Pushes, pull requests, deploys, commands on another machine.</td><td>Nothing of Obeya's: not session work, never touched by recovery.</td></tr>
+</table>
+<div class="flag"><b>Where the first two meet:</b> an app that a Codex native terminal started is both. The shorter lifetime wins, so it ends with the session, <code>app.keep</code> or not. An app that must outlive its session would need a handoff Obeya does not have; this is stated, not solved. Claude workers record nothing, so for them the session ends nothing outside their own process group.</div>
+
+<h2>How the next start cleans up after a crash</h2>
+<ol>
+<li>While a Codex session runs, the server holds a lease (a kernel file lock that dies with the process) and a record: the pid and creation time of the app-server and every descendant it observed, written <i>before</i> the app-server can run anything.</li>
+<li>The next Obeya on that home looks at each record only if it can take that record's lease. A live Obeya's records (another instance on the same directory, or its own) are busy and never touched.</li>
+<li>Records from an earlier boot are dropped unsignalled; other hosts, unreadable or unjudgeable records are left alone or quarantined and reported.</li>
+<li>Otherwise only the recorded processes whose pid still shows the recorded creation time are ended, with their descendants. Everything else is left alone. The record goes when none runs; if one survives, the record stays, the next start retries, and a new Codex session in that workspace refuses to start meanwhile (no second writer).</li>
+</ol>
+
+<h2>What was checked</h2>
+<table>
+<tr><th>Case</th><th>Result</th></tr>
+<tr><td class="k">Real Codex card, Obeya SIGKILLed, started again on the same home (3 runs)</td><td class="dead">App the worker started was still running after the crash; the start's sweep logged “recovered” and the app stopped (3 of 3). Unrelated canary alive every time. Record removed.</td></tr>
+<tr><td class="k">Real Claude card, same crash and restart (1 run)</td><td class="none">Nothing recorded, nothing recovered, the app keeps running (unchanged from the W2 probes).</td></tr>
+<tr><td class="k">Owner killed while another owner's lease is live (real processes)</td><td class="dead">The live owner's work, lease and process survive; only the crashed owner's work ends.</td></tr>
+<tr><td class="k">Recorded pid whose creation time differs (a reused pid)</td><td class="dead">Left alone.</td></tr>
+<tr><td class="k">Other host, earlier boot, corrupt record, unwritable registry</td><td class="dead">No signal; reported, quarantined or dropped as designed.</td></tr>
+<tr><td class="k">Signal refused or ineffective</td><td class="dead">Record kept, reported “unrecovered”; the next sweep finishes it.</td></tr>
+<tr><td class="k">Same tests in a Linux ARM64 container</td><td class="dead">All pass, including a crashed host of the real Codex transport.</td></tr>
+</table>
+
+<h2>Limits to know</h2>
+<ul>
+<li>Cleanup, not containment: between the check and the signal a pid can be reused. On macOS the creation time has one-second resolution, so a wrong match needs the same pid reused in the same second the recorded process started.</li>
+<li>An observation lost to a crash before it was written, and a child that detached unseen between two samples, are not recovered.</li>
+<li>Windows records nothing; Claude Code and Pi record nothing yet.</li>
+<li>Recovery results go to the server's log, not onto cards.</li>
+<li>Parking still logs “the app keeps running” after Codex's tracker had ended the app; the new design chapter names this and does not resolve it.</li>
+</ul>
+<script>(() => {
+  let last = 0, box = -1, again = 0;
+  const say = () => {
+    const html = document.documentElement;
+    if (!innerHeight || !innerWidth) { again ||= setTimeout(() => { again = 0; say(); }, 200); return; }
+    html.style.setProperty('overflow-y', 'hidden');
+    const own = Math.ceil(html.getBoundingClientRect().height);
+    const bar = innerHeight - html.clientHeight;
+    const h = html.scrollHeight > html.clientHeight ? Math.max(own, html.scrollHeight) + bar : own === box ? last : own + bar;
+    box = own;
+    if (h !== last) { last = h; parent.postMessage({ obeyaHeight: h }, '*'); }
+    if (innerHeight < h) html.style.removeProperty('overflow-y');
+  };
+  addEventListener('load', say);
+  addEventListener('resize', say);
+  new ResizeObserver(say).observe(document.documentElement);
+})();</script></body></html>

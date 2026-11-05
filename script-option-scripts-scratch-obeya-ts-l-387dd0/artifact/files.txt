@@ -1,0 +1,4 @@
+4096 bytes  /tmp/obeya-scratch-4481/home/obeya.db
+260 bytes  /tmp/obeya-scratch-4481/server.log
+4096 bytes  /tmp/obeya-scratch-4482/home/obeya.db
+276 bytes  /tmp/obeya-scratch-4482/server.log

@@ -1,0 +1,15 @@
+{
+  "kind": "html",
+  "title": "A plan for agent performance feedback",
+  "text": "The project introduces optional feedback after a card is approved and associates it with the model configuration and the work it produced. A later dashboard will help explore the feedback, while keeping the evidence and sample sizes visible. The plan leaves task classification and feedback-driven recommendations for future work.",
+  "chapters": [],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/042f663d0870e6ebce8749c1a0dd95bba9308520"
+  },
+  "first": "2026-11-03T14:08:31.784Z",
+  "at": "2026-11-03T14:08:31.784Z",
+  "source": "61cfb0db5ab3b82dcb955a689b657aad8663709d6bfd4765012c5f7ca0bb7e46",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

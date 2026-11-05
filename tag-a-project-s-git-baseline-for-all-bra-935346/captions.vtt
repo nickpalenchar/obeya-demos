@@ -1,0 +1,19 @@
+WEBVTT
+
+00:00:00.351 --> 00:00:11.415
+Project baseline tagging now appears in Canvas defaults, alongside the other canvas settings. Create project tags starts enabled. This value is copied into canvases created from now on.
+
+00:00:12.425 --> 00:00:24.674
+Turning the default off takes effect immediately. A new Documentation canvas starts with tagging off, and is saved with that choice. The existing Release planning canvas keeps tagging on, so its projects keep their own setting.
+
+00:00:28.357 --> 00:00:39.514
+Starting the first workstream from the release queue captures the current default branch as the project baseline. The conversation shows the actual tag and commit, and this workstream’s branch is linked to that tag.
+
+00:00:40.540 --> 00:00:52.591
+Other work has now landed on the default branch. The second workstream starts from that newer version, while its branch keeps the same project tag and original baseline commit. The reference stays fixed as the project moves forward.
+
+00:00:53.600 --> 00:01:03.608
+Turning the setting off applies to subsequent starts as soon as it is saved. The third workstream starts without a baseline link. Existing tags and links from the earlier workstreams are kept.
+
+00:01:04.560 --> 00:01:16.007
+The earlier workstream still shows its original baseline. Reopening Configuration also shows that the canvas setting stayed off. Each project keeps its own stable starting reference, with tagging controlled in one place.

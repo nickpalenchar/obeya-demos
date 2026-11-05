@@ -1,0 +1,12 @@
+{
+  "kind": "html",
+  "title": "Test runs no longer leave idle processes behind",
+  "text": "Obeya's test suite starts small idle helper processes to test process handling. Previously, a test run that crashed or was killed could leave these behind, running forever. Now every helper is tied to its test run and ends by itself as soon as that run ends, however it ends. This page shows the before/after experiment and the checks.",
+  "chapters": [],
+  "pr": null,
+  "first": "2026-11-05T13:00:43.115Z",
+  "at": "2026-11-05T13:00:43.115Z",
+  "source": "ef5cfc5dc1ed05a91bad2b7a7cf354c78d1751ff2c4929c5f90098a619317439",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

@@ -1,0 +1,8 @@
+/obeya-demos/:slug/artifact/*
+  Content-Security-Policy: sandbox allow-scripts; default-src 'self' https://nickpalenchar.github.io data: blob:; script-src 'self' https://nickpalenchar.github.io 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' data: blob:; style-src 'self' https://nickpalenchar.github.io 'unsafe-inline' data: blob:; form-action 'none'
+  Connection-Allowlist: (response-origin)
+  X-DNS-Prefetch-Control: off
+/obeya-demos/:slug/:n/artifact/*
+  Content-Security-Policy: sandbox allow-scripts; default-src 'self' https://nickpalenchar.github.io data: blob:; script-src 'self' https://nickpalenchar.github.io 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' data: blob:; style-src 'self' https://nickpalenchar.github.io 'unsafe-inline' data: blob:; form-action 'none'
+  Connection-Allowlist: (response-origin)
+  X-DNS-Prefetch-Control: off

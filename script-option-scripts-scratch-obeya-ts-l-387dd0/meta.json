@@ -1,0 +1,15 @@
+{
+  "kind": "html",
+  "title": "scratch-obeya: --list and paths in the stage output",
+  "text": "Staging a scratch Obeya now prints where everything lives: its home folder, repository, state database and server log, alongside the URL and port. The new --list option prints the same for every scratch Obeya still running, and names the stage file each came from, so you can tell which instance is yours without searching /tmp.",
+  "chapters": [],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/a0571363d66bc8f24ce157e22adc109655714be8"
+  },
+  "first": "2026-11-05T13:06:39.302Z",
+  "at": "2026-11-05T13:06:39.302Z",
+  "source": "770bb4a97f68a2550458010523351238448695fdb3a8c2d00aa8bc5468807fa7",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

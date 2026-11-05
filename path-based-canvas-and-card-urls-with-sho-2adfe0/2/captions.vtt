@@ -1,0 +1,7 @@
+WEBVTT
+
+00:00:00.351 --> 00:00:05.738
+Card names that link to a card are now blue as well as underlined, so they read as links at a glance.
+
+00:00:06.693 --> 00:00:13.589
+The short code in the address is hexadecimal: the first six characters of the card's id, digits and the letters a to f.

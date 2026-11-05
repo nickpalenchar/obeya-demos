@@ -1,0 +1,4 @@
+{"name":"Shop","language":"en","cards":[
+{"key":"A","title":"Show the canvas dropdown above the bottom-right minimap","x":40,"y":60,"state":"waiting","need":"question","question":{"text":"The Codex agent could not start: Codex refused the workspace's .codex configuration. Trust it in the repository settings, or pick another agent.","stuck":true}},
+{"key":"B","title":"Ask the owner something","x":380,"y":60,"state":"waiting","need":"question","question":{"text":"Which colour?","options":["Red","Blue"]}},
+{"key":"C","title":"Working normally","x":720,"y":60,"state":"working","statusLine":"Tests running"}]}

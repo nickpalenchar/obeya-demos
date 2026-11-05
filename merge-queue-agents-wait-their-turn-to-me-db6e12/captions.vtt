@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:00.351 --> 00:00:07.549
+Three finished tasks are ready for approval. Faster checkout lands first. While its landing runs, the owner can approve the next tasks too.
+
+00:00:10.170 --> 00:00:22.314
+The cards now show what is happening: Faster checkout is landing on main, Search is first in line, and PDF receipts is second. The queue belongs to the repository, so approvals from another canvas take their place here too.
+
+00:00:23.268 --> 00:00:34.866
+Once checkout lands, Search starts landing and PDF receipts moves up to first in line. The positions update automatically. The owner can also stop a waiting card to withdraw that approval before its landing starts.
+
+00:00:35.819 --> 00:00:49.844
+Checkout discounts changes the same checkout file. Its conversation now records the landed commit and the overlapping file. The worker receives the notice with its next turn and can decide whether to rebase now. Its current turn continues, and an idle worker is not woken.
+
+00:00:50.797 --> 00:01:06.006
+Catalog thumbnails changes a different file, so its conversation gets no landing notice. Checkout documentation only shares a soft documentation path, which does not count either. The queue keeps landings orderly, and the notices reach only workers whose own files overlap.

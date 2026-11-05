@@ -1,0 +1,15 @@
+{
+  "kind": "html",
+  "title": "What survives when an agent or Obeya crashes",
+  "text": "We killed real Claude and Codex workers, and Obeya itself, while each worker had an app running, then checked what was left. When a Codex worker dies, Obeya stops its app; when a Claude worker dies, the app keeps running. If Obeya itself crashes, the app keeps running with either. This tells us where cleanup after crashes still needs work before Obeya supports more agent harnesses.",
+  "chapters": [],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/a1a07ed776df5fccb64f1b1485ec0d661c0136bc"
+  },
+  "first": "2026-11-02T00:45:25.989Z",
+  "at": "2026-11-02T00:45:25.989Z",
+  "source": "b4a2aca2ae28d7135a664b56f2f77c32de1881ad3ad53ccafe808368720b3d33",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

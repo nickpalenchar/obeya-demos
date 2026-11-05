@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.350 --> 00:00:08.767
+The ghost arrow now attaches to whichever edge is closest to the pointer. Move around the target card to choose its left, top, right or bottom edge before connecting.
+
+00:00:09.720 --> 00:00:14.631
+A click connects the chosen edges. The arrow keeps those attachment points after a reload.
+
+00:00:15.586 --> 00:00:20.474
+The trash button stays at the middle of the arrow. After confirmation it removes the manual connection.

@@ -1,0 +1,15 @@
+{
+  "kind": "html",
+  "title": "Baseline test checks restored",
+  "text": "Two test suites failed when run from an Obeya worker because they inherited the worker's environment. The tests now isolate themselves from it, so they give the same result inside and outside a worker. No product behaviour changes.",
+  "chapters": [],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/98f46f9a598a7a610515a79df88d50a367487310"
+  },
+  "first": "2026-11-05T12:38:08.365Z",
+  "at": "2026-11-05T12:38:08.365Z",
+  "source": "2c2d93ee03bd023e4dc9ac92d18742c8d50eb67bf550e39c51d3d1c0921a830f",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

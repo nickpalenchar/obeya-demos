@@ -1,0 +1,28 @@
+WEBVTT
+
+00:00:00.351 --> 00:00:10.417
+After approving an agent's work, the owner rates it with one to five stars. Each rating is kept with the harness, model and effort that did the work. Until now there was nowhere to see them side by side.
+
+00:00:11.369 --> 00:00:18.753
+Under the stars of every rated card there is now a link: Compare ratings. The same button sits beside the feedback setting in Configuration.
+
+00:00:19.705 --> 00:00:35.645
+Agent performance lists every rating from every canvas. Each harness heads its rows, one per model and effort, with how many ratings it has, their average, and a bar that shows how they split from one to five stars. So an average of four reads as mostly fours, or as fives and twos.
+
+00:00:36.598 --> 00:00:49.381
+Rows keep a fixed order and are never sorted by score. A row with fewer than five ratings is greyed and tagged few. Work done by several configurations, or with nothing recorded, gets rows of its own and is never credited to one model.
+
+00:00:50.332 --> 00:00:58.656
+The second view draws every single rating as a dot on the scale, with the median as a line. Here it is plain how much, or how little, each row rests on.
+
+00:00:59.610 --> 00:01:10.163
+The third view puts each model and effort's monthly average above the table, as a line. A month with fewer than five ratings is a hollow point, so a sparse month never looks like a firm trend.
+
+00:01:12.281 --> 00:01:21.627
+A click on a row lists its responses, the latest first: the card, its project and repository, the date, the stars and the comment. Each title links back to its card.
+
+00:01:22.580 --> 00:01:35.769
+The dashboard keeps its filters and open row. Filters narrow it to a canvas, a project or a period. The Reader canvas has only three ratings: too few to compare, so there is no table and no average, only the ratings so far.
+
+00:01:36.720 --> 00:01:45.033
+So the ratings now add up to a comparison by harness, model and effort, which always shows how many ratings it rests on and leads back to the cards behind them.

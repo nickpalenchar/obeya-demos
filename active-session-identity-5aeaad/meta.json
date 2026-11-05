@@ -1,0 +1,28 @@
+{
+  "title": "Working bubbles name their model",
+  "text": "While an agent works on a card, its bubble now shows which harness and model that session runs on, such as Claude Code with Opus or Codex with GPT-5.5. The same goes for Obeya's own reading bubble and for answers being looked up. The label always comes from the session that is actually running, so cards started before a settings change keep showing the model they really use.",
+  "chapters": [
+    [
+      0,
+      "The worker at work names its model"
+    ],
+    [
+      9.6,
+      "Each session names its own"
+    ],
+    [
+      22.31,
+      "Obeya reading names its model too"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/compare/e4af98c597aa5b31be7a4c01466b2ab95e5cd134...a65ffc6f4378bd0e1164a3cb35d058609009345b",
+    "several": true
+  },
+  "first": "2026-11-02T12:24:13.537Z",
+  "at": "2026-11-02T12:24:13.537Z",
+  "source": "4fe300446989e3e6fd5c0652d2e22d8676998bbff25823f7b15f80ed4c9498d2",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

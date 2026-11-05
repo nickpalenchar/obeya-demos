@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.354 --> 00:00:12.951
+Previously, sharing an HTML artifact could run a build-time macro on the sharing machine, with access to its files. A malicious artifact could read private data and put it into the shared page. This example shows that happening.
+
+00:00:13.922 --> 00:00:21.422
+The same report can still be shared as a ZIP. Obeya prepares the artifact for the shared page while keeping its ordinary report module working.
+
+00:00:22.382 --> 00:00:30.625
+With the fix, preparing the same artifact does not run the macro, and the outside file is not read. Normal modules remain bundled for the shared report.

@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:00.351 --> 00:00:07.863
+Cards can be connected directly on the canvas. A dot appears as the pointer approaches it or the card edge, and matches the card’s colour.
+
+00:00:08.843 --> 00:00:17.283
+Click a dot and the ghost arrow follows the pointer. It snaps and highlights the target only when the pointer reaches the card or comes very close. Click again to connect them.
+
+00:00:18.275 --> 00:00:25.404
+The arrow points from the prerequisite to the card that waits. When the second card is started, it stays in the queue until the first is finished.
+
+00:00:26.378 --> 00:00:34.041
+Hover over a manual arrow to reveal its trash button. Confirming removal releases that wait. Existing inferred waits keep their own controls.
+
+00:00:34.999 --> 00:00:40.607
+Projects and their workstreams do not offer manual connection dots. Their ordering is decided from the plan.

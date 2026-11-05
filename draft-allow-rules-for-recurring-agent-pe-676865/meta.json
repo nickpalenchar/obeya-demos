@@ -1,0 +1,15 @@
+{
+  "kind": "html",
+  "title": "Command-specific agent permissions",
+  "text": "A reviewable allow list lets Claude workers perform recurring setup, testing, browser checks and demo recording without a fresh permission question for each matching command. Every rule has a short explanation of its scope. The owner reviews and trusts the configuration in Konfiguration; Codex workers continue to use their own sandbox and approval policy.",
+  "chapters": [],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/0e85b51cb38f014e5b1df86cb33719816161b996"
+  },
+  "first": "2026-11-01T01:10:48.382Z",
+  "at": "2026-11-01T01:10:48.382Z",
+  "source": "867dfc2d5d098df6f1d86482267c3f50214bd4d6e384cd8a4ce5727d33ce66bd",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

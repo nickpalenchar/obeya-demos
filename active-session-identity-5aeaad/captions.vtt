@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.351 --> 00:00:09.000
+Messages already named the model that wrote them, but the bubble of an agent at work did not. Now it does: this card's worker runs in Claude Code, on Opus.
+
+00:00:09.953 --> 00:00:21.702
+The workers were then switched to Codex, and the next card started there. Its bubble says Codex, while the first card still says Claude: each bubble names the session that actually runs, not the current defaults.
+
+00:00:22.655 --> 00:00:28.704
+The same holds where Obeya reads what the owner writes: its reading bubble names the model of the session doing the reading.

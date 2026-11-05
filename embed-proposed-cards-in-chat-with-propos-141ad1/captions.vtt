@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.350 --> 00:00:09.116
+When an agent proposed follow-up work during a card’s conversation, its reply only named the proposal. There was no embedded card to inspect or open from the chat.
+
+00:00:10.070 --> 00:00:22.086
+The conversation now shows Proposed new card as soon as the proposal exists. Beneath it is the clickable card, with the same dotted outline as a proposal on the canvas. The embed stays visible beside the agent’s reply.
+
+00:00:23.049 --> 00:00:33.301
+Clicking the embedded card opens the complete proposal, including the task and why it was suggested. The owner can review it and decide whether to accept it, directly from the conversation where it began.
+
+00:00:34.263 --> 00:00:47.104
+Proposals on another canvas work the same way. An accepted proposal shows its current planned state. A withdrawn proposal keeps its title, without a broken link. The proposed work stays easy to find and understand from the original chat.

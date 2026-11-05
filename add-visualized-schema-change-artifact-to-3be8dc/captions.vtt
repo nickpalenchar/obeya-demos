@@ -1,0 +1,22 @@
+WEBVTT
+
+00:00:00.352 --> 00:00:09.431
+Three cards wait for review. The first one adds two tables to Obeya's own database: agent runs and feedback. Until now, the owner could only see that from the code.
+
+00:00:11.302 --> 00:00:16.782
+Now the worker hands over a schema change page as the first file beside its demo, with a caption.
+
+00:00:17.736 --> 00:00:34.385
+The diagram shows the two new tables in green, every column marked as added. Table, column and type names are set in monospace, as in the code. Dashed beside them, the existing tables they point to, cards and canvases, cut down to their keys, with arrows for each reference.
+
+00:00:35.342 --> 00:00:41.960
+Below the diagram, the changes in words, and the files the worker read them from, so a wrong reading can be checked.
+
+00:00:42.914 --> 00:00:54.977
+The second card adds a short code to the cards table. Here the table is amber: one new column and a new unique index, in green. Only a reference the change makes or drops brings its neighbours, so the many tables around cards stay out.
+
+00:00:55.940 --> 00:01:02.465
+The third card only changes a button label. It touches no data model, so it brings no schema page, just its demo.
+
+00:01:03.426 --> 00:01:15.059
+So a change to the database shows up as a picture, before and after, right where the owner reviews it. The worker reads the models from the migration, and the demo skill draws the page, which stays in the demo folder rather than in git.

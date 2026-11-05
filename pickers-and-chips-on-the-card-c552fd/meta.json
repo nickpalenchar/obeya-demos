@@ -1,0 +1,80 @@
+{
+  "title": "Card labels at a glance",
+  "text": "Cards now show category, sub-category and complexity as compact chips beside their priority. Pickers on unfolded cards and project sheets apply each choice immediately, including None. Purple borders identify suggested labels until you make your own choice, with the same controls on desktop and phone.",
+  "chapters": [
+    [
+      0,
+      "Chips after the priority"
+    ],
+    [
+      16.65,
+      "Suggested labels in purple"
+    ],
+    [
+      28.48,
+      "Four pickers on the unfolded card"
+    ],
+    [
+      37.42,
+      "The complexity scale"
+    ],
+    [
+      50.62,
+      "Category and sub-category"
+    ],
+    [
+      63.07,
+      "Taking over a suggestion"
+    ],
+    [
+      72.1,
+      "Projects"
+    ],
+    [
+      86.53,
+      "On the phone"
+    ],
+    [
+      96.3,
+      "Recap"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/compare/542066ccc121cd4f07d504cc1244777267c03b79...ad926d62230f7dd82e35e3887aa884e9721b24c8",
+    "several": true
+  },
+  "first": "2026-11-05T04:43:17.252Z",
+  "at": "2026-11-05T04:43:17.252Z",
+  "source": "dee83b5edcefecbdcebb61ce44d8f6427bc46c92d6589b3845d10f5614929606",
+  "language": "en",
+  "by": "Nick Palenchar",
+  "more": [
+    {
+      "title": "Updated label borders and complexity scale",
+      "text": "Suggested labels now use the same dashed border and color as proposal cards. Complexity offers seven values, from 1 through 21, in a compact picker without descriptions. The new values apply immediately on desktop and phone.",
+      "chapters": [
+        [
+          0,
+          "Matching proposal borders"
+        ],
+        [
+          9.07,
+          "Seven values, without descriptions"
+        ],
+        [
+          19.56,
+          "Thirteen and twenty-one"
+        ],
+        [
+          28.54,
+          "The same changes on the phone"
+        ]
+      ],
+      "dir": "2",
+      "handed": "2026-11-05T04:42:49.851Z",
+      "at": "2026-11-05T04:43:17.252Z",
+      "source": "a2515708aaf17ac625e0f492045fb40ae5ebe8931e17f660c73f0c699120e982"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "kind": "html",
+  "title": "Codex workers: network and nvm setup for allow-listed commands",
+  "text": "Codex workers run in a sandbox without network, so even routine commands like installing dependencies used to come to the owner as permission questions. Now a command the repository's trusted allow list covers gets network for that one run without a question. Usual shell setup in front of it, like `source ~/.nvm/nvm.sh && nvm use 24`, needs no rule of its own, as long as the sourced file is one the worker can't change. Everything else still asks.",
+  "chapters": [],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/compare/3b465b94a72b3f0d0659c1617435877e9de09449...16153e3c42767d1529947629ef36595c2c1338b9",
+    "several": true
+  },
+  "first": "2026-11-02T20:39:12.864Z",
+  "at": "2026-11-02T20:39:12.864Z",
+  "source": "ae70079472b859cc755734dbb21676d3277eac53f650a22b03825cb58faaf578",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

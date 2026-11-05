@@ -1,0 +1,32 @@
+{
+  "title": "CLAUDE.md rule cards come labelled",
+  "text": "When you accept a rule for a repository's CLAUDE.md, Obeya collects it on an \"Add to CLAUDE.md\" card. That card now arrives labelled Docs and Configuration, so it stands out on the canvas at a glance. Obeya makes the card itself, so these are set labels rather than suggestions, and you can still change them like any other label.",
+  "chapters": [
+    [
+      0.01,
+      "A rule for the repository"
+    ],
+    [
+      8.56,
+      "Labelled at once"
+    ],
+    [
+      19.35,
+      "The owner can still change them"
+    ],
+    [
+      24.78,
+      "Recap"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/compare/04d8d8166c6852bfbf133c805688b08d1c82e35f...42b08679da92c369283a729aac0c3ef09a1316dd",
+    "several": true
+  },
+  "first": "2026-11-05T13:22:12.006Z",
+  "at": "2026-11-05T13:22:12.006Z",
+  "source": "3b0242c7ba51c10a56cf628bebb80a5e3defa353fc21d8d86ef99cb387f9ff0a",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

@@ -1,0 +1,68 @@
+{
+  "title": "Cards get addresses of their own",
+  "text": "Every canvas and every open card now has its own address, like /c/shop/card/118518, with a short code instead of a long ID. Reloading the page keeps the card open, and a link to a card can be shared or bookmarked. The browser's Back and Forward buttons step through the cards you looked at. Where one card mentions another, such as the cards a queued task waits for, the name is now a link that opens that card.",
+  "chapters": [
+    [
+      0,
+      "The canvas has a path"
+    ],
+    [
+      8.51,
+      "An open card is in the address"
+    ],
+    [
+      16.88,
+      "A reload keeps the card open"
+    ],
+    [
+      24.54,
+      "Queued cards link what they wait for"
+    ],
+    [
+      32.63,
+      "Back and Forward"
+    ],
+    [
+      39.28,
+      "Other card names become links too"
+    ],
+    [
+      47.35,
+      "Long ids and old links still work"
+    ],
+    [
+      55.13,
+      "Recap"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/compare/4779db9ebbdd271fa0ffc0165dd7600be2aad740...891ce7cc730e07b3669370901c38626b2bb0e2d8",
+    "several": true
+  },
+  "first": "2026-11-01T12:59:00.157Z",
+  "at": "2026-11-01T12:59:00.157Z",
+  "source": "b75ab0da2f893a65bb8bc7f96d47961683824df1bacea5dcf3763d17c366f2da",
+  "language": "en",
+  "by": "Nick Palenchar",
+  "more": [
+    {
+      "title": "Card links in blue",
+      "text": "Where one card names another, the name is now blue as well as underlined, so it reads as a link at a glance. The short code in a card's address is hexadecimal: the first six characters of the card's ID.",
+      "chapters": [
+        [
+          0,
+          "Card links in blue"
+        ],
+        [
+          6.34,
+          "Short codes are hex"
+        ]
+      ],
+      "dir": "2",
+      "handed": "2026-11-01T12:47:12.839Z",
+      "at": "2026-11-01T12:59:00.157Z",
+      "source": "12af019a1ea334242ea4fba0c375e24483cd7ded9913101bcb8411c334de1266"
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self' https://nickpalenchar.github.io data: blob:; script-src 'self' https://nickpalenchar.github.io 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' data: blob:; style-src 'self' https://nickpalenchar.github.io 'unsafe-inline' data: blob:; form-action 'none'"><meta http-equiv="x-dns-prefetch-control" content="off"><!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Card labels: category, sub-category, complexity</title>
+<style>
+:root { --bg:#f7f6f3; --card:#fff; --ink:#1c1b19; --muted:#6b6862; --line:#d9d5cc; --chip:#f0ede6;
+  --add:#16a34a; --add-bg:#ecfdf3; --chg:#d97706; --chg-bg:#fff7e6; --del:#dc2626; --del-bg:#fef2f2; }
+@media (prefers-color-scheme: dark) { :root { --bg:#161513; --card:#201f1c; --ink:#eeebe5; --muted:#a19d95; --line:#3a3732; --chip:#2c2925;
+  --add:#4ade80; --add-bg:#12261a; --chg:#fbbf24; --chg-bg:#2b2213; --del:#f87171; --del-bg:#2c1616; } }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { padding:20px 20px 28px; }
+.mono, code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size:.92em; }
+h1 { font-size:22px; line-height:1.25; margin:0 0 4px; }
+h2 { font-size:16px; margin:24px 0 8px; }
+.sub { color:var(--muted); margin:0 0 14px; }
+.legend { display:flex; flex-wrap:wrap; gap:14px; color:var(--muted); font-size:13px; margin-bottom:14px; }
+.legend span::before { content:""; display:inline-block; width:10px; height:10px; border-radius:3px; margin-right:6px; vertical-align:-1px; border:2px solid var(--c); }
+.legend .added { --c:var(--add); } .legend .changed { --c:var(--chg); } .legend .removed { --c:var(--del); } .legend .same { --c:var(--line); }
+.diagram { position:relative; display:flex; gap:72px; align-items:flex-start; padding:4px; width:max-content; min-width:100%; }
+.column { display:flex; flex-direction:column; gap:28px; }
+.diagram svg { position:absolute; inset:0; pointer-events:none; overflow:visible; }
+.entity { position:relative; z-index:1; background:var(--card); border:2px solid var(--line); border-radius:10px; min-width:220px; max-width:420px; overflow:hidden; }
+.entity.added { border-color:var(--add); } .entity.changed { border-color:var(--chg); } .entity.removed { border-color:var(--del); }
+.entity.neighbour { border-style:dashed; opacity:.85; }
+.entity header { display:flex; align-items:center; gap:6px; padding:7px 10px; font-weight:600; border-bottom:1px solid var(--line); background:var(--chip); }
+.entity.added header { background:var(--add-bg); } .entity.changed header { background:var(--chg-bg); } .entity.removed header { background:var(--del-bg); }
+.entity header .tag { margin-left:auto; font-weight:500; font-size:12px; color:var(--muted); }
+.entity.added .tag { color:var(--add); } .entity.changed .tag { color:var(--chg); } .entity.removed .tag { color:var(--del); }
+.entity ul { list-style:none; margin:0; padding:4px 0; }
+.entity ul.indexes { border-top:1px solid var(--line); }
+.entity ul.indexes .field { white-space:normal; flex-wrap:wrap; }
+.field { display:flex; align-items:baseline; gap:6px; padding:2px 10px; white-space:nowrap; }
+.field .fname { flex:none; }
+.field .ftype { color:var(--muted); margin-left:auto; padding-left:12px; }
+.field.added { background:var(--add-bg); } .field.added .fname, .field.added .sign { color:var(--add); }
+.field.changed { background:var(--chg-bg); } .field.changed .fname, .field.changed .sign { color:var(--chg); }
+.field.removed { background:var(--del-bg); } .field.removed .fname, .field.removed .sign { color:var(--del); }
+.field.removed .fname, .field.removed .ftype, .entity.removed .ename { text-decoration:line-through; }
+.sign { width:10px; flex:none; font-weight:700; text-align:center; }
+.entity.added .ename { color:var(--add); } .entity.removed .ename { color:var(--del); }
+.badge { font-size:10px; font-weight:600; letter-spacing:.03em; color:var(--muted); border:1px solid var(--line); border-radius:4px; padding:0 4px; }
+.ref { color:var(--muted); font-size:12px; }
+.more { color:var(--muted); font-size:12px; padding:2px 10px 2px 26px; font-style:italic; }
+s { opacity:.7; }
+path.rel { fill:none; stroke:var(--muted); stroke-width:1.5; }
+path.rel.added { stroke:var(--add); stroke-width:2; } path.rel.removed { stroke:var(--del); stroke-dasharray:5 4; }
+marker path { stroke:none; }
+ul.changes { margin:0; padding:0; list-style:none; }
+ul.changes li { padding:3px 0 3px 22px; position:relative; }
+ul.changes li::before { position:absolute; left:4px; font-weight:700; }
+ul.changes li.added::before { content:"+"; color:var(--add); } ul.changes li.changed::before { content:"~"; color:var(--chg); } ul.changes li.removed::before { content:"−"; color:var(--del); }
+.sources { color:var(--muted); font-size:13px; }
+.none { color:var(--muted); }
+</style>
+</head>
+<body>
+<main>
+<h1>Card labels: category, sub-category, complexity</h1>
+<p class="sub">1 entity changed</p>
+<div class="legend"><span class="added">added</span><span class="changed">changed</span><span class="removed">removed</span></div>
+<div class="diagram"><svg aria-hidden="true"><defs><marker id="arrow-added" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" style="fill:var(--add)"/></marker><marker id="arrow-removed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" style="fill:var(--del)"/></marker><marker id="arrow-same" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" style="fill:var(--muted)"/></marker><marker id="arrow-changed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" style="fill:var(--chg)"/></marker></defs></svg>
+<div class="column"><section class="entity changed" data-entity="cards">
+<header><span class="sign">~</span><span class="ename mono">cards</span><span class="tag">changed</span></header>
+<ul><li class="field same" data-entity="cards" data-field="id"><span class="sign"></span><span class="fname mono">id</span><span class="ftype mono">TEXT</span><span class="badge">PK</span></li><li class="field added" data-entity="cards" data-field="category"><span class="sign">+</span><span class="fname mono">category</span><span class="ftype mono">TEXT</span><span class="badge">null</span></li><li class="field added" data-entity="cards" data-field="subcategory"><span class="sign">+</span><span class="fname mono">subcategory</span><span class="ftype mono">TEXT</span><span class="badge">null</span></li><li class="field added" data-entity="cards" data-field="complexity"><span class="sign">+</span><span class="fname mono">complexity</span><span class="ftype mono">INTEGER</span><span class="badge">null</span></li><li class="field added" data-entity="cards" data-field="suggested_labels"><span class="sign">+</span><span class="fname mono">suggested_labels</span><span class="ftype mono">TEXT</span><span class="badge">null</span></li><li class="field added" data-entity="cards" data-field="owner_labels"><span class="sign">+</span><span class="fname mono">owner_labels</span><span class="ftype mono">TEXT</span><span class="badge">null</span></li><li class="more">60 more fields unchanged</li></ul><ul class="indexes"><li class="more">6 more indexes unchanged</li></ul>
+</section></div>
+</div>
+<h2>Changes</h2>
+<ul class="changes"><li class="added"><code>cards.category</code> added as <code>TEXT</code></li><li class="added"><code>cards.subcategory</code> added as <code>TEXT</code></li><li class="added"><code>cards.complexity</code> added as <code>INTEGER</code></li><li class="added"><code>cards.suggested_labels</code> added as <code>TEXT</code></li><li class="added"><code>cards.owner_labels</code> added as <code>TEXT</code></li></ul>
+<h2>Drawn from</h2>
+<p class="sources"><code>src/server/db.ts</code></p>
+</main>
+<script type="application/json" id="relations">[]</script>
+<script>(() => {
+  const data = JSON.parse(document.getElementById('relations').textContent);
+  const diagram = document.querySelector('.diagram');
+  const svg = diagram.querySelector('svg');
+  const find = (sel, entity, field) => [...diagram.querySelectorAll(sel)].find((el) => el.dataset.entity === entity && (field == null || el.dataset.field === field));
+  const draw = () => {
+    const box = diagram.getBoundingClientRect();
+    svg.setAttribute('width', box.width); svg.setAttribute('height', box.height);
+    svg.querySelectorAll('path.rel').forEach((p) => p.remove());
+    for (const r of data) {
+      const from = find('li.field', r.from[0], r.from[1]);
+      const target = find('section.entity', r.to[0]);
+      if (!from || !target) continue;
+      const to = (r.to[1] != null && find('li.field', r.to[0], r.to[1])) || target.querySelector('header');
+      const a = from.getBoundingClientRect(), b = to.getBoundingClientRect();
+      const ea = from.closest('section').getBoundingClientRect(), eb = target.getBoundingClientRect();
+      const ya = a.top + a.height / 2 - box.top, yb = b.top + b.height / 2 - box.top;
+      let xa, xb, da, db;
+      const ca = (ea.left + ea.right) / 2, cb = (eb.left + eb.right) / 2;
+      // beside each other: from the facing sides; one above the other: out on the right and back
+      if (Math.abs(cb - ca) < 40) { xa = ea.right; xb = eb.right; da = 1; db = 1; }
+      else if (cb > ca) { xa = ea.right; xb = eb.left; da = 1; db = -1; }
+      else { xa = ea.left; xb = eb.right; da = -1; db = 1; }
+      xa -= box.left; xb -= box.left;
+      const bend = Math.max(28, Math.abs(xb - xa) / 2.5);
+      const p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      p.setAttribute('d', 'M' + xa + ' ' + ya + ' C' + (xa + da * bend) + ' ' + ya + ' ' + (xb + db * bend) + ' ' + yb + ' ' + xb + ' ' + yb);
+      p.setAttribute('class', 'rel ' + r.status);
+      p.setAttribute('marker-end', 'url(#arrow-' + r.status + ')');
+      svg.appendChild(p);
+    }
+  };
+  addEventListener('load', draw);
+  addEventListener('resize', draw);
+  new ResizeObserver(draw).observe(diagram);
+  draw();
+})();</script>
+<script>(() => {
+  let viewer, origin;
+  const close = () => { if (!viewer) return; viewer.remove(); viewer = null; if (origin && origin.isConnected) origin.focus({ preventScroll: true }); origin = null; parent.postMessage({ obeyaImage: false }, '*'); };
+  const open = (img) => {
+    if (viewer) return;
+    origin = img;
+    viewer = document.createElement('div');
+    viewer.setAttribute('role', 'dialog'); viewer.setAttribute('aria-label', img.alt || 'Image');
+    viewer.style.cssText = 'position:fixed;inset:0;z-index:2147483647;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;cursor:zoom-out;padding:48px;box-sizing:border-box';
+    const copy = document.createElement('img'); copy.src = img.currentSrc || img.src; copy.alt = img.alt;
+    copy.style.cssText = 'all:initial !important;display:block !important;width:auto !important;height:auto !important;max-width:100% !important;max-height:100% !important;object-fit:contain !important';
+    viewer.append(copy); viewer.addEventListener('click', close); document.body.append(viewer);
+    parent.postMessage({ obeyaImage: true }, '*');
+  };
+  addEventListener('message', (e) => { if (e.source === parent && e.data && e.data.obeyaCloseImage) close(); });
+  document.addEventListener('click', (e) => { const img = e.target.closest('img'); if (img && !viewer && !img.closest('a,button')) open(img); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && viewer) { e.preventDefault(); e.stopPropagation(); close(); } else if (e.key === 'Tab' && viewer) { e.preventDefault(); parent.postMessage({ obeyaImageFocus: true }, '*'); } else if ((e.key === 'Enter' || e.key === ' ') && e.target.tagName === 'IMG' && !e.target.closest('a,button') && !viewer) { e.preventDefault(); open(e.target); } });
+  const prepare = () => document.querySelectorAll('img:not([data-obeya-image])').forEach((img) => { if (img.closest('a,button')) return; img.dataset.obeyaImage = '1'; if (!img.hasAttribute('tabindex')) img.tabIndex = 0; img.style.cursor = 'zoom-in'; img.setAttribute('role', 'button'); });
+  new MutationObserver(prepare).observe(document.documentElement, {childList:true, subtree:true});
+  addEventListener('load', prepare);
+})();</script></body>
+</html>

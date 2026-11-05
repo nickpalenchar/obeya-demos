@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:00.352 --> 00:00:12.403
+This repository has no Obeya settings yet, and its allow list names just two commands: install, and the tests. Every other command an agent runs waits for a question. The setup card now also drafts that allow list.
+
+00:00:14.526 --> 00:00:25.521
+A little later, the agent asks which agents to set the list up for. Obeya told it which ones work on this machine: Claude Code, and Codex, since it is installed and signed in here. Both, please.
+
+00:00:27.250 --> 00:00:42.018
+Some time later the agent hands over. It kept the two rules and added what the package scripts, the README and its own recipe for the app have agents run. It left out deploy, which publishes. For Codex outside Obeya it also wrote a rules file from the same list.
+
+00:00:42.972 --> 00:00:56.196
+Approved, the list is on main, and the configuration holds it for review: the rules as trusted before against the draft. One click trusts it, and from then on these commands run without a question, for Claude Code and for Codex workers alike.
+
+00:00:57.149 --> 00:01:08.898
+So setting up a repository now also drafts the commands agents may run without asking, adds to a list that is already there, and asks which agents it is for. Nothing of it counts until the owner trusts it.

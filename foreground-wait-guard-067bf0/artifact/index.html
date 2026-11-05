@@ -1,0 +1,41 @@
+<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self' https://nickpalenchar.github.io data: blob:; script-src 'self' https://nickpalenchar.github.io 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' data: blob:; style-src 'self' https://nickpalenchar.github.io 'unsafe-inline' data: blob:; form-action 'none'"><meta http-equiv="x-dns-prefetch-control" content="off"><!doctype html><meta charset="utf-8"><title>Foreground-wait guard for Codex</title>
+<style>body{font:15px/1.5 system-ui,sans-serif;max-width:760px;margin:24px auto;padding:0 16px;color:#222}
+h1{font-size:22px}h2{font-size:16px;margin-top:26px}.v{background:#e8f5e9;border-left:4px solid #2e7d32;padding:10px 14px;border-radius:4px}
+table{border-collapse:collapse;width:100%}td,th{border:1px solid #ddd;padding:6px 10px;text-align:left;vertical-align:top}th{background:#f5f5f5}
+code{background:#f3f3f3;padding:1px 4px;border-radius:3px}.t{font-family:ui-monospace,monospace;font-size:13px;background:#fafafa;border:1px solid #ddd;padding:10px;border-radius:4px;white-space:pre}</style>
+<h1>Does Codex need Claude's foreground-wait guard?</h1>
+<p class="v"><b>No.</b> A note reaches a Codex worker while a long foreground command is still running, so there is nothing to guard. Codex has no guard; the docs now say why instead of implying one is missing.</p>
+<h2>Why Claude has the guard</h2>
+<p>Claude hands a waiting message to the agent only after its running tool call. A foreground <code>sleep 300</code> would therefore keep the owner's note from the agent for five minutes, so Obeya refuses it.</p>
+<h2>What real Codex 0.162.0 does (scratch runs, 2 Nov 2026)</h2>
+<div class="t">agent runs:  sleep 120 &amp;&amp; echo done            (foreground)
+   7.2 s  command inProgress
+  15.1 s  Obeya sends a note (turn/steer)  → accepted
+  19.5 s  agent: "STEERED"                 ← 4 s later, command still running
+  19.7 s  command is now a background terminal, process alive</div>
+<p>Same result in every run. Without a note the agent just polls the command about every 30 s.</p>
+<h2>Could a native pre-command hook do the job anyway?</h2>
+<table><tr><th>Question</th><th>Result</th></tr>
+<tr><td>Does Codex have <code>PreToolUse</code> hooks?</td><td>Yes (stable). Input and <code>permissionDecision: deny</code> are Claude-shaped; a probe hook blocked <code>sleep 120</code> and the agent was told why.</td></tr>
+<tr><td>Can Obeya pass one per session (<code>-c</code>, <code>thread/start</code> config)?</td><td>Loaded, but trust status <b>untrusted</b>: it never runs. Trusting it per session (<code>hooks.state</code> via <code>-c</code>) is ignored by Codex.</td></tr>
+<tr><td>What makes it run?</td><td>The hook and its hash in the user's own <code>config.toml</code>, i.e. Obeya writing the user's global Codex configuration. That is a trust decision belonging to W8, not worth it for a guard nobody needs.</td></tr></table>
+<h2>Changed</h2>
+<p>Docs only: <code>agents-and-workspaces.md</code>, <code>communication.md</code> and the plan (W9 done). No code, so a running Obeya is not restarted.</p>
+<p>One thing left as is: the shared worker prompt still tells every worker not to wait in the foreground. For Codex that advice is harmless (background waits are still better), so it was not split per harness.</p>
+<script>(() => {
+  let last = 0, box = -1, again = 0;
+  const say = () => {
+    const html = document.documentElement;
+    if (!innerHeight || !innerWidth) { again ||= setTimeout(() => { again = 0; say(); }, 200); return; }
+    html.style.setProperty('overflow-y', 'hidden');
+    const own = Math.ceil(html.getBoundingClientRect().height);
+    const bar = innerHeight - html.clientHeight;
+    const h = html.scrollHeight > html.clientHeight ? Math.max(own, html.scrollHeight) + bar : own === box ? last : own + bar;
+    box = own;
+    if (h !== last) { last = h; parent.postMessage({ obeyaHeight: h }, '*'); }
+    if (innerHeight < h) html.style.removeProperty('overflow-y');
+  };
+  addEventListener('load', say);
+  addEventListener('resize', say);
+  new ResizeObserver(say).observe(document.documentElement);
+})();</script>

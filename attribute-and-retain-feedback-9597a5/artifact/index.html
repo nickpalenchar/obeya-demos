@@ -1,0 +1,94 @@
+<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self' https://nickpalenchar.github.io data: blob:; script-src 'self' https://nickpalenchar.github.io 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' data: blob:; style-src 'self' https://nickpalenchar.github.io 'unsafe-inline' data: blob:; form-action 'none'"><meta http-equiv="x-dns-prefetch-control" content="off"><!doctype html><html lang="en"><meta charset="utf-8"><title>Feedback attribution</title>
+<style>
+body{font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;color:#1d2330;margin:0;padding:28px;max-width:860px;background:#fbfaf7}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:16px;margin:28px 0 8px}p{margin:6px 0}
+.lead{color:#555}
+table{border-collapse:collapse;width:100%;font-size:13.5px;background:#fff;border:1px solid #e3e0d8;border-radius:8px;overflow:hidden}
+th,td{text-align:left;padding:9px 10px;border-top:1px solid #eeebe4;vertical-align:top}th{background:#f3f1ec;font-weight:600;border-top:0}
+.t{font-weight:600}.s{color:#666;font-size:12.5px}
+.cfg{font-family:ui-monospace,Menlo,monospace;font-size:12px;white-space:nowrap}.cfg i,.none,td i{color:#a0522d;font-style:normal}
+.badge{display:inline-block;padding:1px 8px;border-radius:10px;font-size:12px;font-weight:600}
+.single{background:#e3f4e8;color:#216e3a}.mixed{background:#fdf0d8;color:#8a5a00}.missing{background:#eee;color:#555}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.box{background:#fff;border:1px solid #e3e0d8;border-radius:8px;padding:10px 12px}
+.box b{display:block;margin-bottom:2px}.num{font-size:24px;font-weight:700}
+code{background:#f0eee8;padding:0 4px;border-radius:4px;font-size:12.5px}
+ul{margin:6px 0;padding-left:20px}
+</style>
+<h1>Feedback is credited to the session that did the work</h1>
+<p class="lead">W1 of “Feedback on agent performance”: the storage behind the feedback prompt (W2) and the dashboard (W3). There is no new screen yet; this page shows what Obeya now records and how it decides whom a response credits.</p>
+
+<h2>What Obeya keeps</h2>
+<ul>
+<li><b>Every worker session</b> is recorded with the harness, the model it actually resolved to (e.g. <code>claude-opus-5-5</code>, not the alias “opus”) and the effort it ran with, from the moment it starts. Changing the defaults later changes nothing about it.</li>
+<li><b>Each response</b> belongs to one handover of a card, with a stable link to the card, its title, repository and project as they were, the answer (a rating, a comment or both) and optional facets for later dimensions such as task type or complexity.</li>
+<li>Whom a response credits is <b>frozen when it is given</b>: runs after that handover and later setting changes do not alter it.</li>
+</ul>
+
+<h2>Three outcomes</h2>
+<div class="grid">
+<div class="box"><span class="badge single">single</span><b>One configuration did the work</b>That one is credited, even where a field is unknown.</div>
+<div class="box"><span class="badge mixed">mixed</span><b>Several did</b>All are listed, none is credited alone, so no model gets credit for another's work.</div>
+<div class="box"><span class="badge missing">missing</span><b>Nothing is known</b>No model is credited; unknown is never filled in from today's defaults.</div>
+</div>
+
+<h2>Scenarios, as the code stores them</h2>
+<table><tr><th>Card</th><th>Sessions up to the handover</th><th>Attribution</th><th>Credited</th></tr>
+<tr><td><div class="t">Export meter readings as CSV</div><div class="s">One Opus session, resumed after the default changed to Sonnet</div></td><td><span class="cfg"><b>claude</b> · claude-opus-5-5 · high</span></td><td><span class="badge single">single</span></td><td><span class="cfg"><b>claude</b> · claude-opus-5-5 · high</span></td></tr>
+<tr><td><div class="t">Fix the phone keyboard closing on Send</div><div class="s">Started on Sonnet, restarted on Codex</div></td><td><span class="cfg"><b>claude</b> · claude-sonnet-5-5 · medium</span><br><span class="cfg"><b>codex</b> · gpt-6.1-terra · high</span></td><td><span class="badge mixed">mixed</span></td><td><span class="none">nobody</span></td></tr>
+<tr><td><div class="t">Rename the archive button</div><div class="s">Opus did the work; a Codex session started after the handover</div></td><td><span class="cfg"><b>claude</b> · claude-opus-5-5 · high</span></td><td><span class="badge single">single</span></td><td><span class="cfg"><b>claude</b> · claude-opus-5-5 · high</span></td></tr>
+<tr><td><div class="t">An old card from before runs were recorded</div><div class="s">No session was ever recorded</div></td><td><i>no session recorded</i></td><td><span class="badge missing">missing</span></td><td><span class="none">nobody</span></td></tr>
+<tr><td><div class="t">Attribute and retain feedback</div><div class="s">Workstream of project “Feedback on agent performance” (<code>docs/plan/model-feedback.md</code>), facet type: feature</div></td><td><span class="cfg"><b>claude</b> · claude-opus-5-5 · high</span></td><td><span class="badge single">single</span></td><td><span class="cfg"><b>claude</b> · claude-opus-5-5 · high</span></td></tr>
+</table>
+
+<h2>Clicking twice, or changing your mind</h2>
+<p>Sending the same response twice for “Export meter readings as CSV” left <b>1</b> stored response. Sending a different one for the same handover replaced the answer (rating 4 → 3, comment “Good, but missed the empty-file case.”) and kept whom it credits. A new handover gets a response of its own.</p>
+<p>Refused before anything is kept:</p><ul><li><code>{&quot;answer&quot;:{}} → a response needs a rating or a comment</code></li><li><code>{&quot;answer&quot;:{&quot;rating&quot;:&quot;great&quot;}} → a rating is a number</code></li><li><code>{&quot;answer&quot;:{&quot;rating&quot;:4},&quot;handover&quot;:999} → no such handover on the card</code></li><li><code>work not approved yet → only approved work takes feedback</code></li><li><code>card without a handover → the card has not handed over any work</code></li></ul>
+
+<h2>Cards from before this change</h2>
+<p>The migration fills in the sessions of existing cards from what they already hold: the last session's pinned setting, and the harness and model their worker's messages name. Run on a copy of your current database it took <b>7 ms</b>:</p>
+<div class="grid">
+<div class="box"><span class="num">63</span><br>cards with known sessions (69 sessions)</div>
+<div class="box"><span class="num">6</span><br>cards worked on by more than one configuration: they will show as <i>mixed</i></div>
+<div class="box"><span class="num">16</span><br>sessions whose effort is unknown (older than pinned settings, or ambiguous); 5 with unknown model</div>
+</div>
+
+<h2>Open for the next workstreams</h2>
+<ul><li>W2 decides with you the rating scale and whether to ask for a comment, and builds the prompt after approval. The store accepts any numeric rating and an optional comment.</li>
+<li>W3 builds the dashboard; the stored responses already carry project, card link and attribution for grouping.</li></ul>
+</html><script>(() => {
+  let last = 0, box = -1, again = 0;
+  const say = () => {
+    const html = document.documentElement;
+    if (!innerHeight || !innerWidth) { again ||= setTimeout(() => { again = 0; say(); }, 200); return; }
+    html.style.setProperty('overflow-y', 'hidden');
+    const own = Math.ceil(html.getBoundingClientRect().height);
+    const bar = innerHeight - html.clientHeight;
+    const h = html.scrollHeight > html.clientHeight ? Math.max(own, html.scrollHeight) + bar : own === box ? last : own + bar;
+    box = own;
+    if (h !== last) { last = h; parent.postMessage({ obeyaHeight: h }, '*'); }
+    if (innerHeight < h) html.style.removeProperty('overflow-y');
+  };
+  addEventListener('load', say);
+  addEventListener('resize', say);
+  new ResizeObserver(say).observe(document.documentElement);
+})();</script><script>(() => {
+  let viewer, origin;
+  const close = () => { if (!viewer) return; viewer.remove(); viewer = null; if (origin && origin.isConnected) origin.focus({ preventScroll: true }); origin = null; parent.postMessage({ obeyaImage: false }, '*'); };
+  const open = (img) => {
+    if (viewer) return;
+    origin = img;
+    viewer = document.createElement('div');
+    viewer.setAttribute('role', 'dialog'); viewer.setAttribute('aria-label', img.alt || 'Image');
+    viewer.style.cssText = 'position:fixed;inset:0;z-index:2147483647;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;cursor:zoom-out;padding:48px;box-sizing:border-box';
+    const copy = document.createElement('img'); copy.src = img.currentSrc || img.src; copy.alt = img.alt;
+    copy.style.cssText = 'all:initial !important;display:block !important;width:auto !important;height:auto !important;max-width:100% !important;max-height:100% !important;object-fit:contain !important';
+    viewer.append(copy); viewer.addEventListener('click', close); document.body.append(viewer);
+    parent.postMessage({ obeyaImage: true }, '*');
+  };
+  addEventListener('message', (e) => { if (e.source === parent && e.data && e.data.obeyaCloseImage) close(); });
+  document.addEventListener('click', (e) => { const img = e.target.closest('img'); if (img && !viewer && !img.closest('a,button')) open(img); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && viewer) { e.preventDefault(); e.stopPropagation(); close(); } else if (e.key === 'Tab' && viewer) { e.preventDefault(); parent.postMessage({ obeyaImageFocus: true }, '*'); } else if ((e.key === 'Enter' || e.key === ' ') && e.target.tagName === 'IMG' && !e.target.closest('a,button') && !viewer) { e.preventDefault(); open(e.target); } });
+  const prepare = () => document.querySelectorAll('img:not([data-obeya-image])').forEach((img) => { if (img.closest('a,button')) return; img.dataset.obeyaImage = '1'; if (!img.hasAttribute('tabindex')) img.tabIndex = 0; img.style.cursor = 'zoom-in'; img.setAttribute('role', 'button'); });
+  new MutationObserver(prepare).observe(document.documentElement, {childList:true, subtree:true});
+  addEventListener('load', prepare);
+})();</script>

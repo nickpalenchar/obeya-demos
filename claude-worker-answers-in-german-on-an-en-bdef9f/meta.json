@@ -1,0 +1,27 @@
+{
+  "title": "Workers follow the conversation language",
+  "text": "A worker’s questions and handovers follow the conversation language. This comparison shows the earlier German handover and a fresh English question and handover on the same accented-text task.",
+  "chapters": [
+    [
+      0,
+      "The earlier handover"
+    ],
+    [
+      7.89,
+      "The question in English"
+    ],
+    [
+      16.19,
+      "The handover in English"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/7fb8ea63845d10c1b6a2978ba3784a642e2994cf"
+  },
+  "first": "2026-11-04T17:08:47.467Z",
+  "at": "2026-11-04T17:08:47.467Z",
+  "source": "fbee8fe2321462df73961237c73faafa3edb1c8adf4a731f5b1a5bf7ad662234",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

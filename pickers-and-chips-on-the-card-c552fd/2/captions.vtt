@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.350 --> 00:00:08.465
+Suggested labels now use the same dashed border and color as cards proposed by Obeya. The border stays on each chip until you make your own choice.
+
+00:00:09.418 --> 00:00:18.961
+The complexity picker now offers one, two, three, five, eight, thirteen and twenty-one. The descriptions have been removed, leaving a compact list of numbers.
+
+00:00:19.913 --> 00:00:27.935
+Both new values apply immediately. Choose thirteen, then twenty-one. The chip shows the value with rising bars, and keeps it after a reload.
+
+00:00:28.888 --> 00:00:34.530
+The phone uses the same dashed suggestion borders and the same seven-value picker, without descriptions.

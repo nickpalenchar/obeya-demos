@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:00.351 --> 00:00:16.489
+This repository brings its own Codex configuration in a dot codex folder: settings, an MCP server, and a rule. Codex workers used to refuse to start in such a repository at all. Now the configuration simply waits for the owner's trust, like the Claude Code configuration does.
+
+00:00:17.442 --> 00:00:26.312
+Every line Codex would load is shown. Until it is trusted, Codex workers start with none of it, whatever the user's own Codex settings say about this project.
+
+00:00:27.269 --> 00:00:34.885
+One click trusts exactly what is shown. From then on a Codex worker loads it, but only where its workspace still has these files byte for byte.
+
+00:00:35.838 --> 00:00:45.323
+Later, someone adds a second MCP server to the configuration on the main branch. A few seconds on, the configuration asks again, and shows just the new lines.
+
+00:00:46.292 --> 00:00:54.930
+So a repository's Codex configuration is no longer a reason to refuse Codex. It is loaded once the owner trusts it, and held again when it changes.

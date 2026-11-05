@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.351 --> 00:00:11.230
+An interrupted test run used to leave idle helpers running. This controlled comparison kills the test runner outright, so its cleanup cannot run. All four helpers stay alive, including detached grandchildren.
+
+00:00:12.182 --> 00:00:25.023
+With the fix, the same abrupt stop leaves zero helpers behind. The canary, detached worker, grandchild, and heartbeat helper all exit by themselves, even when the heartbeat helper ignores input closing and termination requests.
+
+00:00:25.976 --> 00:00:38.317
+The helpers follow the test runner itself. An intermediate parent can still die while its children stay alive for a crash recovery check. Once the runner is gone, those helpers end too, preventing another buildup of idle processes.

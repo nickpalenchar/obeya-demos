@@ -1,0 +1,99 @@
+<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self' https://nickpalenchar.github.io data: blob:; script-src 'self' https://nickpalenchar.github.io 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' data: blob:; style-src 'self' https://nickpalenchar.github.io 'unsafe-inline' data: blob:; form-action 'none'"><meta http-equiv="x-dns-prefetch-control" content="off"><!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>A pause is no timeout: the Codex run excerpt</title>
+<style>
+  body { font: 15px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 24px 28px; color: #1d2330; background: #f6f7f9; }
+  h1 { font-size: 20px; margin: 0 0 6px; }
+  p.lead { margin: 0 0 20px; color: #4a5263; }
+  h2 { font-size: 15px; margin: 22px 0 8px; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .box { background: #fff; border: 1px solid #dde1e7; border-radius: 8px; padding: 12px 14px; }
+  .box h3 { font-size: 13px; margin: 0 0 8px; text-transform: uppercase; letter-spacing: .04em; }
+  .before h3 { color: #b4372f; }
+  .after h3 { color: #2a7a3f; }
+  pre { margin: 0; font: 12.5px/1.45 ui-monospace, Menlo, Consolas, monospace; white-space: pre-wrap; word-break: break-word; }
+  .note { margin-top: 8px; font-size: 13px; color: #4a5263; }
+  .bad { background: #fdecea; }
+  .good { background: #e8f5ec; }
+</style>
+</head>
+<body>
+<h1>A pause is no timeout: the Codex run excerpt</h1>
+<p class="lead">When a card finishes, Obeya draws an excerpt of what went wrong in the worker's run, and a small model turns it into friction notes for the work retrospective. For a Codex worker, a command the owner's pause had killed looked like a failed command, so the retrospective proposed a longer "Bash timeout", which Codex does not have.</p>
+
+<h2>The real Codex run from the live acceptance test (paused during <code>bun run slow-check</code>)</h2>
+<div class="pair">
+  <div class="box before">
+    <h3>Before</h3>
+<pre>26 tool calls, the first change to a file after 4.
+<span class="bad">1. Step 12 failed: Bash `bun run slow-check`
+   Error: Exit code -1</span>
+   $ bun scripts/slow-check.ts
+   slow-check: step 1 of 9 done
+   …
+   slow-check: step 4 of 9 done</pre>
+    <div class="note">The retrospective read this as a timeout and proposed adding a 300000 ms Bash timeout to CLAUDE.md.</div>
+  </div>
+  <div class="box after">
+    <h3>After</h3>
+<pre><span class="good">No excerpt: nothing went wrong.</span>
+
+26 tool calls, step 12 cut off by
+the owner's pause, 0 findings.</pre>
+    <div class="note">The rollout records the pause (the turn ends as "interrupted", then the command it was running ends with exit code -1). Obeya reads that as the owner's pause, stop or restart, not as the agent's failure, so the run makes no friction note.</div>
+  </div>
+</div>
+
+<h2>A run with a pause and real friction (from the new test)</h2>
+<div class="box after">
+<pre>3 tool calls, no change to a file.
+<span class="good">The owner paused, stopped or restarted the card during step 1: that call was cut off, no mistake of the agent's.</span>
+1. Steps 1–3: 3 similar Bash calls in a row, 1 failed:
+   <span class="good">⏸ `bun run slow-check` (cut off: the owner paused, stopped or restarted the card)</span>
+   ✗ `bun run slow-check`
+   ✓ `bun run slow-check`
+   Before: "I run the slow check."
+   Error: Exit code 1
+   slow-check: step 6 failed</pre>
+  <div class="note">When the run did go wrong besides, the excerpt still shows that, and it marks where the owner stepped in so the model does not blame the agent for it. An exit code -1 in a turn nobody interrupted still counts as the agent's failure.</div>
+</div>
+<script>(() => {
+  let last = 0, box = -1, again = 0;
+  const say = () => {
+    const html = document.documentElement;
+    if (!innerHeight || !innerWidth) { again ||= setTimeout(() => { again = 0; say(); }, 200); return; }
+    html.style.setProperty('overflow-y', 'hidden');
+    const own = Math.ceil(html.getBoundingClientRect().height);
+    const bar = innerHeight - html.clientHeight;
+    const h = html.scrollHeight > html.clientHeight ? Math.max(own, html.scrollHeight) + bar : own === box ? last : own + bar;
+    box = own;
+    if (h !== last) { last = h; parent.postMessage({ obeyaHeight: h }, '*'); }
+    if (innerHeight < h) html.style.removeProperty('overflow-y');
+  };
+  addEventListener('load', say);
+  addEventListener('resize', say);
+  new ResizeObserver(say).observe(document.documentElement);
+})();</script><script>(() => {
+  let viewer, origin;
+  const close = () => { if (!viewer) return; viewer.remove(); viewer = null; if (origin && origin.isConnected) origin.focus({ preventScroll: true }); origin = null; parent.postMessage({ obeyaImage: false }, '*'); };
+  const open = (img) => {
+    if (viewer) return;
+    origin = img;
+    viewer = document.createElement('div');
+    viewer.setAttribute('role', 'dialog'); viewer.setAttribute('aria-label', img.alt || 'Image');
+    viewer.style.cssText = 'position:fixed;inset:0;z-index:2147483647;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;cursor:zoom-out;padding:48px;box-sizing:border-box';
+    const copy = document.createElement('img'); copy.src = img.currentSrc || img.src; copy.alt = img.alt;
+    copy.style.cssText = 'all:initial !important;display:block !important;width:auto !important;height:auto !important;max-width:100% !important;max-height:100% !important;object-fit:contain !important';
+    viewer.append(copy); viewer.addEventListener('click', close); document.body.append(viewer);
+    parent.postMessage({ obeyaImage: true }, '*');
+  };
+  addEventListener('message', (e) => { if (e.source === parent && e.data && e.data.obeyaCloseImage) close(); });
+  document.addEventListener('click', (e) => { const img = e.target.closest('img'); if (img && !viewer && !img.closest('a,button')) open(img); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && viewer) { e.preventDefault(); e.stopPropagation(); close(); } else if (e.key === 'Tab' && viewer) { e.preventDefault(); parent.postMessage({ obeyaImageFocus: true }, '*'); } else if ((e.key === 'Enter' || e.key === ' ') && e.target.tagName === 'IMG' && !e.target.closest('a,button') && !viewer) { e.preventDefault(); open(e.target); } });
+  const prepare = () => document.querySelectorAll('img:not([data-obeya-image])').forEach((img) => { if (img.closest('a,button')) return; img.dataset.obeyaImage = '1'; if (!img.hasAttribute('tabindex')) img.tabIndex = 0; img.style.cursor = 'zoom-in'; img.setAttribute('role', 'button'); });
+  new MutationObserver(prepare).observe(document.documentElement, {childList:true, subtree:true});
+  addEventListener('load', prepare);
+})();</script></body>
+</html>

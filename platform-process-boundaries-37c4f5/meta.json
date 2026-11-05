@@ -1,0 +1,16 @@
+{
+  "kind": "html",
+  "title": "Stronger process boundaries on Linux and Windows",
+  "text": "Coding agents start background processes such as dev servers, watchers and test runs, and Obeya has to stop them when a session ends. Today it tracks them by sampling the process tree, which misses a process that detaches quickly and keeps nothing running if Obeya itself crashes. We measured two operating-system boundaries with a real Codex agent: a systemd user scope per session on Linux and a Job Object per session on Windows. Both catch what sampling misses, and on Windows the boundary also ends everything when Obeya dies. Neither is in Obeya yet; the page shows what they hold, what still gets out, and what was not tested.",
+  "chapters": [],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/compare/16153e3c42767d1529947629ef36595c2c1338b9...e17fa4962912a6e54fdc7fe75df8abe5ddc559e8",
+    "several": true
+  },
+  "first": "2026-11-03T01:52:24.477Z",
+  "at": "2026-11-03T01:52:24.477Z",
+  "source": "12e4cef53da3ca7e827f6d3cb640c2966f9810fd6df4b3b5aa6c282bc05236c4",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

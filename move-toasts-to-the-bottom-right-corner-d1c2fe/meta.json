@@ -1,0 +1,15 @@
+{
+  "kind": "html",
+  "title": "Toasts move to the bottom-right corner",
+  "text": "Confirmation toasts no longer float above the microphone in the middle of the screen. They now stack in the bottom-right corner, newest last, and shift left when the sidebar opens. The phone layout stays as it was.",
+  "chapters": [],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/0b2904567cc2feac98db6bf55a040d13c2a2afdf"
+  },
+  "first": "2026-11-04T04:02:59.447Z",
+  "at": "2026-11-04T04:02:59.447Z",
+  "source": "a7d10a96b6e26bd68f8bcc7c62f73df69f188057899bc9f703493273154d0e34",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

@@ -1,0 +1,59 @@
+{
+  "title": "Merge into the card furthest along",
+  "text": "Start from a planned task or proposal and choose a partner at any stage. Review covered work and any proposed follow-up before approving the merge. Work already in progress, finished or archived stays intact, and extra requirements become planned follow-up tasks. Two unworked cards can still become one combined task.",
+  "chapters": [
+    [
+      0,
+      "Choose a partner in any state"
+    ],
+    [
+      12.01,
+      "Compare against work already underway"
+    ],
+    [
+      24.7,
+      "Covered completely"
+    ],
+    [
+      36.04,
+      "A request with additional work"
+    ],
+    [
+      51.99,
+      "Check coverage and the fast follow"
+    ],
+    [
+      63.88,
+      "Compare again before approval"
+    ],
+    [
+      72.32,
+      "Approve the extra work"
+    ],
+    [
+      81.77,
+      "Archived work can survive too"
+    ],
+    [
+      95,
+      "The archive stays intact"
+    ],
+    [
+      106.1,
+      "Unworked cards still combine"
+    ],
+    [
+      119.82,
+      "One combined task to approve"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/09ead29d811b2b20ad5986bbc5ed6f1f171de77e"
+  },
+  "first": "2026-11-05T11:48:40.781Z",
+  "at": "2026-11-05T11:48:40.781Z",
+  "source": "e73cb7146d39c5e2f114008ca60d8d96db0acc7152cbded81868af24a57f5e29",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

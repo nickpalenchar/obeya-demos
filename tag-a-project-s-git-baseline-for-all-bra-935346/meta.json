@@ -1,0 +1,40 @@
+{
+  "title": "Project git baselines with canvas defaults",
+  "text": "Set project tagging once under Canvas defaults. New canvases inherit that choice, while existing canvases keep their own setting. Each tagged project shares a stable starting reference across its workstream branches as the default branch advances.",
+  "chapters": [
+    [
+      0,
+      "Project tagging in Canvas defaults"
+    ],
+    [
+      12.08,
+      "New canvases inherit the default"
+    ],
+    [
+      28.01,
+      "The first workstream sets the baseline"
+    ],
+    [
+      40.19,
+      "Later branches share the original tag"
+    ],
+    [
+      53.25,
+      "Turn tagging off for this canvas"
+    ],
+    [
+      64.21,
+      "Existing project references remain"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/compare/0e9d54268a40ca4ddb71a5c3652dffb155acfddb...9debfbc46f5a50368ba732b9cc8adb17e767848f",
+    "several": true
+  },
+  "first": "2026-11-05T12:07:35.323Z",
+  "at": "2026-11-05T12:07:35.323Z",
+  "source": "2be381ec35bfe282b10e6592d11678f7233d96bd4b780ef225cdec23895fcaea",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

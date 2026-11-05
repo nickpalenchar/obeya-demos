@@ -1,0 +1,23 @@
+{
+  "title": "Canvas dropdown opens above the minimap",
+  "text": "The canvas dropdown at the top left used to run under the small map at the bottom left when its list was long, hiding the last entries and their buttons. It now opens above the map, so the whole list stays visible and usable.",
+  "chapters": [
+    [
+      0,
+      "Before: the minimap covers the list"
+    ],
+    [
+      8.55,
+      "After: the dropdown is on top"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/3b465b94a72b3f0d0659c1617435877e9de09449"
+  },
+  "first": "2026-11-02T14:24:52.607Z",
+  "at": "2026-11-02T14:24:52.607Z",
+  "source": "d66c1405699684e1018e9ab934180b22824da1aa23ef02ef805867c79428fd14",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

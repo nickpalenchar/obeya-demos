@@ -1,0 +1,15 @@
+{
+  "kind": "html",
+  "title": "Codex sessions share one process snapshot",
+  "text": "Obeya watches the processes each Codex session starts, so it can clean them up when the session ends. Until now every session ran its own process listing every half second, so the load grew with the number of sessions, and a single slow listing on a busy machine ended a working session. Now all sessions share one listing per tick: with six sessions that is six times fewer listings. A listing that times out is just skipped; a session only ends if its processes can't be watched for half a minute.",
+  "chapters": [],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/e7ca2a597e9595c037bc4dcb7da33db8bc520299"
+  },
+  "first": "2026-11-05T13:23:36.906Z",
+  "at": "2026-11-05T13:23:36.906Z",
+  "source": "ba1f34cbb9a1e494741cc35f23952c7a2cbb20e6819c708a485486761fd97490",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

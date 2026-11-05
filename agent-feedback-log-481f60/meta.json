@@ -1,0 +1,47 @@
+{
+  "title": "Agent Feedback Log",
+  "text": "The Agent performance dashboard compares ratings by harness, model and effort. The new Agent Feedback Log, linked from it, is a page that lists every response given on agents' work, newest first, across all canvases. It can be filtered by canvas, repository, project, period, harness, model, effort and rating, and grouped by configuration, project, repository, canvas, week or month. Each card links back to the card, and the page links back to the dashboard.",
+  "chapters": [
+    [
+      0,
+      "A link from the dashboard"
+    ],
+    [
+      10.12,
+      "Every response, newest first"
+    ],
+    [
+      26.79,
+      "Filters"
+    ],
+    [
+      37.7,
+      "Nothing left"
+    ],
+    [
+      43.1,
+      "Grouping"
+    ],
+    [
+      56.94,
+      "Back to the card"
+    ],
+    [
+      62.71,
+      "And back to the dashboard"
+    ],
+    [
+      69.25,
+      "Recap"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/fa4235bbf103cacaa203ee0ecda720fc85957ca3"
+  },
+  "first": "2026-11-04T14:20:02.379Z",
+  "at": "2026-11-04T14:20:02.379Z",
+  "source": "b2e2a088340f0e50b780fc79357c10c60d61746912e0802f12586d9ddcff9c41",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

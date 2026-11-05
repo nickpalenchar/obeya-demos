@@ -1,0 +1,15 @@
+{
+  "kind": "html",
+  "title": "Two new working rules for agents",
+  "text": "The agent instructions get two new rules. Agents no longer wait on long commands in the foreground: they run tests, typechecks and app starts in the background and wait to be notified. The extension design is described as best effort: the core may grow where a feature needs it, and whoever moves a feature into an extension also untangles the other features mixed into that code.",
+  "chapters": [],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/ab612df3778639b476ccf03e3f3b4a76676a9621"
+  },
+  "first": "2026-11-04T14:29:33.908Z",
+  "at": "2026-11-04T14:29:33.908Z",
+  "source": "15005eb998a1fa060d79cc058c35352b767651d6e82fb90aee45ab3992b8b8ab",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

@@ -1,0 +1,1 @@
+{"name":"Windows Codex snapshot","language":"en","cards":[{"key":"snapshot","title":"Codex starts after a slow first snapshot","body":"On Windows, a cold PowerShell process snapshot should not fail a Codex session.","state":"working","statusLine":"Checking the startup snapshot"}]}

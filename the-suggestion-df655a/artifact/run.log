@@ -1,0 +1,19 @@
+Arrow between cards persists after page reload backend bugFix 3 high [ "category", "subcategory",
+  "complexity", "priority"
+] 1 9701
+Add archived_at column to cards and backfill from archive log entries dataMigration newFeature 3 medium [
+  "category", "subcategory", "complexity", "priority"
+] 1 7570
+Fix the typo in the README install section docs bugFix 1 low [ "category", "subcategory",
+  "complexity", "priority"
+] 1 7230
+Login fails for every user since this morning backend bugFix 3 critical [ "category", "subcategory",
+  "complexity", "priority"
+] 1 3917
+Rename the queue helpers to match the design doc backend refactor 3 low [ "category", "subcategory",
+  "complexity"
+] 1 5725
+Ship a dark theme for the canvas frontend newFeature 5 undefined [ "category", "subcategory",
+  "complexity"
+] 1 3917
+Add retries to the upload script tooling configuration 2 medium undefined 0 1

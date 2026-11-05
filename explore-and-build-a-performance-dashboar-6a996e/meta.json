@@ -1,0 +1,76 @@
+{
+  "title": "Comparing agent ratings by model",
+  "text": "After approving an agent's work you can rate it with one to five stars. Obeya keeps each rating with the harness, model and effort that actually did the work. A new Agent performance dashboard puts those ratings side by side: one row per model and effort, with how many ratings it has, their average and how they split across the stars. You can also see every single rating as a dot, or the monthly average as a line. Rows are never ranked by score. Rows with few ratings are marked as such, and every rating links back to the card it is about.",
+  "chapters": [
+    [
+      0,
+      "A rating after approval"
+    ],
+    [
+      11.02,
+      "Opening the comparison"
+    ],
+    [
+      19.35,
+      "The table"
+    ],
+    [
+      36.25,
+      "Few ratings, no ranking"
+    ],
+    [
+      49.98,
+      "Each rating as a dot"
+    ],
+    [
+      59.26,
+      "Over time"
+    ],
+    [
+      71.93,
+      "Back to the evidence"
+    ],
+    [
+      82.23,
+      "Filters and small samples"
+    ],
+    [
+      96.37,
+      "Recap"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/compare/84a60abd43c00d8cdd388fad8e539e7147ce89db...2931545a3d07a6ec5d71d2c0a8af64ded9663b4d",
+    "several": true
+  },
+  "first": "2026-11-04T03:23:32.366Z",
+  "at": "2026-11-04T03:23:32.366Z",
+  "source": "e7605033bc16229341a232aff6f8937f77ea33bdd55f7c5b8013a295bce1d116",
+  "language": "en",
+  "by": "Nick Palenchar",
+  "more": [
+    {
+      "title": "Agent ratings: narrower bars, dots sized by age",
+      "text": "Two refinements to the agent performance dashboard. The star bars in the table keep to a moderate width. In the view showing each rating, the dots scatter in a loose cloud around their star value, and newer ratings get larger dots, from the last three days down to tiny dots for ratings older than two months.",
+      "chapters": [
+        [
+          0,
+          "Narrower bars"
+        ],
+        [
+          7.01,
+          "Scattered dots, sized by age"
+        ],
+        [
+          20.1,
+          "Recap"
+        ]
+      ],
+      "dir": "2",
+      "handed": "2026-11-04T03:20:47.859Z",
+      "at": "2026-11-04T03:23:32.366Z",
+      "source": "1849e1a808b02e51e98468bca8e0451bc4c031884ba77fe7c3f689f9773831c2"
+    }
+  ]
+}

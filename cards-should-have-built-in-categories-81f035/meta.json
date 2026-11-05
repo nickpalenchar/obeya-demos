@@ -1,0 +1,15 @@
+{
+  "kind": "html",
+  "title": "Plan: built-in card labels",
+  "text": "Cards are getting built-in labels beside their priority: a category (Frontend, Backend, Data Migration, Docs, Tooling) with a sub-category (Refactor, New feature, Bug fix, Configuration), and a complexity of 1, 2, 3, 5 or 8. Obeya suggests the labels you leave empty and marks its suggestions with a purple border until you touch them. Each canvas decides which labels Obeya may suggest, and new canvases start from shared defaults. This page shows the plan's goal and its six workstreams.",
+  "chapters": [],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/fa47c5f4785bf85ae5bca49aa2970b19bc97975b"
+  },
+  "first": "2026-11-04T14:55:10.627Z",
+  "at": "2026-11-04T14:55:10.627Z",
+  "source": "9a03aa538323daf0331cbdefcd29b6f41ee560cb78de0f8f7315272421f5095f",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

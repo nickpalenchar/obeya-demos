@@ -1,0 +1,44 @@
+{
+  "title": "Priorities for cards",
+  "text": "Any card on the canvas, including projects, can now carry a priority from Trivial to Critical. Set it from the opened card (or a project's sheet), and it shows as a coloured flag on the card, from grey for Trivial to red for Critical. It is a label for people only: the queue order stays as you arrange it.",
+  "chapters": [
+    [
+      0,
+      "Priorities on the canvas"
+    ],
+    [
+      12.16,
+      "Six levels, set in the open card"
+    ],
+    [
+      25.58,
+      "Picking one"
+    ],
+    [
+      31.3,
+      "Taking it off"
+    ],
+    [
+      37.44,
+      "Projects too"
+    ],
+    [
+      43.72,
+      "A label only"
+    ],
+    [
+      51.36,
+      "Recap"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/compare/868f7736a644d2ca06d3ee2731ff7cf07cf07276...6d44e0d65c1ced78d7310df6fe31427b12e5eb9b",
+    "several": true
+  },
+  "first": "2026-11-04T11:42:56.736Z",
+  "at": "2026-11-04T11:42:56.736Z",
+  "source": "d685ea642ceb245c7ca74b5f83fd03aa9c46aebe6eedf0b2a6cb1e90353f4c6b",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

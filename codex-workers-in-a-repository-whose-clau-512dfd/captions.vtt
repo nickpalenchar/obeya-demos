@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.350 --> 00:00:09.197
+This repository's Claude Code settings brought a new hook, so they wait for the owner's trust. The workers on this canvas run on Codex, which never reads those settings.
+
+00:00:10.160 --> 00:00:14.688
+Until now, a Codex worker refused to start in such a repository at all.
+
+00:00:16.842 --> 00:00:30.368
+With the change, the same card in the same repository starts. Codex says what it will do and gets to work, while the Claude Code settings stay held. Until they are trusted, Codex asks before every command, even one their allow list names.
+
+00:00:31.322 --> 00:00:39.077
+So held Claude Code settings no longer stop Codex workers. Review cards of outside contributions stay refused for Codex.

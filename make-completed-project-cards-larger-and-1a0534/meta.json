@@ -1,0 +1,28 @@
+{
+  "title": "Readable completed project cards",
+  "text": "Completed workstreams now have wider cards, larger titles, and solid green backgrounds. They remain fully visible when zoomed out, keeping delivered work easy to scan alongside the next tasks. Projects make room for the larger cards.",
+  "chapters": [
+    [
+      0,
+      "Before: small and faded"
+    ],
+    [
+      9.56,
+      "Larger and opaque"
+    ],
+    [
+      22.31,
+      "Readable in the overview"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/compare/00a564e0e9b5480374be164f385a3692c16fa955...34a87d06fb5e369c17b14f5aa62bd06fefcb2f7d",
+    "several": true
+  },
+  "first": "2026-11-05T04:38:38.217Z",
+  "at": "2026-11-05T04:38:38.217Z",
+  "source": "2ca4557fe82fd6f39ecba5df5a98a0da19b51fe06bee7e2fd02b52ad1e84c6b2",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

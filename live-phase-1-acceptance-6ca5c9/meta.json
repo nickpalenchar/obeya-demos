@@ -1,0 +1,16 @@
+{
+  "kind": "html",
+  "title": "Claude and Codex cards, tested live side by side",
+  "text": "A Claude Code card and a Codex card ran at the same time on one canvas with real agents. Both asked a question, hit the account's usage limit and went on by themselves once it reset. Both were paused in the middle of a long check, came through two restarts of Obeya and landed on main. A Codex card now goes on as soon as its usage limit resets, instead of waiting a fixed 15 minutes.",
+  "chapters": [],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/compare/0b2904567cc2feac98db6bf55a040d13c2a2afdf...93035d49463c61ebd66b18a8d415dc128d2ed081",
+    "several": true
+  },
+  "first": "2026-11-04T04:03:50.914Z",
+  "at": "2026-11-04T04:03:50.914Z",
+  "source": "2531bec38105280e79fed2313ff6ba90f19c02d2c6da2f44ce2f5daa865e43b5",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

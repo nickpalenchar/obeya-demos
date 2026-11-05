@@ -1,0 +1,67 @@
+<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self' https://nickpalenchar.github.io data: blob:; script-src 'self' https://nickpalenchar.github.io 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' data: blob:; style-src 'self' https://nickpalenchar.github.io 'unsafe-inline' data: blob:; form-action 'none'"><meta http-equiv="x-dns-prefetch-control" content="off"><!doctype html>
+<html lang="en"><script>(() => {
+  const files = {"stage.json":["application/json;charset=utf-8","eyJuYW1lIjoiV2luZG93cyBDb2RleCBzbmFwc2hvdCIsImxhbmd1YWdlIjoiZW4iLCJjYXJkcyI6W3sia2V5Ijoic25hcHNob3QiLCJ0aXRsZSI6IkNvZGV4IHN0YXJ0cyBhZnRlciBhIHNsb3cgZmlyc3Qgc25hcHNob3QiLCJib2R5IjoiT24gV2luZG93cywgYSBjb2xkIFBvd2VyU2hlbGwgcHJvY2VzcyBzbmFwc2hvdCBzaG91bGQgbm90IGZhaWwgYSBDb2RleCBzZXNzaW9uLiIsInN0YXRlIjoid29ya2luZyIsInN0YXR1c0xpbmUiOiJDaGVja2luZyB0aGUgc3RhcnR1cCBzbmFwc2hvdCJ9XX0K"]};
+  const base = new URL('.', location.href);
+  const file = (url, method) => {
+    if (String(method || 'GET').toUpperCase() !== 'GET') return null;
+    let u;
+    try { u = new URL(url, document.baseURI); } catch { return null; }
+    if (u.origin !== base.origin || !u.pathname.startsWith(base.pathname)) return null;
+    let f;
+    try { f = files[decodeURIComponent(u.pathname.slice(base.pathname.length))]; } catch { return null; }
+    return f && { type: f[0], blob: new Blob([Uint8Array.from(atob(f[1]), (c) => c.charCodeAt(0))], { type: f[0] }) };
+  };
+  const fetch0 = window.fetch;
+  window.fetch = function (input, init) {
+    const req = input instanceof Request ? input : null;
+    const f = file(req ? req.url : input, (init && init.method) || (req && req.method));
+    return f ? Promise.resolve(new Response(f.blob, { headers: { 'content-type': f.type } })) : fetch0.apply(this, arguments);
+  };
+  const open0 = XMLHttpRequest.prototype.open;
+  XMLHttpRequest.prototype.open = function (method, url, ...rest) {
+    const f = file(url, method);
+    return open0.call(this, method, f ? URL.createObjectURL(f.blob) : url, ...rest);
+  };
+})();</script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Codex starts after a slow Windows snapshot</title>
+<style>
+:root{font:16px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#14263b;background:#f5f7f6}*{box-sizing:border-box}body{margin:0;padding:38px 30px}main{max-width:760px;margin:auto}h1{font-size:30px;line-height:1.15;margin:6px 0 12px}h2{font-size:17px;margin:0 0 8px}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:#507666;font-weight:750}.lead{font-size:18px;color:#43566a;max-width:650px;margin:0 0 26px}.card{background:white;border:1px solid #dce5e1;border-radius:16px;padding:24px;margin:14px 0;box-shadow:0 8px 22px #1e413109}.row{display:flex;gap:16px;align-items:center}.row>div:first-child{width:112px;flex:none;font-weight:700}.track{position:relative;height:18px;background:#e5ebe8;border-radius:12px;flex:1;overflow:hidden}.fill{height:100%;border-radius:12px}.old{background:#d77862}.new{background:#3a9675}.marker{position:absolute;top:-4px;height:26px;width:2px;background:#20384b;left:30%}.scale{display:flex;justify-content:space-between;margin:4px 0 0 128px;font-size:12px;color:#647584}.outcome{font-weight:700;margin:8px 0 0 128px}.bad{color:#9b3e31}.good{color:#217456}.note{font-size:14px;color:#516476;margin:18px 0 0}input{width:100%;accent-color:#278866}label{display:block;font-weight:650;margin:0 0 8px}.value{font-variant-numeric:tabular-nums;color:#217456}.footer{font-size:13px;color:#647584;padding:10px 0}
+</style><main><div class="eyebrow">Windows · Codex app-server</div><h1>A slow first process snapshot no longer ends the session</h1><p class="lead">The first PowerShell and CIM launch can take longer than the former three-second limit. The startup snapshot now has fifteen seconds to establish process ownership.</p><section class="card"><h2>First snapshot on a cold runner</h2><label for="duration">PowerShell startup: <span class="value" id="duration-value">5 seconds</span></label><input id="duration" type="range" min="1" max="16" value="5"><div class="row"><div>Before</div><div class="track"><div class="fill old" style="width:18.75%"></div><div class="marker" id="old-marker"></div></div></div><p class="outcome bad" id="old-outcome">Transport fails at 3 seconds</p><div class="row"><div>Now</div><div class="track"><div class="fill new" style="width:93.75%"></div><div class="marker" id="new-marker"></div></div></div><p class="outcome good" id="new-outcome">Ownership verified; Codex session starts</p><div class="scale"><span>0 seconds</span><span>16 seconds</span></div><p class="note">A later snapshot still uses the short limit for normal operation. If that snapshot times out, it gets one fifteen-second retry. Other inspection failures still stop the session.</p></section><p class="footer">The regression test exercises the cold budget, retry and failure behavior. A native Windows snapshot check runs in the Windows build workflow.</p></main>
+<script>const slider=document.getElementById('duration'),value=document.getElementById('duration-value'),old=document.getElementById('old-outcome'),fresh=document.getElementById('new-outcome');function update(){const seconds=Number(slider.value);value.textContent=`${seconds} second${seconds===1?'':'s'}`;document.getElementById('old-marker').style.left=`${seconds/16*100}%`;document.getElementById('new-marker').style.left=`${seconds/16*100}%`;old.textContent=seconds>3?'Transport fails at 3 seconds':'Ownership verified; Codex session starts';old.className=`outcome ${seconds>3?'bad':'good'}`;fresh.textContent=seconds>15?'Inspection times out; session stops':'Ownership verified; Codex session starts';fresh.className=`outcome ${seconds>15?'bad':'good'}`}slider.addEventListener('input',update);update()</script></html>
+<script>(() => {
+  let last = 0, box = -1, again = 0;
+  const say = () => {
+    const html = document.documentElement;
+    if (!innerHeight || !innerWidth) { again ||= setTimeout(() => { again = 0; say(); }, 200); return; }
+    html.style.setProperty('overflow-y', 'hidden');
+    const own = Math.ceil(html.getBoundingClientRect().height);
+    const bar = innerHeight - html.clientHeight;
+    const h = html.scrollHeight > html.clientHeight ? Math.max(own, html.scrollHeight) + bar : own === box ? last : own + bar;
+    box = own;
+    if (h !== last) { last = h; parent.postMessage({ obeyaHeight: h }, '*'); }
+    if (innerHeight < h) html.style.removeProperty('overflow-y');
+  };
+  addEventListener('load', say);
+  addEventListener('resize', say);
+  new ResizeObserver(say).observe(document.documentElement);
+})();</script><script>(() => {
+  let viewer, origin;
+  const close = () => { if (!viewer) return; viewer.remove(); viewer = null; if (origin && origin.isConnected) origin.focus({ preventScroll: true }); origin = null; parent.postMessage({ obeyaImage: false }, '*'); };
+  const open = (img) => {
+    if (viewer) return;
+    origin = img;
+    viewer = document.createElement('div');
+    viewer.setAttribute('role', 'dialog'); viewer.setAttribute('aria-label', img.alt || 'Image');
+    viewer.style.cssText = 'position:fixed;inset:0;z-index:2147483647;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;cursor:zoom-out;padding:48px;box-sizing:border-box';
+    const copy = document.createElement('img'); copy.src = img.currentSrc || img.src; copy.alt = img.alt;
+    copy.style.cssText = 'all:initial !important;display:block !important;width:auto !important;height:auto !important;max-width:100% !important;max-height:100% !important;object-fit:contain !important';
+    viewer.append(copy); viewer.addEventListener('click', close); document.body.append(viewer);
+    parent.postMessage({ obeyaImage: true }, '*');
+  };
+  addEventListener('message', (e) => { if (e.source === parent && e.data && e.data.obeyaCloseImage) close(); });
+  document.addEventListener('click', (e) => { const img = e.target.closest('img'); if (img && !viewer && !img.closest('a,button')) open(img); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && viewer) { e.preventDefault(); e.stopPropagation(); close(); } else if (e.key === 'Tab' && viewer) { e.preventDefault(); parent.postMessage({ obeyaImageFocus: true }, '*'); } else if ((e.key === 'Enter' || e.key === ' ') && e.target.tagName === 'IMG' && !e.target.closest('a,button') && !viewer) { e.preventDefault(); open(e.target); } });
+  const prepare = () => document.querySelectorAll('img:not([data-obeya-image])').forEach((img) => { if (img.closest('a,button')) return; img.dataset.obeyaImage = '1'; if (!img.hasAttribute('tabindex')) img.tabIndex = 0; img.style.cursor = 'zoom-in'; img.setAttribute('role', 'button'); });
+  new MutationObserver(prepare).observe(document.documentElement, {childList:true, subtree:true});
+  addEventListener('load', prepare);
+})();</script>

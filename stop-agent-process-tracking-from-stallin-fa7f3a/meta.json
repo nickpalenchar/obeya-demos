@@ -1,0 +1,12 @@
+{
+  "kind": "html",
+  "title": "Process tracking keeps the server responsive",
+  "text": "Obeya inspects agent processes in the background, keeping pages and agent messages responsive even when the process list is slow. Process cleanup still verifies creation identities and waits for earlier tracking to finish.",
+  "chapters": [],
+  "pr": null,
+  "first": "2026-11-05T11:38:46.253Z",
+  "at": "2026-11-05T11:38:46.253Z",
+  "source": "065dfaef177b22d822205b8cf4eabef555e6f17d17a5d01223ec006f4a9d23c9",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

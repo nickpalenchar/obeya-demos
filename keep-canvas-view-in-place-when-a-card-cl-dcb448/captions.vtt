@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.352 --> 00:00:03.568
+Opening a card brings it to the middle of the canvas and unfolds it.
+
+00:00:04.522 --> 00:00:13.090
+When the card closes, the view no longer jumps back to where it came from. The card folds into its place and stays in the middle, so it can be seen among the cards around it.
+
+00:00:14.044 --> 00:00:16.679
+The canvas stays where you are after a card closes.

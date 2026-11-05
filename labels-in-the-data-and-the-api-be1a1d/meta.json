@@ -1,0 +1,15 @@
+{
+  "kind": "html",
+  "title": "Card labels: category, sub-category and complexity",
+  "text": "Cards can now hold a category, a sub-category and a complexity (1, 2, 3, 5 or 8) next to their priority. Obeya can suggest labels a card doesn't have yet, and marks them as suggestions. It never overwrites a label the owner set, and once the owner clears a label, Obeya doesn't suggest it again. The labels belong to the owner: they're stored in Obeya, not in plan docs, and agents aren't told about them.",
+  "chapters": [],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/04aa0b770a48d4495256b67c40695cce437a3fb1"
+  },
+  "first": "2026-11-04T16:52:43.255Z",
+  "at": "2026-11-04T16:52:43.255Z",
+  "source": "bd6a75a13fb4f130f4d606206b27b2f57844f117693a87509cb4511da25f75df",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

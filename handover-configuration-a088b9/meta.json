@@ -1,0 +1,16 @@
+{
+  "kind": "html",
+  "title": "Configurable handover artifacts",
+  "text": "Which artifacts a handover may bring — a demo video, an HTML page with screenshots, and the schema page for data changes — is now configurable per repository and as a machine default. Agents are briefed and checked against the allowed list, so a project that doesn't want videos or schema pages no longer gets them.",
+  "chapters": [],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/compare/4823e9c796892a5ead8c0f535e43200f4fbcd6b2...4a000ad9604b24d0858d9e3c518aa5757cacaf73",
+    "several": true
+  },
+  "first": "2026-11-04T22:13:40.409Z",
+  "at": "2026-11-04T22:13:40.409Z",
+  "source": "2634545d23cb4cc4052a933b398f4eaa5519ab9509106c69885e29affe59022d",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

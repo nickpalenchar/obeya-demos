@@ -1,0 +1,4 @@
+#!/bin/sh
+# Controlled slow process-table response reproduces the delay in the owner's stall logs.
+sleep 1.2
+exec /bin/ps "$@"

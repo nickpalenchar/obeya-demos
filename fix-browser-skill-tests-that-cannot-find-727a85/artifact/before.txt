@@ -1,0 +1,40 @@
+bun test v1.3.14 (0d9b296a)
+
+plugin/skills/browser/lib/before-fix.test.ts:
+36 |   if (code !== 0) throw new Error(`${args[0]} failed: ${err}${out}`);
+37 |   return out.trim();
+38 | }
+39 | 
+40 | const state = (pid: number) => join(dir, 'obeya-browser', `${pid}.json`);
+41 | const readState = (pid: number) => JSON.parse(readFileSync(state(pid), 'utf8')) as { port: number; pid: number; owner: number };
+                                                   ^
+ENOENT: no such file or directory, open '/var/folders/6r/bh93zclx73x56l03wrjzyzfw0000gn/T/obeya-test-93497-UmCI9S/obeya-browser-test-c8Y1il/obeya-browser/93499.json'
+    path: "/var/folders/6r/bh93zclx73x56l03wrjzyzfw0000gn/T/obeya-test-93497-UmCI9S/obeya-browser-test-c8Y1il/obeya-browser/93499.json",
+ syscall: "open",
+   errno: -2,
+    code: "ENOENT"
+
+      at readState (/Users/nick/.obeya/workspaces/obeya-dev/727a853a/plugin/skills/browser/lib/before-fix.test.ts:41:47)
+      at <anonymous> (/Users/nick/.obeya/workspaces/obeya-dev/727a853a/plugin/skills/browser/lib/before-fix.test.ts:97:35)
+(fail) browser skill > a session drives its own muted browser with trusted input, and it closes with the session [690.19ms]
+36 |   if (code !== 0) throw new Error(`${args[0]} failed: ${err}${out}`);
+37 |   return out.trim();
+38 | }
+39 | 
+40 | const state = (pid: number) => join(dir, 'obeya-browser', `${pid}.json`);
+41 | const readState = (pid: number) => JSON.parse(readFileSync(state(pid), 'utf8')) as { port: number; pid: number; owner: number };
+                                                   ^
+ENOENT: no such file or directory, open '/var/folders/6r/bh93zclx73x56l03wrjzyzfw0000gn/T/obeya-test-93497-UmCI9S/obeya-browser-test-ZtQ37u/obeya-browser/93522.json'
+    path: "/var/folders/6r/bh93zclx73x56l03wrjzyzfw0000gn/T/obeya-test-93497-UmCI9S/obeya-browser-test-ZtQ37u/obeya-browser/93522.json",
+ syscall: "open",
+   errno: -2,
+    code: "ENOENT"
+
+      at readState (/Users/nick/.obeya/workspaces/obeya-dev/727a853a/plugin/skills/browser/lib/before-fix.test.ts:41:47)
+      at <anonymous> (/Users/nick/.obeya/workspaces/obeya-dev/727a853a/plugin/skills/browser/lib/before-fix.test.ts:125:23)
+(fail) browser skill > two sessions never share a browser; stop closes only its own [767.63ms]
+
+ 4 pass
+ 2 fail
+ 12 expect() calls
+Ran 6 tests across 1 file. [5.52s]

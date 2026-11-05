@@ -1,0 +1,22 @@
+WEBVTT
+
+00:00:00.351 --> 00:00:09.418
+Two cards wait for review. Approving one has always been the end of it, with nothing kept on how well the agent did. The CSV export looks good, so it gets approved.
+
+00:00:10.372 --> 00:00:20.148
+Right after the approval, a small prompt asks how well the agent did: one to five stars, and a skip button. The approval itself went through already and never waits for it.
+
+00:00:21.100 --> 00:00:26.406
+A star saves the rating at once. Then an optional comment can say why, and done closes the prompt.
+
+00:00:31.563 --> 00:00:38.692
+The second card was a question; its answer changed no code. It is closed the same way, and asked about too. This time the prompt is skipped.
+
+00:00:39.647 --> 00:00:48.505
+Skipping keeps nothing from coming back to it: the card itself keeps asking until it is answered. The rated card shows its stars and comment, which can still be changed.
+
+00:00:50.669 --> 00:00:57.542
+Who would rather not be asked turns it off under Configuration, General. From then on no card asks, and the ratings already given are kept.
+
+00:00:58.870 --> 00:01:04.640
+So approving stays one click, and how well the agent did is one more, kept with the model that did the work.

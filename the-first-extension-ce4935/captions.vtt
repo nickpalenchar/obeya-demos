@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.350 --> 00:00:11.600
+An agent wants to run the linter, and the repository asks for confirmation first. The question still offers Always allow, between Allow and Deny. That option now comes from an extension, not from the core.
+
+00:00:12.555 --> 00:00:19.753
+Picking it lets the call run, and the extension commits the rule into the allow list on main. The line in the conversation says so.
+
+00:00:20.707 --> 00:00:36.752
+All of the feature now sits in its own folder: the rules, the commit to main, its English and German words, its tests and its design. The core only gained one generic hook, for extra options on a permission question. Without the extension, the question offers Allow and Deny, as upstream does.
+
+00:00:37.704 --> 00:00:46.887
+Extensions are best effort. A feature that does not fit may bolt on with a small hook, so a worker that promotes a feature also checks its diff for pieces of other features.

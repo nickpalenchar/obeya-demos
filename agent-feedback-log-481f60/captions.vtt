@@ -1,0 +1,25 @@
+WEBVTT
+
+00:00:00.351 --> 00:00:09.511
+The Agent performance dashboard compares ratings by harness, model and effort. What it lacked was a plain list of every response by time. Its head now links to the Agent Feedback Log.
+
+00:00:10.465 --> 00:00:26.185
+The log is a page of its own. It lists every response on every canvas, the newest first: the date, the card as a link, the stars, the comment, the configuration that did the work, and project, repository and canvas. A response with only a comment says it has no stars.
+
+00:00:27.138 --> 00:00:37.099
+Besides the dashboard's filters, it filters by harness, model, effort and rating. Here, the opus responses with two stars: the head says how many of all are shown.
+
+00:00:38.052 --> 00:00:41.895
+When the filters leave nothing, the page says so and offers to clear them.
+
+00:00:43.452 --> 00:00:56.339
+It groups by configuration, project, repository, canvas, week or month. By month, each section heads its responses with their count and average. By configuration, the configuration column gives way to the section headings.
+
+00:00:57.293 --> 00:01:02.100
+A card's title leads to the card on its canvas, archived ones out of the archive.
+
+00:01:03.058 --> 00:01:08.642
+Browser back returns to the log as it was. Its link leads back to the dashboard, with the filters the two share.
+
+00:01:09.598 --> 00:01:14.312
+So the dashboard compares, and the log shows every single response behind the numbers.

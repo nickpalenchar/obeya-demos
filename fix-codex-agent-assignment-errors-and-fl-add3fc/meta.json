@@ -1,0 +1,15 @@
+{
+  "kind": "html",
+  "title": "Failed agents show up in red",
+  "text": "When an agent cannot start or dies with an error, its card now turns red with a \"!!\" pin and says \"Agent stopped with an error\", beside the orange \"!\" of questions for you. Codex also no longer refuses to start in repositories that have a .codex folder.",
+  "chapters": [],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/ceb8f8b762d78aae76f28bf82c52558a49dab255"
+  },
+  "first": "2026-11-04T14:22:35.882Z",
+  "at": "2026-11-04T14:22:35.882Z",
+  "source": "eb5e9239e1140b590604227cc8d8697c876a7468bd1fbc771f77b147579edef4",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

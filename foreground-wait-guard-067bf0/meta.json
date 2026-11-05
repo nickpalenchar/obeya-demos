@@ -1,0 +1,15 @@
+{
+  "kind": "html",
+  "title": "Codex needs no foreground-wait guard",
+  "text": "Claude workers are stopped from sleeping in the foreground because a note from the owner would only reach them after the command ends. We checked real Codex: a note sent during a running foreground command arrives within seconds, and the command carries on in the background. So Codex needs no such guard. Native Codex hooks exist, but they only run once trusted in the user's own Codex configuration, which Obeya does not write.",
+  "chapters": [],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/d46419fbed3db109d88af57071e0a9fe86245485"
+  },
+  "first": "2026-11-02T12:24:50.479Z",
+  "at": "2026-11-02T12:24:50.479Z",
+  "source": "5f27fbc9a81f05e9aead47c530134f6910ff5da5f83154b42cea47f32c18d41b",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

@@ -1,0 +1,44 @@
+{
+  "title": "Enlarge images in demo artifacts",
+  "text": "Images in demo artifacts can now be enlarged with a click, making charts and other details easier to read. Close the enlarged view to return to the artifact. The same interaction is available on shared artifact pages.",
+  "chapters": [
+    [
+      0,
+      "Open the image"
+    ],
+    [
+      10.19,
+      "Return to the artifact"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/compare/bfafc9ac52d303b70757c121f226e8bb91d31604...7c903ee78010a4b5b22b54171ff5764904397ee1",
+    "several": true
+  },
+  "first": "2026-11-03T02:38:12.468Z",
+  "at": "2026-11-03T02:38:12.468Z",
+  "source": "339ab67b26aac7bb9c46f48792147a8ec12fe9eb3908c69ceca2752179870d93",
+  "language": "en",
+  "by": "Nick Palenchar",
+  "more": [
+    {
+      "title": "Enlarge images throughout an artifact",
+      "text": "Images in a shared artifact open large with a click, even when the artifact displays them small. Closing returns the reader to the same spot on the page. This works on every page of a multi-page artifact.",
+      "chapters": [
+        [
+          0,
+          "Read the chart without losing your place"
+        ],
+        [
+          10.61,
+          "Continue on another page"
+        ]
+      ],
+      "dir": "2",
+      "handed": "2026-11-03T12:41:56.813Z",
+      "at": "2026-11-03T13:52:59.960Z",
+      "source": "9981cc47d8b74cc0040de7d0da42076fe5421ec88fe62ae6863de9c756e27918"
+    }
+  ]
+}

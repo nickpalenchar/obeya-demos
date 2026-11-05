@@ -1,0 +1,24 @@
+{
+  "title": "Safe sharing of HTML artifacts",
+  "text": "HTML artifacts can be shared without running build-time macros on the sharing machine. Ordinary report modules continue to be bundled into the shared copy. This prevents a malicious artifact from using a macro to include private files in the shared page.",
+  "chapters": [
+    [
+      0,
+      "A file outside the artifact"
+    ],
+    [
+      13.57,
+      "Share the report"
+    ],
+    [
+      22.03,
+      "The macro stays inactive"
+    ]
+  ],
+  "pr": null,
+  "first": "2026-11-01T01:52:28.514Z",
+  "at": "2026-11-01T01:52:28.514Z",
+  "source": "f52b2715782494f33fe072dca4c25fd9f718e19dfe3824f035bbc44e3ae39787",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

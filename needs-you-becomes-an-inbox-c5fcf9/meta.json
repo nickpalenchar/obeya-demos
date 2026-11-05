@@ -1,0 +1,36 @@
+{
+  "title": "The needs-you button becomes an inbox",
+  "text": "The \"need you\" button in the bar now slides out an inbox instead of jumping to a single card. It lists everything that waits for you across all canvases, each entry with its canvas, the card's title and the question. One-click buttons such as Approve answer an entry without opening the card, and Go to card is always there as a plain secondary button.",
+  "chapters": [
+    [
+      0,
+      "The button slides out an inbox"
+    ],
+    [
+      7.94,
+      "Canvas, card, question"
+    ],
+    [
+      18.54,
+      "Quick replies"
+    ],
+    [
+      28.9,
+      "Answer without opening the card"
+    ],
+    [
+      38.27,
+      "Go to card"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/compare/cff6094737fc7aa5c1b88c54297df85cb9851dfd...c6032a5decbc04d0aaacb99972a65296ace63eb3",
+    "several": true
+  },
+  "first": "2026-11-01T12:16:26.193Z",
+  "at": "2026-11-01T12:16:26.193Z",
+  "source": "4e86f066b82bc5428a7e3fdf25f8c9860c4dad09dcfd697928d197b642bab0fc",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

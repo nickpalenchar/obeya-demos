@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bun install)",
+      "Bash(bun test *)",
+      "Bash(bun run typecheck)",
+      "Bash(mkdir -p /Users/nick/demos/obeya-*)",
+      "Bash(mkdir -p /tmp/obeya-*)",
+      "Bash(bun scripts/scratch-obeya.ts /tmp/obeya-*.json)",
+      "Bash(bun scripts/scratch-obeya.ts /Users/nick/demos/obeya-*/stage.json)",
+      "Bash(bun scripts/scratch-obeya.ts /tmp/obeya-*.json --code HEAD)",
+      "Bash(bun scripts/scratch-obeya.ts --stop *)",
+      "Bash(bun scripts/scratch-obeya.ts --login *)",
+      "Bash(codex exec --sandbox read-only review --uncommitted)",
+      "Bash(codex exec --sandbox read-only review --base main)",
+      "Bash(node /Users/nick/harness/obeya/plugin/skills/browser/lib/browser.ts start)",
+      "Bash(node /Users/nick/harness/obeya/plugin/skills/browser/lib/browser.ts stop)",
+      "Bash(node /Users/nick/harness/obeya/plugin/skills/browser/lib/browser.ts status)",
+      "Bash(node /Users/nick/harness/obeya/plugin/skills/browser/lib/browser.ts tabs)",
+      "Bash(node /Users/nick/harness/obeya/plugin/skills/browser/lib/browser.ts open *)",
+      "Bash(node /Users/nick/harness/obeya/plugin/skills/browser/lib/browser.ts nav *)",
+      "Bash(node /Users/nick/harness/obeya/plugin/skills/browser/lib/browser.ts close *)",
+      "Bash(node /Users/nick/harness/obeya/plugin/skills/browser/lib/browser.ts text *)",
+      "Bash(node /Users/nick/harness/obeya/plugin/skills/browser/lib/browser.ts html *)",
+      "Bash(node /Users/nick/harness/obeya/plugin/skills/browser/lib/browser.ts input *)",
+      "Bash(node /Users/nick/harness/obeya/plugin/skills/browser/lib/browser.ts eval *)",
+      "Bash(node /Users/nick/harness/obeya/plugin/skills/browser/lib/browser.ts screenshot *)",
+      "Bash(node /Users/nick/harness/obeya/plugin/skills/browser/lib/browser.ts playwright)",
+      "Bash(node /Users/nick/harness/obeya/plugin/skills/demo/lib/setup.ts)",
+      "Bash(node /Users/nick/demos/obeya-*/demo.ts)",
+      "Bash(node /Users/nick/demos/obeya-*/demo.ts --narration)",
+      "Bash(node /Users/nick/demos/obeya-*/demo.ts --dry)"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "kind": "html",
+  "title": "Extensions hear again when a worker starts",
+  "text": "For a few days, extensions never got the \"worker started\" signal. A rework of how failed worker starts are shown to the owner had dropped it. The signal is back and is sent only once a worker has actually launched; a start that fails sends nothing. A contract test now checks both cases.",
+  "chapters": [],
+  "pr": null,
+  "first": "2026-11-05T13:14:13.551Z",
+  "at": "2026-11-05T13:14:13.551Z",
+  "source": "341edc47a90e8e7b59bb52a35d81cee7d3542fc1d4d3ede38516ce2d7e0891cf",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

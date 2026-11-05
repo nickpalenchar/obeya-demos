@@ -1,0 +1,32 @@
+{
+  "title": "Automatic titles that fit the task",
+  "text": "Leave a task untitled and Obeya chooses wording that fits: a user story, a component with its fault, or a component with its requested behaviour. Ordinary descriptions are enough, and the title keeps the role, symptom, or action that distinguishes the task.",
+  "chapters": [
+    [
+      0,
+      "A role and an action"
+    ],
+    [
+      10.15,
+      "The component and its fault"
+    ],
+    [
+      20.56,
+      "What the component should do"
+    ],
+    [
+      28.19,
+      "A natural fit for other tasks"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/compare/6ae6e390fdf4d760bc0652cc11a06c2e99aee81b...ca1234a5f86f1e5c931ae25e7f58d3a0cb03fdca",
+    "several": true
+  },
+  "first": "2026-11-05T04:40:23.669Z",
+  "at": "2026-11-05T04:40:23.669Z",
+  "source": "d0bc96cefaaf832b69c68f9015e62ea53785f72bd3e318cf235ffa23ba7bb7e0",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

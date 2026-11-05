@@ -1,0 +1,27 @@
+{
+  "title": "Test helpers exit with their runner",
+  "text": "Test helper processes now exit automatically when the test runner ends, even after an abrupt kill. Detached descendants are covered, while crash-recovery checks can still end an intermediate parent independently. Interrupted runs no longer accumulate these idle helpers.",
+  "chapters": [
+    [
+      0,
+      "Helpers left running"
+    ],
+    [
+      11.83,
+      "All helpers exit"
+    ],
+    [
+      25.63,
+      "Crash recovery still works"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/a612f5419e1d84c494bf16864ded8d48526c1bdf"
+  },
+  "first": "2026-11-05T11:56:24.139Z",
+  "at": "2026-11-05T11:56:24.139Z",
+  "source": "18244ce58f8ea129334c2fe35f2c8854c9f90aa1988a08ab7253a6c2c1e784fa",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

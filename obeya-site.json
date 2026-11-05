@@ -1,0 +1,3803 @@
+{
+ "deploy": "8b866184-7a5b-475c-bd94-9637e468891c",
+ "machine": "Nicks-MacBook-Pro",
+ "at": "2026-11-05T14:08:30.855Z",
+ "pages": {
+  "obeya-should-have-a-prompt-to-re-login-w-716cc7": {
+   "rev": 1,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-10-31T14:11:39.248Z",
+   "meta": {
+    "title": "Obeya should have a prompt to re-login when it encounters login errors",
+    "text": "Claude login errors now show a Reauthenticate button directly in the conversation. It opens the existing terminal login flow and offers the correct command if no terminal is available. After signing in, resend your message to continue. The 32-second demo shows before and after.",
+    "chapters": [
+     [
+      0,
+      "An expired login interrupts the work"
+     ],
+     [
+      8.88,
+      "Reauthenticate beside the error"
+     ],
+     [
+      19.36,
+      "A command when no terminal is available"
+     ]
+    ],
+    "pr": null,
+    "first": "2026-10-31T14:11:39.229Z",
+    "at": "2026-10-31T14:11:39.229Z",
+    "source": "3f56940124af1176033418ef2913a3f50a294087255c92c9856e5877dd75ae23",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "captions.vtt": {
+     "size": 626,
+     "hash": "6c24ce735c03d5f49fa9c4d5a2d5e239700944a1c5b71bc1a2c9feb90fdfc465"
+    },
+    "demo.mp4": {
+     "size": 749860,
+     "hash": "537d3f30802d6fe2e2da6a796d7f092453ab620fb423762032cc3bb9742156a4"
+    },
+    "index.html": {
+     "size": 6154,
+     "hash": "4d6e8c4e4aebaccf0d8ec4a19b314c90b61b4fe4a948c850f2bf6eddbed89b4e"
+    },
+    "meta.json": {
+     "size": 820,
+     "hash": "bb708e2da4e7ce56d1458a357903b442391a9c43d6cf28887f618a7bfa8a979e"
+    },
+    "poster.jpg": {
+     "size": 79649,
+     "hash": "304006c7c3a448ff30880dcea7bbe9e9f69e0eb036c64cfaccb1c245d17f2e14"
+    }
+   }
+  },
+  "plan-model-choice-via-chevron-on-start-a-7eef4f": {
+   "rev": 1,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-10-31T16:07:25.802Z",
+   "meta": {
+    "kind": "html",
+    "title": "Choosing an agent for a task",
+    "text": "The plan introduces a model choice beside Start agent, then adds custom agents with instructions and hints about when to use them. A later optional recommendation can help choose an agent for a task.",
+    "chapters": [],
+    "pr": null,
+    "first": "2026-10-31T16:07:25.784Z",
+    "at": "2026-10-31T16:07:25.784Z",
+    "source": "a4839f089fbc5d4f83771a4eb7046d0df4f8a4fde966121fa7f7427648c73d1d",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/index.html": {
+     "size": 2840,
+     "hash": "96a4b197ec1ca5b889f4dc7ec114d766bfb2791c788f6ab19374bda28cb6014f"
+    },
+    "index.html": {
+     "size": 5268,
+     "hash": "9c59c17f354c1437ac4ed0664fccf0a20ef4b82d4dc22fc01592485b9a39d733"
+    },
+    "meta.json": {
+     "size": 509,
+     "hash": "e7d3dcfa72f7e8c24704e3b9d6de2a7509873f5a9e9248f298cf66b2ff4d2a86"
+    }
+   }
+  },
+  "draft-allow-rules-for-recurring-agent-pe-676865": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-01T01:11:26.481Z",
+   "meta": {
+    "kind": "html",
+    "title": "Command-specific agent permissions",
+    "text": "A reviewable allow list lets Claude workers perform recurring setup, testing, browser checks and demo recording without a fresh permission question for each matching command. Every rule has a short explanation of its scope. The owner reviews and trusts the configuration in Konfiguration; Codex workers continue to use their own sandbox and approval policy.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/0e85b51cb38f014e5b1df86cb33719816161b996"
+    },
+    "first": "2026-11-01T01:10:48.382Z",
+    "at": "2026-11-01T01:10:48.382Z",
+    "source": "867dfc2d5d098df6f1d86482267c3f50214bd4d6e384cd8a4ce5727d33ce66bd",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/index.html": {
+     "size": 21386,
+     "hash": "c6b3ba4949e642ebed032950a566c82157349b817c458389bb14b17a7c840393"
+    },
+    "artifact/settings.json": {
+     "size": 2110,
+     "hash": "42c4c2bf15cca3638e8422a7bbc407e00bfffe53f7b7e3334844dcd033cd4b6d"
+    },
+    "index.html": {
+     "size": 5556,
+     "hash": "e83768b3582d710920ae002281673375b292c72260b519ea5eee11fa1bf0e374"
+    },
+    "meta.json": {
+     "size": 792,
+     "hash": "a261b80f77b828419220d7b532c54740c9d93c271147510e900e984ee6fa0aad"
+    }
+   }
+  },
+  "prevent-artifact-builds-from-executing-b-56d371": {
+   "rev": 1,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-01T01:52:28.530Z",
+   "meta": {
+    "title": "Safe sharing of HTML artifacts",
+    "text": "HTML artifacts can be shared without running build-time macros on the sharing machine. Ordinary report modules continue to be bundled into the shared copy. This prevents a malicious artifact from using a macro to include private files in the shared page.",
+    "chapters": [
+     [
+      0,
+      "A file outside the artifact"
+     ],
+     [
+      13.57,
+      "Share the report"
+     ],
+     [
+      22.03,
+      "The macro stays inactive"
+     ]
+    ],
+    "pr": null,
+    "first": "2026-11-01T01:52:28.514Z",
+    "at": "2026-11-01T01:52:28.514Z",
+    "source": "f52b2715782494f33fe072dca4c25fd9f718e19dfe3824f035bbc44e3ae39787",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "captions.vtt": {
+     "size": 626,
+     "hash": "b5f27117b55937cf16a7a076f4df11a41fbe07c017fc9ece2a96cdc81889e579"
+    },
+    "demo.mp4": {
+     "size": 811054,
+     "hash": "6ecdda9ceee456a6a98d3dcece1b7fa2b6bb9c1a9a8df1aaf17633225bb8e023"
+    },
+    "index.html": {
+     "size": 6012,
+     "hash": "e1056e9e568ab5fd58ad273ef5221bdab25972c011dec3c00b184a901ca1c96e"
+    },
+    "meta.json": {
+     "size": 718,
+     "hash": "b7fcda95d0ce3d6d5b664e53f3bd7797cd8bd6ebf910f6e53736c381a51f0f6c"
+    },
+    "poster.jpg": {
+     "size": 68746,
+     "hash": "351f99e611824e5ba382b22594bf7199109a8901fcde96c178c4852a37911cbf"
+    }
+   }
+  },
+  "prepare-codex-runtime-md-as-a-project-d008ec": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-01T02:48:19.349Z",
+   "meta": {
+    "title": "Codex runtime as a project",
+    "text": "The Codex runtime plan appears on the canvas as a project with its remaining work organized into workstreams. The project covers hardening the Codex preview and the subsequent Pi adapter.",
+    "chapters": [
+     [
+      0,
+      "A project on the canvas"
+     ],
+     [
+      9.3,
+      "Workstreams ready to plan"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/f73e161ff0d2396f1048d81c3a214424f068c3b5"
+    },
+    "first": "2026-11-01T02:45:39.875Z",
+    "at": "2026-11-01T02:45:39.875Z",
+    "source": "3be1c9d1ca7296ee7352b9ecd906259bac9216c6997518e3747a8a41bf09ef30",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "captions.vtt": {
+     "size": 434,
+     "hash": "bd05b733fbf8c3985e73cc1ebfde4c39d0831bf2221495706ce48a388be3848d"
+    },
+    "demo.mp4": {
+     "size": 644072,
+     "hash": "8f6f4c7dc15d69c4e6137ffc83aee3e8ac8c62866127208247b2181df0cff248"
+    },
+    "index.html": {
+     "size": 5981,
+     "hash": "3a30e30b680912b591a92ed17053dbfc55d5d1f351f50c0dee34350f1a714d8d"
+    },
+    "meta.json": {
+     "size": 710,
+     "hash": "b77b732f078e76dd8918735b3c5962b1e2e5abcb9596c37830517d1662bc7071"
+    },
+    "poster.jpg": {
+     "size": 133667,
+     "hash": "6715acd812e9b17e3f86d062ef86ee7182a6a4b6a78cc9786ce19b16709edccc"
+    }
+   }
+  },
+  "choose-a-model-at-start-c6d2d7": {
+   "rev": 5,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-01T11:22:49.646Z",
+   "meta": {
+    "title": "Choose a model when starting a task",
+    "text": "A chevron beside Start agent lets you choose a harness, model and effort for an individual task. The usual button still starts with the configured worker default, and a one-task choice stays with the task as it progresses.",
+    "chapters": [
+     [
+      0,
+      "The default and a choice"
+     ],
+     [
+      8.19,
+      "Choose a model and effort"
+     ],
+     [
+      20.69,
+      "Start this task"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/8b5fe840f634c109f40bcd46dcdeb9ec83b52bf4"
+    },
+    "first": "2026-11-01T03:24:07.003Z",
+    "at": "2026-11-01T03:24:07.003Z",
+    "source": "e5b8b5adc8f73ba11448b00fc49bfd2e9ef33b913e2fb3e2a5595a772b8037c6",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "captions.vtt": {
+     "size": 619,
+     "hash": "ed49b82c005c21dadb9e01195afacddce4129a3aed82f364ff5c0c9bc656e31c"
+    },
+    "demo.mp4": {
+     "size": 648995,
+     "hash": "1c1056f61fdbd54048b68e27309ddaf469a0bac67e5796606d9ac30bc6d9abff"
+    },
+    "index.html": {
+     "size": 6120,
+     "hash": "058f019099f4f6e99a840ca009e4f874faabc028edbb6c1370c4b4fd54e31ed0"
+    },
+    "meta.json": {
+     "size": 806,
+     "hash": "82078982e240b9d3a3f65fcf9c01d69507325ec752ca528ba679b191a3a76a4f"
+    },
+    "poster.jpg": {
+     "size": 66668,
+     "hash": "109a52d357f228a58139f9e8447216dd820cbf30bf8e0aef00d960935b13f264"
+    }
+   }
+  },
+  "process-cleanup-a6fe14": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-01T11:23:43.500Z",
+   "meta": {
+    "kind": "html",
+    "title": "Process cleanup: what survives when Codex work stops",
+    "text": "We stopped a real Codex app-server four ways and checked which background jobs it had started kept running. A normal stop, a forced stop and the app-server being killed all ended every observed job and left an unrelated process alone. If Obeya itself crashes, nothing runs the cleanup and jobs started by shell commands keep running. This is best-effort cleanup, not containment, and it is verified on macOS only.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/484dc8185d0c9bdcbc60c6f6b5178ee414532520"
+    },
+    "first": "2026-11-01T11:21:56.800Z",
+    "at": "2026-11-01T11:21:56.800Z",
+    "source": "668107fb1f492407056e98c981fbd72aa9e0bf38b0ae56cb96e840b2b2dbc4ef",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/index.html": {
+     "size": 3857,
+     "hash": "08e4d4ae42ea961927500842f32ffeff12d505420a6c2c0b7c26ed8e92211d25"
+    },
+    "index.html": {
+     "size": 5666,
+     "hash": "caef44dea67a9b81f1b38e6beaeca7f5006db37bf7aa6221854c438a14243af3"
+    },
+    "meta.json": {
+     "size": 866,
+     "hash": "e0852926e4660aee43a91254e6608be2e5e85293c28abb0a37a66c4d5c2dc349"
+    }
+   }
+  },
+  "manually-connect-cards-with-dependency-a-fe8ef3": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-01T11:27:41.603Z",
+   "meta": {
+    "title": "Connect cards with dependency arrows",
+    "text": "Draw dependencies directly between cards using dots that appear as the pointer approaches. A ghost arrow follows the pointer and snaps to its target; the dependent card then waits for its prerequisite. Manual arrows can be removed after confirmation, while projects keep the ordering decided from their plans.",
+    "chapters": [
+     [
+      0,
+      "Discover the dots"
+     ],
+     [
+      8.49,
+      "Draw and connect"
+     ],
+     [
+      17.92,
+      "The connected card waits"
+     ],
+     [
+      26.03,
+      "Remove a manual arrow"
+     ],
+     [
+      34.65,
+      "Project ordering stays with the plan"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/compare/8b5fe840f634c109f40bcd46dcdeb9ec83b52bf4...cff6094737fc7aa5c1b88c54297df85cb9851dfd",
+     "several": true
+    },
+    "first": "2026-11-01T11:27:07.762Z",
+    "at": "2026-11-01T11:27:07.762Z",
+    "source": "d9f2f3acbbd98d62e556293262a56583813347396a7db8708cbbd2718642ef6d",
+    "language": "en",
+    "by": "Nick Palenchar",
+    "more": [
+     {
+      "title": "Choose the target edge",
+      "text": "Move the pointer around a target card to attach a dependency arrow to its nearest edge. The connection keeps the chosen attachment points when the page reloads or the cards move, and can still be removed from the arrow.",
+      "chapters": [
+       [
+        0,
+        "Choose the target edge"
+       ],
+       [
+        9.37,
+        "Keep the selected edge"
+       ],
+       [
+        15.24,
+        "Remove the connection"
+       ]
+      ],
+      "dir": "2",
+      "handed": "2026-11-01T03:29:56.711Z",
+      "at": "2026-11-01T11:27:07.762Z",
+      "source": "740738956e4abc824f0b13a2df82b1cf5ac4c2f67aaf40f0ad63e66a33db3f1e"
+     },
+     {
+      "title": "Queue connected cards",
+      "text": "Connect cards to specify which work comes first. Starting a dependent card puts it in the queue until its prerequisites are finished. You can still start it early after confirming a warning.",
+      "chapters": [
+       [
+        0,
+        "Connect the cards"
+       ],
+       [
+        7.07,
+        "The dependent card waits"
+       ],
+       [
+        14.53,
+        "Start anyway"
+       ]
+      ],
+      "dir": "3",
+      "handed": "2026-11-01T11:26:34.569Z",
+      "at": "2026-11-01T11:27:07.762Z",
+      "source": "119f74b92f579535df3d8c6454424feb84ad43a23ed1db5c5a1e44c276586d4f"
+     }
+    ]
+   },
+   "files": {
+    "2/captions.vtt": {
+     "size": 462,
+     "hash": "02bf15cbd97e246db00132544bd85386a224f8f88d8deead6b0417a32bb52d13"
+    },
+    "2/demo.mp4": {
+     "size": 469216,
+     "hash": "8ca15a29beafaf0dc4636decfbf40afd104463d5317676fc1ced0f0b0caf1ca2"
+    },
+    "2/poster.jpg": {
+     "size": 70118,
+     "hash": "b6ed22f22553f87c1cb74ff8661476e5576523f96baf5f374f8b6ef0368cc8a6"
+    },
+    "3/captions.vtt": {
+     "size": 476,
+     "hash": "f35703711bab8eb07e3fee1cdc358564c0299f9dc37e8ec96ffc03a53c3a3fc4"
+    },
+    "3/demo.mp4": {
+     "size": 618823,
+     "hash": "357b9aeda2bb90c3f76a7a0b80d6d2f8db81aeeaa25beea3ac188781a39a9d7d"
+    },
+    "3/poster.jpg": {
+     "size": 74165,
+     "hash": "7ad8adb918402daaceebc9ac7fc56b6450d94451510321fece5940dc083a977f"
+    },
+    "captions.vtt": {
+     "size": 878,
+     "hash": "8960038eb9915cec37479c24e831a8c8087f40c321b061c72db530f8042f3c0f"
+    },
+    "demo.mp4": {
+     "size": 993960,
+     "hash": "c11db701f5bd105fc09409b21e921501c56e326660990a9475203a94154a7256"
+    },
+    "index.html": {
+     "size": 10020,
+     "hash": "db1cd9386a9a7b41ebc26c0589559cc1e3a9da0e4d5c14b200465b2f31fe37b7"
+    },
+    "meta.json": {
+     "size": 2487,
+     "hash": "ed251b2c7b22073f33d1c8b0f246e35eb1c206947c6bde70ceeddaa870295634"
+    },
+    "poster.jpg": {
+     "size": 87259,
+     "hash": "112c6b2cbecf4513dd448589a304e7f9ee9d23899d40f7feb1f4bc1a1b9733e2"
+    }
+   }
+  },
+  "needs-you-becomes-an-inbox-c5fcf9": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-01T12:17:01.072Z",
+   "meta": {
+    "title": "The needs-you button becomes an inbox",
+    "text": "The \"need you\" button in the bar now slides out an inbox instead of jumping to a single card. It lists everything that waits for you across all canvases, each entry with its canvas, the card's title and the question. One-click buttons such as Approve answer an entry without opening the card, and Go to card is always there as a plain secondary button.",
+    "chapters": [
+     [
+      0,
+      "The button slides out an inbox"
+     ],
+     [
+      7.94,
+      "Canvas, card, question"
+     ],
+     [
+      18.54,
+      "Quick replies"
+     ],
+     [
+      28.9,
+      "Answer without opening the card"
+     ],
+     [
+      38.27,
+      "Go to card"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/compare/cff6094737fc7aa5c1b88c54297df85cb9851dfd...c6032a5decbc04d0aaacb99972a65296ace63eb3",
+     "several": true
+    },
+    "first": "2026-11-01T12:16:26.193Z",
+    "at": "2026-11-01T12:16:26.193Z",
+    "source": "4e86f066b82bc5428a7e3fdf25f8c9860c4dad09dcfd697928d197b642bab0fc",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "captions.vtt": {
+     "size": 962,
+     "hash": "5a778d8cd573e1c4269f0b711be15b765db2fe62091899eefcb3353ad100277e"
+    },
+    "demo.mp4": {
+     "size": 1355652,
+     "hash": "2875734f9f5218ced7f9a4ce89b996b67891a284be22daa5e9dad68c5a35f6c1"
+    },
+    "index.html": {
+     "size": 6488,
+     "hash": "9c5aa3e1e404c128eaf539940e297a30da0817df18503dc667c851ce6ba4cbe0"
+    },
+    "meta.json": {
+     "size": 1116,
+     "hash": "98ad8a3b6bff14c4c8310f33e20ca900ec48f7804acde5c65d45b1731caa7b82"
+    },
+    "poster.jpg": {
+     "size": 108202,
+     "hash": "14e152585bf9a5bff076764923385c8a28fa8229d138f599cf97c0ebee1eaaf3"
+    }
+   }
+  },
+  "path-based-canvas-and-card-urls-with-sho-2adfe0": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-01T12:59:37.313Z",
+   "meta": {
+    "title": "Cards get addresses of their own",
+    "text": "Every canvas and every open card now has its own address, like /c/shop/card/118518, with a short code instead of a long ID. Reloading the page keeps the card open, and a link to a card can be shared or bookmarked. The browser's Back and Forward buttons step through the cards you looked at. Where one card mentions another, such as the cards a queued task waits for, the name is now a link that opens that card.",
+    "chapters": [
+     [
+      0,
+      "The canvas has a path"
+     ],
+     [
+      8.51,
+      "An open card is in the address"
+     ],
+     [
+      16.88,
+      "A reload keeps the card open"
+     ],
+     [
+      24.54,
+      "Queued cards link what they wait for"
+     ],
+     [
+      32.63,
+      "Back and Forward"
+     ],
+     [
+      39.28,
+      "Other card names become links too"
+     ],
+     [
+      47.35,
+      "Long ids and old links still work"
+     ],
+     [
+      55.13,
+      "Recap"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/compare/4779db9ebbdd271fa0ffc0165dd7600be2aad740...891ce7cc730e07b3669370901c38626b2bb0e2d8",
+     "several": true
+    },
+    "first": "2026-11-01T12:59:00.157Z",
+    "at": "2026-11-01T12:59:00.157Z",
+    "source": "b75ab0da2f893a65bb8bc7f96d47961683824df1bacea5dcf3763d17c366f2da",
+    "language": "en",
+    "by": "Nick Palenchar",
+    "more": [
+     {
+      "title": "Card links in blue",
+      "text": "Where one card names another, the name is now blue as well as underlined, so it reads as a link at a glance. The short code in a card's address is hexadecimal: the first six characters of the card's ID.",
+      "chapters": [
+       [
+        0,
+        "Card links in blue"
+       ],
+       [
+        6.34,
+        "Short codes are hex"
+       ]
+      ],
+      "dir": "2",
+      "handed": "2026-11-01T12:47:12.839Z",
+      "at": "2026-11-01T12:59:00.157Z",
+      "source": "12af019a1ea334242ea4fba0c375e24483cd7ded9913101bcb8411c334de1266"
+     }
+    ]
+   },
+   "files": {
+    "2/captions.vtt": {
+     "size": 291,
+     "hash": "d3203ddb9ca488aa2d889960589167fac0893d17c58e411eb0897e81428db100"
+    },
+    "2/demo.mp4": {
+     "size": 562918,
+     "hash": "cb91de0eb1a0328793515255f3e300fbf1c549bb1a7016a396eba8accdbfd2c6"
+    },
+    "2/poster.jpg": {
+     "size": 77629,
+     "hash": "735808cea4b4d8c7cfbeb2dac36f1f2d53f067cc8daf31519ac79c51878b9b24"
+    },
+    "captions.vtt": {
+     "size": 1237,
+     "hash": "850c98015723923250d032689c10d86395eaa5eb1cb17ab05063dd15072643a3"
+    },
+    "demo.mp4": {
+     "size": 2426608,
+     "hash": "4298e1662ed2af7d033331a66aa332fc09596ef773df459f6db0ec4d265db76f"
+    },
+    "index.html": {
+     "size": 9288,
+     "hash": "c9b6722c88b71fd048e9bcec65e0e524b20458d14afebd96bb6f7a856347ce67"
+    },
+    "meta.json": {
+     "size": 2003,
+     "hash": "03f61765eee981a378fbc673b0e1129f5e8a255ddfa953d076a15d43fb672a21"
+    },
+    "poster.jpg": {
+     "size": 86521,
+     "hash": "1e8aa55ac9cfdd10c26e3762a64b907d99cb2cb714ee4858acb64ace1ad19d3f"
+    }
+   }
+  },
+  "comparable-harness-crash-probes-e9cb74": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-02T00:46:02.494Z",
+   "meta": {
+    "kind": "html",
+    "title": "What survives when an agent or Obeya crashes",
+    "text": "We killed real Claude and Codex workers, and Obeya itself, while each worker had an app running, then checked what was left. When a Codex worker dies, Obeya stops its app; when a Claude worker dies, the app keeps running. If Obeya itself crashes, the app keeps running with either. This tells us where cleanup after crashes still needs work before Obeya supports more agent harnesses.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/a1a07ed776df5fccb64f1b1485ec0d661c0136bc"
+    },
+    "first": "2026-11-02T00:45:25.989Z",
+    "at": "2026-11-02T00:45:25.989Z",
+    "source": "b4a2aca2ae28d7135a664b56f2f77c32de1881ad3ad53ccafe808368720b3d33",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/index.html": {
+     "size": 37961,
+     "hash": "5ccdb5e5aade548c884e851d51bcb0c9432f64cb1491aef5420de112ca4dcc0b"
+    },
+    "artifact/results.jsonl": {
+     "size": 21602,
+     "hash": "260cf10c0928ce9fc6ef126c9cace838686ac082145beda7eb43142913859b2c"
+    },
+    "index.html": {
+     "size": 5613,
+     "hash": "592b5120eaed4130ce201604353d518dbcda234e021e8d710a577f25ea9aa4b4"
+    },
+    "meta.json": {
+     "size": 829,
+     "hash": "b56471e2e0c37510e2ba8527f787bc20241ceac5fe275e13f03df7d48b610b23"
+    }
+   }
+  },
+  "liveness-pipe-prototype-566ee0": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-02T01:33:43.788Z",
+   "meta": {
+    "kind": "html",
+    "title": "Cleaning up agent processes when Obeya or its supervisor dies",
+    "text": "We looked at running each agent behind a small supervisor that stops the agent and everything it started when Obeya dies. Obeya in turn stops them if the supervisor dies. The two faults that blocked a first attempt are fixed and tested on macOS and Linux. Neither side helps when both die at once, and Windows needs another approach. So this stays a prototype for now and will be combined with a crash-recovery registry later.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/025070cb4ada2f7ee5dde6ab04e70b703c2bb07b"
+    },
+    "first": "2026-11-02T01:32:47.811Z",
+    "at": "2026-11-02T01:32:47.811Z",
+    "source": "06dae7b309c291d0c1929f63925944f57944e42b57b7f407632413e0746a8bbc",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/index.html": {
+     "size": 10144,
+     "hash": "4733b91d99ab8e218910bcf56ef7d583e8012b164d67088facf4ffc97722d782"
+    },
+    "index.html": {
+     "size": 5706,
+     "hash": "ae8d5d3197c5904806017d1348ba330e68199c0a630e2866fe15e765015bc9c4"
+    },
+    "meta.json": {
+     "size": 888,
+     "hash": "bc4a5d5f16a48d976455a494392d73ddce7201cb6cf5a664c6e0b7456f4303a3"
+    }
+   }
+  },
+  "session-lifetimes-and-crash-recovery-7fa07b": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-02T01:57:24.514Z",
+   "meta": {
+    "kind": "html",
+    "title": "What happens to an agent's processes after Obeya crashes",
+    "text": "Obeya now separates three lifetimes: work an agent session started, the app a card serves, and external operations. After a crash, the next Obeya start ends the Codex session work the crashed one left running. It touches only recorded processes that still match, and never another live Obeya's. Checked with real Codex runs and real process kills on macOS and Linux.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/6f5e71982f610211c1bb24d06aa3815f242314be"
+    },
+    "first": "2026-11-02T01:56:03.243Z",
+    "at": "2026-11-02T01:56:03.243Z",
+    "source": "20fe58914f5881ff88e2682e0f3ccdfee847120a97f3614886f7432a469043a4",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/index.html": {
+     "size": 7130,
+     "hash": "55ef755ce480a0f707b421fe70d013abf2de95537a85d54302d33ef548dec28e"
+    },
+    "index.html": {
+     "size": 5631,
+     "hash": "12350e8fa9f6d5a43dfc3a7ef3ff1b90fa54cffc2be5acd586ed59d187f46936"
+    },
+    "meta.json": {
+     "size": 823,
+     "hash": "11d019487ce036bd5f116ee65de448a414c7f604c1ed7aa6168b18bceafe4cf4"
+    }
+   }
+  },
+  "don-t-tell-the-owner-a-dead-app-keeps-ru-410027": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-02T02:10:19.706Z",
+   "meta": {
+    "kind": "html",
+    "title": "A dead app no longer \"keeps running\"",
+    "text": "When a Codex agent dies while its card waits for the owner, the card used to claim the app in the workspace keeps running, even though the cleanup had already ended it. Now the card only reports the agent's exit. Cards with a Claude agent, whose app really does survive, behave as before.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/e4af98c597aa5b31be7a4c01466b2ab95e5cd134"
+    },
+    "first": "2026-11-02T02:09:43.461Z",
+    "at": "2026-11-02T02:09:43.461Z",
+    "source": "df90cad3242ae5626e19c974dacf44bfc8887615e24b5805791be3bc215c963b",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/index.html": {
+     "size": 3126,
+     "hash": "75daa561b62647f9274d9c6ce73870dbb2a0db4e9a9370d850259fa3e53121a3"
+    },
+    "index.html": {
+     "size": 5523,
+     "hash": "d66b42a1bc600d9c9c168e5cf53e0dfe7ceece372307524b6e6ee4164e6e974c"
+    },
+    "meta.json": {
+     "size": 727,
+     "hash": "9ae8e1109ac1d5111adf4615745576b6a2e4ace8266d1374e6e63a7e4a4c6ddd"
+    }
+   }
+  },
+  "active-session-identity-5aeaad": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-02T12:25:28.198Z",
+   "meta": {
+    "title": "Working bubbles name their model",
+    "text": "While an agent works on a card, its bubble now shows which harness and model that session runs on, such as Claude Code with Opus or Codex with GPT-5.5. The same goes for Obeya's own reading bubble and for answers being looked up. The label always comes from the session that is actually running, so cards started before a settings change keep showing the model they really use.",
+    "chapters": [
+     [
+      0,
+      "The worker at work names its model"
+     ],
+     [
+      9.6,
+      "Each session names its own"
+     ],
+     [
+      22.31,
+      "Obeya reading names its model too"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/compare/e4af98c597aa5b31be7a4c01466b2ab95e5cd134...a65ffc6f4378bd0e1164a3cb35d058609009345b",
+     "several": true
+    },
+    "first": "2026-11-02T12:24:13.537Z",
+    "at": "2026-11-02T12:24:13.537Z",
+    "source": "4fe300446989e3e6fd5c0652d2e22d8676998bbff25823f7b15f80ed4c9498d2",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "captions.vtt": {
+     "size": 594,
+     "hash": "d7ac57b875a76583a536943f86e724e1f00bd53e9e94e29f543ba5090d60a524"
+    },
+    "demo.mp4": {
+     "size": 1129225,
+     "hash": "56a4dccaba5cfd3c2aa130fb57b12390dc8c6bf71e4cb269082bba10355badd8"
+    },
+    "index.html": {
+     "size": 6342,
+     "hash": "820b44f74e44c164a7b21d45d4bdcf1cbf41204a463de711cb76fb50bba096f8"
+    },
+    "meta.json": {
+     "size": 1051,
+     "hash": "dfb85391f46c2a5fba41a3b4ced8c64822192f12463e198847758e5ed79ea95d"
+    },
+    "poster.jpg": {
+     "size": 71147,
+     "hash": "3b83a623c796df62f01e98e682c1337a0064b6ab40c397c45d0761b7c9490c78"
+    }
+   }
+  },
+  "foreground-wait-guard-067bf0": {
+   "rev": 1,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-02T12:24:50.502Z",
+   "meta": {
+    "kind": "html",
+    "title": "Codex needs no foreground-wait guard",
+    "text": "Claude workers are stopped from sleeping in the foreground because a note from the owner would only reach them after the command ends. We checked real Codex: a note sent during a running foreground command arrives within seconds, and the command carries on in the background. So Codex needs no such guard. Native Codex hooks exist, but they only run once trusted in the user's own Codex configuration, which Obeya does not write.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/d46419fbed3db109d88af57071e0a9fe86245485"
+    },
+    "first": "2026-11-02T12:24:50.479Z",
+    "at": "2026-11-02T12:24:50.479Z",
+    "source": "5f27fbc9a81f05e9aead47c530134f6910ff5da5f83154b42cea47f32c18d41b",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/index.html": {
+     "size": 4180,
+     "hash": "dbb3551b0edcda6db1a962fc40439ed917439e06a2cf0f1362eb295ff7475eb6"
+    },
+    "index.html": {
+     "size": 5634,
+     "hash": "645f88178835488fa2b8ca4f28d594508a26c2e1dacf776b8b7b93acd082af4a"
+    },
+    "meta.json": {
+     "size": 866,
+     "hash": "0b9926ed6273894f457bf6e054bb6eb3f89cd490b718cb333a35c2cc88d4b9b4"
+    }
+   }
+  },
+  "codex-configuration-trust-319b45": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-02T12:30:45.708Z",
+   "meta": {
+    "title": "Codex configuration waits for your trust",
+    "text": "A repository's own Codex configuration (its .codex folder: settings, MCP servers, rules) used to stop Codex workers from starting at all. Now it appears in the Configuration dialog like the Claude Code configuration: you see every line, trust it with one click, and Codex workers load it from then on. Until then, and in any workspace where the files differ from what you trusted, Codex works without it. A later change on the main branch asks again and shows only the new lines.",
+    "chapters": [
+     [
+      0,
+      "A repository with Codex settings"
+     ],
+     [
+      17.09,
+      "Until trusted, Codex works without it"
+     ],
+     [
+      26.92,
+      "Trusting it"
+     ],
+     [
+      35.49,
+      "A change brings the question back"
+     ],
+     [
+      45.94,
+      "Recap"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/compare/d46419fbed3db109d88af57071e0a9fe86245485...5cc7bf7d54880261c3e9ab96759514f8b0e8793b",
+     "several": true
+    },
+    "first": "2026-11-02T12:28:33.437Z",
+    "at": "2026-11-02T12:28:33.437Z",
+    "source": "49dbe9bc08faa663e48b94cbc2cfa6b89c31536bc930b9d3ebb906c1f7b61304",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "captions.vtt": {
+     "size": 1049,
+     "hash": "bed8502f24f3f2d967b1ce70b6279839917aa7d2517ba13881d6b5a788d691b2"
+    },
+    "demo.mp4": {
+     "size": 1472974,
+     "hash": "49b80fb3ec31bbca23f034782bb296a7ef278e65cd7d4c0f26f722097f703200"
+    },
+    "index.html": {
+     "size": 6625,
+     "hash": "1d3dcc8dda4aa9cdf802f176d117352bbfc15747a1024b264c6478a2e5d2ecb6"
+    },
+    "meta.json": {
+     "size": 1258,
+     "hash": "5028f669d3ed9c44b34cd6075bd718fd176336a32a2feac354e6122029c5554b"
+    },
+    "poster.jpg": {
+     "size": 111845,
+     "hash": "233031fe20667a0373c2bf70fd861fff774df97c0d9fc3d37c4e5675219780e3"
+    }
+   }
+  },
+  "codex-workers-in-a-repository-whose-clau-512dfd": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-02T12:50:51.119Z",
+   "meta": {
+    "title": "Codex workers start while Claude Code settings await trust",
+    "text": "When a repository's Claude Code settings changed and were waiting for the owner's trust, Codex workers used to refuse to start there at all, although Codex never reads those settings. Now they start and work as usual. Until the settings are trusted, Codex asks before every command, even ones the settings' allow list names. Review cards for outside contributions are still refused for Codex.",
+    "chapters": [
+     [
+      0,
+      "Claude Code settings wait for trust"
+     ],
+     [
+      9.81,
+      "Before: Codex refused to start"
+     ],
+     [
+      16.49,
+      "Now: Codex gets to work"
+     ],
+     [
+      30.97,
+      "Recap"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/7d21ff6db4c6152d4b9c7fa1114d4586e533aeb7"
+    },
+    "first": "2026-11-02T12:50:13.164Z",
+    "at": "2026-11-02T12:50:13.164Z",
+    "source": "8179419dd586f7259b8aabc0077fc51ce14a4cb7e121132b9795c930f1f525c6",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "captions.vtt": {
+     "size": 733,
+     "hash": "a328518e626605994ea9a29b891451cb44c69510f91fa1d482295b2ee9867d87"
+    },
+    "demo.mp4": {
+     "size": 1171749,
+     "hash": "4fbcfdfb1564ce0c52a25a01cd049d1c65d51cc7b3d775a667005671c3c10e8e"
+    },
+    "index.html": {
+     "size": 6434,
+     "hash": "3b2fedf678dfc8f164a1fc4da6cd62b56f115f6a22dc56052a46b264b508e36e"
+    },
+    "meta.json": {
+     "size": 1063,
+     "hash": "c81739b81539395189e9655ec3180de8c887c6c8185de15267a26ed55c1557a3"
+    },
+    "poster.jpg": {
+     "size": 68727,
+     "hash": "c4a3e36f675384b68765831539d7d2c03e666dba2cba20be366a4cf9f577a200"
+    }
+   }
+  },
+  "show-the-canvas-dropdown-above-the-botto-6f6e6a": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-02T14:29:28.953Z",
+   "meta": {
+    "title": "Canvas dropdown opens above the minimap",
+    "text": "The canvas dropdown at the top left used to run under the small map at the bottom left when its list was long, hiding the last entries and their buttons. It now opens above the map, so the whole list stays visible and usable.",
+    "chapters": [
+     [
+      0,
+      "Before: the minimap covers the list"
+     ],
+     [
+      8.55,
+      "After: the dropdown is on top"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/3b465b94a72b3f0d0659c1617435877e9de09449"
+    },
+    "first": "2026-11-02T14:24:52.607Z",
+    "at": "2026-11-02T14:24:52.607Z",
+    "source": "d66c1405699684e1018e9ab934180b22824da1aa23ef02ef805867c79428fd14",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "captions.vtt": {
+     "size": 366,
+     "hash": "9ee506e61a303298ef05101d0802c6731ab8dae98c6edd3d1cb58ba33bb9f052"
+    },
+    "demo.mp4": {
+     "size": 588390,
+     "hash": "15c5f774674f46dc49f1755c760365011477ec824ec5ed57450ee4c37d5dcebd"
+    },
+    "index.html": {
+     "size": 6062,
+     "hash": "e32632b32cc344c8a50f12f68406c2dd2bf9e25f2ec2d25c213409f91ae2de1a"
+    },
+    "meta.json": {
+     "size": 778,
+     "hash": "86e978a09cf3017967c0e1e3d6a0d288128d2061088e4be2043ed3f0c9869a9d"
+    },
+    "poster.jpg": {
+     "size": 115585,
+     "hash": "59e0e855b75c93fd44ecef83a390a8f4e54715851541549ecf7f1d93ca502c05"
+    }
+   }
+  },
+  "codex-workers-network-for-commands-the-a-7190f8": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-02T20:39:51.159Z",
+   "meta": {
+    "kind": "html",
+    "title": "Codex workers: network and nvm setup for allow-listed commands",
+    "text": "Codex workers run in a sandbox without network, so even routine commands like installing dependencies used to come to the owner as permission questions. Now a command the repository's trusted allow list covers gets network for that one run without a question. Usual shell setup in front of it, like `source ~/.nvm/nvm.sh && nvm use 24`, needs no rule of its own, as long as the sourced file is one the worker can't change. Everything else still asks.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/compare/3b465b94a72b3f0d0659c1617435877e9de09449...16153e3c42767d1529947629ef36595c2c1338b9",
+     "several": true
+    },
+    "first": "2026-11-02T20:39:12.864Z",
+    "at": "2026-11-02T20:39:12.864Z",
+    "source": "ae70079472b859cc755734dbb21676d3277eac53f650a22b03825cb58faaf578",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/allowed.png": {
+     "size": 121091,
+     "hash": "cd1af7b1c1797c6fd874cf96980356c4f991c3d20d91b538a6d5cd1133b88e1a"
+    },
+    "artifact/asked.png": {
+     "size": 121092,
+     "hash": "274cba54a852185b9629e0e0f75e236a27647b25f324009438054ed0df290304"
+    },
+    "artifact/index.html": {
+     "size": 691954,
+     "hash": "8e1ed0d21e674dd5441cfe5bec9761152cd487760746567bde1d8cd3279e36e7"
+    },
+    "artifact/nvm-allowed.png": {
+     "size": 133233,
+     "hash": "823b7ffd73d123991787624c7eece3364f6d4ce5c7fb52ce65a5dda6c2cc72fc"
+    },
+    "artifact/workspace-asked.png": {
+     "size": 139013,
+     "hash": "a1305a2838f18b3ee9473c8f2b6c05bd2c550fe5a5d3e50bf7076c78ac1d91cf"
+    },
+    "index.html": {
+     "size": 5786,
+     "hash": "95b16c6f68d6128eefdf9475e0ac0d042befac8b51ec6dfa98bd6eb764099030"
+    },
+    "meta.json": {
+     "size": 978,
+     "hash": "13152c9a2be3ea76ba9cf74ec3d4821307519312aadd99ee9d77f4b7c420baad"
+    }
+   }
+  },
+  "platform-process-boundaries-37c4f5": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-03T01:53:23.607Z",
+   "meta": {
+    "kind": "html",
+    "title": "Stronger process boundaries on Linux and Windows",
+    "text": "Coding agents start background processes such as dev servers, watchers and test runs, and Obeya has to stop them when a session ends. Today it tracks them by sampling the process tree, which misses a process that detaches quickly and keeps nothing running if Obeya itself crashes. We measured two operating-system boundaries with a real Codex agent: a systemd user scope per session on Linux and a Job Object per session on Windows. Both catch what sampling misses, and on Windows the boundary also ends everything when Obeya dies. Neither is in Obeya yet; the page shows what they hold, what still gets out, and what was not tested.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/compare/16153e3c42767d1529947629ef36595c2c1338b9...e17fa4962912a6e54fdc7fe75df8abe5ddc559e8",
+     "several": true
+    },
+    "first": "2026-11-03T01:52:24.477Z",
+    "at": "2026-11-03T01:52:24.477Z",
+    "source": "12e4cef53da3ca7e827f6d3cb640c2966f9810fd6df4b3b5aa6c282bc05236c4",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/index.html": {
+     "size": 8568,
+     "hash": "5df03732bac3ceca2725236fc7871fa700e721fbade3441e12f605ed913c9154"
+    },
+    "index.html": {
+     "size": 5919,
+     "hash": "e9debc7126a1e6438ed8ab9126eeecf0c92fe5fd2e8b2a76417ac47f7d397552"
+    },
+    "meta.json": {
+     "size": 1147,
+     "hash": "028df2eee8d511632c4083dda95600d6e1badf925befff66eedcb7fc26eca6e3"
+    }
+   }
+  },
+  "make-images-in-demo-artifacts-clickable-b2746d": {
+   "rev": 3,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-03T13:53:41.347Z",
+   "meta": {
+    "title": "Enlarge images in demo artifacts",
+    "text": "Images in demo artifacts can now be enlarged with a click, making charts and other details easier to read. Close the enlarged view to return to the artifact. The same interaction is available on shared artifact pages.",
+    "chapters": [
+     [
+      0,
+      "Open the image"
+     ],
+     [
+      10.19,
+      "Return to the artifact"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/compare/bfafc9ac52d303b70757c121f226e8bb91d31604...7c903ee78010a4b5b22b54171ff5764904397ee1",
+     "several": true
+    },
+    "first": "2026-11-03T02:38:12.468Z",
+    "at": "2026-11-03T02:38:12.468Z",
+    "source": "339ab67b26aac7bb9c46f48792147a8ec12fe9eb3908c69ceca2752179870d93",
+    "language": "en",
+    "by": "Nick Palenchar",
+    "more": [
+     {
+      "title": "Enlarge images throughout an artifact",
+      "text": "Images in a shared artifact open large with a click, even when the artifact displays them small. Closing returns the reader to the same spot on the page. This works on every page of a multi-page artifact.",
+      "chapters": [
+       [
+        0,
+        "Read the chart without losing your place"
+       ],
+       [
+        10.61,
+        "Continue on another page"
+       ]
+      ],
+      "dir": "2",
+      "handed": "2026-11-03T12:41:56.813Z",
+      "at": "2026-11-03T13:52:59.960Z",
+      "source": "9981cc47d8b74cc0040de7d0da42076fe5421ec88fe62ae6863de9c756e27918"
+     }
+    ]
+   },
+   "files": {
+    "2/captions.vtt": {
+     "size": 393,
+     "hash": "ecb8a6738608e55abc7e1e6257510bf171e066cffdf2d57f462bbcfb7e3e9598"
+    },
+    "2/demo.mp4": {
+     "size": 377988,
+     "hash": "5a4368c5887971fed1ba590ade17121fe675c6c2c69626933116f7e1b5daa611"
+    },
+    "2/poster.jpg": {
+     "size": 65531,
+     "hash": "8aeb58d2fe27988db04493c32d3bb08956cecf6af70d7f4c3052a3fbb6754daa"
+    },
+    "captions.vtt": {
+     "size": 379,
+     "hash": "395bc80001d3a4c086e07f67ade16ba14256e7c5b6f9b28617ac5ce8ad70e766"
+    },
+    "demo.mp4": {
+     "size": 373139,
+     "hash": "4628d238a1385612944e8ba0585c66559125d45c4933faf8d2efda485fabb323"
+    },
+    "index.html": {
+     "size": 8564,
+     "hash": "8b42e2c92f1e827514907a008ffc99986521af3f621ef36f280d39f2712a10df"
+    },
+    "meta.json": {
+     "size": 1483,
+     "hash": "e6b4a383a397c68899ec5cbdcc9f3cb70c8b1e0bf1c7f56273ef929bb96d6477"
+    },
+    "poster.jpg": {
+     "size": 35621,
+     "hash": "0ff8774489c81221ae2bf3fb98a81fe2e1a429d7714661d1b948b770ef1a68e1"
+    }
+   }
+  },
+  "draft-an-allow-list-when-setting-up-a-ne-9f3d05": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-03T11:42:17.032Z",
+   "meta": {
+    "title": "Draft command permissions during setup",
+    "text": "When setting up a repository, Obeya now drafts a list of the commands its agents need for everyday work. The owner can review the proposed commands in Configuration and trust them before they take effect. Existing permissions are retained, and the setup can prepare rules for Codex as well as Claude Code.",
+    "chapters": [
+     [
+      0,
+      "A repository without settings"
+     ],
+     [
+      14.18,
+      "Which agents?"
+     ],
+     [
+      26.9,
+      "The draft in the handover"
+     ],
+     [
+      42.62,
+      "Review and trust it"
+     ],
+     [
+      56.8,
+      "Recap"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/compare/e17fa4962912a6e54fdc7fe75df8abe5ddc559e8...cf933dc4986987702508b963a24f26721c65f384",
+     "several": true
+    },
+    "first": "2026-11-03T11:41:36.516Z",
+    "at": "2026-11-03T11:41:36.516Z",
+    "source": "2ae7efd91fbf899296793047251b811b134840b9319531cbb946a86f97b75b04",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "captions.vtt": {
+     "size": 1284,
+     "hash": "19d047a3374b1abf5620a2d6df878c3c7dd4513fb2138d85892ece383c21f501"
+    },
+    "demo.mp4": {
+     "size": 2386248,
+     "hash": "f3252e8e89069d5bfa8b4a6121f87d51343fa00ef722f56f02c76c4dd1787f00"
+    },
+    "index.html": {
+     "size": 6418,
+     "hash": "2089edefbe37c63f532fa9e5c104bcdb0ef106015eac6a7df0315936ec07d907"
+    },
+    "meta.json": {
+     "size": 1053,
+     "hash": "27782d9a966d6ae46a37937e7ae475fd47bd152ba4bb73cab88915fbfa37285d"
+    },
+    "poster.jpg": {
+     "size": 100072,
+     "hash": "9cad01ca106f8b35a8b8697077cefa2437ab9ad6825c5cbf0f64d0e6493e27b2"
+    }
+   }
+  },
+  "add-configurable-feedback-on-agent-perfo-a120ce": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-03T14:09:32.418Z",
+   "meta": {
+    "kind": "html",
+    "title": "A plan for agent performance feedback",
+    "text": "The project introduces optional feedback after a card is approved and associates it with the model configuration and the work it produced. A later dashboard will help explore the feedback, while keeping the evidence and sample sizes visible. The plan leaves task classification and feedback-driven recommendations for future work.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/042f663d0870e6ebce8749c1a0dd95bba9308520"
+    },
+    "first": "2026-11-03T14:08:31.784Z",
+    "at": "2026-11-03T14:08:31.784Z",
+    "source": "61cfb0db5ab3b82dcb955a689b657aad8663709d6bfd4765012c5f7ca0bb7e46",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/index.html": {
+     "size": 2988,
+     "hash": "45f2b8876b8c3b598a6da01ac9d36b51464c7795bc00dd02cbd32af02eb00288"
+    },
+    "index.html": {
+     "size": 5538,
+     "hash": "3f33b56c6bebd70a5f9ed068601f95a367c0629acc3f403fa990b1a11f898cf3"
+    },
+    "meta.json": {
+     "size": 768,
+     "hash": "3c7f60791ee894f441b777028a5b6a13c3265eeef5f7bca85822ebbad184e29c"
+    }
+   }
+  },
+  "the-first-extension-ce4935": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-03T17:07:28.194Z",
+   "meta": {
+    "title": "Always allow becomes a fork extension",
+    "text": "The \"Always allow\" option on permission questions now lives in its own extension folder instead of the core. Picking it still lets the call run and commits the rule to the repository's allow list on main. Without the extension, Obeya asks only Allow or Deny, as upstream does. This keeps the feature in the fork and makes it easy to leave out of anything sent upstream.",
+    "chapters": [
+     [
+      0,
+      "The question, as before"
+     ],
+     [
+      12.21,
+      "Always allow still commits the rule"
+     ],
+     [
+      20.36,
+      "What moved where"
+     ],
+     [
+      37.35,
+      "Best effort"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/compare/426e592b4093abadd87598c05f7ba560424537dc...280e62c3a822e2b3b11583ff881fd2ce8b39e938",
+     "several": true
+    },
+    "first": "2026-11-03T17:05:07.201Z",
+    "at": "2026-11-03T17:05:07.201Z",
+    "source": "fe112616558140cb3e5c8ebbb46e2adfec51c674f1756a4adcbd790c15eecf84",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "captions.vtt": {
+     "size": 937,
+     "hash": "47345d132b02a635c29d62f34f597e64fa64b984d3cebba7160d816839d5ac54"
+    },
+    "demo.mp4": {
+     "size": 1165067,
+     "hash": "ccacbfae809442a0e66c6d944d652151766c4163d64aa0cf130680895dfa501d"
+    },
+    "index.html": {
+     "size": 6417,
+     "hash": "79e8fafd5231ecfa069de2e008ae4512e5d636082666ecf98e52a7cf9b078679"
+    },
+    "meta.json": {
+     "size": 1079,
+     "hash": "97f82d3aef7769e72120a98119282471d490465e35af6a1eecdb9a4dd8e6e6a8"
+    },
+    "poster.jpg": {
+     "size": 85649,
+     "hash": "605f7337a1f7f3bf97aebdc9a06475c65ae2df941512bdf7f7e9b00450dde2fd"
+    }
+   }
+  },
+  "lander-enforces-the-cut-7f98b8": {
+   "rev": 4,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-03T20:36:24.060Z",
+   "meta": {
+    "title": "Lander keeps fork-only extensions out of upstream",
+    "text": "Lander, the tool that moves the fork's features toward upstream, now refuses to prepare a feature for upstream when it touches the extension seam. It names the files and the lines that call the extensions. Everyday changes to shared files such as the UI strings still go through. Quarantined features have no promote action at all. When syncing from upstream, Lander keeps the seam intact and reports each place where an upstream change conflicted with one of its call sites.",
+    "chapters": [
+     [
+      0,
+      "Features that stay in the fork"
+     ],
+     [
+      11.01,
+      "No promote action when quarantined"
+     ],
+     [
+      20.99,
+      "A seam call site is refused"
+     ],
+     [
+      33.7,
+      "Ordinary changes to seam files go out"
+     ],
+     [
+      45.15,
+      "Ready to push"
+     ],
+     [
+      48.43,
+      "Sync keeps the seam"
+     ],
+     [
+      63.28,
+      "Recap"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/11f816b805cba0ed9881ff856f403e54b9965e95"
+    },
+    "first": "2026-11-03T19:00:34.274Z",
+    "at": "2026-11-03T19:00:34.274Z",
+    "source": "9ef73af763085da25dbccf1e13c9e07bb90277b7e63b9f503e67aa01e946db78",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "captions.vtt": {
+     "size": 1352,
+     "hash": "81fc11649e0d84cbba62424b577d0c33d4b8f96b1579250a09bd995942d65ea8"
+    },
+    "demo.mp4": {
+     "size": 1700385,
+     "hash": "999c3e83c8cda1e3f50c8925f5bd4f458293692301a794dd7ad57906d1096088"
+    },
+    "index.html": {
+     "size": 6778,
+     "hash": "cffecbce91af5460bc8f8de837dbd6557e2101b0bec1986fc79a00f4e8ffd949"
+    },
+    "meta.json": {
+     "size": 1314,
+     "hash": "fd1ee1289a259e8c101b002eb00632b8250b8b87bcc99941491d183e4246aed0"
+    },
+    "poster.jpg": {
+     "size": 78233,
+     "hash": "6a8d10a22241a4f1681865f8068f2f30d26084c1d31e2201e4bba135915d8725"
+    }
+   }
+  },
+  "attribute-and-retain-feedback-9597a5": {
+   "rev": 3,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-03T20:48:12.802Z",
+   "meta": {
+    "kind": "html",
+    "title": "Feedback credited to the model that did the work",
+    "text": "Obeya now records which harness, model and effort each agent session actually ran on, and stores the owner's feedback on approved work linked to the card, its project and those sessions. When one configuration did the work, it gets the credit. When several did, none is credited on its own, so a model never gets credit for another's work. This is the groundwork for an optional feedback prompt after approval and a dashboard comparing models.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/compare/641eda3548c0b6ff4229d82b2227d4c368dd3894...487b1871a8f9d7a0230cecbc3e88706529b9b8fe",
+     "several": true
+    },
+    "first": "2026-11-03T20:44:47.359Z",
+    "at": "2026-11-03T20:44:47.359Z",
+    "source": "a87dd0c7330f02c2df84e800b4e3122f0dd88b96cbbb40fbce37a08c7822a855",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/index.html": {
+     "size": 10199,
+     "hash": "5fc8c14ab18e8daab454bdc91492dd0bbf1c1c0ac89ea3417c43cb6a8aff6855"
+    },
+    "index.html": {
+     "size": 7658,
+     "hash": "d40414b8dafc28d26cccae3bf3fd613aaa6a785ca6233f8bb475ea2d8acd8a62"
+    },
+    "meta.json": {
+     "size": 957,
+     "hash": "5269822d4bbc97a78f414027b3bac08757de65fd4030b82b06fb77dc06be1790"
+    }
+   }
+  },
+  "capture-optional-feedback-d0c566": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-03T21:53:10.178Z",
+   "meta": {
+    "title": "Rate the agent's work after approval",
+    "text": "After approving a card, Obeya now asks how well the agent did: one to five stars and an optional comment, saved with the model that did the work. The prompt can be skipped and never holds up the approval. The card keeps asking until it is answered, and the rating can be changed later. A setting under Configuration → General turns it off without deleting ratings already given.",
+    "chapters": [
+     [
+      0,
+      "Approving work"
+     ],
+     [
+      10.02,
+      "The prompt"
+     ],
+     [
+      20.75,
+      "Stars and a comment"
+     ],
+     [
+      31.21,
+      "Skipping"
+     ],
+     [
+      39.3,
+      "Back on the card"
+     ],
+     [
+      50.32,
+      "Turning it off"
+     ],
+     [
+      58.52,
+      "Recap"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/a0171de483255991bc4be0bebb8b02c72b7856a8"
+    },
+    "first": "2026-11-03T21:51:04.784Z",
+    "at": "2026-11-03T21:51:04.784Z",
+    "source": "8a8e123125fda19c4be4b5f433ed2bf6ba371892c0e8c4d6a81cabf45e3624ab",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "captions.vtt": {
+     "size": 1221,
+     "hash": "73dba6873f3073e2980d7863454538c5a7a2fdc60d7ce276a9c587d55457b503"
+    },
+    "demo.mp4": {
+     "size": 2221925,
+     "hash": "833ba6037940db48b3cbf11bf4cf2372619652746451331887a86ad346bf616c"
+    },
+    "index.html": {
+     "size": 6578,
+     "hash": "ca2cb891e7d9ee7a64c50468961e9c4814adab1bcafc628fa785138b5f630d9e"
+    },
+    "meta.json": {
+     "size": 1127,
+     "hash": "5ab09ed680394cf12c5020179ea81d31e7afca73ecf3de178a40a02cfcf48686"
+    },
+    "poster.jpg": {
+     "size": 76998,
+     "hash": "4d7fc1104b68d512ed8f87d1cf81e3eca52808c6393480b5f594bbb0149af0f5"
+    }
+   }
+  },
+  "add-to-claude-md-6dddaf": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-04T03:20:26.781Z",
+   "meta": {
+    "kind": "html",
+    "title": "Three new working rules",
+    "text": "CLAUDE.md gains three rules. Demo videos show the whole feature, not just the latest change. A test run that fails only from load or timing is handed over with the unrelated tests named, instead of being rerun. Links in the UI are blue as well as underlined.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/84a60abd43c00d8cdd388fad8e539e7147ce89db"
+    },
+    "first": "2026-11-04T03:19:43.474Z",
+    "at": "2026-11-04T03:19:43.474Z",
+    "source": "d401eb54811b447117d6299555777eed2ffa5aa65d2cbca6bec3f0776f3d677d",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/index.html": {
+     "size": 4326,
+     "hash": "4df5874f5af09c7d62a243e5eb1ba93379ae5002205e2beb3c2d913f380bb8b6"
+    },
+    "index.html": {
+     "size": 7353,
+     "hash": "f8b65c5e929d27705b70560ab455a36f036f048cdba712504c01f79269c70202"
+    },
+    "meta.json": {
+     "size": 682,
+     "hash": "9df077b0d475fda75470921a5b26b91e0ab68582d3ab4b99f946135535d94171"
+    }
+   }
+  },
+  "explore-and-build-a-performance-dashboar-6a996e": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-04T03:24:16.900Z",
+   "meta": {
+    "title": "Comparing agent ratings by model",
+    "text": "After approving an agent's work you can rate it with one to five stars. Obeya keeps each rating with the harness, model and effort that actually did the work. A new Agent performance dashboard puts those ratings side by side: one row per model and effort, with how many ratings it has, their average and how they split across the stars. You can also see every single rating as a dot, or the monthly average as a line. Rows are never ranked by score. Rows with few ratings are marked as such, and every rating links back to the card it is about.",
+    "chapters": [
+     [
+      0,
+      "A rating after approval"
+     ],
+     [
+      11.02,
+      "Opening the comparison"
+     ],
+     [
+      19.35,
+      "The table"
+     ],
+     [
+      36.25,
+      "Few ratings, no ranking"
+     ],
+     [
+      49.98,
+      "Each rating as a dot"
+     ],
+     [
+      59.26,
+      "Over time"
+     ],
+     [
+      71.93,
+      "Back to the evidence"
+     ],
+     [
+      82.23,
+      "Filters and small samples"
+     ],
+     [
+      96.37,
+      "Recap"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/compare/84a60abd43c00d8cdd388fad8e539e7147ce89db...2931545a3d07a6ec5d71d2c0a8af64ded9663b4d",
+     "several": true
+    },
+    "first": "2026-11-04T03:23:32.366Z",
+    "at": "2026-11-04T03:23:32.366Z",
+    "source": "e7605033bc16229341a232aff6f8937f77ea33bdd55f7c5b8013a295bce1d116",
+    "language": "en",
+    "by": "Nick Palenchar",
+    "more": [
+     {
+      "title": "Agent ratings: narrower bars, dots sized by age",
+      "text": "Two refinements to the agent performance dashboard. The star bars in the table keep to a moderate width. In the view showing each rating, the dots scatter in a loose cloud around their star value, and newer ratings get larger dots, from the last three days down to tiny dots for ratings older than two months.",
+      "chapters": [
+       [
+        0,
+        "Narrower bars"
+       ],
+       [
+        7.01,
+        "Scattered dots, sized by age"
+       ],
+       [
+        20.1,
+        "Recap"
+       ]
+      ],
+      "dir": "2",
+      "handed": "2026-11-04T03:20:47.859Z",
+      "at": "2026-11-04T03:23:32.366Z",
+      "source": "1849e1a808b02e51e98468bca8e0451bc4c031884ba77fe7c3f689f9773831c2"
+     }
+    ]
+   },
+   "files": {
+    "2/captions.vtt": {
+     "size": 526,
+     "hash": "027517ee98e0639a76aab1034f3ac4cb3e5bae44d90c54051047e3bf9dbcd2a4"
+    },
+    "2/demo.mp4": {
+     "size": 846116,
+     "hash": "d3e0452e93379bf351a4bf3840e849e8be0313450990b6ae5a045fafbfd7e260"
+    },
+    "2/poster.jpg": {
+     "size": 70030,
+     "hash": "c2f016dff021db7fe5bde9c4901d6283e93b53b4f7778dabd57f27f0a0b08360"
+    },
+    "captions.vtt": {
+     "size": 2047,
+     "hash": "358e11ff88e9351e15e0f58b3b3823a2d49903ab5d11112b014a376c31739993"
+    },
+    "demo.mp4": {
+     "size": 2904795,
+     "hash": "910bd566c1156961fcca039235e04c7650d39acbb42d7bf8bf952ab2aa0753ba"
+    },
+    "index.html": {
+     "size": 11560,
+     "hash": "db3815752a871b2208ebad892d0611464da41e272f7797319637f1def42a6648"
+    },
+    "meta.json": {
+     "size": 2321,
+     "hash": "4cc4848823692233bbfcc209dd406a02d012f83c38963d9c171ab8c51e8e625e"
+    },
+    "poster.jpg": {
+     "size": 71003,
+     "hash": "e8b3ab338aeee1b0d830371054166f0b3f118b9caa937e1c438077fd70647ae3"
+    }
+   }
+  },
+  "add-to-claude-md-256a4d": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-04T03:38:22.394Z",
+   "meta": {
+    "kind": "html",
+    "title": "Agents skip a hanging test suite",
+    "text": "When the test suite hangs or stalls, an agent working on Obeya now stops it and goes on to the demo and handover without asking. It says in the handover that the tests were skipped. The rule sits next to the existing one about tests that fail under machine load.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/36309b0756c107715d925969d62da8902c58c62c"
+    },
+    "first": "2026-11-04T03:37:31.929Z",
+    "at": "2026-11-04T03:37:31.929Z",
+    "source": "b617ccc379ae6b184e7eadc4c0c701ca1f6b6748f80cfda4eaaee8ef8862b0c7",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/index.html": {
+     "size": 4318,
+     "hash": "5692cc9b2d1c5d7a6f9486581a0a57f20f277975dc681d8fbe02cf9da7a73616"
+    },
+    "index.html": {
+     "size": 7384,
+     "hash": "971133143d66add98d80bcb848c528779dc9d5fc927ca7fb15305f4d296c469f"
+    },
+    "meta.json": {
+     "size": 695,
+     "hash": "ac642365122306b3ca369e5799bd992a3c18518ba96162ff8b7f7c4d54ed8547"
+    }
+   }
+  },
+  "codex-on-windows-process-snapshot-can-ti-a16ff7": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-04T03:57:37.507Z",
+   "meta": {
+    "kind": "html",
+    "title": "Codex starts after a slow Windows snapshot",
+    "text": "A cold PowerShell launch can take several seconds on Windows. Codex now gives its first process ownership check enough time to finish, so a slow start does not end the session. Later checks keep the shorter normal limit and retry once if they time out.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/2d302da921096a4696ba78bff37dc0ca2f61d103"
+    },
+    "first": "2026-11-04T03:55:11.605Z",
+    "at": "2026-11-04T03:55:11.605Z",
+    "source": "b5efdccad2e7333bd58a8f565224991ee75f1305546c7dcad82a22b96d7e8548",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/index.html": {
+     "size": 8979,
+     "hash": "d88587fa2e8c1d3edb849f4ccb04bf6f59a70c0cb74f95cc7379a577c798542f"
+    },
+    "artifact/stage.json": {
+     "size": 282,
+     "hash": "0124ff0f21561d1f62ce58cd24670a0dbead4b0d3932fb0d1ea12ad8a4706cae"
+    },
+    "index.html": {
+     "size": 7404,
+     "hash": "f78085b333f8d742f6bf39b6d95386fe32b3eaecdfbfca6594a6817abf67a1a3"
+    },
+    "meta.json": {
+     "size": 695,
+     "hash": "9060bbdf067be44cc91b60d088fdd20594e45ae67661ea0d780fb04645138674"
+    }
+   }
+  },
+  "add-visualized-schema-change-artifact-to-3be8dc": {
+   "rev": 1,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-04T03:56:49.457Z",
+   "meta": {
+    "title": "Schema diagrams for database changes",
+    "text": "When an agent's change alters the data the app stores (new tables, columns, indexes or references), its handover now includes a schema-change page beside the demo. The page shows the affected tables as a diagram, before and after: added in green, changed in amber, removed in red, with related tables dashed. Below it, the changes are listed in words along with the migration files they were read from. Reviewers can see what the change does to the database without reading the migration code.",
+    "chapters": [
+     [
+      0,
+      "A change to the database"
+     ],
+     [
+      10.95,
+      "The schema page beside the demo"
+     ],
+     [
+      17.39,
+      "Added tables, and what they refer to"
+     ],
+     [
+      34.99,
+      "The changes in words, and their sources"
+     ],
+     [
+      42.56,
+      "A changed table"
+     ],
+     [
+      55.59,
+      "No model change, no page"
+     ],
+     [
+      63.08,
+      "Recap"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/compare/2d302da921096a4696ba78bff37dc0ca2f61d103...0567be3640c02d32f57cfb1740b391694877748d",
+     "several": true
+    },
+    "first": "2026-11-04T03:56:49.412Z",
+    "at": "2026-11-04T03:56:49.412Z",
+    "source": "47a58bcb37c592f3af0141414ab87eba0622423fd9b0708eb54f54b97e455de1",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "captions.vtt": {
+     "size": 1466,
+     "hash": "94c3ac6e0f512132c386b3009a5f94610279b3cc44cc72ff13b8d9da8647f52a"
+    },
+    "demo.mp4": {
+     "size": 2301394,
+     "hash": "88357e3406364cb6503d636d3e02604b1d882fd886e528827e3b5e7676947565"
+    },
+    "index.html": {
+     "size": 6825,
+     "hash": "3588b7c04be8ea924c8536bb7d14be53645d7753a4087ed709d5c9b0fa0150f5"
+    },
+    "meta.json": {
+     "size": 1394,
+     "hash": "179a0d1b3a57cb7c12261329f4ae6540ea8c59620f4e719d76de061a6b045865"
+    },
+    "poster.jpg": {
+     "size": 74503,
+     "hash": "b48b48a44e5743d3f0ba639627dd2bab8b4b1a61a1822c10e7ad6f9f9c77969e"
+    }
+   }
+  },
+  "move-toasts-to-the-bottom-right-corner-d1c2fe": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-04T04:04:37.424Z",
+   "meta": {
+    "kind": "html",
+    "title": "Toasts move to the bottom-right corner",
+    "text": "Confirmation toasts no longer float above the microphone in the middle of the screen. They now stack in the bottom-right corner, newest last, and shift left when the sidebar opens. The phone layout stays as it was.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/0b2904567cc2feac98db6bf55a040d13c2a2afdf"
+    },
+    "first": "2026-11-04T04:02:59.447Z",
+    "at": "2026-11-04T04:02:59.447Z",
+    "source": "a7d10a96b6e26bd68f8bcc7c62f73df69f188057899bc9f703493273154d0e34",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/after.png": {
+     "size": 46345,
+     "hash": "c56bfc162ac9f740efc18925cca4976084cf7138047173351e473a7bd86a65d9"
+    },
+    "artifact/index.html": {
+     "size": 65660,
+     "hash": "ac509487b5afdd2b3c061194b75157e7c8e8d774ecbe8e1273da21202e2d95e7"
+    },
+    "index.html": {
+     "size": 7354,
+     "hash": "9211d49215e3f57f06d9ae19821179e154dbc41db21b78d901dafa923c256c0a"
+    },
+    "meta.json": {
+     "size": 653,
+     "hash": "0f7f57f64ce42add971ddbfc17909023908d19ece8bb38b73637cad86bc6378c"
+    }
+   }
+  },
+  "live-phase-1-acceptance-6ca5c9": {
+   "rev": 1,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-04T04:03:50.948Z",
+   "meta": {
+    "kind": "html",
+    "title": "Claude and Codex cards, tested live side by side",
+    "text": "A Claude Code card and a Codex card ran at the same time on one canvas with real agents. Both asked a question, hit the account's usage limit and went on by themselves once it reset. Both were paused in the middle of a long check, came through two restarts of Obeya and landed on main. A Codex card now goes on as soon as its usage limit resets, instead of waiting a fixed 15 minutes.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/compare/0b2904567cc2feac98db6bf55a040d13c2a2afdf...93035d49463c61ebd66b18a8d415dc128d2ed081",
+     "several": true
+    },
+    "first": "2026-11-04T04:03:50.914Z",
+    "at": "2026-11-04T04:03:50.914Z",
+    "source": "2531bec38105280e79fed2313ff6ba90f19c02d2c6da2f44ce2f5daa865e43b5",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/after-restart.png": {
+     "size": 53502,
+     "hash": "c9097bb5ad886bde367a6055095ca28bd77917323073dfa84ad155964ab5f74a"
+    },
+    "artifact/claude-card.png": {
+     "size": 118644,
+     "hash": "b6e361dda000056821f44e4f182160175a5880f4d1b41c3243979391867766b4"
+    },
+    "artifact/codex-card.png": {
+     "size": 154941,
+     "hash": "51563740b828d6084857371f55d850371746c76dbdeb6b24e6d5ea49250d7608"
+    },
+    "artifact/codex-limit.png": {
+     "size": 125373,
+     "hash": "d5045a1489401bf25b601cc130439835fde116bb6e22d39fba750ef379629d96"
+    },
+    "artifact/codex-restart.png": {
+     "size": 125227,
+     "hash": "7b1ba550431405b70fc47a212497934dd04cb5ccc25ef904a83159007a11957d"
+    },
+    "artifact/handed-over.png": {
+     "size": 58142,
+     "hash": "a5d43681e7d6e0e87612c306d9a82e8551ffdb569d2ffdfa878570f6f26ad517"
+    },
+    "artifact/index.html": {
+     "size": 313175,
+     "hash": "56afdb95f1a221233a74cddbf17a31803b3e3fc5be1d61f99213af083cf2a72c"
+    },
+    "artifact/limit-canvas.png": {
+     "size": 45151,
+     "hash": "775dffe19385d4e4d7fdc77c445e7a853f6993d51d13926317bf0c38450f99a2"
+    },
+    "artifact/paused.png": {
+     "size": 53520,
+     "hash": "b76f4b2c5a64cb169ff644d9ce971d1808ce5183ca3422e038710ac18397dbb4"
+    },
+    "index.html": {
+     "size": 7599,
+     "hash": "c9aaa6ba5f1c076ece3e260c4265d65b17cd531b9fb1430dc4106541e105b3af"
+    },
+    "meta.json": {
+     "size": 898,
+     "hash": "ab11f28dad15093807565a15230c7189ac7782ae69cf7ab5ff11b7f7a3f7e04e"
+    }
+   }
+  },
+  "add-priorities-for-canvas-tasks-8467f9": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-04T11:43:45.092Z",
+   "meta": {
+    "title": "Priorities for cards",
+    "text": "Any card on the canvas, including projects, can now carry a priority from Trivial to Critical. Set it from the opened card (or a project's sheet), and it shows as a coloured flag on the card, from grey for Trivial to red for Critical. It is a label for people only: the queue order stays as you arrange it.",
+    "chapters": [
+     [
+      0,
+      "Priorities on the canvas"
+     ],
+     [
+      12.16,
+      "Six levels, set in the open card"
+     ],
+     [
+      25.58,
+      "Picking one"
+     ],
+     [
+      31.3,
+      "Taking it off"
+     ],
+     [
+      37.44,
+      "Projects too"
+     ],
+     [
+      43.72,
+      "A label only"
+     ],
+     [
+      51.36,
+      "Recap"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/compare/868f7736a644d2ca06d3ee2731ff7cf07cf07276...6d44e0d65c1ced78d7310df6fe31427b12e5eb9b",
+     "several": true
+    },
+    "first": "2026-11-04T11:42:56.736Z",
+    "at": "2026-11-04T11:42:56.736Z",
+    "source": "d685ea642ceb245c7ca74b5f83fd03aa9c46aebe6eedf0b2a6cb1e90353f4c6b",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "captions.vtt": {
+     "size": 1091,
+     "hash": "f271ae489339fffd4ab9054e2a1340a6bf04836dadb0041db929c80b74d669d7"
+    },
+    "demo.mp4": {
+     "size": 1766532,
+     "hash": "fdd27bcd06051eb1924d3b05b2c7a53c8f830d8daf1f8136a1d97864270c2147"
+    },
+    "index.html": {
+     "size": 6540,
+     "hash": "b7d5cf3d632402ea58ea6ec018017f5067712cb132b09b50a998962a60c777a9"
+    },
+    "meta.json": {
+     "size": 1125,
+     "hash": "4bc580f640c38f1dcfc3da87423a16825d1891bbb76b512ab9e5731f5c5e3283"
+    },
+    "poster.jpg": {
+     "size": 78285,
+     "hash": "d02e2666b323aaf45717e371ac324c55a0839ff7be0c3ebdf16ce3e071f2b0e0"
+    }
+   }
+  },
+  "show-question-for-you-status-with-questi-b90a8f": {
+   "rev": 3,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-04T11:49:53.372Z",
+   "meta": {
+    "title": "Questions for you stand out in dark yellow",
+    "text": "When an agent asks you a question, its card is now dark yellow instead of orange: frame, top line, minimap mark and pin, which shows a question mark instead of an exclamation mark. Its state line reads \"Question for you\" after a question-mark icon. A demo or a review waiting for approval stays orange, so a question is easy to tell apart at a glance, on the canvas and in the open card, in the dark and light theme.",
+    "chapters": [
+     [
+      0,
+      "Three cards wait for you"
+     ],
+     [
+      8.76,
+      "A question stands out"
+     ],
+     [
+      24.65,
+      "In the open card"
+     ],
+     [
+      30.15,
+      "Light theme"
+     ],
+     [
+      35.86,
+      "Recap"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/compare/6d44e0d65c1ced78d7310df6fe31427b12e5eb9b...7d8c09643a78fbc95a036c8420640fe2610b55f1",
+     "several": true
+    },
+    "first": "2026-11-04T11:47:11.366Z",
+    "at": "2026-11-04T11:47:11.366Z",
+    "source": "9891f4759807a9073b5d9b87c3769d3f53eaedea3ae08b2a313a2fbdd662a324",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "captions.vtt": {
+     "size": 879,
+     "hash": "30c7023c570a0bfa747fa3ba3b9f3eef49450fa4b34e9b3f680cd1484519ea70"
+    },
+    "demo.mp4": {
+     "size": 1239715,
+     "hash": "ed4c6b8830a85727308e5283e7549b86831967b0678d3b3b8a1085852d42f5cf"
+    },
+    "index.html": {
+     "size": 6534,
+     "hash": "c65c2fade8d8afa4c7f1c963bb2152e3690d523fdbaa5c6d01f3f7063cbe38d9"
+    },
+    "meta.json": {
+     "size": 1157,
+     "hash": "633e9d641b38ba1b0e13d8478542d25ee7e8fa492fa0db234f2014784bd9237f"
+    },
+    "poster.jpg": {
+     "size": 69981,
+     "hash": "82e3e29de1879925a9e4bcb032529d74f35f7340231b0044e05ed34619ad9c0d"
+    }
+   }
+  },
+  "agent-feedback-log-481f60": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-04T14:23:45.369Z",
+   "meta": {
+    "title": "Agent Feedback Log",
+    "text": "The Agent performance dashboard compares ratings by harness, model and effort. The new Agent Feedback Log, linked from it, is a page that lists every response given on agents' work, newest first, across all canvases. It can be filtered by canvas, repository, project, period, harness, model, effort and rating, and grouped by configuration, project, repository, canvas, week or month. Each card links back to the card, and the page links back to the dashboard.",
+    "chapters": [
+     [
+      0,
+      "A link from the dashboard"
+     ],
+     [
+      10.12,
+      "Every response, newest first"
+     ],
+     [
+      26.79,
+      "Filters"
+     ],
+     [
+      37.7,
+      "Nothing left"
+     ],
+     [
+      43.1,
+      "Grouping"
+     ],
+     [
+      56.94,
+      "Back to the card"
+     ],
+     [
+      62.71,
+      "And back to the dashboard"
+     ],
+     [
+      69.25,
+      "Recap"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/fa4235bbf103cacaa203ee0ecda720fc85957ca3"
+    },
+    "first": "2026-11-04T14:20:02.379Z",
+    "at": "2026-11-04T14:20:02.379Z",
+    "source": "b2e2a088340f0e50b780fc79357c10c60d61746912e0802f12586d9ddcff9c41",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "captions.vtt": {
+     "size": 1452,
+     "hash": "26bd4eeaa6243028d3d5f6b20eba9cb0c8358045ee43889145ff97d13d7c3e1a"
+    },
+    "demo.mp4": {
+     "size": 2414791,
+     "hash": "558fbcb906b4dcf4fdbd188edf800141d168aad9290a6e7f0c0174d678f39b30"
+    },
+    "index.html": {
+     "size": 6730,
+     "hash": "39697d26e7e96ed17b9008798d88918c2043d082119ff26e7503d43c568d1bdc"
+    },
+    "meta.json": {
+     "size": 1263,
+     "hash": "e8b80b9d32794fb84f8de6100c01585d3c92799e69bd8fc7550c458fa2eb10a7"
+    },
+    "poster.jpg": {
+     "size": 73434,
+     "hash": "4c424ae74dc7235bcaec947256dbc7a3156310464b1ccdcff7d5e103583a821e"
+    }
+   }
+  },
+  "codex-retrospective-mistakes-a-pause-for-768f62": {
+   "rev": 1,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-04T14:20:53.202Z",
+   "meta": {
+    "kind": "html",
+    "title": "A pause is no timeout in Codex work retrospectives",
+    "text": "When a card finishes, Obeya reviews the worker's run for friction and suggests improvements to the repository's setup. For Codex workers, a command killed because the owner paused the card looked like a failed command, so the retrospective suggested a longer timeout that Codex doesn't even have. Now the excerpt recognises the pause, stop or restart, marks where it happened, and reports no friction for it.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/059ee20b36be94a6597ba80ba01c11c4c3fc0e09"
+    },
+    "first": "2026-11-04T14:20:53.184Z",
+    "at": "2026-11-04T14:20:53.184Z",
+    "source": "e6bdb7068e1f9898d3416b7b2e8f9b7775bf4289228386b11cae61bb2162ef76",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/index.html": {
+     "size": 6820,
+     "hash": "fc44e1701cd3fce4c15d29339db09d730cbf4c629b8ac3abef22af04785bfe3a"
+    },
+    "index.html": {
+     "size": 7584,
+     "hash": "7dfb94c4dc4dea4569afad57e831259d2f6c27419d35f1ef764e2ecff1854b4a"
+    },
+    "meta.json": {
+     "size": 859,
+     "hash": "05f92e16d895759df150a65b093220928bb82a2d38055b72e8a917cd0bcda645"
+    }
+   }
+  },
+  "order-priority-dropdown-from-trivial-top-a02b47": {
+   "rev": 1,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-04T14:21:41.657Z",
+   "meta": {
+    "kind": "html",
+    "title": "Priority dropdown in natural order",
+    "text": "The priority menu on a card now reads from Trivial at the top down to Critical at the bottom, matching the order of the levels. Before, it listed them the other way round.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/2975492ac03598f88affa171e2857c22567c98d1"
+    },
+    "first": "2026-11-04T14:21:41.611Z",
+    "at": "2026-11-04T14:21:41.611Z",
+    "source": "cb2c5f4ffe13eaea59440c9827a3e0e2b7f51f117f8b8b82706c76ce86c983b5",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/after.png": {
+     "size": 58611,
+     "hash": "4bc573ea7460155f7563b7f40d657989bbb756312cde4de64ec8127dacd7ad2a"
+    },
+    "artifact/index.html": {
+     "size": 83345,
+     "hash": "ff13a46823bec2219b93ee02ca0f2ad3996e1c6a308955a387033b7d7df01c98"
+    },
+    "artifact/stage.json": {
+     "size": 165,
+     "hash": "351b7ab23f6b084496d435f234ad286e363e824d272ca0ef88553efdc7951fb9"
+    },
+    "index.html": {
+     "size": 7299,
+     "hash": "2d819e6119954039b9dea980df94bf5ee2b6942951877f532fd3be10beb655a9"
+    },
+    "meta.json": {
+     "size": 606,
+     "hash": "67575a02895d8979f4a138f92ee547bbcf406315939008df602158b05640e1c8"
+    }
+   }
+  },
+  "fix-codex-agent-assignment-errors-and-fl-add3fc": {
+   "rev": 1,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-04T14:22:35.905Z",
+   "meta": {
+    "kind": "html",
+    "title": "Failed agents show up in red",
+    "text": "When an agent cannot start or dies with an error, its card now turns red with a \"!!\" pin and says \"Agent stopped with an error\", beside the orange \"!\" of questions for you. Codex also no longer refuses to start in repositories that have a .codex folder.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/ceb8f8b762d78aae76f28bf82c52558a49dab255"
+    },
+    "first": "2026-11-04T14:22:35.882Z",
+    "at": "2026-11-04T14:22:35.882Z",
+    "source": "eb5e9239e1140b590604227cc8d8697c876a7468bd1fbc771f77b147579edef4",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/canvas.png": {
+     "size": 67504,
+     "hash": "0ca341c93e7de22d1664ae02baf5ecfd6aed6356237d1681eb3e748be4a0a473"
+    },
+    "artifact/index.html": {
+     "size": 96361,
+     "hash": "fb1f8e3beb330046f994913a6ebea76c02c9a9237e3df4b5289b6c38eddde15a"
+    },
+    "artifact/stage.json": {
+     "size": 612,
+     "hash": "d3dc9b69d31cd63e0451560e3b72ceae9adf10003fb8cd34fa447d0f24d20078"
+    },
+    "index.html": {
+     "size": 7393,
+     "hash": "a14eeea26762db724e5de6a04638b168664f7ca5ba504da38440498d1694b849"
+    },
+    "meta.json": {
+     "size": 688,
+     "hash": "5a6564a3c4e40101457065a4162b463c30f736bfaede41e175fac13404e4c1a7"
+    }
+   }
+  },
+  "add-to-claude-md-dc21d7": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-04T14:30:23.028Z",
+   "meta": {
+    "kind": "html",
+    "title": "Two new working rules for agents",
+    "text": "The agent instructions get two new rules. Agents no longer wait on long commands in the foreground: they run tests, typechecks and app starts in the background and wait to be notified. The extension design is described as best effort: the core may grow where a feature needs it, and whoever moves a feature into an extension also untangles the other features mixed into that code.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/ab612df3778639b476ccf03e3f3b4a76676a9621"
+    },
+    "first": "2026-11-04T14:29:33.908Z",
+    "at": "2026-11-04T14:29:33.908Z",
+    "source": "15005eb998a1fa060d79cc058c35352b767651d6e82fb90aee45ab3992b8b8ab",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/index.html": {
+     "size": 4951,
+     "hash": "17fbf51c16358f183df04b1f06dc81abe3a786c24260af85294741c8a94d9b9d"
+    },
+    "index.html": {
+     "size": 7502,
+     "hash": "28775b7a189b456b21f324ab7320e8254a76c610c65351e7d56f0fdae6cd4385"
+    },
+    "meta.json": {
+     "size": 813,
+     "hash": "cff612d5b1e01119c7604ff553be0b3b3521905a146d19c47ce1be3306f9cbc1"
+    }
+   }
+  },
+  "cards-should-have-built-in-categories-81f035": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-04T14:55:58.839Z",
+   "meta": {
+    "kind": "html",
+    "title": "Plan: built-in card labels",
+    "text": "Cards are getting built-in labels beside their priority: a category (Frontend, Backend, Data Migration, Docs, Tooling) with a sub-category (Refactor, New feature, Bug fix, Configuration), and a complexity of 1, 2, 3, 5 or 8. Obeya suggests the labels you leave empty and marks its suggestions with a purple border until you touch them. Each canvas decides which labels Obeya may suggest, and new canvases start from shared defaults. This page shows the plan's goal and its six workstreams.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/fa47c5f4785bf85ae5bca49aa2970b19bc97975b"
+    },
+    "first": "2026-11-04T14:55:10.627Z",
+    "at": "2026-11-04T14:55:10.627Z",
+    "source": "9a03aa538323daf0331cbdefcd29b6f41ee560cb78de0f8f7315272421f5095f",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/index.html": {
+     "size": 7407,
+     "hash": "b49a9d0c60f844c1a82c9f36909446d683da502caa7965a6837c1eafdec0073d"
+    },
+    "index.html": {
+     "size": 7593,
+     "hash": "b280d3ac9fbdb6a8060e98dcf01fca2c0914c30f3fbf6a1cf31231250bfaf0d1"
+    },
+    "meta.json": {
+     "size": 916,
+     "hash": "3f064356778aaebddb77a8d2e175dcc92130834ed382c5e93d7b51c1d37df79e"
+    }
+   }
+  },
+  "labels-in-the-data-and-the-api-be1a1d": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-04T16:53:51.590Z",
+   "meta": {
+    "kind": "html",
+    "title": "Card labels: category, sub-category and complexity",
+    "text": "Cards can now hold a category, a sub-category and a complexity (1, 2, 3, 5 or 8) next to their priority. Obeya can suggest labels a card doesn't have yet, and marks them as suggestions. It never overwrites a label the owner set, and once the owner clears a label, Obeya doesn't suggest it again. The labels belong to the owner: they're stored in Obeya, not in plan docs, and agents aren't told about them.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/04aa0b770a48d4495256b67c40695cce437a3fb1"
+    },
+    "first": "2026-11-04T16:52:43.255Z",
+    "at": "2026-11-04T16:52:43.255Z",
+    "source": "bd6a75a13fb4f130f4d606206b27b2f57844f117693a87509cb4511da25f75df",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/index.html": {
+     "size": 41188,
+     "hash": "c4eb1fa5b93977fcefea3754fba7cd11efe66a73e48109f9d28c7ca7eda83cf3"
+    },
+    "artifact/schema-change.html": {
+     "size": 12794,
+     "hash": "c16bd0492ba908161343528dc12fc8ebfa22863aa7400aa6b59a0f5e53a57e74"
+    },
+    "artifact/schema-models.json": {
+     "size": 12848,
+     "hash": "c901d90b2055eb43273eac69eb3c586e660788e750b75c4037880a9a47be6978"
+    },
+    "index.html": {
+     "size": 7581,
+     "hash": "9ba28ac5832743e60498bd0111c91dd6e087cb33b857557912bbbdc76d7b02c6"
+    },
+    "meta.json": {
+     "size": 856,
+     "hash": "d084418e035d3dbb925fa24bf56e0b37861d691dc6ff3bec57940b30d0402250"
+    }
+   }
+  },
+  "claude-worker-answers-in-german-on-an-en-bdef9f": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-04T17:09:43.829Z",
+   "meta": {
+    "title": "Workers follow the conversation language",
+    "text": "A worker’s questions and handovers follow the conversation language. This comparison shows the earlier German handover and a fresh English question and handover on the same accented-text task.",
+    "chapters": [
+     [
+      0,
+      "The earlier handover"
+     ],
+     [
+      7.89,
+      "The question in English"
+     ],
+     [
+      16.19,
+      "The handover in English"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/7fb8ea63845d10c1b6a2978ba3784a642e2994cf"
+    },
+    "first": "2026-11-04T17:08:47.467Z",
+    "at": "2026-11-04T17:08:47.467Z",
+    "source": "fbee8fe2321462df73961237c73faafa3edb1c8adf4a731f5b1a5bf7ad662234",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "captions.vtt": {
+     "size": 528,
+     "hash": "aeb104e1777c209c6118a0de2029d3abd8d1d7d8c4a1c5bef74ac0f520bdaa63"
+    },
+    "demo.mp4": {
+     "size": 786209,
+     "hash": "b467c73876151a50f887cdd6c571c7c4622ed860537c3421929cab1b6bcb652d"
+    },
+    "index.html": {
+     "size": 6104,
+     "hash": "5618651a870e23addca55374401772770f766c0db7eef8a2f0042bfab2a2f4b3"
+    },
+    "meta.json": {
+     "size": 785,
+     "hash": "7366a92e2eeb61f2a75ef99c3288f5c8835bc36f51032e6f5a581eb385d2eb3c"
+    },
+    "poster.jpg": {
+     "size": 68342,
+     "hash": "29531a334ca972cbd843e11c29bc4e0c6bf52829325b74d5b04dec87cc9bcb2d"
+    }
+   }
+  },
+  "the-suggestion-df655a": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-04T18:52:49.354Z",
+   "meta": {
+    "kind": "html",
+    "title": "Obeya suggests card labels",
+    "text": "When a card's category, sub-category, complexity or priority is left empty, Obeya now suggests a value. A card without a title gets its labels in the same short call that names it. A card with a title gets one quick call when it starts, which never holds up the start. Labels you set yourself are never touched or asked for again, and a canvas can turn off the labels it doesn't want suggested. The table shows the real suggestions for a handful of sample cards.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/4cb5ef6d2d19079754d4f6caa35741744b155b95"
+    },
+    "first": "2026-11-04T18:51:50.514Z",
+    "at": "2026-11-04T18:51:50.514Z",
+    "source": "8deb035526c7bfbe679b7a8c8829cab5f7dfb6dce09149125c033d8bbfe30741",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/index.html": {
+     "size": 19207,
+     "hash": "4e5caa1a483f9ba13dc91e07aa8d3347b8735a69a13f068f5549783b146a109c"
+    },
+    "artifact/run.log": {
+     "size": 887,
+     "hash": "d5cc156ff6b0b6805fe3ea73df381af6db940c46594456c8a698f8fcb592f579"
+    },
+    "artifact/run.ts": {
+     "size": 6110,
+     "hash": "a9f3c3593d5cbbc23663fa0278030a262a3014dee665b74282a1c58e2393cbc1"
+    },
+    "index.html": {
+     "size": 7566,
+     "hash": "5fad23f41f60ec2bbe999f8edb516456d061c7c0cb4dc437cc22bf5bf8028a65"
+    },
+    "meta.json": {
+     "size": 889,
+     "hash": "a51138f7e7e6dad296c11460b5d712ff65c5f389d34d393cff83cbf19cede003"
+    }
+   }
+  },
+  "process-tracker-s-ps-call-freezes-the-se-2585d2": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-04T21:52:14.635Z",
+   "meta": {
+    "kind": "html",
+    "title": "The server stays responsive while agents run terminals",
+    "text": "While a Codex agent runs, Obeya checks the machine's process list every half second, so it can clean up the terminals the agent started. On a busy machine that check takes over a second. Until now the server waited for it, and pages and agents went unanswered in the meantime. Now the check runs in the background, so the server keeps responding, and cleanup still ends exactly the processes that belong to the agent.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/compare/4cb5ef6d2d19079754d4f6caa35741744b155b95...2884cd13da34ca0e49ff4de54a65c7145802fe0c",
+     "several": true
+    },
+    "first": "2026-11-04T21:51:21.589Z",
+    "at": "2026-11-04T21:51:21.589Z",
+    "source": "a9646fd65f9147f0ffe59510b9b79791bf2b3f0402ae001ca485cbba4d59af8c",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/bin/ps": {
+     "size": 100,
+     "hash": "5499b0ac51c8bc3a348feea06fc5d59f2cb1838352432767241f1e2b7bf79c33"
+    },
+    "artifact/index.html": {
+     "size": 22446,
+     "hash": "59de24b7d049f14a1fdf70cb2f773ba077df51be81312a52696828228dea84cc"
+    },
+    "artifact/measure.ts": {
+     "size": 1143,
+     "hash": "331948925cbbee427ffa6f21ac86b5c234d5a3439dc2bedfad024c1c2322585b"
+    },
+    "artifact/old/agent-processes.ts": {
+     "size": 9903,
+     "hash": "93d48ca843d36624b127f1516d4f0205059e7c2e73826b31faa64ce6a43cbc09"
+    },
+    "index.html": {
+     "size": 7650,
+     "hash": "2dfed4b26b216c00a9225884506132e2bf5ff8319b350d28608d76fc3ac9ffeb"
+    },
+    "meta.json": {
+     "size": 937,
+     "hash": "0fdfd1721ea246dc83068659bbf01f7d86e353eb1a2924ebd4995bf4ff91ffac"
+    }
+   }
+  },
+  "handover-configuration-a088b9": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-04T22:14:47.357Z",
+   "meta": {
+    "kind": "html",
+    "title": "Configurable handover artifacts",
+    "text": "Which artifacts a handover may bring — a demo video, an HTML page with screenshots, and the schema page for data changes — is now configurable per repository and as a machine default. Agents are briefed and checked against the allowed list, so a project that doesn't want videos or schema pages no longer gets them.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/compare/4823e9c796892a5ead8c0f535e43200f4fbcd6b2...4a000ad9604b24d0858d9e3c518aa5757cacaf73",
+     "several": true
+    },
+    "first": "2026-11-04T22:13:40.409Z",
+    "at": "2026-11-04T22:13:40.409Z",
+    "source": "2634545d23cb4cc4052a933b398f4eaa5519ab9509106c69885e29affe59022d",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/index.html": {
+     "size": 611962,
+     "hash": "4843d6a15e2044ee0da3932d44294fe2f6ffbb204f4ce577facdfacf6c9d1cdd"
+    },
+    "artifact/machine.png": {
+     "size": 132762,
+     "hash": "3d8002b219bfd86268fbf12610fdfe92e77bded1510f856db77f16c99988c1e5"
+    },
+    "artifact/repo-default.png": {
+     "size": 156069,
+     "hash": "57535fec557d086c9a3baf7c2c7dc12e8ea6594c0a5e2469801626525d3472c0"
+    },
+    "artifact/repo-set.png": {
+     "size": 165363,
+     "hash": "3868be8b4552e341621e37af8cf6cdb023c3aeb58149a4979c52241902acaf4c"
+    },
+    "artifact/stage.json": {
+     "size": 16,
+     "hash": "e495aaeb2bdcad64dfe47d25fba2a1d40e30d016ec7c145c6677a32556dd2d19"
+    },
+    "index.html": {
+     "size": 7483,
+     "hash": "991ffa37294ba8356e84b3b5f22d24f046756e4fd2e013651724ccd693558682"
+    },
+    "meta.json": {
+     "size": 816,
+     "hash": "d26802a5186a56aeae2e31cbc5b73e580e0c09fc3a91e59eabb1185f2d5ea945"
+    }
+   }
+  },
+  "merge-review-keep-the-merged-card-and-it-151440": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-05T04:23:02.116Z",
+   "meta": {
+    "title": "Keep merge reviews within reach",
+    "text": "Long original descriptions now open as previews, leaving the merged card visible immediately. Expand both originals together to compare them, while approval and separation stay within reach as you scroll. The same review works on a phone, with the full merged text available to read.",
+    "chapters": [
+     [
+      0,
+      "Before: the decision is below the fold"
+     ],
+     [
+      6.36,
+      "The merged card is visible immediately"
+     ],
+     [
+      14.27,
+      "Compare both originals and read the full result"
+     ],
+     [
+      22.93,
+      "Show less and try again"
+     ],
+     [
+      29.57,
+      "The same review on a phone"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/da9dca9a0a5d25dd615761e25c2d915847ce16f0"
+    },
+    "first": "2026-11-05T04:21:30.336Z",
+    "at": "2026-11-05T04:21:30.336Z",
+    "source": "fd8c13d17c11b1a4c1ba42afd397d371ed8383cfb7d4ca504e46c4877de7d44c",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "captions.vtt": {
+     "size": 824,
+     "hash": "25aa3fd760b6eecd30578ca66300c0aa45aeaa69417029818c059e1c8fc5f992"
+    },
+    "demo.mp4": {
+     "size": 1506806,
+     "hash": "5e0c2500544bfe6892093689884dc1be07d49fbe25c868e528ed0a350d41d1de"
+    },
+    "index.html": {
+     "size": 6419,
+     "hash": "4ee15ebc6155d80413815896addd7fc4a610ce66661e8d0e1b944440aa84518a"
+    },
+    "meta.json": {
+     "size": 1041,
+     "hash": "01cd2d2e18f9624869e25b5f7e818c42bd99b1b5371182a4b424a448a22adf41"
+    },
+    "poster.jpg": {
+     "size": 169903,
+     "hash": "23f56d5da733cf5e56856e6d1841b79122cefbcac924f48d4bebf19a5352be10"
+    }
+   }
+  },
+  "move-the-diff-file-list-into-its-own-tab-ed2970": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-05T04:32:26.572Z",
+   "meta": {
+    "title": "Deliverables in their own tabs",
+    "text": "Review a card’s video, HTML document and schema change in separate tabs, with Video first. The changed-file list is available under Diff, keeping deliverables easy to find on desktop and phone.",
+    "chapters": [
+     [
+      0,
+      "Before: one mixed list"
+     ],
+     [
+      8.51,
+      "Video first"
+     ],
+     [
+      17.45,
+      "Document and schema"
+     ],
+     [
+      25.97,
+      "The file list in Diff"
+     ],
+     [
+      35.02,
+      "The same tabs on the phone"
+     ],
+     [
+      43.16,
+      "An HTML-only delivery"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/00a564e0e9b5480374be164f385a3692c16fa955"
+    },
+    "first": "2026-11-05T04:31:15.366Z",
+    "at": "2026-11-05T04:31:15.366Z",
+    "source": "de67e8df925618ae5c323055e1b8ab754ae6676990f7b8f90ca9ed5f5e382100",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "captions.vtt": {
+     "size": 998,
+     "hash": "ffcc5def6dc50ffc7150bdc52274a34a0d8da7b556528b403afc9dfe476ca5f7"
+    },
+    "demo.mp4": {
+     "size": 1432914,
+     "hash": "2bf537153ddf22c65db0459fef467baae33f328384b5059b3d3879b2d063d45c"
+    },
+    "index.html": {
+     "size": 6346,
+     "hash": "bd03cb5d0453559d6c7b8d8b79931f941fb66cc9239fc871f6469d1a53e23f52"
+    },
+    "meta.json": {
+     "size": 935,
+     "hash": "8f506bedfdef9d10dfa441b83d23f4d69bed4acba19a85cc02beea692f8373fe"
+    },
+    "poster.jpg": {
+     "size": 80278,
+     "hash": "bf1f1dfeedac4df0c65227ac3573c41a596859fe7c0850f59e17b0e2d8344279"
+    }
+   }
+  },
+  "make-completed-project-cards-larger-and-1a0534": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-05T04:39:27.664Z",
+   "meta": {
+    "title": "Readable completed project cards",
+    "text": "Completed workstreams now have wider cards, larger titles, and solid green backgrounds. They remain fully visible when zoomed out, keeping delivered work easy to scan alongside the next tasks. Projects make room for the larger cards.",
+    "chapters": [
+     [
+      0,
+      "Before: small and faded"
+     ],
+     [
+      9.56,
+      "Larger and opaque"
+     ],
+     [
+      22.31,
+      "Readable in the overview"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/compare/00a564e0e9b5480374be164f385a3692c16fa955...34a87d06fb5e369c17b14f5aa62bd06fefcb2f7d",
+     "several": true
+    },
+    "first": "2026-11-05T04:38:38.217Z",
+    "at": "2026-11-05T04:38:38.217Z",
+    "source": "2ca4557fe82fd6f39ecba5df5a98a0da19b51fe06bee7e2fd02b52ad1e84c6b2",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "captions.vtt": {
+     "size": 624,
+     "hash": "8665a15f6dcf9a45c44f64f83d9bab3991cb8a50dadc34e130544c713fa1bca5"
+    },
+    "demo.mp4": {
+     "size": 714007,
+     "hash": "c81562a1f11a4a5f1cf01970a564b1095f9bcae142bdc6f1d8b3de21b2dcd337"
+    },
+    "index.html": {
+     "size": 6170,
+     "hash": "ec6c686a6f3ee8044067dc083c2307003ab763bd66c2b5e87dd70b352c1a1cf7"
+    },
+    "meta.json": {
+     "size": 879,
+     "hash": "5406b9f3f0e04b014cf19294fd8675c46922f32fdb7a7b2b7b874a5523408fa3"
+    },
+    "poster.jpg": {
+     "size": 65939,
+     "hash": "20239f1b90bb164bfc3c9eb61fea19060b72411537889d4526d5780fdc699602"
+    }
+   }
+  },
+  "improve-auto-card-title-skill-and-suppor-7c4810": {
+   "rev": 1,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-05T04:40:23.688Z",
+   "meta": {
+    "title": "Automatic titles that fit the task",
+    "text": "Leave a task untitled and Obeya chooses wording that fits: a user story, a component with its fault, or a component with its requested behaviour. Ordinary descriptions are enough, and the title keeps the role, symptom, or action that distinguishes the task.",
+    "chapters": [
+     [
+      0,
+      "A role and an action"
+     ],
+     [
+      10.15,
+      "The component and its fault"
+     ],
+     [
+      20.56,
+      "What the component should do"
+     ],
+     [
+      28.19,
+      "A natural fit for other tasks"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/compare/6ae6e390fdf4d760bc0652cc11a06c2e99aee81b...ca1234a5f86f1e5c931ae25e7f58d3a0cb03fdca",
+     "several": true
+    },
+    "first": "2026-11-05T04:40:23.669Z",
+    "at": "2026-11-05T04:40:23.669Z",
+    "source": "d0bc96cefaaf832b69c68f9015e62ea53785f72bd3e318cf235ffa23ba7bb7e0",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "captions.vtt": {
+     "size": 772,
+     "hash": "3f380941aea01d2a668da4e8588c035085923107cba70a44511d654cac74b2de"
+    },
+    "demo.mp4": {
+     "size": 1423868,
+     "hash": "9b7c82f87f9d109cdfc39d77636916312ebb4b71d2a74cea9e83b07dde3a5ce7"
+    },
+    "index.html": {
+     "size": 6308,
+     "hash": "50d1c233c23f97dac1b438193a666b770ff4c75d77d81e1d0c38971462a226bc"
+    },
+    "meta.json": {
+     "size": 981,
+     "hash": "7af7348c8fed75cdab9c09635d87eb750269517965f52bf610222ebcd0161bfe"
+    },
+    "poster.jpg": {
+     "size": 80749,
+     "hash": "beeb012fd88e2fc73df06914937da9f01145eb1388cdeb1602d05cfa19e959f8"
+    }
+   }
+  },
+  "pause-agents-on-session-limit-and-auto-w-3c20e5": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-05T04:42:15.460Z",
+   "meta": {
+    "title": "Agents pause on a usage limit and wake after the reset",
+    "text": "When the account hits its session limit, an agent now pauses after three refused attempts instead of retrying forever. Its card shows a light blue bar with an hourglass, and the conversation names the reset time. Obeya wakes the agent by itself after the reset, or the owner can start it again by hand.",
+    "chapters": [
+     [
+      0,
+      "Two cards, one paused"
+     ],
+     [
+      11.96,
+      "What the card says"
+     ],
+     [
+      21.49,
+      "Try again by hand"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/compare/ca1234a5f86f1e5c931ae25e7f58d3a0cb03fdca...74ec58c0b33e648e42ee9945faa526f289b5bfde",
+     "several": true
+    },
+    "first": "2026-11-05T04:41:23.924Z",
+    "at": "2026-11-05T04:41:23.924Z",
+    "source": "06cc905b839f7d68f5fbd1cf07bd4851c8694ecd019d53752907bf3238c46ebb",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "captions.vtt": {
+     "size": 703,
+     "hash": "4e2828911266ca65085d24650e5007df05a23d651b31edad8effdbd1676913ae"
+    },
+    "demo.mp4": {
+     "size": 851494,
+     "hash": "f632beab53f9658173dd0608d6cf42a310ee1548f0eb5bef298f50945e2d28a6"
+    },
+    "index.html": {
+     "size": 6276,
+     "hash": "341f3a56fd87703932e4488fe0e87f221fb5ef649589d4e22b1119dee4a3b8df"
+    },
+    "meta.json": {
+     "size": 963,
+     "hash": "da8128cf5fb054ac6f90650494f331c57819af7b538284869179f6f6e38ad591"
+    },
+    "poster.jpg": {
+     "size": 63002,
+     "hash": "7394cf3ee35da5f58d5585bd6e6b7d83156134cb0a779a604a56bf6740587a4c"
+    }
+   }
+  },
+  "pickers-and-chips-on-the-card-c552fd": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-05T04:52:06.876Z",
+   "meta": {
+    "title": "Card labels at a glance",
+    "text": "Cards now show category, sub-category and complexity as compact chips beside their priority. Pickers on unfolded cards and project sheets apply each choice immediately, including None. Purple borders identify suggested labels until you make your own choice, with the same controls on desktop and phone.",
+    "chapters": [
+     [
+      0,
+      "Chips after the priority"
+     ],
+     [
+      16.65,
+      "Suggested labels in purple"
+     ],
+     [
+      28.48,
+      "Four pickers on the unfolded card"
+     ],
+     [
+      37.42,
+      "The complexity scale"
+     ],
+     [
+      50.62,
+      "Category and sub-category"
+     ],
+     [
+      63.07,
+      "Taking over a suggestion"
+     ],
+     [
+      72.1,
+      "Projects"
+     ],
+     [
+      86.53,
+      "On the phone"
+     ],
+     [
+      96.3,
+      "Recap"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/compare/542066ccc121cd4f07d504cc1244777267c03b79...ad926d62230f7dd82e35e3887aa884e9721b24c8",
+     "several": true
+    },
+    "first": "2026-11-05T04:43:17.252Z",
+    "at": "2026-11-05T04:43:17.252Z",
+    "source": "dee83b5edcefecbdcebb61ce44d8f6427bc46c92d6589b3845d10f5614929606",
+    "language": "en",
+    "by": "Nick Palenchar",
+    "more": [
+     {
+      "title": "Updated label borders and complexity scale",
+      "text": "Suggested labels now use the same dashed border and color as proposal cards. Complexity offers seven values, from 1 through 21, in a compact picker without descriptions. The new values apply immediately on desktop and phone.",
+      "chapters": [
+       [
+        0,
+        "Matching proposal borders"
+       ],
+       [
+        9.07,
+        "Seven values, without descriptions"
+       ],
+       [
+        19.56,
+        "Thirteen and twenty-one"
+       ],
+       [
+        28.54,
+        "The same changes on the phone"
+       ]
+      ],
+      "dir": "2",
+      "handed": "2026-11-05T04:42:49.851Z",
+      "at": "2026-11-05T04:43:17.252Z",
+      "source": "a2515708aaf17ac625e0f492045fb40ae5ebe8931e17f660c73f0c699120e982"
+     }
+    ]
+   },
+   "files": {
+    "2/captions.vtt": {
+     "size": 684,
+     "hash": "c5b1670b4a4e6971c4b047609ec5ddb7dde9855a12ccbb2f12d536f9e3d289d4"
+    },
+    "2/demo.mp4": {
+     "size": 1181462,
+     "hash": "0ac75e5fa9429cc2ee134466975ae6627cf15528ff014f89822974c08aa7427a"
+    },
+    "2/poster.jpg": {
+     "size": 91952,
+     "hash": "8cd90a53912b6642d6532bd6061144f700c43b97ec77a23431a19e5f7ad69df8"
+    },
+    "captions.vtt": {
+     "size": 1987,
+     "hash": "ed9530de53a89b7342f883be014712442304fce275c2ec58e7465e91d7a427a0"
+    },
+    "demo.mp4": {
+     "size": 3394532,
+     "hash": "54995ebb877843681c8a981e366ad39db5ee32aeca49b2a93dd71be19fba6617"
+    },
+    "index.html": {
+     "size": 11364,
+     "hash": "13cae991c15fdf8f4e1eee1e6f13a991aa734353e8e730684f933a9ae76ecb4b"
+    },
+    "meta.json": {
+     "size": 2116,
+     "hash": "10f8bd8c4fa1ed05c27f4df836c64199db55b0c39a2bc73ac31126ebc1628958"
+    },
+    "poster.jpg": {
+     "size": 85435,
+     "hash": "ce3b44e2dab816168ba1b33be9703f41bcc74125bd66445d3a70cfa6e8c4b351"
+    }
+   }
+  },
+  "show-completed-cards-outside-a-project-i-5906ef": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-05T04:49:55.599Z",
+   "meta": {
+    "kind": "html",
+    "title": "Finished cards share one green",
+    "text": "Completed cards that are not part of a project now use the same muted green as completed cards inside a project. Finished work reads the same everywhere on the canvas.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/542066ccc121cd4f07d504cc1244777267c03b79"
+    },
+    "first": "2026-11-05T04:48:52.930Z",
+    "at": "2026-11-05T04:48:52.930Z",
+    "source": "b92656e57e81a7b2f814d6fa1f01aa90470b59a11d243c0201ad857e2cbb7084",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/a.png": {
+     "size": 56782,
+     "hash": "f1c22e3ff648d182099c67d88733e3d8c7826589d2317fb7e9933d7c52f0bf79"
+    },
+    "artifact/index.html": {
+     "size": 81284,
+     "hash": "7ef92fbd5baba6086ac1e3c13d821581d2a2c4df74713f6e22f8a6cdb548f25f"
+    },
+    "artifact/shot.png": {
+     "size": 56782,
+     "hash": "f1c22e3ff648d182099c67d88733e3d8c7826589d2317fb7e9933d7c52f0bf79"
+    },
+    "artifact/stage.json": {
+     "size": 386,
+     "hash": "f5b102f3eeaaa8a511bd12fb0a2ca8409cc237eca2846d11554615b7d6f53e6d"
+    },
+    "index.html": {
+     "size": 7283,
+     "hash": "552444fd662efe56f93d3e8b15d6909178270dc193feb9b943d265c1a66d6817"
+    },
+    "meta.json": {
+     "size": 598,
+     "hash": "dea119bd175532bfcdfda142838994077d5a065952b70aa82a2822374088d27e"
+    }
+   }
+  },
+  "stop-agent-process-tracking-from-stallin-fa7f3a": {
+   "rev": 1,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-05T11:38:46.274Z",
+   "meta": {
+    "kind": "html",
+    "title": "Process tracking keeps the server responsive",
+    "text": "Obeya inspects agent processes in the background, keeping pages and agent messages responsive even when the process list is slow. Process cleanup still verifies creation identities and waits for earlier tracking to finish.",
+    "chapters": [],
+    "pr": null,
+    "first": "2026-11-05T11:38:46.253Z",
+    "at": "2026-11-05T11:38:46.253Z",
+    "source": "065dfaef177b22d822205b8cf4eabef555e6f17d17a5d01223ec006f4a9d23c9",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/before.ts": {
+     "size": 9903,
+     "hash": "93d48ca843d36624b127f1516d4f0205059e7c2e73826b31faa64ce6a43cbc09"
+    },
+    "artifact/bin/ps": {
+     "size": 127,
+     "hash": "40804f515afcc804e0f857f8cfc388dca0b68958323480962217411413c6abe5"
+    },
+    "artifact/index.html": {
+     "size": 36195,
+     "hash": "775a7c5307d43bf76fbbee38f5cc71319318440ff82bb738ca3a5fd249481628"
+    },
+    "artifact/probe.ts": {
+     "size": 2283,
+     "hash": "71d1c755e0623aa0c8fa6ee2c9330e0a5fb6950f3f1ebebce1c2885262e29a1d"
+    },
+    "artifact/render.py": {
+     "size": 4249,
+     "hash": "7b6813d464d02e52410806e8bf8206d2996a98d934495e586acbeef71c714440"
+    },
+    "artifact/results.json": {
+     "size": 1221,
+     "hash": "e8ca5d0320b479a2b8c964b478ee3a053e6b0cc87381efe79ac4b99fe6c4a040"
+    },
+    "artifact/review.png": {
+     "size": 214030,
+     "hash": "dde5fd3cf83a1b9141037b7cc31b9a4ed4e8b99125c9923f7d5f6972c84e4b74"
+    },
+    "artifact/stage.json": {
+     "size": 557,
+     "hash": "6bcfa383eeb7684515b1261091b177c92c4b3c5fe2ecbb151e9e64468856e49d"
+    },
+    "index.html": {
+     "size": 7268,
+     "hash": "5960b18a987ed0d6cfd2d4923197fd55afadb31278b7866686a6029bfbd74e57"
+    },
+    "meta.json": {
+     "size": 548,
+     "hash": "a86747f34a62b44b5de15f037eb7db2363d8561d87c3f0dd504a0b6b0db4c516"
+    }
+   }
+  },
+  "merge-queue-agents-wait-their-turn-to-me-db6e12": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-05T11:40:56.432Z",
+   "meta": {
+    "title": "A visible queue for approved landings",
+    "text": "Approved work shows when it is landing and where it is waiting in the repository queue. Other workers hear about a landing only when it overlaps files they changed, so they can decide whether to rebase before handover. Notices wait for the next turn, and documentation paths marked soft are excluded.",
+    "chapters": [
+     [
+      0,
+      "Approval starts the landing"
+     ],
+     [
+      9.82,
+      "A visible place in line"
+     ],
+     [
+      22.92,
+      "The queue moves forward"
+     ],
+     [
+      35.47,
+      "Tell workers whose files overlap"
+     ],
+     [
+      50.45,
+      "No overlap, no notice"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/a36077f381043ecc44c683f6f9931e0f6c1943a5"
+    },
+    "first": "2026-11-05T11:40:01.297Z",
+    "at": "2026-11-05T11:40:01.297Z",
+    "source": "ea607e5507fb90939a7c0e7c3b71be847908b8829af438a167e2a9f4ed27a2a5",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "captions.vtt": {
+     "size": 1288,
+     "hash": "067f7d4ca7431f98108be9b2c6b2a8f848f930999865d64f7b48e42e34867c70"
+    },
+    "demo.mp4": {
+     "size": 2105520,
+     "hash": "8a3d09f5c6b46bdbaa10be63163d9b36d98236764eeb7a1ced2ddf855a0c79a9"
+    },
+    "index.html": {
+     "size": 6402,
+     "hash": "56c9d440613a97e6f701713cbf4eb53086e0890f07eae6cd131af71df9e512bb"
+    },
+    "meta.json": {
+     "size": 1018,
+     "hash": "db2349ed8271aad76868c2ca348d9b3e54e6e90c6de96809403549a15e5e3ca1"
+    },
+    "poster.jpg": {
+     "size": 97979,
+     "hash": "2a5d82a4a84c59b926fcf9656ac5cdad441da107587fa33416df5c8d17dd1e85"
+    }
+   }
+  },
+  "merge-cards-across-any-state-folding-int-3ea9b8": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-05T11:50:32.419Z",
+   "meta": {
+    "title": "Merge into the card furthest along",
+    "text": "Start from a planned task or proposal and choose a partner at any stage. Review covered work and any proposed follow-up before approving the merge. Work already in progress, finished or archived stays intact, and extra requirements become planned follow-up tasks. Two unworked cards can still become one combined task.",
+    "chapters": [
+     [
+      0,
+      "Choose a partner in any state"
+     ],
+     [
+      12.01,
+      "Compare against work already underway"
+     ],
+     [
+      24.7,
+      "Covered completely"
+     ],
+     [
+      36.04,
+      "A request with additional work"
+     ],
+     [
+      51.99,
+      "Check coverage and the fast follow"
+     ],
+     [
+      63.88,
+      "Compare again before approval"
+     ],
+     [
+      72.32,
+      "Approve the extra work"
+     ],
+     [
+      81.77,
+      "Archived work can survive too"
+     ],
+     [
+      95,
+      "The archive stays intact"
+     ],
+     [
+      106.1,
+      "Unworked cards still combine"
+     ],
+     [
+      119.82,
+      "One combined task to approve"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/09ead29d811b2b20ad5986bbc5ed6f1f171de77e"
+    },
+    "first": "2026-11-05T11:48:40.781Z",
+    "at": "2026-11-05T11:48:40.781Z",
+    "source": "e73cb7146d39c5e2f114008ca60d8d96db0acc7152cbded81868af24a57f5e29",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "captions.vtt": {
+     "size": 2357,
+     "hash": "5f67a74617ad5d5da0de024d399a64fc0acc4a9917b42519a7edb63ab53ac851"
+    },
+    "demo.mp4": {
+     "size": 4141590,
+     "hash": "08f8328304a5a55e6e97c432484d3c5c1051d7f69c69d65b251d6fb3a124dc53"
+    },
+    "index.html": {
+     "size": 7008,
+     "hash": "a2b71375b8fff73b89a3bdfced828996d37b3462cf75d994c256e9eda6eb4046"
+    },
+    "meta.json": {
+     "size": 1423,
+     "hash": "f1366ca465cc71c6a34d9af549e8f07fa960bd00b6629f924689d277f7b6a49a"
+    },
+    "poster.jpg": {
+     "size": 93730,
+     "hash": "3f67a2a369fd3aad701942304954aef4a2d7148ff42507dc95a4d2989bd5f9fb"
+    }
+   }
+  },
+  "tests-leave-hundreds-of-idle-processes-b-0bb8a3": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-05T11:57:42.913Z",
+   "meta": {
+    "title": "Test helpers exit with their runner",
+    "text": "Test helper processes now exit automatically when the test runner ends, even after an abrupt kill. Detached descendants are covered, while crash-recovery checks can still end an intermediate parent independently. Interrupted runs no longer accumulate these idle helpers.",
+    "chapters": [
+     [
+      0,
+      "Helpers left running"
+     ],
+     [
+      11.83,
+      "All helpers exit"
+     ],
+     [
+      25.63,
+      "Crash recovery still works"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/a612f5419e1d84c494bf16864ded8d48526c1bdf"
+    },
+    "first": "2026-11-05T11:56:24.139Z",
+    "at": "2026-11-05T11:56:24.139Z",
+    "source": "18244ce58f8ea129334c2fe35f2c8854c9f90aa1988a08ab7253a6c2c1e784fa",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "captions.vtt": {
+     "size": 769,
+     "hash": "2bd9055ff22bd1bfed877112aa63e9858e79edfb2f73a8aa06816660ffaa43cd"
+    },
+    "demo.mp4": {
+     "size": 923678,
+     "hash": "20187159933f6983f329b5eeb5d238225dc4e2b752490bb0c2590272851f74f7"
+    },
+    "index.html": {
+     "size": 6167,
+     "hash": "de3f3bc397b81717eee1568919bd7632148da27b9330a27b6434863a188cf6f7"
+    },
+    "meta.json": {
+     "size": 853,
+     "hash": "e9c2df5bd8842fed440a8d20d7c673c3036b2e56a9eaae5e8c99f8bcfdb15a6d"
+    },
+    "poster.jpg": {
+     "size": 80237,
+     "hash": "a56badd5cbc6e13d4fb475618bcd43ede7d06877020059464db344b3d0a513e4"
+    }
+   }
+  },
+  "keep-canvas-view-in-place-when-a-card-cl-dcb448": {
+   "rev": 1,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-05T11:58:56.183Z",
+   "meta": {
+    "title": "Closing a card keeps the view in place",
+    "text": "When a card is closed on the canvas, the view used to fly back to where it was before the card opened. Now the card folds into its place and the view stays on it, so you can see the card among the rest. This makes it easier to keep your bearings while working through several cards.",
+    "chapters": [
+     [
+      0,
+      "Open a card"
+     ],
+     [
+      4.17,
+      "Close it and stay put"
+     ],
+     [
+      13.69,
+      "Recap"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/1c9e41bdcb48c23e948e8dfbd7153a14b545008f"
+    },
+    "first": "2026-11-05T11:58:56.149Z",
+    "at": "2026-11-05T11:58:56.149Z",
+    "source": "8f94bca52bb0767ba6484a0072c976c156f58b13e64b269af74729ae50ed3dbd",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "captions.vtt": {
+     "size": 396,
+     "hash": "3926bd696c2f1e710b2f8153863d5fd861ce1ee7019a8ea16fa6cba98b1e5696"
+    },
+    "demo.mp4": {
+     "size": 470541,
+     "hash": "ee10c49cabc4587ad40d88464147e3568e77861265cfcff3af6abb3a3c851094"
+    },
+    "index.html": {
+     "size": 6159,
+     "hash": "49491219d527fc5869aa1b9221f8ad31b47dd078aa563806d55033812b6b354f"
+    },
+    "meta.json": {
+     "size": 842,
+     "hash": "e941af77092bfc473bc86cdcf39f0e2a9b6bf9f783255be73d90b1c77291517a"
+    },
+    "poster.jpg": {
+     "size": 66240,
+     "hash": "9cd311a3f87dc985fdb529b3b96fb0687dfc884b6b22edaa91f3150c67ab0d93"
+    }
+   }
+  },
+  "fix-the-registered-extension-test-s-miss-fd5dd1": {
+   "rev": 1,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-05T12:02:15.733Z",
+   "meta": {
+    "kind": "html",
+    "title": "Registered-extension test already fixed",
+    "text": "The failing worker-start event test was already fixed on main by an earlier commit. The test and the typecheck pass; no further change was needed.",
+    "chapters": [],
+    "pr": null,
+    "first": "2026-11-05T12:02:15.649Z",
+    "at": "2026-11-05T12:02:15.649Z",
+    "source": "1b56a7e056f119fcbff63e727bca0fca2c1f58c26b4021f73db0f14baefb54f3",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/index.html": {
+     "size": 4202,
+     "hash": "791b56c899a58cd3cb34a24a323f0dfef371cca7ff80a60447999f5d975434c4"
+    },
+    "index.html": {
+     "size": 7177,
+     "hash": "11f7d50be785b84700f503386f2f2d1851cce11b9cf99b8845ddc0671c995ff6"
+    },
+    "meta.json": {
+     "size": 467,
+     "hash": "4cd2bd97529e52f4ba2a267cd0ab37f72090d20063d6256dd6fb0c95c667d50b"
+    }
+   }
+  },
+  "embed-proposed-cards-in-chat-with-propos-141ad1": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-05T12:06:18.406Z",
+   "meta": {
+    "title": "Proposed cards in conversations",
+    "text": "Agent proposals appear directly in the conversation as “Proposed new card”, with the same dotted cover used on the canvas. Open the card to review its task and accept or dismiss it. Covers show accepted work in its current state and keep withdrawn proposals as unlinked titles.",
+    "chapters": [
+     [
+      0,
+      "Previously, only a name"
+     ],
+     [
+      9.72,
+      "A proposal embedded in chat"
+     ],
+     [
+      22.7,
+      "Open the proposed work"
+     ],
+     [
+      33.91,
+      "Proposals on another canvas"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/compare/feb25503dcfcdc220cb20cf443ede6fef71db6cc...0e9d54268a40ca4ddb71a5c3652dffb155acfddb",
+     "several": true
+    },
+    "first": "2026-11-05T12:05:21.723Z",
+    "at": "2026-11-05T12:05:21.723Z",
+    "source": "836908c23b1f4e430f16152a147fcfdf8de1a51fe4b1b395fce001c9c6862c57",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "captions.vtt": {
+     "size": 961,
+     "hash": "77a365e5b87670ede0f435cab908deb669ba61a14478bed2df02228f32732ddb"
+    },
+    "demo.mp4": {
+     "size": 1281044,
+     "hash": "050bbd40dba98d9b030c6634f130b5c5bcb52b955974b24f3a41135218d0b3ba"
+    },
+    "index.html": {
+     "size": 6319,
+     "hash": "4c4a03886ba7f2b7956dabf57cdd61a669d179ab0ed1433e928de0adabdd2531"
+    },
+    "meta.json": {
+     "size": 995,
+     "hash": "3cdf18a86152b15666e938cc249102226dbad91053a26cba12321ba0c9819650"
+    },
+    "poster.jpg": {
+     "size": 77452,
+     "hash": "eab51ade21e1fae546a423fce2c90528e34312f9b70e9e6aefaab0f3c22166d2"
+    }
+   }
+  },
+  "tag-a-project-s-git-baseline-for-all-bra-935346": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-05T12:08:34.577Z",
+   "meta": {
+    "title": "Project git baselines with canvas defaults",
+    "text": "Set project tagging once under Canvas defaults. New canvases inherit that choice, while existing canvases keep their own setting. Each tagged project shares a stable starting reference across its workstream branches as the default branch advances.",
+    "chapters": [
+     [
+      0,
+      "Project tagging in Canvas defaults"
+     ],
+     [
+      12.08,
+      "New canvases inherit the default"
+     ],
+     [
+      28.01,
+      "The first workstream sets the baseline"
+     ],
+     [
+      40.19,
+      "Later branches share the original tag"
+     ],
+     [
+      53.25,
+      "Turn tagging off for this canvas"
+     ],
+     [
+      64.21,
+      "Existing project references remain"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/compare/0e9d54268a40ca4ddb71a5c3652dffb155acfddb...9debfbc46f5a50368ba732b9cc8adb17e767848f",
+     "several": true
+    },
+    "first": "2026-11-05T12:07:35.323Z",
+    "at": "2026-11-05T12:07:35.323Z",
+    "source": "2be381ec35bfe282b10e6592d11678f7233d96bd4b780ef225cdec23895fcaea",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "captions.vtt": {
+     "size": 1472,
+     "hash": "17727fcc4e4ed72b94aa028a704051dd5829be5c0ba9576c60c6eb05a1562416"
+    },
+    "demo.mp4": {
+     "size": 2275919,
+     "hash": "07e2cfa0977a62a2895fc1d86a0dc1681d26c1b2549c0c00c80704bdd0b7b241"
+    },
+    "index.html": {
+     "size": 6555,
+     "hash": "829e17e2c81a8b73a3139351f9f212ddf950fb43e202154f17d3df9bb8c6ba59"
+    },
+    "meta.json": {
+     "size": 1152,
+     "hash": "40fc030292b2602db5aa4cfae20af94e83b4bf524677d1e2bf9e0b1e423ff9af"
+    },
+    "poster.jpg": {
+     "size": 68963,
+     "hash": "2f998cb9172c65bcaa1ef259585ff849a6e68ee4cd33ecd638b1dfedf0848750"
+    }
+   }
+  },
+  "restore-the-failing-baseline-checks-exte-98a3de": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-05T12:39:26.870Z",
+   "meta": {
+    "kind": "html",
+    "title": "Baseline test checks restored",
+    "text": "Two test suites failed when run from an Obeya worker because they inherited the worker's environment. The tests now isolate themselves from it, so they give the same result inside and outside a worker. No product behaviour changes.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/98f46f9a598a7a610515a79df88d50a367487310"
+    },
+    "first": "2026-11-05T12:38:08.365Z",
+    "at": "2026-11-05T12:38:08.365Z",
+    "source": "2c2d93ee03bd023e4dc9ac92d18742c8d50eb67bf550e39c51d3d1c0921a830f",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/index.html": {
+     "size": 4318,
+     "hash": "32b64f8e34cd1ca4160fc3f5f954bc2458644be8dda0b683db8beb04e5dcd436"
+    },
+    "index.html": {
+     "size": 7344,
+     "hash": "0364c3f5fab45dfddbe1ca9de86c3855584aba950b688e1f159c0411c99b851c"
+    },
+    "meta.json": {
+     "size": 661,
+     "hash": "b373c0a2f7a8a590eb49e6c444407bb43970a70390e4b7d41331409d611203f7"
+    }
+   }
+  },
+  "stop-test-suite-from-leaving-stray-bun-e-1bd75a": {
+   "rev": 1,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-05T13:00:43.153Z",
+   "meta": {
+    "kind": "html",
+    "title": "Test runs no longer leave idle processes behind",
+    "text": "Obeya's test suite starts small idle helper processes to test process handling. Previously, a test run that crashed or was killed could leave these behind, running forever. Now every helper is tied to its test run and ends by itself as soon as that run ends, however it ends. This page shows the before/after experiment and the checks.",
+    "chapters": [],
+    "pr": null,
+    "first": "2026-11-05T13:00:43.115Z",
+    "at": "2026-11-05T13:00:43.115Z",
+    "source": "ef5cfc5dc1ed05a91bad2b7a7cf354c78d1751ff2c4929c5f90098a619317439",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/index.html": {
+     "size": 6817,
+     "hash": "0c1e0321f6542e62626314755c56855ca3acb76709245100fec0dde1554d2f0a"
+    },
+    "index.html": {
+     "size": 7390,
+     "hash": "6dfe483ba95e09a8f2b6a606c3e3ebde10a7c22364107131bc60de76772f473f"
+    },
+    "meta.json": {
+     "size": 664,
+     "hash": "90604e99a20c2121868b5a477bfce156b0fff86297aa2549b61388f992ec2865"
+    }
+   }
+  },
+  "script-option-scripts-scratch-obeya-ts-l-387dd0": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-05T13:10:29.667Z",
+   "meta": {
+    "kind": "html",
+    "title": "scratch-obeya: --list and paths in the stage output",
+    "text": "Staging a scratch Obeya now prints where everything lives: its home folder, repository, state database and server log, alongside the URL and port. The new --list option prints the same for every scratch Obeya still running, and names the stage file each came from, so you can tell which instance is yours without searching /tmp.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/a0571363d66bc8f24ce157e22adc109655714be8"
+    },
+    "first": "2026-11-05T13:06:39.302Z",
+    "at": "2026-11-05T13:06:39.302Z",
+    "source": "770bb4a97f68a2550458010523351238448695fdb3a8c2d00aa8bc5468807fa7",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/blog.json": {
+     "size": 57,
+     "hash": "37eef7bf3b188a432273865f70abbceb21d76b6ff6e81b0b087c3b1af4548fee"
+    },
+    "artifact/files.txt": {
+     "size": 192,
+     "hash": "e8f88e0ad58aa4804e09f0fde1ccc30c83eab7689143c64fe2548fec8387d0da"
+    },
+    "artifact/index.html": {
+     "size": 15656,
+     "hash": "378f355f95f323ed47a7fee3319dcabf999855baac213d2ed81e20b79476fbea"
+    },
+    "artifact/shop.json": {
+     "size": 62,
+     "hash": "49f39c4c86142f8407755089bd2d18a795562123fddc2bf6fdce3d4c693c6163"
+    },
+    "artifact/step1.txt": {
+     "size": 3021,
+     "hash": "b5b1903e452d1e0551d9e0bc01a8f9a3a15db0d5a2b2f2f9fc57bc5fd5a1836d"
+    },
+    "artifact/step2.txt": {
+     "size": 673,
+     "hash": "1ad13299e1af32eeb42a8ff1fab6ffaf0db550a9f46757e75f1969e1ed89d8ef"
+    },
+    "index.html": {
+     "size": 7507,
+     "hash": "122e8155483afdf3fa37cb00b2beacc517918b964962ac3cf53d90183c1b9b35"
+    },
+    "meta.json": {
+     "size": 780,
+     "hash": "06a9ca613104a29150c2f82206a9b1bbac1a8b4d375ca3e9542c6647bf0c76f1"
+    }
+   }
+  },
+  "extension-registration-test-misses-worke-55323a": {
+   "rev": 1,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-05T13:14:13.569Z",
+   "meta": {
+    "kind": "html",
+    "title": "Extensions hear again when a worker starts",
+    "text": "For a few days, extensions never got the \"worker started\" signal. A rework of how failed worker starts are shown to the owner had dropped it. The signal is back and is sent only once a worker has actually launched; a start that fails sends nothing. A contract test now checks both cases.",
+    "chapters": [],
+    "pr": null,
+    "first": "2026-11-05T13:14:13.551Z",
+    "at": "2026-11-05T13:14:13.551Z",
+    "source": "341edc47a90e8e7b59bb52a35d81cee7d3542fc1d4d3ede38516ce2d7e0891cf",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/index.html": {
+     "size": 5771,
+     "hash": "cd42790890799a23b0141a7a2572ee087a26dd3adfa61d7a15d5dd289b71452a"
+    },
+    "index.html": {
+     "size": 7337,
+     "hash": "d3ce54b4e7abd28ef02986e05796afefd65ae93bce915097da583b7546f6befe"
+    },
+    "meta.json": {
+     "size": 613,
+     "hash": "a50935883978d43257a719f94c9b1985bfbb8fb9d6ff3d6b3d2d7e36c5a0d303"
+    }
+   }
+  },
+  "fix-browser-skill-tests-that-cannot-find-727a85": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-05T13:24:35.994Z",
+   "meta": {
+    "kind": "html",
+    "title": "Browser skill tests pass inside Codex workers",
+    "text": "Two tests of the browser skill failed whenever a Codex worker ran the test suite: each could not find its session's state file. The tests simulated sessions through Claude Code's process ID, but the Codex worker's own agent ID took precedence, so the worker owned every browser they started. The tests now keep the worker's ID out, and they pass the same way inside and outside a worker. The browser skill itself is unchanged.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/04d8d8166c6852bfbf133c805688b08d1c82e35f"
+    },
+    "first": "2026-11-05T13:21:11.989Z",
+    "at": "2026-11-05T13:21:11.989Z",
+    "source": "0092ecce27b8b84d619682de8ecd344b1aac2739125cb5b6172898ffbff81538",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/after.txt": {
+     "size": 99,
+     "hash": "aeb247e075badd70ac1f82a4105dde3e45f7502904c609321dd5ad385507c295"
+    },
+    "artifact/before.txt": {
+     "size": 2324,
+     "hash": "c58f695435fcc4153e016cbc15357b3fd39c686f35dffbfabba2bf6f73e2ea43"
+    },
+    "artifact/index.html": {
+     "size": 10557,
+     "hash": "6ff7755d29f573dceddb820ecdd5ab109a2ca64b84c4e5d174378720ab6f6435"
+    },
+    "index.html": {
+     "size": 7587,
+     "hash": "df48f8de3b4007a39c5c9ef280c0977071a04cf1dcf2c49807d5323e9593ac77"
+    },
+    "meta.json": {
+     "size": 872,
+     "hash": "ed5b937eff04068a65b427cb7fa95ec349719a22199c9c2042015f4e31909d48"
+    }
+   }
+  },
+  "claude-md-erganzen-is-labelled-454ea4": {
+   "rev": 1,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-05T13:22:12.035Z",
+   "meta": {
+    "title": "CLAUDE.md rule cards come labelled",
+    "text": "When you accept a rule for a repository's CLAUDE.md, Obeya collects it on an \"Add to CLAUDE.md\" card. That card now arrives labelled Docs and Configuration, so it stands out on the canvas at a glance. Obeya makes the card itself, so these are set labels rather than suggestions, and you can still change them like any other label.",
+    "chapters": [
+     [
+      0.01,
+      "A rule for the repository"
+     ],
+     [
+      8.56,
+      "Labelled at once"
+     ],
+     [
+      19.35,
+      "The owner can still change them"
+     ],
+     [
+      24.78,
+      "Recap"
+     ]
+    ],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/compare/04d8d8166c6852bfbf133c805688b08d1c82e35f...42b08679da92c369283a729aac0c3ef09a1316dd",
+     "several": true
+    },
+    "first": "2026-11-05T13:22:12.006Z",
+    "at": "2026-11-05T13:22:12.006Z",
+    "source": "3b0242c7ba51c10a56cf628bebb80a5e3defa353fc21d8d86ef99cb387f9ff0a",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "captions.vtt": {
+     "size": 596,
+     "hash": "74a8111a9044d07e969a1b07babefce3767cb9728f778786bb1d59c8d06e0f42"
+    },
+    "demo.mp4": {
+     "size": 945745,
+     "hash": "15f9e4904bed0bfc42c163f1945bdce4fa09b4d7e4b0f91525f7606abab155ab"
+    },
+    "index.html": {
+     "size": 6366,
+     "hash": "29aa5a305427db444e4b9126dbe902d58430f0b791e1674f637bba30a02688d4"
+    },
+    "meta.json": {
+     "size": 1031,
+     "hash": "f54b3ed2b82a9dc8d292ef23652cad8b767b271ee7bb59e00a09e26d0cfbcfed"
+    },
+    "poster.jpg": {
+     "size": 70812,
+     "hash": "3fdd3bde9097d900d6dc5d1c0ee6b4ec22021fe9b4dbb4ebbc214a8491f12e4e"
+    }
+   }
+  },
+  "share-one-process-snapshot-per-tick-keep-dce38a": {
+   "rev": 1,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-05T13:23:36.921Z",
+   "meta": {
+    "kind": "html",
+    "title": "Codex sessions share one process snapshot",
+    "text": "Obeya watches the processes each Codex session starts, so it can clean them up when the session ends. Until now every session ran its own process listing every half second, so the load grew with the number of sessions, and a single slow listing on a busy machine ended a working session. Now all sessions share one listing per tick: with six sessions that is six times fewer listings. A listing that times out is just skipped; a session only ends if its processes can't be watched for half a minute.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/e7ca2a597e9595c037bc4dcb7da33db8bc520299"
+    },
+    "first": "2026-11-05T13:23:36.906Z",
+    "at": "2026-11-05T13:23:36.906Z",
+    "source": "ba1f34cbb9a1e494741cc35f23952c7a2cbb20e6819c708a485486761fd97490",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/index.html": {
+     "size": 10798,
+     "hash": "c8a6849cf1a6a00756ac9ffc2b96e949e7060959f4278c14c1a6fe821c8ca31b"
+    },
+    "artifact/measure.ts": {
+     "size": 2563,
+     "hash": "f6b5bbac20cb69fcde1b163efe560945b3be4cfdb72c320ccb5acd68a96abd81"
+    },
+    "index.html": {
+     "size": 7648,
+     "hash": "594fd9f76f983a87fe80a9d43acf94fdb2d3b2aaa0e923108cf48d54f2e44225"
+    },
+    "meta.json": {
+     "size": 941,
+     "hash": "ea927390de420c8070785c5c0e3a466bfa5a9d22d9ac6ecda6dcf9d77ba7db6c"
+    }
+   }
+  },
+  "fix-existing-test-failures-in-worker-env-781679": {
+   "rev": 2,
+   "machine": "Nicks-MacBook-Pro",
+   "at": "2026-11-05T14:08:30.855Z",
+   "meta": {
+    "kind": "html",
+    "title": "Test suite passes in agent workspaces",
+    "text": "The full test suite now passes when an Obeya agent runs it on Bun 1.3.14. Two tests depended on things outside their control: the machine's system git settings, and how fast a busy machine answers. They are now isolated from both. Obeya's behaviour is unchanged.",
+    "chapters": [],
+    "pr": null,
+    "commit": {
+     "url": "https://github.com/nickpalenchar/obeya/commit/54406d63f99e9151b187346b60bf69b49a6b5711"
+    },
+    "first": "2026-11-05T14:07:13.082Z",
+    "at": "2026-11-05T14:07:13.082Z",
+    "source": "8c3f69a30f91a48d00bed5f00a98f6cba317313c6db0360843b8dc30635051c5",
+    "language": "en",
+    "by": "Nick Palenchar"
+   },
+   "files": {
+    "artifact/index.html": {
+     "size": 5725,
+     "hash": "26a2670a98be0e31fd77429a3fa3707b1aac3679196e81ad28453fd077d40062"
+    },
+    "index.html": {
+     "size": 7399,
+     "hash": "e306a25ca5bc40937336af7ad26861c817f66d9579ec19e89279d5c67498d6a7"
+    },
+    "meta.json": {
+     "size": 700,
+     "hash": "22bf2aa1b8dd0a89b9202c6c345a2023fce7e9156a6cfd81718c21eff840d27e"
+    }
+   }
+  }
+ }
+}

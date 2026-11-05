@@ -1,0 +1,7 @@
+WEBVTT
+
+00:00:00.351 --> 00:00:09.987
+This report has a small chart further down the page. Clicking it enlarges the image even when the report sets a fixed size. Escape closes it and returns to the same place in the report.
+
+00:00:10.961 --> 00:00:18.055
+The next page has an image too. It can be enlarged and closed in the same way, so the reader can inspect details throughout the artifact.

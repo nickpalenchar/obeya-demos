@@ -1,0 +1,32 @@
+{
+  "title": "Proposed cards in conversations",
+  "text": "Agent proposals appear directly in the conversation as “Proposed new card”, with the same dotted cover used on the canvas. Open the card to review its task and accept or dismiss it. Covers show accepted work in its current state and keep withdrawn proposals as unlinked titles.",
+  "chapters": [
+    [
+      0,
+      "Previously, only a name"
+    ],
+    [
+      9.72,
+      "A proposal embedded in chat"
+    ],
+    [
+      22.7,
+      "Open the proposed work"
+    ],
+    [
+      33.91,
+      "Proposals on another canvas"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/compare/feb25503dcfcdc220cb20cf443ede6fef71db6cc...0e9d54268a40ca4ddb71a5c3652dffb155acfddb",
+    "several": true
+  },
+  "first": "2026-11-05T12:05:21.723Z",
+  "at": "2026-11-05T12:05:21.723Z",
+  "source": "836908c23b1f4e430f16152a147fcfdf8de1a51fe4b1b395fce001c9c6862c57",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

@@ -1,0 +1,39 @@
+{
+  "title": "Deliverables in their own tabs",
+  "text": "Review a card’s video, HTML document and schema change in separate tabs, with Video first. The changed-file list is available under Diff, keeping deliverables easy to find on desktop and phone.",
+  "chapters": [
+    [
+      0,
+      "Before: one mixed list"
+    ],
+    [
+      8.51,
+      "Video first"
+    ],
+    [
+      17.45,
+      "Document and schema"
+    ],
+    [
+      25.97,
+      "The file list in Diff"
+    ],
+    [
+      35.02,
+      "The same tabs on the phone"
+    ],
+    [
+      43.16,
+      "An HTML-only delivery"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/00a564e0e9b5480374be164f385a3692c16fa955"
+  },
+  "first": "2026-11-05T04:31:15.366Z",
+  "at": "2026-11-05T04:31:15.366Z",
+  "source": "de67e8df925618ae5c323055e1b8ab754ae6676990f7b8f90ca9ed5f5e382100",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

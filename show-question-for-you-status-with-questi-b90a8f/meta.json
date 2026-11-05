@@ -1,0 +1,36 @@
+{
+  "title": "Questions for you stand out in dark yellow",
+  "text": "When an agent asks you a question, its card is now dark yellow instead of orange: frame, top line, minimap mark and pin, which shows a question mark instead of an exclamation mark. Its state line reads \"Question for you\" after a question-mark icon. A demo or a review waiting for approval stays orange, so a question is easy to tell apart at a glance, on the canvas and in the open card, in the dark and light theme.",
+  "chapters": [
+    [
+      0,
+      "Three cards wait for you"
+    ],
+    [
+      8.76,
+      "A question stands out"
+    ],
+    [
+      24.65,
+      "In the open card"
+    ],
+    [
+      30.15,
+      "Light theme"
+    ],
+    [
+      35.86,
+      "Recap"
+    ]
+  ],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/compare/6d44e0d65c1ced78d7310df6fe31427b12e5eb9b...7d8c09643a78fbc95a036c8420640fe2610b55f1",
+    "several": true
+  },
+  "first": "2026-11-04T11:47:11.366Z",
+  "at": "2026-11-04T11:47:11.366Z",
+  "source": "9891f4759807a9073b5d9b87c3769d3f53eaedea3ae08b2a313a2fbdd662a324",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

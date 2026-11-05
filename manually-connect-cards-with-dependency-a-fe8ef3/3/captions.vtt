@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.351 --> 00:00:06.469
+Connect two cards to say which work comes first. The arrow points from the prerequisite to the card that depends on it.
+
+00:00:07.422 --> 00:00:13.924
+Starting the dependent card puts it in the queue, even if the first card has not been started yet. Its card says what it is waiting for.
+
+00:00:14.875 --> 00:00:21.028
+You can still start it early. Obeya asks you to confirm, naming the unfinished prerequisite, before starting the card.

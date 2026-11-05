@@ -1,0 +1,16 @@
+{
+  "kind": "html",
+  "title": "The server stays responsive while agents run terminals",
+  "text": "While a Codex agent runs, Obeya checks the machine's process list every half second, so it can clean up the terminals the agent started. On a busy machine that check takes over a second. Until now the server waited for it, and pages and agents went unanswered in the meantime. Now the check runs in the background, so the server keeps responding, and cleanup still ends exactly the processes that belong to the agent.",
+  "chapters": [],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/compare/4cb5ef6d2d19079754d4f6caa35741744b155b95...2884cd13da34ca0e49ff4de54a65c7145802fe0c",
+    "several": true
+  },
+  "first": "2026-11-04T21:51:21.589Z",
+  "at": "2026-11-04T21:51:21.589Z",
+  "source": "a9646fd65f9147f0ffe59510b9b79791bf2b3f0402ae001ca485cbba4d59af8c",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

@@ -1,0 +1,15 @@
+{
+  "kind": "html",
+  "title": "A pause is no timeout in Codex work retrospectives",
+  "text": "When a card finishes, Obeya reviews the worker's run for friction and suggests improvements to the repository's setup. For Codex workers, a command killed because the owner paused the card looked like a failed command, so the retrospective suggested a longer timeout that Codex doesn't even have. Now the excerpt recognises the pause, stop or restart, marks where it happened, and reports no friction for it.",
+  "chapters": [],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/059ee20b36be94a6597ba80ba01c11c4c3fc0e09"
+  },
+  "first": "2026-11-04T14:20:53.184Z",
+  "at": "2026-11-04T14:20:53.184Z",
+  "source": "e6bdb7068e1f9898d3416b7b2e8f9b7775bf4289228386b11cae61bb2162ef76",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

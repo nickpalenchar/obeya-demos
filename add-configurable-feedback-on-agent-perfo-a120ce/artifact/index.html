@@ -1,0 +1,18 @@
+<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self' https://nickpalenchar.github.io data: blob:; script-src 'self' https://nickpalenchar.github.io 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' data: blob:; style-src 'self' https://nickpalenchar.github.io 'unsafe-inline' data: blob:; form-action 'none'"><meta http-equiv="x-dns-prefetch-control" content="off"><!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Feedback on agent performance</title><style>body{font:16px/1.55 system-ui,sans-serif;background:#f5f6f3;color:#202b29;margin:0;padding:36px}main{max-width:760px;margin:auto}h1{font-size:30px;line-height:1.15;margin:8px 0 16px}h2{font-size:18px;margin:0 0 6px}p{margin:0 0 14px}.eyebrow{color:#397568;font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:12px}.card{background:white;border:1px solid #dde5df;border-radius:12px;padding:19px 22px;margin:12px 0}.number{color:#397568;font-weight:700;margin-right:10px}.note{color:#52615c;margin-top:24px}</style><main><div class="eyebrow">Project plan</div><h1>Feedback on agent performance</h1><p>Optional feedback after approval, connected to the model configuration, project and card that produced the work.</p><div class="card"><h2><span class="number">01</span>Attribute and retain feedback</h2><p>Keep feedback as local metadata with a link to the card and the actual harness, model and effort. Account for missing attribution and multiple configurations.</p></div><div class="card"><h2><span class="number">02</span>Capture optional feedback</h2><p>Offer a configurable, skippable prompt after approval. Approval and landing continue even if feedback is skipped or cannot be saved.</p></div><div class="card"><h2><span class="number">03</span>Explore a performance dashboard</h2><p>Decide the useful comparisons with the owner, then visualize feedback with sample counts and links to its evidence.</p></div><p class="note">Future task complexity and type can enrich comparisons. Recommendations based on feedback remain future work.</p></main></html>
+<script>(() => {
+  let last = 0, box = -1, again = 0;
+  const say = () => {
+    const html = document.documentElement;
+    if (!innerHeight || !innerWidth) { again ||= setTimeout(() => { again = 0; say(); }, 200); return; }
+    html.style.setProperty('overflow-y', 'hidden');
+    const own = Math.ceil(html.getBoundingClientRect().height);
+    const bar = innerHeight - html.clientHeight;
+    const h = html.scrollHeight > html.clientHeight ? Math.max(own, html.scrollHeight) + bar : own === box ? last : own + bar;
+    box = own;
+    if (h !== last) { last = h; parent.postMessage({ obeyaHeight: h }, '*'); }
+    if (innerHeight < h) html.style.removeProperty('overflow-y');
+  };
+  addEventListener('load', say);
+  addEventListener('resize', say);
+  new ResizeObserver(say).observe(document.documentElement);
+})();</script>

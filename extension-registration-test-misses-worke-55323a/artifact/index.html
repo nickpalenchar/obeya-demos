@@ -1,0 +1,57 @@
+<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self' https://nickpalenchar.github.io data: blob:; script-src 'self' https://nickpalenchar.github.io 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' data: blob:; style-src 'self' https://nickpalenchar.github.io 'unsafe-inline' data: blob:; form-action 'none'"><meta http-equiv="x-dns-prefetch-control" content="off"><!doctype html><html><head><meta charset="utf-8"><title>workerStarted event: cause and status</title>
+<style>body{font:15px/1.5 system-ui,sans-serif;max-width:760px;margin:24px auto;padding:0 16px;color:#222}
+h1{font-size:20px}h2{font-size:16px;margin-top:22px}code{background:#f2f2f2;padding:1px 4px;border-radius:3px}
+table{border-collapse:collapse;width:100%}td,th{border:1px solid #ddd;padding:6px 8px;text-align:left}
+.fail{color:#b00020;font-weight:600}.pass{color:#0a7d2c;font-weight:600}</style></head><body>
+<h1>Why extensions stopped getting “workerStarted”, and where it stands</h1>
+<p><b>Answer:</b> worker startup did not become asynchronous. Event delivery broke: the line that sends
+<code>workerStarted</code> to extensions was lost in a refactor. It is already fixed on <code>main</code>.</p>
+<h2>What happened</h2>
+<table><tr><th>Commit</th><th>Date</th><th>Effect</th></tr>
+<tr><td><code>ceb8f8b7</code> “A worker that fails to start … goes to the owner, in red”</td><td>Nov 2</td>
+<td class="fail">Wrapped the runtime launch in try/catch so a failed start goes to the owner, and dropped the <code>extensionEvent('workerStarted')</code> call along the way. No extension heard that a worker started.</td></tr>
+<tr><td><code>2884cd13</code> (the card's base)</td><td>Nov 4</td><td class="fail">Contract test fails, 6 of 6 runs, with or without a worker's environment</td></tr>
+<tr><td><code>0c70c7a1</code> “Restore worker-start extension events after successful launch”</td><td>Nov 5</td>
+<td class="pass">Sends the event again, only after the launch succeeded, and extends the contract test: a runtime that cannot start must not send the event.</td></tr>
+<tr><td><code>98f46f9a</code> (current <code>main</code>)</td><td>Nov 5</td><td class="pass">Contract test passes, 12 of 12 runs</td></tr></table>
+<h2>Verified</h2>
+<ul><li>Checking out the commits one by one: right before <code>0c70c7a1</code> the fixture fails, from <code>0c70c7a1</code> on it passes.</li>
+<li>The test's coverage is stronger than before, not weaker: it now checks both a failed start (no event) and a successful one (exactly one event with the worker's settings, then <code>landed</code>).</li>
+<li>No code change was needed on this card.</li></ul>
+<script>(() => {
+  let last = 0, box = -1, again = 0;
+  const say = () => {
+    const html = document.documentElement;
+    if (!innerHeight || !innerWidth) { again ||= setTimeout(() => { again = 0; say(); }, 200); return; }
+    html.style.setProperty('overflow-y', 'hidden');
+    const own = Math.ceil(html.getBoundingClientRect().height);
+    const bar = innerHeight - html.clientHeight;
+    const h = html.scrollHeight > html.clientHeight ? Math.max(own, html.scrollHeight) + bar : own === box ? last : own + bar;
+    box = own;
+    if (h !== last) { last = h; parent.postMessage({ obeyaHeight: h }, '*'); }
+    if (innerHeight < h) html.style.removeProperty('overflow-y');
+  };
+  addEventListener('load', say);
+  addEventListener('resize', say);
+  new ResizeObserver(say).observe(document.documentElement);
+})();</script><script>(() => {
+  let viewer, origin;
+  const close = () => { if (!viewer) return; viewer.remove(); viewer = null; if (origin && origin.isConnected) origin.focus({ preventScroll: true }); origin = null; parent.postMessage({ obeyaImage: false }, '*'); };
+  const open = (img) => {
+    if (viewer) return;
+    origin = img;
+    viewer = document.createElement('div');
+    viewer.setAttribute('role', 'dialog'); viewer.setAttribute('aria-label', img.alt || 'Image');
+    viewer.style.cssText = 'position:fixed;inset:0;z-index:2147483647;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;cursor:zoom-out;padding:48px;box-sizing:border-box';
+    const copy = document.createElement('img'); copy.src = img.currentSrc || img.src; copy.alt = img.alt;
+    copy.style.cssText = 'all:initial !important;display:block !important;width:auto !important;height:auto !important;max-width:100% !important;max-height:100% !important;object-fit:contain !important';
+    viewer.append(copy); viewer.addEventListener('click', close); document.body.append(viewer);
+    parent.postMessage({ obeyaImage: true }, '*');
+  };
+  addEventListener('message', (e) => { if (e.source === parent && e.data && e.data.obeyaCloseImage) close(); });
+  document.addEventListener('click', (e) => { const img = e.target.closest('img'); if (img && !viewer && !img.closest('a,button')) open(img); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && viewer) { e.preventDefault(); e.stopPropagation(); close(); } else if (e.key === 'Tab' && viewer) { e.preventDefault(); parent.postMessage({ obeyaImageFocus: true }, '*'); } else if ((e.key === 'Enter' || e.key === ' ') && e.target.tagName === 'IMG' && !e.target.closest('a,button') && !viewer) { e.preventDefault(); open(e.target); } });
+  const prepare = () => document.querySelectorAll('img:not([data-obeya-image])').forEach((img) => { if (img.closest('a,button')) return; img.dataset.obeyaImage = '1'; if (!img.hasAttribute('tabindex')) img.tabIndex = 0; img.style.cursor = 'zoom-in'; img.setAttribute('role', 'button'); });
+  new MutationObserver(prepare).observe(document.documentElement, {childList:true, subtree:true});
+  addEventListener('load', prepare);
+})();</script></body></html>

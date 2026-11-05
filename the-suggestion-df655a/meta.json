@@ -1,0 +1,15 @@
+{
+  "kind": "html",
+  "title": "Obeya suggests card labels",
+  "text": "When a card's category, sub-category, complexity or priority is left empty, Obeya now suggests a value. A card without a title gets its labels in the same short call that names it. A card with a title gets one quick call when it starts, which never holds up the start. Labels you set yourself are never touched or asked for again, and a canvas can turn off the labels it doesn't want suggested. The table shows the real suggestions for a handful of sample cards.",
+  "chapters": [],
+  "pr": null,
+  "commit": {
+    "url": "https://github.com/nickpalenchar/obeya/commit/4cb5ef6d2d19079754d4f6caa35741744b155b95"
+  },
+  "first": "2026-11-04T18:51:50.514Z",
+  "at": "2026-11-04T18:51:50.514Z",
+  "source": "8deb035526c7bfbe679b7a8c8829cab5f7dfb6dce09149125c033d8bbfe30741",
+  "language": "en",
+  "by": "Nick Palenchar"
+}

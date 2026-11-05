@@ -1,0 +1,139 @@
+<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self' https://nickpalenchar.github.io data: blob:; script-src 'self' https://nickpalenchar.github.io 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' data: blob:; style-src 'self' https://nickpalenchar.github.io 'unsafe-inline' data: blob:; form-action 'none'"><meta http-equiv="x-dns-prefetch-control" content="off"><!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Liveness-pipe prototype: evaluation</title>
+<style>
+  :root { --ink:#1d2330; --muted:#5d6676; --line:#dfe3ea; --ok:#1f7a4d; --okbg:#e7f5ee; --warn:#9a5b00; --warnbg:#fff4e0; --bad:#a3262a; --badbg:#fbeaea; --accent:#2f5bd3; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:15px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif; color:var(--ink); background:#f6f7f9; }
+  main { max-width: 780px; margin: 0 auto; padding: 28px 22px 40px; }
+  h1 { font-size: 23px; margin: 0 0 6px; }
+  .sub { color: var(--muted); margin: 0 0 22px; }
+  h2 { font-size: 17px; margin: 28px 0 10px; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:10px; padding:16px 18px; margin: 12px 0; }
+  .verdict { border-left: 5px solid var(--accent); }
+  .verdict strong { font-size: 16px; }
+  svg { display:block; width:100%; height:auto; }
+  table { width:100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align:left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: 13px; }
+  .pill { display:inline-block; padding: 1px 9px; border-radius: 999px; font-size: 12.5px; font-weight: 600; white-space: nowrap; }
+  .ok { color: var(--ok); background: var(--okbg); }
+  .warn { color: var(--warn); background: var(--warnbg); }
+  .bad { color: var(--bad); background: var(--badbg); }
+  .two { display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .two .card { margin: 0; }
+  .two h3 { margin: 0 0 6px; font-size: 15px; }
+  .before { color: var(--bad); font-weight: 600; }
+  .after { color: var(--ok); font-weight: 600; }
+  ul { margin: 6px 0 0; padding-left: 20px; }
+  li { margin: 4px 0; }
+  .muted { color: var(--muted); font-size: 13.5px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Liveness-pipe prototype: evaluation</h1>
+  <p class="sub">Can a small supervisor between Obeya and each agent clean up the agent's processes when Obeya, or the supervisor itself, dies?</p>
+
+  <div class="card verdict">
+    <strong>Verdict: combine it with the registry, don't adopt it alone, and keep it out of Obeya's launch path for now.</strong>
+    <p style="margin:8px 0 0">The two faults that made the first Codex integration roll back are fixed in the prototype and covered by tests on macOS and Linux. It still cannot help when Obeya and the supervisor die together, and it would replace Obeya's graceful stop with an instant kill. Making it the real launch path belongs to the crash-recovery workstream (W3).</p>
+  </div>
+
+  <h2>How it works</h2>
+  <div class="card">
+    <svg viewBox="0 0 740 190" role="img" aria-label="Obeya holds a liveness pipe to the supervisor; the supervisor reports what it sees back; the agent and its children sit below the supervisor.">
+      <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5d6676"/></marker></defs>
+      <rect x="10" y="60" width="150" height="60" rx="9" fill="#eef2fd" stroke="#2f5bd3"/>
+      <text x="85" y="86" text-anchor="middle" font-weight="600" font-size="14">Obeya server</text>
+      <text x="85" y="104" text-anchor="middle" font-size="12" fill="#5d6676">adopts reports</text>
+      <rect x="290" y="60" width="150" height="60" rx="9" fill="#fff" stroke="#5d6676"/>
+      <text x="365" y="86" text-anchor="middle" font-weight="600" font-size="14">Supervisor</text>
+      <text x="365" y="104" text-anchor="middle" font-size="12" fill="#5d6676">samples every 0.1 s</text>
+      <rect x="550" y="20" width="185" height="50" rx="9" fill="#fff" stroke="#5d6676"/>
+      <text x="642" y="50" text-anchor="middle" font-weight="600" font-size="14">Agent (Codex, Claude)</text>
+      <rect x="570" y="120" width="160" height="50" rx="9" fill="#fff" stroke="#5d6676" stroke-dasharray="4 3"/>
+      <text x="650" y="142" text-anchor="middle" font-size="13">its children,</text>
+      <text x="650" y="159" text-anchor="middle" font-size="13">e.g. a dev server</text>
+      <line x1="160" y1="78" x2="288" y2="78" stroke="#5d6676" stroke-width="2" marker-end="url(#a)"/>
+      <text x="224" y="70" text-anchor="middle" font-size="12">liveness pipe</text>
+      <line x1="290" y1="104" x2="162" y2="104" stroke="#5d6676" stroke-width="2" marker-end="url(#a)"/>
+      <text x="224" y="124" text-anchor="middle" font-size="12">"I saw PID 4711 …"</text>
+      <line x1="440" y1="80" x2="548" y2="48" stroke="#5d6676" stroke-width="2" marker-end="url(#a)"/>
+      <line x1="650" y1="70" x2="650" y2="118" stroke="#5d6676" stroke-width="2" marker-end="url(#a)"/>
+    </svg>
+    <ul>
+      <li><b>Obeya dies:</b> its end of the liveness pipe closes, and the supervisor kills the agent and everything it saw under it.</li>
+      <li><b>Supervisor dies:</b> Obeya kills everything the supervisor had reported, as long as each process is still the one that was reported.</li>
+      <li>The pipes never reach the agent, so the agent can't keep the supervisor alive by accident.</li>
+    </ul>
+  </div>
+
+  <h2>The two faults that stopped the first integration</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Supervisor killed</h3>
+      <p class="before">Before: the agent survived, still holding the supervisor's output, and Obeya waited for that output to end forever.</p>
+      <p class="after">Now: Obeya reacts to the supervisor's exit itself and stops the agent and its separately started child; an unrelated process is untouched.</p>
+    </div>
+    <div class="card">
+      <h3>Agent exits at once</h3>
+      <p class="before">Before: a child the agent started in its first moments, before the first sample, kept running.</p>
+      <p class="after">Now: on the agent's exit the supervisor also stops the agent's whole process group, which reaches that child.</p>
+    </div>
+  </div>
+  <p class="muted">Each test was checked to fail with its fix removed. Obeya now sees the agent's own process number, not the supervisor's.</p>
+
+  <h2>Tests</h2>
+  <div class="card">
+    <table>
+      <tr><th>Test (synthetic processes)</th><th>macOS</th><th>Linux ARM64</th></tr>
+      <tr><td>Supervisor killed: agent and its child stopped, unrelated process survives</td><td><span class="pill ok">pass</span></td><td><span class="pill ok">pass</span></td></tr>
+      <tr><td>Agent exits at once: its early child is stopped</td><td><span class="pill ok">pass</span></td><td><span class="pill ok">pass</span></td></tr>
+      <tr><td>Neither private pipe reaches the agent</td><td><span class="pill ok">pass</span></td><td><span class="pill ok">pass</span></td></tr>
+      <tr><td>Two sessions side by side: ending one leaves the other running</td><td><span class="pill ok">pass</span></td><td><span class="pill ok">pass</span></td></tr>
+      <tr><td>Real Claude or Codex, Windows</td><td><span class="pill warn">not tested</span></td><td><span class="pill warn">not tested</span></td></tr>
+    </table>
+  </div>
+
+  <h2>What gets cleaned up, by what dies</h2>
+  <div class="card">
+    <table>
+      <tr><th style="width:30%">Dies</th><th style="width:22%">Cleaned up by</th><th>Result</th></tr>
+      <tr><td>Obeya server</td><td>the supervisor</td><td><span class="pill ok">covered</span> <span class="muted">except a child that left the agent's group before the next sample</span></td></tr>
+      <tr><td>Supervisor</td><td>Obeya</td><td><span class="pill ok">covered</span> <span class="muted">same gap, plus an early child if the agent has also exited</span></td></tr>
+      <tr><td>Both (power loss, the OS killing both)</td><td>nobody yet</td><td><span class="pill bad">not covered</span> <span class="muted">needs the registry and a startup sweep, report-only on Linux today</span></td></tr>
+    </table>
+  </div>
+
+  <h2>Before agents are launched through it</h2>
+  <div class="card">
+    <ul>
+      <li><b>Normal stop:</b> closing the pipe kills at once. Graceful stop (waiting for busy turns) stays as it is today; the pipe is only for Obeya's death.</li>
+      <li><b>Apps:</b> an app the agent started dies with the session, also one kept from parking, which matches the earlier decision that a crash ends session work. Work outside the agent (containers, remote hosts) is not reached.</li>
+      <li><b>Platforms:</b> macOS and Linux only; Windows needs a different mechanism (W5). The packaged app still has to start the bundled supervisor correctly.</li>
+      <li><b>Remaining gaps:</b> sampling can miss a child that leaves the agent's group quickly; on macOS a reused process number within the same second passes the check; every kill by number can race with reuse.</li>
+      <li><b>Both agents:</b> Claude's processes also survived Obeya's death in earlier probes, so this should be one launch path for Claude and Codex.</li>
+    </ul>
+  </div>
+</main>
+<script>(() => {
+  let last = 0, box = -1, again = 0;
+  const say = () => {
+    const html = document.documentElement;
+    if (!innerHeight || !innerWidth) { again ||= setTimeout(() => { again = 0; say(); }, 200); return; }
+    html.style.setProperty('overflow-y', 'hidden');
+    const own = Math.ceil(html.getBoundingClientRect().height);
+    const bar = innerHeight - html.clientHeight;
+    const h = html.scrollHeight > html.clientHeight ? Math.max(own, html.scrollHeight) + bar : own === box ? last : own + bar;
+    box = own;
+    if (h !== last) { last = h; parent.postMessage({ obeyaHeight: h }, '*'); }
+    if (innerHeight < h) html.style.removeProperty('overflow-y');
+  };
+  addEventListener('load', say);
+  addEventListener('resize', say);
+  new ResizeObserver(say).observe(document.documentElement);
+})();</script></body>
+</html>
